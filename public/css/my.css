@@ -1,0 +1,106 @@
+/* Dropdown Menu for FrontEnd */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+/* Headings for Info Display */
+.myheading{
+    font-family: 'Cabin', sans-serif;
+    font-size: 28px;
+}
+
+.mysubheading{
+    font-family: 'Cabin', sans-serif;
+    font-size: 24px;
+}
+
+.myp {
+    font-family: 'Cabin', sans-serif;
+    font-size: 14px;
+}
+
+.myp strong{
+    color: rgb(233, 84, 32);
+    font-size:14px;
+    font-weight: bold;
+}
+
+.myp ul li{
+    font-size:14px;
+}
+
+.myfooter {
+    padding-top: 10px;
+}
+
+/* Carousel Main Captions etc */
+.carousel-caption{
+    background-color: rgba(233, 86, 32, 0.5);
+    padding-top:0px;
+}
+.carousel-caption h4,p {
+    color:black;
+}
+/* Carouse Product/Service Caption */
+
+/* For Display of Info */
+.panel-heading h5{
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.panel-body {
+    font-size: 12px;
+}
+
+/* Admin Panel */
+.adminheader {
+    color:white;
+}
+
+.thumbnail {
+    padding-top:10px;
+    margin-top:10px;
+}
+.thumbnail img{
+    max-height: 150px;
+    border:2px solid #EEEEEE;
+}
+
+.thumbnail .description{
+    color: #a7ada7;
+}
+
+.price{
+    font-weight:bold;
+    font-size: 16px;
+}
+
+.error {
+    border: 1px solid red;
+    background-color: #ad8484;
+    color: #7a0009;
+}
+
+.icon-delete {
+    color:red;
+}
+.icon-edit {
+    color: blue;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.profile_tabs {
+    padding-left: 5%;
+    padding-top: 2.5%;
+    padding-right : 5%;
+}

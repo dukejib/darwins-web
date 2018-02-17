@@ -1,0 +1,2722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="83518857-36d7-4a84-9f69-6115aeb47b7a" name="Default" comment="" />
+    <ignored path="e-commerce.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="FLATTEN" value="false" />
+    <option name="GROUP_BY_TYPE" value="true" />
+    <option name="SORT_CHILDREN" value="false" />
+    <option name="SHOW_TABLE_CONSTRAINTS" value="true" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="e-commerce" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/categories/local/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GlobalCategoriesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GlobalCategoriesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="49" column="39" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocalCategoriesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LocalCategoriesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding>
+                <element signature="e#40#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FrontEndController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrontEndController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/resources/views/service.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/privacypolicy.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/originqr.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/newsletter.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/howitworks.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/contactus.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/affiliates.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/aboutus.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/aboutapp.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/users/signup.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/users/signin.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/users/profile.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/category.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/aboutbusiness.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/navigationbottom.blade.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="&lt;be699be8-488c-490c-88f9-48714c1bef87&gt;/.env" />
+        <option value="$PROJECT_DIR$/config/database.php" />
+        <option value="&lt;be699be8-488c-490c-88f9-48714c1bef87&gt;/config/database.php" />
+        <option value="&lt;be699be8-488c-490c-88f9-48714c1bef87&gt;/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/services/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/services/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ServiceController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2017_12_03_081801_create_categories_table.php" />
+        <option value="$PROJECT_DIR$/app/Category.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/services/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SubscriptionController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2017_12_03_105454_create_profiles_table.php" />
+        <option value="$PROJECT_DIR$/app/Profile.php" />
+        <option value="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" />
+        <option value="$PROJECT_DIR$/app/Product.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2017_10_26_161928_create_products_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2017_12_08_100332_create_services_table.php" />
+        <option value="$PROJECT_DIR$/app/Service.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
+        <option value="$PROJECT_DIR$/app/GlobalCategory.php" />
+        <option value="$PROJECT_DIR$/app/LocalCategory.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2017_12_18_182907_create_global_categories_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/categories/global/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/categories/global/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/GlobalCategoriesController.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/master2.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/categories/local/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/categories/local/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/categories/global/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/localCategoriesController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2017_12_18_182922_create_local_categories_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FrontEndController.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <gulpfiles>
+      <GulpfileState>
+        <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
+      </GulpfileState>
+    </gulpfiles>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
+    <include_path>
+      <path value="E:\xampp\php\PEAR" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="categories" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="categories" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="local" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="categories" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="global" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="seeds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="e-commerce" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="Admi&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/Controllers/AdminController.php&#10;master&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/layouts/master2.blade.php&#10;master2&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/layouts/master2.blade.php&#10;ServiceCon&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/Controllers/ServiceController.php&#10;routes&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/routes.php&#10;my.css&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/public/css/my.css&#10;Front&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/Controllers/FrontEndController.php&#10;cart&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/cart/cart.blade.php&#10;front&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/Controllers/FrontEndController.php&#10;route&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/routes.php&#10;UserCon&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/Controllers/UserController.php&#10;signin&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/users/signin.blade.php&#10;carou&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/partials/carousel.blade.php&#10;dashb&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/admin/dashboard.blade.php&#10;foot&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/partials/footer.blade.php&#10;Admin.p&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/Middleware/Admin.php&#10;AdminC&#9;null&#9;null&#10;Admin&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/Controllers/AdminController.php&#10;Da&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/admin/dashboard.blade.php&#10;Se&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/Controllers/SettingsController.php&#10;Sett&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/Controllers/SettingsController.php&#10;Setting&#9;null&#9;null&#10;my&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/public/js/my.js&#10;profile&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/users/profile.blade.php&#10;about&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/aboutbusiness.blade.php&#10;user_table&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/database/migrations/2014_10_12_000000_create_users_table.php&#10;Categor&#9;null&#9;null&#10;mas&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/layouts/master2.blade.php&#10;rout&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/routes.php&#10;produ&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/database/migrations/2017_10_26_161928_create_products_table.php&#10;Produ&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/Controllers/ProductController.php&#10;Prod&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/database/seeds/ProductTableSeeder.php&#10;app&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/config/app.php&#10;Api&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/Controllers/ApiController.php&#10;app.&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/config/app.php&#10;app.php&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/config/app.php&#10;mess&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/includes/message.blade.php&#10;user&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/User.php&#10;Si&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/users/signin.blade.php&#10;Signin&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/users/signin.blade.php&#10;Guest&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/Controllers/GuestController.php&#10;bot&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/partials/navigationbottom.blade.php&#10;ApiCon&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/Http/Controllers/ApiController.php&#10;User&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/app/User.php&#10;NewsL&#9;null&#9;null&#10;Signu&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/users/signup.blade.php&#10;aboutbu&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/guests/aboutbusiness.blade.php&#10;ProductS&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/database/seeds/ProductTableSeeder.php&#10;carous&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/resources/views/partials/carousel.blade.php&#10;my.c&#9;FILE&#9;file://C:/xampp/htdocs/e-commerce/public/css/my.css" />
+    <property name="FullScreen" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\e-commerce\resources\views\admin\categories\local" />
+      <recent name="C:\xampp\htdocs\e-commerce\resources\views\admin\services" />
+      <recent name="C:\xampp\htdocs\e-commerce\public\img" />
+      <recent name="C:\xampp\htdocs\e-commerce\resources\views\admin\users" />
+      <recent name="C:\xampp\htdocs\e-commerce\public\img\avatars" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\e-commerce\resources\views\admin\categories\global" />
+      <recent name="C:\xampp\htdocs\e-commerce\resources\views\admin\newsletter" />
+      <recent name="C:\xampp\htdocs\e-commerce\resources\views\admin\users" />
+      <recent name="C:\xampp\htdocs\e-commerce\resources\views\admin\products" />
+      <recent name="C:\xampp\htdocs\e-commerce\resources\views\admin\orders" />
+    </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511039860000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjdrdEJPZmZ4N3dqZmlRWGVwcVJQUUE9PSIsInZhbHVlIjoiaHphZEdQeDBIT05ueFprUElhNmp0cFZubUFqMGt2TnpxZ3M1aVwvXC9hWTlHaU4yUFJqXC9RK0ZHSzlBNDZ4bzR2d1Y2b2lGa3lQUVpkdXRBY01LSTR0akE9PSIsIm1hYyI6ImQzNDdiZGYyMDEyZDg2YzJjYmVkMGJiYWU3NjA5YTkxNDRkYTE5ZWMwMGU3ZDNkMmI1NjZkMjBmOTJiZTVhZmIifQ%3D%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjBYTmtuSUFEaVJiUU1xZ3FoTXk4WVE9PSIsInZhbHVlIjoiZndlOXZqcmxkSWp4RkFxTjNpczFWVzJXSEdhejI3NldTYUd2eHRHR09QbzBUbEFLdFFSYUhzUWVvQWtzNHdQRHdaNWl6b01QR09TbFRKUHNWOWowM1E9PSIsIm1hYyI6ImY3NmY3M2FiZDA1ZDgwODY0NDk3ZmU2NGFkODVkYzg1ZmM4MTgxYmM2ODgzZjRlOTEzMGViNjQ4ZTg0NzVjNjcifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511039778000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjltMTZxalwvais4UTg0UXp6T2FRN2pnPT0iLCJ2YWx1ZSI6IkkrdGRnZEJwY3dqVklwMnVLZmwwQm5EejhUMGtKRXkyNTdDaGQyNW9MRkVnbnp3d1VkOEpVRnBkXC9DMTY4ZThOcWlkZ2dkQlBEWXBjK3pWRmFjUEJZQT09IiwibWFjIjoiNmM5MmEyYmRhNjMwMmQxODMxYjM2ZTAzNjhkYWU2N2NmNzc1MDZiOTAwNzdmY2M4ODVjODU2ZDJjMGJjZjE4OCJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjNcL0lTdDNqWWdTYWl5Z29kdDF1TjNnPT0iLCJ2YWx1ZSI6ImFiS01SUnFwdzV4MVlTblVQc2U3djFyMlQ1d056UXprZDhzUnc3TVRvbGwxUVc3dmN4V1Fmalc3S0E1VXpKdmNORktyZXlKZTlxS1V6M0NEd0p4QldnPT0iLCJtYWMiOiIzZjhmM2Y5MWUxMWExMDgyNjc4ZjJkZGE4OWEzYjRhOWIwMmUzYzZhNjJjZTU0ZjVmNjcwNzMwMTQ4ODk1ZGE2In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511038177000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjBqOWtUdTlhNFhRd2JkcE1lRldxYUE9PSIsInZhbHVlIjoibmJZcm5CYWYwUUFPaFwvYzJhWnVkTFk3SEhcL1l1VDhnaTFVUmE1bllha25vcmFhRzFHdDZtbzM2KytNRnQzaFZUd0FNTTVHejJmMW45MjRBN01VQkc1Zz09IiwibWFjIjoiNTNlMjIzZTE0YzA5NGY5OTE0NTNhY2U1MDhhMzcwN2ZkODE5ZTQyZjMzYmYyOGUyMWFhZjY0OTQ2OWM0M2Q4OCJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6Ino3RFFyaWdDcHNPaWlTSjlMelwvMytRPT0iLCJ2YWx1ZSI6Ijg3emJFY0wwMWl3NU56QlwvNXhscmpMQ1NzR3ViYWRHM0xTRVVcL0J3ZlF3blFoUVwvejdvQmZHQ2lIcXFPUGFYaU5odWxia1NoV3hYM1MwU2lyYmZOZ0RRPT0iLCJtYWMiOiI2MzlmMmVmYjZlOGU2ZTMxMGFkNWEwNGVmMmMzYjcwZmNlOGUyMDFiMmMzY2QyMzc0MTUwNmNlNWQ3ODIwY2Q2In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511038177000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjBqOWtUdTlhNFhRd2JkcE1lRldxYUE9PSIsInZhbHVlIjoibmJZcm5CYWYwUUFPaFwvYzJhWnVkTFk3SEhcL1l1VDhnaTFVUmE1bllha25vcmFhRzFHdDZtbzM2KytNRnQzaFZUd0FNTTVHejJmMW45MjRBN01VQkc1Zz09IiwibWFjIjoiNTNlMjIzZTE0YzA5NGY5OTE0NTNhY2U1MDhhMzcwN2ZkODE5ZTQyZjMzYmYyOGUyMWFhZjY0OTQ2OWM0M2Q4OCJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6Ik5XUVlVYWg1clwvNVNBbGJxWVF3SXlnPT0iLCJ2YWx1ZSI6ImVLSWhKRUNmNTRyRDQ2d3Y4OFU2eWxLT0FCaHNZTUprMTNGYVhXZWwrS1QzTXVZUG81N1VTeDliXC9oVUYzSlFSSjBYcHhSZHo5cmVsUW01WFNuQitoUT09IiwibWFjIjoiYWQyOTZiZGE4MmZmZGMzNTJmNTc2Nzk4OTRjOGFkNmQ1Yzc4YzQ0YmVjMjdhNDQ0NDU3NmJkNTEyZDBjMzdkYiJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511038177000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjBqOWtUdTlhNFhRd2JkcE1lRldxYUE9PSIsInZhbHVlIjoibmJZcm5CYWYwUUFPaFwvYzJhWnVkTFk3SEhcL1l1VDhnaTFVUmE1bllha25vcmFhRzFHdDZtbzM2KytNRnQzaFZUd0FNTTVHejJmMW45MjRBN01VQkc1Zz09IiwibWFjIjoiNTNlMjIzZTE0YzA5NGY5OTE0NTNhY2U1MDhhMzcwN2ZkODE5ZTQyZjMzYmYyOGUyMWFhZjY0OTQ2OWM0M2Q4OCJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNGZmg1S1RIbGI3bDljb0RZd1huNGc9PSIsInZhbHVlIjoiR3I0QjFvb3o4WjBMVVR1dXU2T3ErcFwvVm4rYnJzWktDSFp3QTJEOVZzbXhCU1wvSzZtRWFpNVkzaWxOdmFwXC9xTHZDOGcxdFZvNEo4a1p3QTBMUDd2SUE9PSIsIm1hYyI6IjZmMzEzOGJlMTViYmZjODg4YjcyNTNjNjBlOTRmN2M0NGQ3NmU3YjA2MTcxZWI3OTAwZjViODQ5ZDdiMjJkZjUifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511038177000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjBqOWtUdTlhNFhRd2JkcE1lRldxYUE9PSIsInZhbHVlIjoibmJZcm5CYWYwUUFPaFwvYzJhWnVkTFk3SEhcL1l1VDhnaTFVUmE1bllha25vcmFhRzFHdDZtbzM2KytNRnQzaFZUd0FNTTVHejJmMW45MjRBN01VQkc1Zz09IiwibWFjIjoiNTNlMjIzZTE0YzA5NGY5OTE0NTNhY2U1MDhhMzcwN2ZkODE5ZTQyZjMzYmYyOGUyMWFhZjY0OTQ2OWM0M2Q4OCJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImJqWWxiYUtDXC9KMko4SFdBejFmMCtBPT0iLCJ2YWx1ZSI6Iit3S3J5SE9VelE4NlM2TUlFVWo5YTRcL1dVdXJ3Wm4wTUpJUXM4Q3Y1UHY1N1BvZDRRd3ZBRWVTWkJRVkNBOFBMRkxZS1lycjJXVGkxZHRvWTVSZGFHUT09IiwibWFjIjoiZmEyZGI0NTgyNGQ2YTlkZGIyZTBkZTg3MmMyMjEzNWI2NWVlMDYyNTdmZTNiYzJmZDYwMTJmYWJiNDFiODk5NyJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511038177000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjBqOWtUdTlhNFhRd2JkcE1lRldxYUE9PSIsInZhbHVlIjoibmJZcm5CYWYwUUFPaFwvYzJhWnVkTFk3SEhcL1l1VDhnaTFVUmE1bllha25vcmFhRzFHdDZtbzM2KytNRnQzaFZUd0FNTTVHejJmMW45MjRBN01VQkc1Zz09IiwibWFjIjoiNTNlMjIzZTE0YzA5NGY5OTE0NTNhY2U1MDhhMzcwN2ZkODE5ZTQyZjMzYmYyOGUyMWFhZjY0OTQ2OWM0M2Q4OCJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IlwvRkI4REkrMTBuQmVwWm1FM1BwbjVnPT0iLCJ2YWx1ZSI6IlFXMkVoVDMyNlJBUUlGZ0psTVdzWWNCdU1MeldSTzRPXC9yeERsSTNJc2VselZSQmJWZ2NOSEg1NjVPQ1o2TGZzdGw3UFFHRlwvdmRHUTJ4SXF4Wjdnd0E9PSIsIm1hYyI6ImIzMTRkNjdlMzJlYzg2Yzc0MzlhZWMxY2M4ZDY4NGYzNDE4MTBjYTMzYTVlMWZhOTRkMzM5ZDQ4ZjU1ZjA5ZDYifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511038177000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjBqOWtUdTlhNFhRd2JkcE1lRldxYUE9PSIsInZhbHVlIjoibmJZcm5CYWYwUUFPaFwvYzJhWnVkTFk3SEhcL1l1VDhnaTFVUmE1bllha25vcmFhRzFHdDZtbzM2KytNRnQzaFZUd0FNTTVHejJmMW45MjRBN01VQkc1Zz09IiwibWFjIjoiNTNlMjIzZTE0YzA5NGY5OTE0NTNhY2U1MDhhMzcwN2ZkODE5ZTQyZjMzYmYyOGUyMWFhZjY0OTQ2OWM0M2Q4OCJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjkwTTZ3eFlDSWdaV0lKdm9jZlJGaFE9PSIsInZhbHVlIjoicnFzbDg2UVlVZG5cL2taR1JJRVZnOWpzRmpNTUxIZGNwZW50a1wvT0psMTZydzhjTnIzQVEwNXIrMnFEdXNLN25EXC9kSmV1dld3YkdMNFZJTFI5XC9ETVhnPT0iLCJtYWMiOiIzN2MwYTg3NzkyMWMzYzA0ZjY1ZjQwYjJmNDEyOGIwZWY4YzMxNWNjMWM2YWMyM2MyN2VhNDhhZTQwMzBhMjQyIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511038096000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkM0aThhRzN4MFQ2dGxmZ2kxWWhqQWc9PSIsInZhbHVlIjoiZW1jWHY2VkdOTENnRXZDdUdYUzJcL3Z1aTNYMGJ5R2ZiRURHeDlYdlNnbGRxbERaQ0cySllsdFBKMlBnek9ySnRnZExEeVJHMHNjR2ZuMmgwSWdpeEVRPT0iLCJtYWMiOiJjOTc4ODE4NjZhMzE0NTZiZDliNDJkNmFiYmZkZDg1YzUxYzUwMTY4ZDYzNmQ0YTg1NWVmYTg4OGUwNzM1ZThmIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6Im03ZUpKaWNMVzEzTXFVR3lldFl1dEE9PSIsInZhbHVlIjoieE1Ud3YwcnVqMWpnNEtFbFJuREhCQVoxbVFNVktkSE8rV0xCUEdVVnBud0VCVXY1VzAzZ2NmXC9MZnV4aXJHQkZ1RDJFZ1FtelwvalwvRjBiNFhscDFqQnc9PSIsIm1hYyI6ImQ1NDQ0ZjdiNzIxZTg4ZDNiM2NlNmIyZjhlYjk3NzZmNTRlZmEwODkyOGZmNjBjNDQxYzY0NmI5NjAxNTA1ZWYifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct/33" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511037917000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6Iklaa3Y2ZVNaVzlnNVNiRms1Z3h2a1E9PSIsInZhbHVlIjoiR1pXMFNVWjExOHhkVGJWN2RRa1Rtdk4zb1ZrSmVOSFwvOVZSXC95RGozeU1DSmw4QnZySWU2SGwrSzBjNEdDQ1QxMWk0ajdXdVN6VkVmZkFKZTRTUXZ2Zz09IiwibWFjIjoiMDVmZGZjOTM2OWE1Y2RhOGI5Y2IxYTNlNTI2M2Y0ZjYwNjk0OTZhMjU5ODAzMDBiZWRkZmM3MzZiOGJjMmIyYSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6Im9UVnA5TWlUTmY5eVRxckt3dmV5R2c9PSIsInZhbHVlIjoiU1IzZkc1Y1pxcmQ1WHpHYnF4TThKWXVyUFhDNmJwa2hicWlCazg1UDVkQnpnQ1VxQ3JEa2VOVlZSZk9uOWdXNlBmYkloMzdkYm9YSDlcL0kreTR0ME9nPT0iLCJtYWMiOiJhYjdiM2E0N2FjZmM2MzA2ZTEyOGQyY2NhMjQ3Yzg2ZjQ0OTYwNDNjMzdhYWM4OWU3NDI5YjBiNTkwYzQwYWMzIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct/36" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511037083000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjhseVZJdlRhWldGaFlCYnk1ZE95VWc9PSIsInZhbHVlIjoiVERMT2dvN1JCbExIRGVYNjV3VUFpYnFweElNV213SE0zTm1NNCsyNlA3cDlmdlJ4TWtmdTBHeXlSdCtzS2ZlR0NxZUZRQldFOGVnN09cL0ZCRjBSMEFnPT0iLCJtYWMiOiJiMzRlYjU3NzBkNzQ3MTdkNGFhZWE0MGIyODlmMDY3MDBkMDFiZTgwZDM3MTFiMGI5OGMwNWIwYTg4Y2MzOTlmIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IlVGc3NPMHJ3Z2R4Z3pzV1BsYjRmZ3c9PSIsInZhbHVlIjoiYzY0MWFiQ2hBUXlkOVUwUHVNaDdEZjNOYjZMOEFGYkJoYmp1OWlUZ1l6Z2szcEJneWZwSTZyXC80N1FqbTJ6NkVyc2JWK2FxYkpQaXc0RXZKeU5jcFpBPT0iLCJtYWMiOiIyNTM5ZjlhNjdiYzExYTNkNjBiODAyYjI5MzE1Y2U1YWFlMTkzZmYzZGYxZWYyYTRhOWJhMjdkYjY2ZDI1ZmUwIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct/35" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511037080000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkVXcWRtQ3pydzgzMFpFQXE1R2N4c1E9PSIsInZhbHVlIjoiamdGa2lraUpEU2pFcnFxRHQ2d1pRSGxzNFNzQ0FNbTlLWjV2clY5ZUEwc3BtREViQjhzdjZ5aVJiK0Y2U0xOMFdjcGdMb3lwdkpsWm5JN3FkZzRcLzJ3PT0iLCJtYWMiOiIzN2M4NDJhM2YyZjI2ODNjYjYxZDNhMzUxYzZlMDcxYTUzMjE0MTc0YjhlZTAwOGVmZjQ4YTk3OTFlNDkzZDMwIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkVqZWRNcVpyTmRXMVZlZ0tMT1NVWHc9PSIsInZhbHVlIjoidFBCREp2QUI2cFBGbENCOWNubDZsdTdxZjlXT2lyXC9iMkpUZmxVS08rM2N1N3loVHBOdHYwcnh1TFVJWWdNQmlmN29HdmlIS3MzQ2pnZ3N3VGZZNXNBPT0iLCJtYWMiOiIzZThlN2IyNzQ2YWEwZWZkYzFiYzU3YjRkMGEzOTRmY2NkYTMwYzYxYzZhZWFiNWM0YzBkNDE5OGY0YzQyNDc3In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct/1" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511037024000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6Ik1oRlNZZmZDbDBSSWtaVVwvMVd4RFRRPT0iLCJ2YWx1ZSI6IkxkNGxTVVpJaFlmRWVURkJ5VTJ5STVIZkVxMThocnkxY1VIQzd6bXlVQWJnUEl5VWkzcWhseTBOczhTcFpkcjhJaXhMZkQyRHQ1NHQ5MVBVRGhobDNRPT0iLCJtYWMiOiI5N2YwMDM0ZWQ2MDRlMTk3MzQ0ODUyMzIzY2NkOTFkNjlkYzM5ZWEyZDAxNmJjNTJhYTg2Zjk5NGFhYmRlODNiIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IktqaFJBREFUNk9XVUIyMzhseXpWM3c9PSIsInZhbHVlIjoiYkppSWdHUVd2c1lIaU11Z3cwcWVcL1hJWGg2U2FPT2txb0krQURiaWYrYnc4bjdtTjNLK2NrY1BDWFYyaEpsVGlUS1dXamNyYTZFdHNHRDU1QU1hbkpRPT0iLCJtYWMiOiJjMTU2OGYzZGFhZjkyZTM0MWUxNDRmMWU3YTk1ZGUyOWUxZWMyNGQ0YjcyMzkxZjlhYTBlYWY1NzJlMzk5MThlIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct/1" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511036958000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjcxK080VGZxQVpUK1dpTXBKSGFOQkE9PSIsInZhbHVlIjoiZjNUWElaXC9ZSkxlWDVwbEREd2Z5TEMwU2xHMW1ZRDBVRzFTbThpMlRyMnFoSWdPT1RxN2dYeFA0MXBqUEx4eGNVM3piRExMVjVCWlZocjZUNkRSWGFnPT0iLCJtYWMiOiI5ZjNiMGU3N2Q2ZmVkMjgzNGM2ZGEyNjcwNmEzZDc0OTg3MDJlN2RmNDJiMmYzMWU2N2MyZGM5ZmJjNDEwNjYwIn0%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6InNLUVR1MHgrWk9tdVVBRm9wTXJMWVE9PSIsInZhbHVlIjoiYlFFdkUrMkJLXC9YR0tYekxKZmhVWXl5QzRDVDFpYjlpd3JOK2o2YWVXaFdIWWJQWk5EYmE3OU14RjdUaTk5NEhObWZvaCs1Z0FPbzMxTVRGT1V1MnNnPT0iLCJtYWMiOiI4ZGY2ZTM0OGEwYjk0YWI0NDY4YjlhYmVkOTIzYjJmMTA1ZmJmMGQ2NTc5NjA4NGMzMjgwOTFlZjhjZTA5YTJjIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct/1" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511036734000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IlpIUzhmSkIxTkZFV004bXF1VDB1OWc9PSIsInZhbHVlIjoiSE5OV2V2Q1RVSmgrRkFNOTF0c2xJVjRmMHUyeGpTenI2emRsK0tLT09CYkxiZk1uajFWVzJySnE1RDJjeUNGa2pXNGVIWkpUSmQ1TU8wd1ZCZzZ4QUE9PSIsIm1hYyI6IjQzMTE5YTQ3NWQ4ZGY5ZjA2ZGFlN2MwOTU2OTRmYTU1OTdhYTEyYTVmNmQ3YWNhNmYwZTg2MTBjMDE1ZTg5OTEifQ%3D%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImhScFV2emIzT1UxQmNBTWhNRHMwbVE9PSIsInZhbHVlIjoiTkt3K2JlWVlmSHc1QXpwTGpHc2xCMVBkc3FZbGlONCtWaDBieElERm51N0d5ZEQ1VVVBWm1BdndlQjVNeklNazhWTVRFdGw3SWFZaTcwUkRKR1NWNXc9PSIsIm1hYyI6IjBmZWVmNmNjODBiZTc2MmIxZTk2NWMxNDE4YmIwODEzMGRjYTIxZjA4YTY4MDI0ZGQ5YjFjZDY0NWIxMmRlYTMifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct/1" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511036555000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjExVWVVUlhGd3ordXpzMEVFbzZDTXc9PSIsInZhbHVlIjoiQnBsXC96UEtFV1ExeW9ldEI5Q3lIMW9KVXBxN3d3VndkbVZYTnY2eVJ2WlVHS2dVbWNTSWIzdjRINnA3bGE3cEpLS1gxeUdOclwvQVJLS0grYW5OV2pPUT09IiwibWFjIjoiMTE2OGE3MjEyZDcyOWJhYTU2MzM5NWJmMjdmMmE3NTc0OGRhMTc0NWJhMDIzYTkzYzU0YzQ4MzBmY2I5ODk2ZiJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6Im1YSGVjTUtVVmNDcmhlUW5RaGk4elE9PSIsInZhbHVlIjoiVzVLNGs3aEFaUGQrRldOelFKdlRWb1dIeHpaQm9oNXVVaE9BcFAxNlZRVm4xOFQwVDRPb1k3Y0tlY3ZkQTc5K05ON2pwTzNCQ3NrXC9FZExacFZrTVZBPT0iLCJtYWMiOiI1OGJmNTBiNTBhZmQ3MjMzMmIwZWFjN2U1ZmRiODJhYTVkYmQ3NzkzNjAwNDhmZWEzZTFmZjY1MWFkMTM0OTFiIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct/1" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="1511036555000" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjExVWVVUlhGd3ordXpzMEVFbzZDTXc9PSIsInZhbHVlIjoiQnBsXC96UEtFV1ExeW9ldEI5Q3lIMW9KVXBxN3d3VndkbVZYTnY2eVJ2WlVHS2dVbWNTSWIzdjRINnA3bGE3cEpLS1gxeUdOclwvQVJLS0grYW5OV2pPUT09IiwibWFjIjoiMTE2OGE3MjEyZDcyOWJhYTU2MzM5NWJmMjdmMmE3NTc0OGRhMTc0NWJhMDIzYTkzYzU0YzQ4MzBmY2I5ODk2ZiJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="karacraft.com" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6Im1YSGVjTUtVVmNDcmhlUW5RaGk4elE9PSIsInZhbHVlIjoiVzVLNGs3aEFaUGQrRldOelFKdlRWb1dIeHpaQm9oNXVVaE9BcFAxNlZRVm4xOFQwVDRPb1k3Y0tlY3ZkQTc5K05ON2pwTzNCQ3NrXC9FZExacFZrTVZBPT0iLCJtYWMiOiI1OGJmNTBiNTBhZmQ3MjMzMmIwZWFjN2U1ZmRiODJhYTVkYmQ3NzkzNjAwNDhmZWEzZTFmZjY1MWFkMTM0OTFiIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/deleteproduct/5" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://karacraft.com" />
+          <option name="urlPath" value="/vpc/public/" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkNDUlpmcW9wTmJVbWxxdWxpd212SHc9PSIsInZhbHVlIjoiZ01XMFVJeVpidFVzc0pJM09RbklWWVZTSE0zWSs5M3U0NkpHWFJnNDcxbzY4djBSUXZtVTIrS0I2ck9Eb1pqa0VjdXJlbG1cL2VvUWhleGRJYzVvXC9RZz09IiwibWFjIjoiYzU1YmU1N2YyYWRjMjdhODNmOGNlOWYyMmE5NWNlMjU5ZTg0MDAzMDRmNmRhNTI2ZmZlZmY4NDcxM2FmZTdlMyJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/deleteproduct" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjZNcVp3SXl1K3ByS1hXbHFWUDFuTEE9PSIsInZhbHVlIjoiT1hCQk9vRTU1RkJENzJnTHpVbktoMXMzejRBcitXWVdSSHVrWlNObGVPbm9hNCs1RVhIYTBsaHl6UHo5ZGp1bGhLSWNGRXBWVlo0U3BLcXhkSTRnbkE9PSIsIm1hYyI6IjhiMDk2MzFkZWU1ZDcwYTIzNzllNWFhMjk3NjNjYmJiOWM5NmIzNDg5NDVhMTliMmUxNGQwMTI3MjFlYWY3OGYifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/deleteproduct/5" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IlwvT3c0RlArRGRDWGRxc2RJR3lCREdRPT0iLCJ2YWx1ZSI6InNkSDg0cEE0TEwySCtnRWRhZUo3bUkyU2RSWjRwUkZNMEtDQXllUzJ6MWM1a1BnV3A5aThOM3B6WEl2TXo1cVRGcVpcL2lDbitEZ0NPQTdPSnQzN05kQT09IiwibWFjIjoiMWE1YzJiODE4ZWU1N2I2MjA1OTNlZGQ2ZTRjMmQ0ZTRhOTdkZDdjOGIyY2U1NWU0NWRjNWE0NmYzZmU0ZjRkYSJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/deleteproduct/5" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6InZicElpYVdBYXZoXC9rQ2E5TzRVM3FBPT0iLCJ2YWx1ZSI6IjVNOThtWVBvN0tsYytwQ0luRFVNdytIQ1FibERLWDlLTExHODA0XC9BNG1LWUV6dnB4Q2dTd1RkaXpUTHNyb1BzN1cycTFtcTI1dEFNdkcyMmxuQ2Mydz09IiwibWFjIjoiNzU0YzJiNTkzN2RmMGQ4NWI2ZTcxNDFhNTZhYjY1ZDBhOWE1M2ZiZjlkYWU3MTMyOGNlYmYzMWViZjAwMWNmMyJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/deleteproduct/1" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6InZicElpYVdBYXZoXC9rQ2E5TzRVM3FBPT0iLCJ2YWx1ZSI6IjVNOThtWVBvN0tsYytwQ0luRFVNdytIQ1FibERLWDlLTExHODA0XC9BNG1LWUV6dnB4Q2dTd1RkaXpUTHNyb1BzN1cycTFtcTI1dEFNdkcyMmxuQ2Mydz09IiwibWFjIjoiNzU0YzJiNTkzN2RmMGQ4NWI2ZTcxNDFhNTZhYjY1ZDBhOWE1M2ZiZjlkYWU3MTMyOGNlYmYzMWViZjAwMWNmMyJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/deleteproduct" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IkoyclI5UVwvNUpwWnhmMDF2cjdJb3NnPT0iLCJ2YWx1ZSI6IkZKZmhqa1pWakdiVXU4Rk85ZjlJWUs2dzRFWjJkVEZkZlRxS3RSZU01enJsZWNRTEI4NUdUVFhTOVFkTDJvZDliYkE4OElqVXdsN1JuUmkrYmlpaFdBPT0iLCJtYWMiOiI5M2NhNTU0YTJmNmRlOGU4ZDRjYmYxY2UyOWU3MWYxNGU0OWNkMWU5OTYyOWY2NWM0YjFmNzRjM2VmNWNhZWY2In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/deleteproduct/5" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="id" />
+                <option name="value" value="5" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImhNbG9zQ1ROdmJ0VG9MSDBBM1VFYnc9PSIsInZhbHVlIjoiTlVibWUwXC9iNWFHZDBLa0d4XC9qNm9Jbkh5VWtFZmdocHgxSndDeisxdFkxeVFUV282UDRpY3RXSkJlaTQxTXY0bXpRWGxBUHlmdjYwOFNBODRkdDVhZz09IiwibWFjIjoiM2QzYjIyZjcwMTkyYTAzNmM3NjI3MGI4Y2RjMjE1YTI2M2U3NTM0ZDk0MGYwZWFmZWQ0MzAxN2VlY2E1ZWEzOCJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/deleteproduct/5" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6InRhTnpZendvMFQ2NytLRHFRbVQ0a2c9PSIsInZhbHVlIjoiS1IyRmUwQzVxUXpTT2sxNlp1eUdDMWlhbkRmNXdubmhUQWtCYjFTVDVJRFJaWDlsdm4wYjlsUGdHcTFoYUcrR1hvQ05Eck41b1pHM1lMZm5NdDJyYWc9PSIsIm1hYyI6ImRlMTliZWQ1OTM1YmIxNTM2OGI0YWU0N2Q3ZTcyMjYxNzFmZjk4MDhlMjBiNTE1MzYxZjk2OTM3Y2UyYWNjODAifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/deleteproduct/5" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6Ik5Zc0FkKzdcLzFtVDJnd0ZjV1lNdWpnPT0iLCJ2YWx1ZSI6IjdvZ1dldlNCU3BrS3BuajljYitXM2locERndHYzd3ZBaDQ4UUdNNzVRUllud3JTaURNdEoxeFRScStMc3ZwOHRFUk9sSVJNT01yRGM1RVhLRTdjMjlBPT0iLCJtYWMiOiJhMGZlZDIwNWNhYWZiNTliYmQ4ZGI0NjI3Nzg1ZGYwYTQ1NzQ5MTFjOWE5ZjU3ZmFmYzM1NGI5MjBkNGEyNWIyIn0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/deleteproduct/5" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6InBac2paYk5RZnN6VkFtSjlQaXlJc2c9PSIsInZhbHVlIjoieGMrbFU4dE14dVlcL3FNYkh0T25oWjdDdEJmeDBxM3VuOU1pa3I0ejdNWmRXd2tSVExmTE5TaXJGSXlZMW9XRThseW9iaTFTRUVpS3ZDdHFlNlJuWUdRPT0iLCJtYWMiOiI4NDE3NDVmODY1ZDQ4NmE1YzczYWIzY2UyNDEyMTdhMzUxMGYxOWE3MzBiZTQ0YjhiYmI3MmNlMDE5ZDI5NDE1In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/deleteproduct/30" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IklOa1J3WGJXQWI1a0NOU0hxcGtwOWc9PSIsInZhbHVlIjoiMngrWGtmTnNBTUpHM0Q0YjlwNTN0enBoVGx0VjcrYUhMWHhiRlFsSXE3VCtJa2RicDZhU2k1TG51d0o0NFVpYjVyVlR1dkt2Q1NVQVNYMVFuSldINUE9PSIsIm1hYyI6IjQzZDQ0YWRlMGY3N2VmYzJmNDVhZDY2NTFlYTZmMDE5YmMwZmYyMjBlMGFmMzE3ZWQxYjE1MzNiNTc0ZDMyMDMifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/deleteproduct/36" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775465000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImpZRjJtM3J2ODNZYlJxZzdyTThUUXc9PSIsInZhbHVlIjoiNjMxXC93OUkrcUd5QVRlMUw4T3BRSzlJdDF0SlNDQnc3NE9ONU5OUE1ibEU0bVwvZUpCVUFDMXJndjR3YXdWNEw2MWlLdk1yNGQwY2k2UGxrWDZYdElGdz09IiwibWFjIjoiZjAwMGY5ODNjODI1YTNmZDcyYmViNTc3NTM5MzJmOTczYmVkNGQ3OTVmNzRlYzNhM2Y5NmQ3ZDZmZGMwYmM0NSJ9" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IklOa1J3WGJXQWI1a0NOU0hxcGtwOWc9PSIsInZhbHVlIjoiMngrWGtmTnNBTUpHM0Q0YjlwNTN0enBoVGx0VjcrYUhMWHhiRlFsSXE3VCtJa2RicDZhU2k1TG51d0o0NFVpYjVyVlR1dkt2Q1NVQVNYMVFuSldINUE9PSIsIm1hYyI6IjQzZDQ0YWRlMGY3N2VmYzJmNDVhZDY2NTFlYTZmMDE5YmMwZmYyMjBlMGFmMzE3ZWQxYjE1MzNiNTc0ZDMyMDMifQ%3D%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/api/getproduct/3" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775426000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6ImJyVEw5TW5IVXdyXC9LeVE1cVRuZVBnPT0iLCJ2YWx1ZSI6IkhCZGowXC9tMFFFU25wWW5vMkRsdzd6K1V3SkpjbU5kWDVGZEMxejFVNG9Wb0R0T0ROMXBkU2NlVldKdnBYNUVoeGVcL2VQaDBOSlZabXNRUFhaVmlZMUE9PSIsIm1hYyI6IjhhMWZiYWQ2MzA4ZTE2Zjg0YjZiYzA2MGM0MjNkMjhjN2ViZmIxNjRlODQ5ZWE0YWNkMjU3Nzc0Njc0ZWJkNGIifQ%3D%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6Iitpa2tVa1VJTksrajVKVEE4MjJ1ZkE9PSIsInZhbHVlIjoiNWt4WGxHc2k2K3dxWEV1ckpZOW9EYnpDY2ZXWmhsdUdPNUlVK2ZHeHR5d2RncVYxXC9WYlVsK00wUlFKM0k5ZXRuR2hPRk1KVFZcL3dObXAyRUNQeUhldz09IiwibWFjIjoiMmVmZmVjZWEwNjk2NThkN2U1ODQ4M2I3MWQ2ZGYwZjE5ZWQ1ODI4OTU1ZmFkNmZjN2U3YjdiYjdjZjY3YzIxZSJ9" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/api/getproduct/2" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="biscuits">
+            <list>
+              <Biscuit>
+                <option name="date" value="1510775413000" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="XSRF-TOKEN" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IjE1UzhaeHBGVjJ3XC83aHZqMlFXVlVBPT0iLCJ2YWx1ZSI6IlFYNW9FMmFLdUlScTVXTzVGZEs4MFZpcTlwb2xyVkQzR3NmSGZGK05TSnpcL0szeTBubktZNUtPcFwvTWhJKzJSeEpEWml5VkRzVU5QMUUwZ1JNWWpHM0E9PSIsIm1hYyI6IjI5MmQ2MzM5Yzk3ZjE3YjkwMDMyY2EyMjA3MDU3YmQzZWUyNGZiYzNhOTNiOTQzYjA5ZWQyMTUwYjAxODE4Y2EifQ%3D%3D" />
+              </Biscuit>
+              <Biscuit>
+                <option name="date" value="-1" />
+                <option name="domain" value="localhost" />
+                <option name="name" value="e-commerce_session" />
+                <option name="path" value="/" />
+                <option name="value" value="eyJpdiI6IlRKTXVQU2dcL1FVbjVvWFFnMjY2WDJBPT0iLCJ2YWx1ZSI6IlJ6UCt4ZFdcL2FlK1kza2tZRUVCRXFCN0lHVWJ1bHVEOHBmNkhYVExjV1BcL1hUOTlwT1VWbFNrd0FwdmNHNCtPVHdFUkFiM0t4Tlh1bEFcL3ZhV1JEeVdnPT0iLCJtYWMiOiJhMjc4YTRjMDRkMmNlZmZiMjUxMTZhZmQ3ZmQxYzJmZjUyZTIxMjJhODg1MTk4MzYzMDY3NTk2OWU3NjNjY2M3In0%3D" />
+              </Biscuit>
+            </list>
+          </option>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/api/editproduct/2" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/api/allproducts" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/api/getallproducts" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost" />
+          <option name="urlPath" value="/e-commerce/public/getallproducts" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="9a529e5d-53a0-4227-8e61-1c9b577bde30" server_name="Shopping-Cart">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="83518857-36d7-4a84-9f69-6115aeb47b7a" name="Default" comment="" />
+      <created>1509030848949</created>
+      <option name="number" value="Default" />
+      <updated>1509030848949</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.49786097" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33964366" sideWeight="0.50481284" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32962137" sideWeight="0.49518716" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.49786097" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24117647" sideWeight="0.50598294" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18395722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22032085" sideWeight="0.4940171" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15080214" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973261" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.49679145" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.49786097" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.5032086" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.49786097" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295063" sideWeight="0.49679145" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.49786097" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24117647" sideWeight="0.50598294" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17967914" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19251336" sideWeight="0.4940171" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15080214" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973261" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="11" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrontEndController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/aboutus.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8387096">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/aboutapp.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10904585">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/users/signup.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10904585">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/users/signin.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80916977">
+          <caret line="43" column="14" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/users/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.4535316">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/category.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68153656">
+          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/navigationbottom.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67286247">
+          <caret line="27" column="59" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/aboutbusiness.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.7806692">
+          <caret line="1011" column="82" selection-start-line="1011" selection-start-column="82" selection-end-line="1011" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/service.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27261463">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.150289">
+          <caret line="74" column="59" selection-start-line="74" selection-start-column="59" selection-end-line="74" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4988067">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/services/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24535316">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/services/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.387096">
+          <caret line="30" column="57" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/SettingTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ServiceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.354838">
+          <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/services/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49070632">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/robots.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/NewsLetter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2998761">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/UserTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6542751">
+          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32713756">
+          <caret line="13" column="128" selection-start-line="13" selection-start-column="128" selection-end-line="13" selection-end-column="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Service.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38166046">
+          <caret line="15" column="113" selection-start-line="15" selection-start-column="113" selection-end-line="15" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_10_26_161928_create_products_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.064516">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_11_20_154738_create_newsletter_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_03_105454_create_profiles_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.354838">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_07_090748_create_settings_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_08_100332_create_services_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46592316">
+          <caret line="25" column="53" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.063197024">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0024783148">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SettingsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.33581164">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/LocalCategory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27261463">
+          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.027261462">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/GlobalCategory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27261463">
+          <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/categories/global/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.903226">
+          <caret line="21" column="70" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/categories/global/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.806452">
+          <caret line="11" column="108" selection-start-line="11" selection-start-column="108" selection-end-line="11" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master2.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6604709">
+          <caret line="38" column="78" selection-start-line="38" selection-start-column="78" selection-end-line="38" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46344486">
+          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2540272">
+          <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/categories/global/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32961586">
+          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/categories/local/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7905824">
+          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/categories/local/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/GlobalCategoriesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="39" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_18_182907_create_global_categories_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.354838">
+          <caret line="17" column="64" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_12_18_182922_create_local_categories_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46344486">
+          <caret line="18" column="64" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LocalCategoriesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrontEndController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

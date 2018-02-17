@@ -1,0 +1,8 @@
+User Table :  Customer/ Affiliate basic details. (user id,pass, email only)
+Profile : links to customer/affliliate (avatar, pass change etc)
+Referal Number : Add to profile page(Unique number)
+Allow referal number only when user buys our book (Must have payment system and unique table to keep the data)
+
+Update profile, to reflect various options (jscript div hide/show setup);
+
+Implement Product & Service Pages along with Slot (Change underlying tables, if required);

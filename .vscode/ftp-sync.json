@@ -1,0 +1,24 @@
+{
+    "remotePath": "/var/www/html/e-commerce/",
+    "host": "82.221.139.249",
+    "username": "duke",
+    "password": "duke",
+    "port": 21,
+    "secure": false,
+    "protocol": "ftp",
+    "uploadOnSave": true,
+    "passive": true,
+    "debug": false,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\.DS_Store"
+    ],
+    "generatedFiles": {
+        "uploadOnSave": true,
+        "extensionsToInclude": ["*.php","*.blade.php","*.css","*.js"],
+        "path":  "/var/www/html/e-commerce/"
+    }
+}
