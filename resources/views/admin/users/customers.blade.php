@@ -16,6 +16,7 @@
                             <td>First Name</td>
                             <td>Last Name</td>
                             <td>Email</td>
+                            <td>Affiliation</td>
                         </tr>
                         </thead>
                         <tbody>
@@ -25,6 +26,11 @@
                                 <td>{{ $customer->first_name }}</td>
                                 <td>{{ $customer->last_name }}</td>
                                 <td>{{ $customer->email }}</td>
+                                <td>
+                                @if(!$customer->isUserAffiliate())
+                                    <a href="{{ route('customer.affiliate',['id' => $customer->id]) }}" class="btn btn-xs btn-success">Make Affiliate</a>
+                                @endif
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

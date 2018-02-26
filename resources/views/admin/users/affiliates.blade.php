@@ -19,6 +19,7 @@
                        <td>First Name</td>
                        <td>Last Name</td>
                        <td>Email</td>
+                       <td>Affiliation</td>
                    </tr>
                    </thead>
                    <tbody>
@@ -28,6 +29,11 @@
                            <td>{{ $affiliate->first_name }}</td>
                            <td>{{ $affiliate->last_name }}</td>
                            <td>{{ $affiliate->email }}</td>
+                           <td>
+                            @if(!$affiliate->isUserAffiliate())
+                                <a href="{{ route('customer.unaffiliate',['id' => $affiliate->id]) }}" class="btn btn-xs btn-warning">Unaffiliate</a>
+                            @endif
+                           </td>
                        </tr>
                    @endforeach
                    </tbody>

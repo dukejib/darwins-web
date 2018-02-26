@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->integer('role');//1-customer , 2-affiliate, 99-admin
             $table->string('referred_by')->nullable();
             $table->string('affiliate_id')->unique();
+            $table->boolean('book_purchased')->default(0); //Not Purchased
             $table->rememberToken();
             $table->timestamps();
         });

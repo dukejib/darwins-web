@@ -120,6 +120,7 @@ class ProfileController extends Controller
 
     public function become_affiliate()
     {
-    return 'Beocme Affiliate';
+        return view('users.buybook')
+        ->with(Helper::getBasicData());
     }
 }

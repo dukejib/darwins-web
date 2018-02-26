@@ -17,8 +17,27 @@
                     <h3 class="text-warning">Updates / Additons </h3>
 
                     <ul class="list-group">
-                            <li class="list-group-item text-success"><strong>File Upload Option & File Download Option for Affilaites</strong> By D.R. : Installed on 14th Feb</li>
-                        <li class="list-group-item text-success"><strong>App & Refill</strong> terms & conditions to Settings : 6th Feb</li>
+                        <li class="list-group-item text-success">Added Affilate Crowdfunding Book purchase option in "My Account" page in frontend. 16th Feb | in case of purchase through VPC & USPS, the admin needs to manually make the customer as "AFFILIATE", for which ;
+                            <ul>
+                                <li class="text-info">Added "make affiliate" button to Admin >> Customer page : 17th Feb
+                                </li>
+                                <li class="text-info">Added "make unaffiliate" button to Admin >> Affilate page : 17th Feb
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item text-success"><strong>File Upload Option & File Download Option for Affilaites</strong> By D.R. : Installed on 14th Feb
+                            <ul>
+                                <li class="text-info">Upload max files size : 80 MB</li>
+                                <li class="text-info">DataFile link / Page also shows Hard link to the file</li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item text-success"><strong>App & Refill</strong> terms & conditions to Settings : 6th Feb
+                            <ul>
+                                <li class="text-info">App Statement Page , when user downloads our App</li>
+                                <li class="text-info">VPC & Wallet Refill Statement</li>
+                                <li class="text-info">In Settings Link - Directly Updateable</li>
+                            </ul>
+                        </li>
                         <li class="list-group-item text-success"><strong>Banners :</strong>Implemented with standard banner sizes (11+) 3rd Feb 2018 - Available in admin panel</li>
                         <li class="list-group-item text-success"><strong>Newsletter/Articles</strong> : Added by D.R on 23rd January : Implemented Successfully
                             <ul>

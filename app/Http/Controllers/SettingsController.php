@@ -10,6 +10,7 @@ use App\Http\Requests;
 
 class SettingsController extends Controller
 {
+    //Force all routes/methods to use middleware 'admin' for secrutiy
     public function __construct()
     {
         $this->middleware('admin');
@@ -73,7 +74,8 @@ class SettingsController extends Controller
 
     public function datafile()
     {
-        return view('admin.settings.datafile');
+        return view('admin.settings.datafile')
+        ->with('settings',Setting::first());
     }
 
     public function datafile_update()

@@ -18,6 +18,10 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="">{{ URL::to('files/' . $settings->datafile) }}</label>
+                </div>
+
+                <div class="form-group">
                     <div class="text-center">
                         <button type="submit" class="btn btn-success">Update Data File</button>
                     </div>

@@ -58,7 +58,7 @@
                     </div>
                     <div class="panel-footer clearfix">
                         <a href="{{ route('cart.clear') }}" class="btn btn-xs btn-danger pull-left">Clear Cart</a>
-                        <a href="{{ route('cart.checkout') }}" class="btn btn-xs btn-success pull-right">Checkout</a>
+                        <a href="{{ route('cart.checkout',['toggle' => 1]) }}" class="btn btn-xs btn-success pull-right">Checkout</a>
                     </div>
                 </div>
 

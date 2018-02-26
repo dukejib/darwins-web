@@ -53,16 +53,6 @@
             </div>
 
             <div class="form-group">
-                <label for="refill">Refill Statement</label>
-                <textarea name="refill" id="refill" cols="30" rows="10">{!! $settings->refill_statement !!}</textarea>
-            </div>
-            <div class="form-group">
-                <label for="app">App Statement</label>
-                <textarea name="app" id="app" cols="30" rows="10">{!! $settings->app_statement !!}</textarea>
-            </div>
-
-
-            <div class="form-group">
                 <div class="text-center">
                     <button type="submit" class="btn btn-success">Update Site Settings</button>
                 </div>

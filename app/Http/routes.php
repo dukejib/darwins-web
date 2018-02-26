@@ -7,10 +7,12 @@ Route::get('updates', function () {
 /** Cart Related Routes */
 Route::get('/cart','CartController@cart')->name('cart'); //Show Cart
 Route::get('/cart/clear','CartController@clearCart')->name('cart.clear'); //Clear Cart
-Route::get('/cart/checkout','CartController@checkoutCart')->name('cart.checkout'); //Checkout Cart
+Route::get('/cart/checkout/{toggle}','CartController@checkoutCart')->name('cart.checkout'); //Checkout Cart
 Route::get('/cart/add_to_cart/{id}','CartController@add_to_cart')->name('cart.add');
 Route::get('/cart/decrease_item/{id}{qty}','CartController@decrease_item')->name('cart.decrease');
 Route::get('/cart/increase_item/{id}{qty}','CartController@increase_item')->name('cart.increase');
+Route::get('/receive_payment','CartController@receive_payment');
+
 
 /** Common Routes */
 Route::get('/','FrontEndController@index')->name('home');    //Show Index Page with Products
@@ -51,6 +53,7 @@ Route::group(['prefix' => 'user'],function(){
     Route::post('/profile/account','ProfileController@account')->name('user.profile.account')->middleware('auth'); 
     Route::post('/profile/contact','ProfileController@contact')->name('user.profile.contact')->middleware('auth');
     Route::get('/profile/becomeaffiliate','ProfileController@become_affiliate')->name('user.profile.become_affiliate')->middleware('auth');
+    
 });
 
 /** Admin related routes -  */
@@ -98,10 +101,12 @@ Route::group(['prefix' => 'admin'],function(){
     Route::get('/photos','AdminController@photos')->name('admin.photo.index');
     Route::post('/photos/store','AdminController@store_photo')->name('admin.photo.store');
     Route::get('/photos/destroy/{id}','AdminController@destroy_photo')->name('admin.photo.destroy');
-    Route::get('/web_banner/','AdminController@web_banners')->name('admin.web_banner.index');
+    Route::get('/web_banner','AdminController@web_banners')->name('admin.web_banner.index');
     Route::get('/web_banner/edit/{id}','AdminController@web_banner_edit')->name('admin.web_banner.edit');
     Route::post('/web_banners/update/{id}','AdminController@web_banner_update')->name('admin.web_banner.update');
     Route::get('/affiliates','AdminController@affiliates')->name('affiliates');
     Route::get('/customers','AdminController@customers')->name('customers');
+    Route::get('/customer/makeaffiliate/{id}','AdminController@customer_affiliate')->name('customer.affiliate');
+    Route::get('/customer/unaffiliate/{id}','AdminController@customer_unaffiliate')->name('customer.unaffiliate');
     Route::get('/orders','AdminController@orders')->name('orders');
 });

@@ -207,6 +207,9 @@
                                 <div>
                                     <a href="{{ route('user.profile.become_affiliate') }}" class="btn btn-success">Become Our Affiliate</a>
                                 </div>
+                                <div>
+                                    Read more about our <a href="{{ route('affiliate.document') }}" target="_blank">Affiliate</a> progarm.
+                                </div>
                                 @endif
                             </div>
                         </div>
@@ -228,4 +231,8 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br><br>
 @endsection

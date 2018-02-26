@@ -17,11 +17,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Helper\Helper;
 use App\WebBanner;
+use App\Transactions;
 
 
 class AdminController extends Controller
 {
 
+    //Force all routes/methods to use middleware 'admin' for secrutiy
     public function __construct()
     {
         $this->middleware('admin');
@@ -78,9 +80,32 @@ class AdminController extends Controller
         ->with('customers',User::where('role','=',1)->get());
     }
 
+    public function customer_affiliate($id)
+    {
+        $user = User::find($id);
+        $user->role = 2;
+        $user->book_purchased = true;
+        $user->save();
+
+        Session::flash('success','User is now Affiliate');
+        return redirect()->back();
+    }
+
+    public function customer_unaffiliate($id)
+    {
+        $user = User::find($id);
+        $user->role = 1;
+        $user->book_purchased = false;
+        $user->save();
+
+        Session::flash('success','User is not Affiliated anymore');
+        return redirect()->back();
+    }
+
     public function orders()
     {
-        return view('admin.orders.index');
+        return view('admin.orders.index')
+        ->with('transactions',Transactions::all());
     }
 
     public function store_photo(Request $request)

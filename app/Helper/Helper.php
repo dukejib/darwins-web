@@ -211,8 +211,8 @@ class Helper {
         $sub_categories = SubCategory::all()->count();
         $local_categories = LocalCategory::all()->count();
         $subscriptions = NewsLetter::all()->count();
-        $customers = User::where('role','=','customer')->get()->count();
-        $affiliations = User::where('role','=','affiliate')->get()->count();
+        $customers = User::where('role','=',1)->get()->count();
+        $affiliations = User::where('role','=',2)->get()->count();
         $articles = Article::all()->count();
         $web_banners = WebBanner::all()->count();
 
