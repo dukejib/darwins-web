@@ -10,7 +10,7 @@ Route::get('checking', function () {
 
 Route::get('sendemail',function(){
     $title = 'Email by laravel';
-    $content = 'Some email Conttent';
+    $content = 'Some email Content';
 
    Mail::send('admin.emails.basic', ['title' => $title, 'content' => $content], function ($message) {
        $message->from('ali@morecreditcardservices.com', 'Ali');
