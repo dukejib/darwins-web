@@ -176,6 +176,7 @@ class CartController extends Controller
 
         return view('shop.checkout',['total' => $total]);
     }
+    
     public function postCheckout(Request $request){
 
         if(!Session::has('cart')){

@@ -9,17 +9,16 @@ Route::get('checking', function () {
 });
 
 Route::get('sendemail',function(){
-    $title = 'Email by laravel';
-    $content = 'Some email Content';
+    $title = 'Welcome';
+    $email = 'dukejib@gmail.com';
+    $name = 'Ali Jibran';
 
-   Mail::send('admin.emails.basic', ['title' => $title, 'content' => $content], function ($message) {
-       $message->from('ali@morecreditcardservices.com', 'Ali');
-       $message->sender('ali@morecreditcardservices.com', 'Ali');
-       $message->to('duke@morecreditcardservices.com', 'Duke');
+   Mail::send('admin.emails.welcome', ['title' => $title , 'name' => $name], function ($message) use($title,$email,$name) {
+       $message->to($email,$name);
     //    $message->cc('john@johndoe.com', 'John Doe');
     //    $message->bcc('john@johndoe.com', 'John Doe');
     //    $message->replyTo('john@johndoe.com', 'John Doe');
-       $message->subject('Fresh Email');
+       $message->subject($title);
    });
 });
 
