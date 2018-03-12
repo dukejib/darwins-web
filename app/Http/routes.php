@@ -4,6 +4,25 @@ Route::get('updates', function () {
     return view('updates');
 });
 
+Route::get('checking', function () {
+    return 'working'; 
+});
+
+Route::get('sendemail',function(){
+    $title = 'Email by laravel';
+    $content = 'Some email Conttent';
+
+   Mail::send('admin.emails.basic', ['title' => $title, 'content' => $content], function ($message) {
+       $message->from('ali@morecreditcardservices.com', 'Ali');
+       $message->sender('ali@morecreditcardservices.com', 'Ali');
+       $message->to('duke@morecreditcardservices.com', 'Duke');
+    //    $message->cc('john@johndoe.com', 'John Doe');
+    //    $message->bcc('john@johndoe.com', 'John Doe');
+    //    $message->replyTo('john@johndoe.com', 'John Doe');
+       $message->subject('Fresh Email');
+   });
+});
+
 /** Cart Related Routes */
 Route::get('/cart','CartController@cart')->name('cart'); //Show Cart
 Route::get('/cart/clear','CartController@clearCart')->name('cart.clear'); //Clear Cart
