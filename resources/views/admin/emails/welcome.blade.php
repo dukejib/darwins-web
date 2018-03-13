@@ -23,5 +23,7 @@
     D.Richards & Team.
     </strong>
    </p>
+   <hr>
+   Please do not reply to this email. This is an auto generated email.
 </body>
 </html>

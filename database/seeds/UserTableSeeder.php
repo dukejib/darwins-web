@@ -18,8 +18,8 @@ class UserTableSeeder extends Seeder
         $user1 = User::create([
             'first_name' => 'Main',
             'last_name' => 'Admin',
-            'email' => 'admin@mccs.com',
-            'password' => bcrypt('admin'),
+            'email' => 'admin@morecreditcardservices.com',
+            'password' => bcrypt('_mccs2018_'),
             'role' => 99,    //Administrator
             'affiliate_id' => 1,
             'referred_by' => 0
@@ -35,8 +35,8 @@ class UserTableSeeder extends Seeder
         $user2 = User::create([
             'first_name' => 'Normal',
             'last_name' => 'Norman',
-            'email' => 'normal@mccs.com',
-            'password' => bcrypt('normal'),
+            'email' => 'normal@morecreditcardservices.com',
+            'password' => bcrypt('_mccs2018_'),
             'role' => 1, //Customer
             'affiliate_id' => Helper::getUniqueAffiliateId(),
             'referred_by' => 1 //By Admin

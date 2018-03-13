@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\User;
 use App\Profile;
 use App\Helper\Helper;
@@ -69,7 +68,7 @@ class UserController extends Controller
         $this->validate($request,[
             'first_name' => 'required|min:2|max:80',
             'last_name' => 'required|min:2|max:80',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email_domain:' . $request['email'] . '|max:255|unique:users',
             'password' => 'required|min:4|confirmed',
             'password_confirmation' => 'required|min:4',
         ]);
@@ -85,8 +84,18 @@ class UserController extends Controller
         $user->save();
 
         /** Send Email */
-        Email::welcome_email($user->id);
+        $title = 'Welcome';
+        $email = $request['email'];
+        $name = $request['first_name'] . ' ' . $request['last_name'];
 
+        \Mail::send('admin.emails.welcome', ['title' => $title , 'name' => $name], function ($message) use($title,$email,$name) {
+            $message->to($email,$name);
+        //    $message->cc('john@johndoe.com', 'John Doe');
+        //    $message->bcc('john@johndoe.com', 'John Doe');
+        //    $message->replyTo('john@johndoe.com', 'John Doe');
+            $message->subject($title);
+        });
+        
          /** Forget the Session */
         if($request->session()->has('affiliate_id')){
             $request->session()->forget('affiliate_id');

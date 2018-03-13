@@ -79,6 +79,7 @@ return [
     'timezone'             => 'The :attribute must be a valid zone.',
     'unique'               => 'The :attribute has already been taken.',
     'url'                  => 'The :attribute format is invalid.',
+    'email_domain' => 'We only allow protonmail accounts',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +94,7 @@ return [
 
     'custom' => [
         'attribute-name' => [
-            'rule-name' => 'custom-message',
+            'rule-name' => 'custom-message'   ,
         ],
     ],
 

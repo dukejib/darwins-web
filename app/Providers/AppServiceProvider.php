@@ -13,7 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-    
+        /** Accept only email domain form required one */
+        \Validator::extend('email_domain', function($attribute, $value, $parameters, $validator) {
+        	$allowedEmailDomains = ['protonmail.com'];
+        	return in_array( explode('@', $parameters[0])[1] , $allowedEmailDomains);
+        });
     }
 
     /**
