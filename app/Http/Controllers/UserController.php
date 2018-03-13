@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 use Cookie;
+use App\Helper\Email;
 
 class UserController extends Controller
 {
@@ -83,7 +84,10 @@ class UserController extends Controller
         $user->referred_by = $ref_code;
         $user->save();
 
-        /** Forget the Session */
+        /** Send Email */
+        Email::welcome_email($user->id);
+
+         /** Forget the Session */
         if($request->session()->has('affiliate_id')){
             $request->session()->forget('affiliate_id');
         }

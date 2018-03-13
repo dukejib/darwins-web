@@ -9,12 +9,15 @@
 <body style="margin:0; padding:10px 0 0 0;" bgcolor="#F8F8F8">
    <h4>Hi {{ $name }}</h4>
    <p><strong>Welcome</strong> to 
-    <a href="http://www.morecreditcardservices.com">More Credit Card Services</a>
+    <a href="http://www.morecreditcardservices.com" style="text-decoration:none">More Credit Card Services</a>
    </p>
-    <a href="http://">Read</a> how becoming our affiliate is beneficial for you.
+    <p>
+    <a href="{{ route('user.profile') }}" style="text-decoration:none">Checkout</a> your profile.
+   </p>
+    <a href="{{ route('affiliate.document') }}" style="text-decoration:none">Read</a> how becoming our affiliate is beneficial for you.
    <p>
    <p>
-    <a href="http://">Shop</a> products from our catalouge.
+    <a href="{{ route('home') }}" style="text-decoration:none">Shop</a> products from our catalouge.
    </p>
     <strong>
     D.Richards & Team.

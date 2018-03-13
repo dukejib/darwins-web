@@ -4,24 +4,6 @@ Route::get('updates', function () {
     return view('updates');
 });
 
-Route::get('checking', function () {
-    return 'working'; 
-});
-
-Route::get('sendemail',function(){
-    $title = 'Welcome';
-    $email = 'dukejib@gmail.com';
-    $name = 'Ali Jibran';
-
-   Mail::send('admin.emails.welcome', ['title' => $title , 'name' => $name], function ($message) use($title,$email,$name) {
-       $message->to($email,$name);
-    //    $message->cc('john@johndoe.com', 'John Doe');
-    //    $message->bcc('john@johndoe.com', 'John Doe');
-    //    $message->replyTo('john@johndoe.com', 'John Doe');
-       $message->subject($title);
-   });
-});
-
 /** Cart Related Routes */
 Route::get('/cart','CartController@cart')->name('cart'); //Show Cart
 Route::get('/cart/clear','CartController@clearCart')->name('cart.clear'); //Clear Cart
@@ -30,7 +12,6 @@ Route::get('/cart/add_to_cart/{id}','CartController@add_to_cart')->name('cart.ad
 Route::get('/cart/decrease_item/{id}{qty}','CartController@decrease_item')->name('cart.decrease');
 Route::get('/cart/increase_item/{id}{qty}','CartController@increase_item')->name('cart.increase');
 Route::get('/receive_payment','CartController@receive_payment');
-
 
 /** Common Routes */
 Route::get('/','FrontEndController@index')->name('home');    //Show Index Page with Products
