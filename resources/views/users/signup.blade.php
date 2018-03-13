@@ -12,7 +12,8 @@
             {{Session::get('affiliate_id')}}
         @endif
         <br>
-
+        <strong class="text-info text-center">We Only Accept Protonmail Accounts.</strong><br>
+        <strong class="text-warning text-center">Do not use your Protonmail Password in Signup.</strong>
         <div class="panel panel-primary">
             <div class="panel-heading">Sign Up</div>
             <div class="panel-body">

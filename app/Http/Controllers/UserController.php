@@ -80,6 +80,7 @@ class UserController extends Controller
         $user->email = $request['email'];
         $user->password = bcrypt($request['password']);
         $user->affiliate_id = Helper::getUniqueAffiliateId();
+        $user->role = 1;
         $user->referred_by = $ref_code;
         $user->save();
 
@@ -128,13 +129,15 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:4'
         ]);
-
+        
         /** Validation is done, now login user */
         //else to user profile
         $check = Auth::attempt(['email' => $request['email'],'password' => $request['password']]);
-
+        
         if($check){
+          
             $user = Auth::user();
+
             if ($user->role == 1 || $user->role == 2){
                 if(Session::has('cart')){
                     return redirect()->route('cart');
