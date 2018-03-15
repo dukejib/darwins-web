@@ -8,7 +8,7 @@ class Carousel extends Model
 {
     protected $table = 'carousels';
 
-    protected $fillable = ['heading','body','image'];
+    protected $fillable = ['heading','body','image','show_headings'];
 
     /** Mutator/Accessors */
     public function getImageAttribute($image)

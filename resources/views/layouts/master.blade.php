@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Latest compiled and minified CSS -->
+    {{--  <link rel="stylesheet" href="{{ asset('css/app.css') }}"> <!-- United Theme -->  --}}
     <link rel="stylesheet" href="{{ asset('css/united.theme.css') }}"> <!-- United Theme -->
     <link rel="stylesheet" href="{{ asset('css/my.css') }}"> <!-- My.css -->
     <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}"> <!-- Font Awesome -->
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}"> <!-- Slick -->
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}"> <!-- Slick -->
 
+    <link rel="Shortcut Icon" href="{{ asset('img/favicon.ico')}}" type="image/x-icon" > 
     @yield('styles') <!-- More Styles -->
 
 </head>

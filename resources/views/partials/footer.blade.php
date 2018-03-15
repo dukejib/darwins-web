@@ -9,7 +9,7 @@
                     <div class="row">
                        <div class="col-md-4" style="text-align:center;">
                            <h4>African Express VPC</h4>
-                           <img src="{{ asset('img/aevpclogo.png') }}" class="center-block img-responsive" width="64px">
+                           <img src="{{ asset('img/aevpclogo2.png') }}" class="center-block img-responsive" width="120px">
                        </div>
 
                        <div class="col-md-4" style="text-align:center;">

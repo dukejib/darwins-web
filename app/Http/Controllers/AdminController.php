@@ -86,9 +86,11 @@ class AdminController extends Controller
         $user->role = 2;
         $user->book_purchased = true;
         $user->save();
-
-        Session::flash('success','User is now Affiliate');
-        return redirect()->back();
+        
+        return response()->json(['reply'=> 'Customer is an affiliate']);
+        
+        // Session::flash('success','User is now Affiliate');
+        // return redirect()->back();
     }
 
     public function customer_unaffiliate($id)
@@ -98,8 +100,9 @@ class AdminController extends Controller
         $user->book_purchased = false;
         $user->save();
 
-        Session::flash('success','User is not Affiliated anymore');
-        return redirect()->back();
+        return response()->json(['reply'=> 'Customer is an Unaffiliate']);
+        // Session::flash('success','User is not Affiliated anymore');
+        // return redirect()->back();
     }
 
     public function orders()

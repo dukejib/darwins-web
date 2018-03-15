@@ -119,7 +119,7 @@ class Helper {
         $settings = Setting::first();
 
         /** Carousel Data */
-        $carousel = Carousel::paginate(10);
+        $carousel = Carousel::all();
 
         /** Product Array */
         $products = Item::where('product',1)->orderBy('created_at','desc')->get();

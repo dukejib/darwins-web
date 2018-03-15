@@ -1,5 +1,6 @@
  <!-- Insert Carousel -->
 <div class="row">
+    <div id = "carousel_time" value =  "{{ $settings->carousel_time }}"></div>
     <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -16,10 +17,12 @@
                     @for ($i = 0; $i < sizeOf($carousel); $i++)
                         <div class="item @if($i ==0) active @endif">
                             <img src="{{ asset($carousel[$i]->image)}}" >
-                            <div class="carousel-caption">
+                            @if($carousel[$i]->show_headings)
+                                <div class="carousel-caption">
                                     <h3>{{ $carousel[$i]->heading }}</h3>
                                     <p>{{ $carousel[$i]->body }}</p>
-                            </div>
+                                </div>
+                            @endif
                         </div>
                     @endfor
         </div>

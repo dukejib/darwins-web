@@ -39,6 +39,7 @@ class SettingsController extends Controller
         $settings->contact_line2 = request()->contact_line2;
         $settings->contact_mobile = request()->contact_mobile;
         $settings->contact_email = request()->contact_email;
+        $settings->carousel_time = request()->carousel_time;
         $settings->save();
 
         Session::flash('success','Settings Updated');

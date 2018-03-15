@@ -17,6 +17,7 @@ class CreateCarouselsTable extends Migration
             $table->string('heading')->nullable();
             $table->string('body')->nullable();
             $table->string('image');
+            $table->boolean('show_headings')->default(false);
             $table->timestamps();
         });
     }

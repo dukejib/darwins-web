@@ -24,14 +24,15 @@
                    </thead>
                    <tbody>
                    @foreach($affiliates as $affiliate)
-                       <tr>
+                       <tr id = "{{ $affiliate->id }}">
                            <td><img src="{{ asset($affiliate->profile->avatar) }}" style="border-radius:50%" width="25px"></td>
                            <td>{{ $affiliate->first_name }}</td>
                            <td>{{ $affiliate->last_name }}</td>
                            <td>{{ $affiliate->email }}</td>
                            <td>
                             @if(!$affiliate->isUserAffiliate())
-                                <a href="{{ route('customer.unaffiliate',['id' => $affiliate->id]) }}" class="btn btn-xs btn-warning">Unaffiliate</a>
+                             <button type="button" class="btn btn-danger btn-xs" id="unAffiliate" value="{{ $affiliate->id }}"  url = "{{ route('customer.unaffiliate',['id' => $affiliate->id]) }}">Unaffiliate</button>
+                            {{--  <a href="{{ route('customer.unaffiliate',['id' => $affiliate->id]) }}" class="btn btn-xs btn-warning">Unaffiliate</a>  --}}
                             @endif
                            </td>
                        </tr>
@@ -43,5 +44,29 @@
            @endif
        </div>
    </div>
+
+<!-- Modal -->
+<div id="unAffiliateModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Un Affiliate</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-xs pull-left" id="unAffiliateProceed">Proceed</button>
+        <button type="button" class="btn btn-warning btn-xs pull-right" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+    </div>
+</div>
+
+
 @endsection
 

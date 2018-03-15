@@ -6,21 +6,22 @@
 /**
  * Button btnProductDetails in index.blade.php
  */
-$(document).ready(function(){
-  $('.btnProductDetails').on('click',function(){
-    $product = $.parseJSON(this.value);
-    //$imageSrc = (window.location.href).slice(0,-1) +  $product['image'];
-    $imageSrc = $product.image; // $product['image']
-    console.log($imageSrc);
+// $(document).ready(function(){
+//   $('.btnProductDetails').on('click',function(){
+//     $product = $.parseJSON(this.value);
+//     //$imageSrc = (window.location.href).slice(0,-1) +  $product['image'];
+//     $imageSrc = $product.image; // $product['image']
+//     console.log($imageSrc);
 
 
-    $('.modal-body #title').html($product.title);
-    $('.modal-body #description').html($product.description);
-    $('.modal-body #price').html('Price : $ ' + $product.price);
-    $('.modal-body #image').attr('src',$imageSrc);
-    $('#productDetails').modal('show');
-  });
-});
+//     $('.modal-body #title').html($product.title);
+//     $('.modal-body #description').html($product.description);
+//     $('.modal-body #price').html('Price : $ ' + $product.price);
+//     $('.modal-body #image').attr('src',$imageSrc);
+//     $('#productDetails').modal('show');
+//   });
+// });
+
 
 /** For Menu System  */
 $(document).ready(function(){
@@ -31,9 +32,16 @@ $(document).ready(function(){
   });
 });
 
-/** Carousel Slider Interval **/
-$('.carousel').carousel({
-  interval: 2000
+/** main Carousel */
+$(document).ready(function () {
+    //Get the Carousel Interval Time from Settings
+    $carouselInterval = $('#carousel_time').attr('value');   
+    console.log($carouselInterval);
+    /** Carousel Slider Interval **/
+    $('.carousel').carousel({
+        
+    interval: $carouselInterval
+    });
 });
 
 /** Owl Carousel Slider Interval **/

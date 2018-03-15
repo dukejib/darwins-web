@@ -45,8 +45,6 @@ class CarouselController extends Controller
     {
         /** Validate the Input */
         $this->validate($request,[
-            'heading' => 'required',
-            'body' => 'required',
             'image' => 'required|image|max:1024'
         ]);
         /** Get New File */
@@ -55,10 +53,17 @@ class CarouselController extends Controller
         $image_new_name = time(). $image->getClientOriginalName();
         /** Move the File to required directory with new Name */
         $image->move('img/carousel/',$image_new_name);
-        
+         
+        /** Do we have to show the headings */
+        $checked = 0;
+        if(request()->has('show_headings')) 
+        { 
+            $checked = 1;
+        } 
         Carousel::create([
             'heading' => $request->heading,
             'body' => $request->body,
+            'show_headings' => $checked, 
             'image' => 'img/carousel/' .$image_new_name
         ]);
         //Send back the message
@@ -129,9 +134,16 @@ class CarouselController extends Controller
             /** Save Data */
             $carousel->save();
         }
+        /** Do we have to show the headings */
+        $checked = 0;
+        if(request()->has('show_headings')) 
+        { 
+            $checked = 1;
+        } 
         /** Update the data of Carousel */
         $carousel->heading = $request->heading;
         $carousel->body = $request->body;
+        $carousel->show_headings = $checked;
         $carousel->save();
         //Send back the message
         Session::flash('success','Carousel updated');

@@ -88,7 +88,7 @@ class SettingTableSeeder extends Seeder
             'contact_email' => 'info@morecreditcardservices.net',
             'tos_filename' => 'tos.pdf',
             'refill_statement' => $refill_text,
-            'app_statement' => $app_text
+            'app_statement' => $app_text,
         ]);
         $this->command->info('Settings Seeded');
     }

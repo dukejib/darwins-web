@@ -15,6 +15,7 @@
                         <th>Image</th>
                         <th>Heading</th>
                         <th>Body</th>
+                        <th>Show Headings</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -25,6 +26,13 @@
                             <td><img src="{{ asset($carousel->image) }}" alt="{{ $carousel->heading }}" width="50px"></td>
                             <td>{{ $carousel->heading }}</td>
                             <td>{{ $carousel->body }}</td>
+                            <td>
+                                @if($carousel->show_headings)
+                                    <span class="text-success">True</span>
+                                @else
+                                    <span class="text-warning">False</span>
+                                @endif
+                            </td>
                             <td>
                                 <a href="{{ route('admin.carousel.edit',['carousel' => $carousel->id]) }}" class="btn btn-xs btn-info"><i class="fa fa-pencil icon-edit"></i></a>
                             </td>

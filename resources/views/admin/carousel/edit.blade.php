@@ -21,6 +21,19 @@
                     <input type="text" id="body" name="body" class="form-control" value="{{ $carousel->body }}">
                 </div>
 
+                <div class="form-group">
+                    <label>
+                    <input type="checkbox" name="show_headings" id="show_headings"
+                    @if($carousel->show_headings)
+                        checked
+                    @else
+                        unchecked
+                    @endif
+                    >&nbsp;&nbsp;&nbsp;&nbsp;
+                    Show Headings 
+                    </label>
+                </div>
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -35,6 +48,7 @@
                         </div>
                     </div>
                 </div>
+                 
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-xs btn-success">Update Carousel</button>

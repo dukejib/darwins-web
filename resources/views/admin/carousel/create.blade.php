@@ -20,6 +20,14 @@
                 </div>
 
                 <div class="form-group">
+                    <label>
+                    <input type="checkbox" name="show_headings" id="show_headings"
+                    >&nbsp;&nbsp;&nbsp;&nbsp;
+                    Show Headings 
+                    </label>
+                </div>
+
+                <div class="form-group">
                     <label for="image">Upload New Image</label>
                     <input type="file" class="form-control" id="image" name="image">
                 </div>
