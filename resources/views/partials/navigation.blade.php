@@ -39,7 +39,7 @@
                             </a>
                         </li>
                         @if(Auth::check())
-                            @if(!Auth::user()->role == 99)
+                            @if(Auth::user()->role != 99)
                                 <li><a href="{{ route('user.profile') }}">
                                         <i class="fa fa-user-circle-o" aria-hidden="true"></i> My Account</a>
                                 </li>
