@@ -52,6 +52,9 @@ Route::group(['prefix' => 'user'],function(){
     Route::post('/profile/account','ProfileController@account')->name('user.profile.account')->middleware('auth'); 
     Route::post('/profile/contact','ProfileController@contact')->name('user.profile.contact')->middleware('auth');
     Route::get('/profile/becomeaffiliate','ProfileController@become_affiliate')->name('user.profile.become_affiliate')->middleware('auth');
+    Route::get('/affiliate/{id}','UserController@user_affiliate')->name('user.affiliate')->middleware('auth');
+    Route::get('/unaffiliate/{id}','UserController@user_unaffiliate')->name('user.unaffiliate')->middleware('auth');
+    Route::get('/delete/{id}','UserController@user_delete')->name('user.delete')->middleware('auth');
     
 });
 
@@ -105,7 +108,5 @@ Route::group(['prefix' => 'admin'],function(){
     Route::post('/web_banners/update/{id}','AdminController@web_banner_update')->name('admin.web_banner.update');
     Route::get('/affiliates','AdminController@affiliates')->name('affiliates');
     Route::get('/customers','AdminController@customers')->name('customers');
-    Route::get('/customer/makeaffiliate/{id}','AdminController@customer_affiliate')->name('customer.affiliate');
-    Route::get('/customer/unaffiliate/{id}','AdminController@customer_unaffiliate')->name('customer.unaffiliate');
     Route::get('/orders','AdminController@orders')->name('orders');
 });

@@ -163,4 +163,36 @@ class UserController extends Controller
             return redirect()->route('home');
         }
     }
+
+    public function user_affiliate($id)
+    {
+        $user = User::find($id);
+        $user->role = 2;
+        $user->book_purchased = true;
+        $user->save();
+        
+        Session::flash('success','User is now Affiliate');
+        return redirect()->back();
+    }
+
+    public function user_unaffiliate($id)
+    {
+        $user = User::find($id);
+        $user->role = 1;
+        $user->book_purchased = false;
+        $user->save();
+
+        Session::flash('success','User is not Affiliated anymore');
+        return redirect()->back();
+    }
+
+    public function user_delete($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+
+        return response()->json(['reply'=> 'Customer/Affiliate Deleted']);
+        // Session::flash('success','User is not Affiliated anymore');
+        // return redirect()->back();
+    }
 }

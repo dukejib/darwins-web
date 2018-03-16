@@ -7,73 +7,33 @@ $(document).ready(function() {
     $('#app').summernote();
 });
 
-
 /**
-* Button makeAffiliate in e-commerce\resources\views\admin\users\customers.blade.php
+* Button deleteUser in e-commerce\resources\views\admin\users\affiliates.blade.php | customers.blade.php
 */
 $(document).ready(function () {
-    $custId = 0; //Id to change customer
+    userId = 0; //Id to change customer
     $functionUrl = ""; //Url to function
-    $('#makeAffiliate').on('click', function () {
-        $custId = $(this).attr('value');
+    $('#deleteUser').on('click', function () {
+        userId = $(this).attr('value');
         $functionUrl = $(this).attr('url');
-        console.log($custId);
+        // console.log(userId);
         console.log($functionUrl);
-        $('#makeAffiliateModal').modal('show');
+        $('#deleteUserModal').modal('show');
     });
-    // This uses Modal Proceed Button
-    $('#makeAffiliateProceed').on('click', function () {
+     //This uses Modal Proceed Button
+    $('#delete').on('click', function () {
         $.ajax({
             type: "GET",
             url: $functionUrl,
-            // url : '/customer/makeaffiliate/' + $custId,
-            // data: { "id" : $custId},
+            // url : '/customer/makeaffiliate/' +userId,
+            // data: { "id" :userId},
             dataType: "json",
             success: function (response) {
                 //AdminController is sending json reply:answer
                 console.log(response.reply); 
                 //Hide and remove the relevant TR
-                $('#' + $custId).fadeOut(1000,function(){
-                    $('#' + $custId).remove();
-                });
-                
-            },
-            error:function(){
-                alert('There was an error');
-            }            
-        });
-        //
-        $('#makeAffiliateModal').modal('hide');
-    });
-});
-
-/**
-* Button makeUnAffiliate in e-commerce\resources\views\admin\users\affiliates.blade.php
-*/
-$(document).ready(function () {
-   $affiliateId = 0; //Id to change customer
-    $functionUrl = ""; //Url to function
-    $('#unAffiliate').on('click', function () {
-       $affiliateId = $(this).attr('value');
-        $functionUrl = $(this).attr('url');
-        console.log($custId);
-        console.log($functionUrl);
-        $('#unAffiliateModal').modal('show');
-    });
-    //This uses Modal Proceed Button
-    $('#unAffiliateProceed').on('click', function () {
-        $.ajax({
-            type: "GET",
-            url: $functionUrl,
-            // url : '/customer/makeaffiliate/' +$affiliateId,
-            // data: { "id" :$affiliateId},
-            dataType: "json",
-            success: function (response) {
-                //AdminController is sending json reply:answer
-                console.log(response.reply); 
-                //Hide and remove the relevant TR
-                $('#' +$affiliateId).fadeOut(1000,function(){
-                    $('#' +$affiliateId).remove();
+                $('#' +userId).fadeOut(1000,function(){
+                    $('#' +userId).remove();
                 });
             },
             error:function(){
@@ -81,10 +41,9 @@ $(document).ready(function () {
             }            
         });
         //
-        $('#unAffiliateModal').modal('hide');
-    });
-});
-
+        $('#deleteUserModal').modal('hide');
+     });
+ });
 
 // $('#btnDeleteProduct').on('click',function(){
 // $.ajax({

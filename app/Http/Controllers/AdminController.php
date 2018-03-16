@@ -80,31 +80,6 @@ class AdminController extends Controller
         ->with('customers',User::where('role','=',1)->get());
     }
 
-    public function customer_affiliate($id)
-    {
-        $user = User::find($id);
-        $user->role = 2;
-        $user->book_purchased = true;
-        $user->save();
-        
-        return response()->json(['reply'=> 'Customer is an affiliate']);
-        
-        // Session::flash('success','User is now Affiliate');
-        // return redirect()->back();
-    }
-
-    public function customer_unaffiliate($id)
-    {
-        $user = User::find($id);
-        $user->role = 1;
-        $user->book_purchased = false;
-        $user->save();
-
-        return response()->json(['reply'=> 'Customer is an Unaffiliate']);
-        // Session::flash('success','User is not Affiliated anymore');
-        // return redirect()->back();
-    }
-
     public function orders()
     {
         return view('admin.orders.index')

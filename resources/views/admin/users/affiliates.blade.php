@@ -20,6 +20,7 @@
                        <td>Last Name</td>
                        <td>Email</td>
                        <td>Affiliation</td>
+                       <td>Delete User</td>
                    </tr>
                    </thead>
                    <tbody>
@@ -31,10 +32,12 @@
                            <td>{{ $affiliate->email }}</td>
                            <td>
                             @if(!$affiliate->isUserAffiliate())
-                             <button type="button" class="btn btn-danger btn-xs" id="unAffiliate" value="{{ $affiliate->id }}"  url = "{{ route('customer.unaffiliate',['id' => $affiliate->id]) }}">Unaffiliate</button>
-                            {{--  <a href="{{ route('customer.unaffiliate',['id' => $affiliate->id]) }}" class="btn btn-xs btn-warning">Unaffiliate</a>  --}}
+                            <a href="{{ route('user.unaffiliate',['id' => $affiliate->id]) }}" class="btn btn-xs btn-warning">Unaffiliate</a>
                             @endif
-                           </td>
+                            </td>
+                            <td>
+                                <button type="button" id="deleteUser"  class="btn btn-danger btn-xs" value="{{ $affiliate->id }}" url = "{{ route('user.delete',['id' => $affiliate->id]) }}">Delete User</button>
+                            </td>
                        </tr>
                    @endforeach
                    </tbody>
@@ -45,28 +48,28 @@
        </div>
    </div>
 
-<!-- Modal -->
-<div id="unAffiliateModal" class="modal fade" role="dialog">
+<!-- Modal Affiliates -->
+<div id="deleteUserModal" class="modal fade" role="dialog">
       <div class="modal-dialog modal-sm">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Un Affiliate</h4>
+        <h4 class="modal-title">Delete User</h4>
       </div>
       <div class="modal-body">
         <p>Are you sure?</p>
+        This means the user will be deleted permanently. This user will not be recoverable anymore.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger btn-xs pull-left" id="unAffiliateProceed">Proceed</button>
-        <button type="button" class="btn btn-warning btn-xs pull-right" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger btn-xs pull-left" id="delete">Delete Permanently</button>
+        <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">Cancel</button>
       </div>
     </div>
 
     </div>
 </div>
-
 
 @endsection
 
