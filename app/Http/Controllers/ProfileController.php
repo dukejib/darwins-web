@@ -30,14 +30,14 @@ class ProfileController extends Controller
         $this->validate($request,[
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required|email',
+            // 'email' => 'required|email',
         ]);
         /** Find the Authenticated User */
         $user = Auth::user();
         /** Save new data to the User table */
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
-        $user->email = $request->email;
+        // $user->email = $request->email;
         $user->save();
         /** Save the data of User Profile */
         //$user->profile->save();

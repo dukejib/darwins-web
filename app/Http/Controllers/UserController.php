@@ -15,6 +15,7 @@ use App\Helper\Email;
 
 class UserController extends Controller
 {
+
     public function getUserSignUp()
     {
         $affiliate_id = 1;

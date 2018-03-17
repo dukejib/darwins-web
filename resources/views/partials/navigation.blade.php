@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12 col-sm-12">
+    <div class="col-md-10 col-md-offset-1">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->

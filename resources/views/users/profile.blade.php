@@ -55,13 +55,6 @@
                                             <input type="text" class="form-control" name="last_name" value="{{ $user->last_name }}">
                                         </div>
                                     </div>
-                
-                                    <div class="form-group">
-                                        <label for="email" class="control-label col-xs-3">Email</label>
-                                        <div class="col-xs-9">
-                                            <input type="email" class="form-control" name="email" value="{{ $user->email }}">
-                                        </div>
-                                    </div>
                                             
                                     <div class="form-group">
                                         <div class="text-center">
