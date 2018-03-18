@@ -17,6 +17,18 @@
                     <h3 class="text-warning">Updates / Additons </h3>
 
                     <ul class="list-group">
+                        <li class="list-group-item text-success">Following was added between 12-18 march 2018
+                            <ul>
+                                <li class="text-info">Login Throttling : User can attempt 3 failed login attempt: lockdown 3600 sec/1 Hour
+                                </li>
+                                <li class="text-info">Added "Delete user" buttong to customer/affiliate > >> Admin
+                                </li>
+                                <li class="text-info">Only Protonmail user can Sign up with us</li>
+                                <li class="text-info">Email is sent to every one, who signs up with us</li>
+                                <li class="text-info">Email server is up and running</li>
+                                <li class="text-info">Tweaks , Updates & changes for better working</li>
+                            </ul>
+                        </li>
                         <li class="list-group-item text-success">Added Affilate Crowdfunding Book purchase option in "My Account" page in frontend. 16th Feb | in case of purchase through VPC & USPS, the admin needs to manually make the customer as "AFFILIATE", for which ;
                             <ul>
                                 <li class="text-info">Added "make affiliate" button to Admin >> Customer page : 17th Feb

@@ -12,9 +12,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 use Cookie;
 use App\Helper\Email;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class UserController extends Controller
 {
+    use AuthenticatesAndRegistersUsers,ThrottlesLogins;
+
+    protected $maxLoginAttempts=3;
+    protected $lockoutTime=3600;
 
     public function getUserSignUp()
     {
@@ -125,12 +131,16 @@ class UserController extends Controller
 
     public function postUserSignIn(Request $request)
     {
+        if ($this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+            return $this->sendLockoutResponse($request);
+        }
         /** Validate the input */
-        $this->validate($request,[
+        $validation = $this->validate($request,[
             'email' => 'required|email',
             'password' => 'required|min:4'
         ]);
-        
+
         /** Validation is done, now login user */
         //else to user profile
         $check = Auth::attempt(['email' => $request['email'],'password' => $request['password']]);
@@ -138,7 +148,7 @@ class UserController extends Controller
         if($check){
           
             $user = Auth::user();
-
+            $this->clearLoginAttempts($request);
             if ($user->role == 1 || $user->role == 2){
                 if(Session::has('cart')){
                     return redirect()->route('cart');
@@ -147,7 +157,9 @@ class UserController extends Controller
             }elseif($user->role == 99) {
                 return redirect()->route('dashboard');
             }
+
         }else{
+            $this->incrementLoginAttempts($request);
             $errors = new MessageBag(['password' => ['Email and/or Password is invalid']]);
             return redirect()->back()->withErrors($errors);
         }
