@@ -12,13 +12,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 use Cookie;
 use App\Helper\Email;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins; /** Needed for Login Throttling */
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers; /** Needed for Login Throttling */
 
 class UserController extends Controller
 {
+    /** Needed for Login Throttling */
     use AuthenticatesAndRegistersUsers,ThrottlesLogins;
-
+    /** Needed for Login Throttling */
     protected $maxLoginAttempts=3;
     protected $lockoutTime=3600;
 
