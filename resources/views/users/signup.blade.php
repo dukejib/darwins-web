@@ -8,9 +8,10 @@
 
     <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
         @include('includes.errors')
-        @if(Session::has('affiliate_id'))
+
+        {{--  @if(Session::has('affiliate_id'))
             {{Session::get('affiliate_id')}}
-        @endif
+        @endif  --}}
         <br>
         <strong class="text-info text-center">We Only Accept Protonmail Accounts.</strong><br>
         <strong class="text-warning text-center">Do not use your Protonmail Password in Signup.</strong>
