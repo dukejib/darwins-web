@@ -44,8 +44,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="image">Image (Only *.jpg)</label>
-                    <input type="file" class="form-control" id="image" name="image">
+                    <label for="image" class="btn btn-success pull-left">Add New Image</label>
+                    <input id="image" style="visibility:hidden;" type="file" name="image" accept="image/x-png,image/gif,image/jpeg">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success btn-xs pull-right">Update Service</button>
@@ -55,4 +55,12 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+    document.getElementById("image").onchange = function() {
+        document.getElementById("form").submit();
+    };
+    </script>
 @endsection

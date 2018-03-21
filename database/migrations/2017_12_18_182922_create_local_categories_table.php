@@ -16,7 +16,7 @@ class CreateLocalCategoriesTable extends Migration
             $table->increments('id');
             $table->integer('sub_category_id')->unsigned();
             $table->string('title');
-            $table->boolean('active')->default(1); //Yes Visible
+            $table->boolean('active')->default(true); //Yes Visible
             $table->string('slug')->nullable();
             $table->timestamps();
         });

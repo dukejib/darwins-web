@@ -15,7 +15,7 @@ class CreateGlobalCategoriesTable extends Migration
         Schema::create('global_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->boolean('active')->default(1); //Yes Visible
+            $table->boolean('active')->default(true); //Yes Visible
             $table->string('slug')->nullable();
             $table->timestamps();
         });

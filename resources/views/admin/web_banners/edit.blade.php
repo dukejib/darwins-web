@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <img src="{{ URL::to('/img/web_banners/' . $web_banner->image) }}" width = "400px" alt="{{ $web_banner->title }}">
-                    <label for="image" class="btn btn-xs btn-success pull-right">Update Image (Max Size Allowed : 256 Kb)</label>
+                    <label for="image" class="btn btn-success pull-right">Update Image (Max Size Allowed : 256 Kb)</label>
                     <input id="image" style="visibility:hidden;" type="file" name="image" accept="image/x-png,image/gif,image/jpeg">
                 </div>
             </form>

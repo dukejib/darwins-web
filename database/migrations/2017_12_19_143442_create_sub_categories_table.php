@@ -17,7 +17,7 @@ class CreateSubCategoriesTable extends Migration
             $table->string('title');
             $table->integer('global_category_id')->unsigned();
             $table->string('slug')->nullable();
-            $table->boolean('active')->default(1); //Active
+            $table->boolean('active')->default(true); //Active
             $table->timestamps();
         });
     }

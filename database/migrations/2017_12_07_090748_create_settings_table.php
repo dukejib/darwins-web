@@ -22,7 +22,7 @@ class CreateSettingsTable extends Migration
             $table->string('contact_line2');
             $table->string('contact_mobile');
             $table->string('contact_email');
-            $table->integer('carousel_time')->default(2000);
+            $table->integer('carousel_time')->default(5000);
             $table->string('tos_filename')->nullable();
             $table->text('refill_statement')->nullable();
             $table->text('app_statement')->nullable();
