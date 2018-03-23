@@ -9,18 +9,18 @@
 <body style="margin:0; padding:10px 0 0 0;" bgcolor="#F8F8F8">
    <h4>Hi {{ $name }}</h4>
    <p><strong>Welcome</strong> to 
-    <a href="{{ route('home') }}" style="text-decoration:none">More Credit Card Services</a>
+    <a href="#" style="text-decoration:none">More Credit Card Services</a>
    </p>
     <p>
-    <a href="{{ route('user.profile') }}" style="text-decoration:none">Account </a>Check out your profile.
+    <a href="#" style="text-decoration:none">Account </a>Check out your profile.
    </p>
-    <a href="{{ route('aboutbusiness') }}" style="text-decoration:none">Business </a> Assess yourself and know more about you.
+    <a href="#" style="text-decoration:none">Business </a> Assess yourself and know more about you.
    <p>
     </p>
-    <a href="{{ route('affiliate.document') }}" style="text-decoration:none">Read </a>Why becoming our affiliate is beneficial for you.
+    <a href="#" style="text-decoration:none">Read </a>Why becoming our affiliate is beneficial for you.
    <p>
    <p>
-    <a href="{{ route('home') }}" style="text-decoration:none">Shop </a>View and purchase products from our catalouge.
+    <a href="#" style="text-decoration:none">Shop </a>View and purchase products from our catalouge.
    </p>
     <strong>
     D.Richards & Team.

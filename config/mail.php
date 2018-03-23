@@ -58,7 +58,6 @@ return [
     */
 
     'from' => ['address' => 'webmaster@morecreditcardservices.com', 'name' => 'Webmaster'],
-
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol
