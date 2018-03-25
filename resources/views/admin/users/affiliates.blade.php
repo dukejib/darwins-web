@@ -15,6 +15,7 @@
                <table class="table table-striped table-condensed" id="affiliates">
                    <thead>
                    <tr>
+                        <th>Id</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
@@ -26,10 +27,11 @@
                    <tbody>
                    @foreach($affiliates as $affiliate)
                        <tr id = "{{ $affiliate->id }}">
-                           <td>{{ $affiliate->first_name }}</td>
-                           <td>{{ $affiliate->last_name }}</td>
-                           <td>{{ $affiliate->email }}</td>
-                           <td>
+                            <td>{{ $affiliate->id }}</td>
+                            <td>{{ $affiliate->first_name }}</td>
+                            <td>{{ $affiliate->last_name }}</td>
+                            <td>{{ $affiliate->email }}</td>
+                            <td>
                             @if(!$affiliate->isUserAffiliate())
                             <a href="{{ route('user.unaffiliate',['id' => $affiliate->id]) }}" class="btn btn-xs btn-warning">Unaffiliate</a>
                             @endif

@@ -8,7 +8,8 @@
 
     <!-- Latest compiled and minified CSS -->
     {{--  <link rel="stylesheet" href="{{ asset('css/darkly.theme.css') }}"> <!-- Darkly Theme -->  --}}
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}"> <!-- Darkly Theme -->
+    <link rel="stylesheet" href="{{ asset('css/united.theme.css') }}"> <!-- United Theme -->
+    {{--  <link rel="stylesheet" href="{{ asset('css/app.css') }}"> <!-- Darkly Theme -->  --}}
     <link rel="stylesheet" href="{{ asset('css/font-awesome.css')}}"> <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"> <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('css/summernote.css') }}"> <!-- SummerNote -->
@@ -17,8 +18,7 @@
 </head>
 
 <body>
-    {{--Page Content--}}
-    <div class="container">
+
         {{--  Nav Bar  --}}
     <div class="row">
         <div class="col-md-12 col-sm-12">
@@ -143,7 +143,8 @@
             </div>
     
         </div>
-    </div>
+    
+  
 
 
 <script src="{{ asset('js/jquery-3.2.1.js')}}"></script>

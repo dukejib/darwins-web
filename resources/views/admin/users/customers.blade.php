@@ -12,17 +12,19 @@
                     <table class="table table-striped table-condensed" id="affiliates">
                         <thead>
                         <tr>
+                            <th>Id</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>
                             <th>Affiliation</th>
-                            <th>View User</th>
-                            <th>Delete User</th>
+                            <th>View</th>
+                            <th>Delete</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($customers as $customer)
                             <tr id ="{{ $customer->id }}"  >
+                                <td>{{ $customer->id }}</td>
                                 <td>{{ $customer->first_name }}</td>
                                 <td>{{ $customer->last_name }}</td>
                                 <td>{{ $customer->email }}</td>
