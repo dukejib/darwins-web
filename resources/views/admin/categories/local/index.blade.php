@@ -4,12 +4,13 @@
 
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Local Categories - Total : ({{$local_categories->total()}}) Records
+            Local Categories
+            {{--  Local Categories - Total : ({{$local_categories->total()}}) Records  --}}
             <a href="{{ route('admin.local.create') }}" class="btn btn-xs btn-success pull-right">Add New Local Category</a>
         </div>
         <div class="panel-body">
             @if(count($local_categories)> 0)
-                <table class="table table-striped table-condensed">
+                <table class="table table-striped table-condensed" id="local">
                     <thead>
                     <tr>
                         <th>Id</th>
@@ -53,11 +54,11 @@
                         </tr>
                     @endforeach
                     </tbody>
-                     <tfoot>
+                    {{--  <tfoot>
                         <tr>
                             <td colspan="6" class="text-center"> {{ $local_categories->links()}}</td>
                         </tr>
-                    </tfoot>
+                    </tfoot>  --}}
                 </table>
             @else
                 <div class="text-center">There are no Local Categories Defined</div>
@@ -65,4 +66,12 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+        $('#local').DataTable();
+    } );
+    </script>
 @endsection

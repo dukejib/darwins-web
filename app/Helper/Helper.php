@@ -15,6 +15,7 @@ use App\User;
 use App\WebBanner;
 
 use DB;
+use App\Order;
 
 /** This Class Has functions to Help out Project */
 class Helper {
@@ -141,7 +142,7 @@ class Helper {
             'carousel');
     }
 
-    public static function getAdminData()
+    public static function dataForAdminPages()
     {
           /** create the Menu System */
         $local = LocalCategory::where('active',1)->get();
@@ -183,16 +184,16 @@ class Helper {
         endforeach;
         
         /** Settings for the system */
-        $settings = Setting::first();
+        // $settings = Setting::first();
 
         /** Carousel Data */
-        $carousel = Carousel::paginate(10);
+        // $carousel = Carousel::paginate(10);
 
         /** Product Array */
         // $products = Product::orderBy('created_at','desc')->get();
-        $products = DB::table('items')->where('product',1)->orderBy('created_at','desc')->paginate(10);
-        $services = DB::table('items')->where('product',0)->orderBy('created_at','desc')->paginate(10);
-        $articles = DB::table('articles')->orderBy('created_at','desc')->paginate(10);
+        $products = DB::table('items')->where('product',1)->orderBy('created_at','desc')->get();
+        $services = DB::table('items')->where('product',0)->orderBy('created_at','desc')->get();
+        $articles = DB::table('articles')->orderBy('created_at','desc')->get();
         
         return compact(
             'global_categories',
@@ -215,6 +216,7 @@ class Helper {
         $affiliations = User::where('role','=',2)->get()->count();
         $articles = Article::all()->count();
         $web_banners = WebBanner::all()->count();
+        $pending_orders = Order::where('delivery_status','=',1)->get()->count();
 
         return compact(
             'global_categories',
@@ -224,12 +226,20 @@ class Helper {
             'customers',
             'affiliations',
             'articles',
-            'web_banners'
+            'web_banners',
+            'pending_orders'
         );
     }
 
     public static function getUniqueAffiliateId(){
         return 'MCCS' . uniqid();
+    }
+
+    public static function cartTaxes()
+    {
+           /** Settings for the system */
+           $settings = Setting::first();
+           return $settings;
     }
 
 }

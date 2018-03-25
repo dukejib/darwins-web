@@ -4,12 +4,12 @@
 
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Global Categories - Total : ({{$categories->total()}}) Records
+            Global Categories {{--  Global Categories - Total : ({{$categories->total()}}) Records  --}}
             <a href="{{ route('admin.global.create') }}" class="btn btn-xs btn-success pull-right">Add New Global Category</a>
         </div>
         <div class="panel-body">
             @if(count($categories)> 0)
-                <table class="table table-striped table-condensed">
+                <table class="table table-striped table-condensed" id="global">
                     <thead>
                     <tr>
                         <th>Id</th>
@@ -48,17 +48,25 @@
                         </tr>
                     @endforeach
                     </tbody>
-                    <tfoot>
+                    {{--  <tfoot>
                         <tr>
                             <td colspan="5" class="text-center"> {{ $categories->links()}}</td>
                         </tr>
-                    </tfoot>
+                    </tfoot>  --}}
                 </table>
              
             @else
-                <div class="text-center">There are no Global Categories Defined</div>
+                <div class="text-center">There are no Global Categories Defined</div> 
             @endif
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+        $('#global').DataTable();
+    } );
+    </script>
 @endsection

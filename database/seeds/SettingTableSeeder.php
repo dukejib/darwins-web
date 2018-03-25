@@ -12,6 +12,10 @@ class SettingTableSeeder extends Seeder
      */
     public function run()
     {
+
+        /** Delete All Rows if exists */
+        Setting::truncate();
+
         $refill_text = '<p align="center"><b>You can send us payment using two methods:
 
         </b></p><p>1.	By selecting "<b>Bitcoin</b>" option so we can receive your Bitcoins Payments.

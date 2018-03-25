@@ -12,29 +12,31 @@
                     <table class="table table-striped table-condensed" id="affiliates">
                         <thead>
                         <tr>
-                            <td>Image</td>
-                            <td>First Name</td>
-                            <td>Last Name</td>
-                            <td>Email</td>
-                            <td>Affiliation</td>
-                            <td>Delete User</td>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Affiliation</th>
+                            <th>View User</th>
+                            <th>Delete User</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($customers as $customer)
                             <tr id ="{{ $customer->id }}"  >
-                                <td><img src="{{ asset($customer->profile->avatar) }}" style="border-radius:50%" width="25px"></td>
                                 <td>{{ $customer->first_name }}</td>
                                 <td>{{ $customer->last_name }}</td>
                                 <td>{{ $customer->email }}</td>
                                 <td>
                                 @if(!$customer->isUserAffiliate())
-                               <a href="{{ route('user.affiliate',['id' => $customer->id]) }}" class="btn btn-xs btn-warning">Make Affiliate</a>
+                                    <a href="{{ route('user.affiliate',['id' => $customer->id]) }}" class="btn btn-xs btn-warning">Make Affiliate</a>
                                 @endif
                                 </td>
                                 <td>
-                                <button type="button" id="deleteUser"  class="btn btn-danger btn-xs" value="{{ $customer->id }}" 
-                                url = "{{ route('user.delete',['id' => $customer->id]) }}">Delete User</button>
+                                    <a href="#" class="btn btn-xs btn-success">View User</a>
+                                </td>
+                                <td>
+                                    <button type="button" id="deleteUser"  class="btn btn-danger btn-xs" value="{{ $customer->id }}" 
+                                    url = "{{ route('user.delete',['id' => $customer->id]) }}">Delete User</button>
                                 </td>
                             </tr>
                         @endforeach
@@ -70,3 +72,11 @@
 </div>
 
 @endsection
+
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+        $('#affiliates').DataTable();
+    } );
+    </script>
+@endsection 

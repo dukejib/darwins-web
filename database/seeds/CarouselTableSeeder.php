@@ -12,6 +12,9 @@ class CarouselTableSeeder extends Seeder
      */
     public function run()
     {
+        /** Delete All Rows if exists */
+        Carousel::truncate();
+        
         Carousel::create([
             'heading' => 'Heading 1',
             'body' => 'Body of Heading 1',

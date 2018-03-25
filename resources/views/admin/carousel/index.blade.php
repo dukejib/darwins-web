@@ -4,12 +4,12 @@
 
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Carousel - Total : ({{$carousels->total()}}) Records
+            Carousel {{--  Carousel - Total : ({{$carousels->total()}}) Records  --}}
             <a href="{{ route('admin.carousel.create') }}" class="btn btn-xs btn-success pull-right">Add New Carousel</a>
         </div>
         <div class="panel-body">
             @if(count($carousels)> 0)
-                <table class="table table-striped table-condensed">
+                <table class="table table-striped table-condensed" id="carousel">
                     <thead>
                     <tr>
                         <th>Image</th>
@@ -50,11 +50,11 @@
                         </tr>
                     @endforeach
                     </tbody>
-                    <tfoot>
+                    {{--  <tfoot>
                         <tr>
                             <td colspan="5" class="text-center"> {{ $carousels->links()}}</td>
                         </tr>
-                    </tfoot>
+                    </tfoot>  --}}
                 </table>
              
             @else
@@ -63,4 +63,12 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+        $('#carousel').DataTable();
+    } );
+    </script>
 @endsection

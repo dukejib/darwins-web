@@ -52,9 +52,19 @@
                 <input type="text" class="form-control" name="contact_email" value="{{ $settings->contact_email }}" style="width:400px">
             </div>
 
-             <div class="form-group form-inline">
+            <div class="form-group form-inline">
                 <label for="carousel_time" style="width:200px">Carousel Time</label>
                 <input type="number" min="1000" step="100" max="10000" class="form-control" name="carousel_time" value="{{ $settings->carousel_time }}">
+            </div>
+
+            <div class="form-group form-inline">
+                <label for="fed_tax" style="width:200px">F.E.D Tax (0.15 means 15% tax)</label>
+                <input type="number" min="0.05" step="0.05" max="1.0" class="form-control" name="fed_tax" value="{{ $settings->fed_tax }}">
+            </div>
+
+            <div class="form-group form-inline">
+                <label for="shipping_charges" style="width:200px">Shipping Charges (0.23 means 23% tax)</label>
+                <input type="number" min="0.05" step="0.05" max="1.0" class="form-control" name="shipping_charges" value="{{ $settings->shipping_charges }}">
             </div>
 
             <div class="form-group form-inline">

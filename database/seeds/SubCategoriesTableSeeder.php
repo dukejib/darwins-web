@@ -12,6 +12,10 @@ class SubCategoriesTableSeeder extends Seeder
      */
     public function run()
     {
+
+        /** Delete All Rows if exists */
+        SubCategory::truncate();
+
         SubCategory::create(['title' => 'Rentals', 'slug' => str_slug('Rentals'),'global_category_id' => 2 ]);
         SubCategory::create(['title' => 'Credit Cards', 'slug' => str_slug('Credit Cards'),'global_category_id' => 2 ]);
         SubCategory::create(['title' => 'Books', 'slug' => str_slug('Books'),'global_category_id' => 1 ]);

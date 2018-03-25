@@ -15,18 +15,17 @@
                <table class="table table-striped table-condensed" id="affiliates">
                    <thead>
                    <tr>
-                       <td>Id</td>
-                       <td>First Name</td>
-                       <td>Last Name</td>
-                       <td>Email</td>
-                       <td>Affiliation</td>
-                       <td>Delete User</td>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Un Affiliate</th>
+                        <th>View User</th>
+                        <th>Delete User</th>
                    </tr>
                    </thead>
                    <tbody>
                    @foreach($affiliates as $affiliate)
                        <tr id = "{{ $affiliate->id }}">
-                           <td><img src="{{ asset($affiliate->profile->avatar) }}" style="border-radius:50%" width="25px"></td>
                            <td>{{ $affiliate->first_name }}</td>
                            <td>{{ $affiliate->last_name }}</td>
                            <td>{{ $affiliate->email }}</td>
@@ -34,6 +33,9 @@
                             @if(!$affiliate->isUserAffiliate())
                             <a href="{{ route('user.unaffiliate',['id' => $affiliate->id]) }}" class="btn btn-xs btn-warning">Unaffiliate</a>
                             @endif
+                            </td>
+                            <td>
+                                <a href="#" class="btn btn-xs btn-success">View User</a>
                             </td>
                             <td>
                                 <button type="button" id="deleteUser"  class="btn btn-danger btn-xs" value="{{ $affiliate->id }}" url = "{{ route('user.delete',['id' => $affiliate->id]) }}">Delete User</button>
@@ -73,3 +75,10 @@
 
 @endsection
 
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+        $('#affiliates').DataTable();
+    } );
+    </script>
+@endsection 

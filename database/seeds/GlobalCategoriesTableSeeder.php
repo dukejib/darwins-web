@@ -12,6 +12,9 @@ class GlobalCategoriesTableSeeder extends Seeder
      */
     public function run()
     {
+        /** Delete All Rows if exists */
+        GlobalCategory::truncate();
+
         GlobalCategory::create(['title' => 'Products','slug' => str_slug('Products')]);
         GlobalCategory::create(['title' => 'Services','slug' => str_slug('Services')]);
         // GlobalCategory::create(['title' => 'Antique', 'slug' => str_slug('Antique')]);

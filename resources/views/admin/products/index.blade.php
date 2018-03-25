@@ -4,7 +4,7 @@
   
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Products - Total : ({{$products->total()}}) Records
+            Products -        {{--  Total : ({{$products->total()}}) Records  --}}
             <a href="{{ route('admin.product.create') }}" class="btn btn-xs btn-success pull-right">Add New Product</a>
         </div>
         <div class="panel-body">
@@ -12,15 +12,15 @@
                 <table class="table table-striped table-condensed" id="products">
                     <thead>
                     <tr>
-                        <td>Image</td>
-                        <td>Title</td>
-                        <td>Price</td>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Price</th>
                         {{--<td>Active</td>--}}
-                        <td>Category</td>
-                        <td>Slot</td>
-                        <td>Show</td>
-                        <td>Edit</td>
-                        <td>Delete</td>
+                        <th>Category</th>
+                        <th>Slot</th>
+                        <th>Show</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -76,7 +76,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="5" class="text-center"> {{ $products->links()}}</td>
+                           {{--  <td colspan="5" class="text-center"> {{ $products->links()}}</td>  --}}
                         </tr>
                     </tfoot>
                 </table>
@@ -86,4 +86,12 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+        $('#products').DataTable();
+    } );
+    </script>
 @endsection

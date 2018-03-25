@@ -27,6 +27,8 @@ class CreateSettingsTable extends Migration
             $table->text('refill_statement')->nullable();
             $table->text('app_statement')->nullable();
             $table->string('datafile')->nullable();
+            $table->float('fed_tax')->default(0.15);
+            $table->float('shipping_charges')->default(0.23);
             $table->timestamps();
         });
     }

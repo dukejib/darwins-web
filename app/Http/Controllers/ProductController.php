@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Helper\Helper;
 use App\Http\Requests;
-use App\Item;
 use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
@@ -21,10 +20,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //return Helper::getAdminData();
-        //Use getAdminData() Helper to get specific paginated product data
         return view('admin.products.index')
-        ->with(Helper::getAdminData());
+        ->with(Helper::dataForAdminPages());
     }
 
     /**
@@ -35,7 +32,7 @@ class ProductController extends Controller
     public function create()
     {
         return view('admin.products.create')
-        ->with(Helper::getAdminData());
+        ->with(Helper::dataForAdminPages());
     }
 
     /**
@@ -88,7 +85,7 @@ class ProductController extends Controller
     {
         return view('admin.products.show')
             ->with('product',Item::find($id))
-            ->with(Helper::getAdminData());
+            ->with(Helper::dataForAdminPages());
     }
     /**
      * Show the form for editing the specified resource.
@@ -100,7 +97,7 @@ class ProductController extends Controller
     {
         return view('admin.products.edit')
             ->with('product',Item::find($id))
-            ->with(Helper::getAdminData());
+            ->with(Helper::dataForAdminPages());
     }
 
     /**

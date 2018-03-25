@@ -4,12 +4,12 @@
 
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Articles - Total : ({{$articles->total()}}) Records
+            Articles {{--  Articles - Total : ({{$articles->total()}}) Records  --}}
             <a href="{{ route('admin.article.create') }}" class="btn btn-xs btn-success pull-right">Add New Article</a>
         </div>
         <div class="panel-body">
             @if(count($articles)> 0)
-                <table class="table table-striped table-condensed">
+                <table class="table table-striped table-condensed" id="articles">
                     <thead>
                     <tr>
                         <th>Title</th>
@@ -33,7 +33,6 @@
                             </td>
                             <td>
                                 <form action="{{ route('admin.article.destroy',['article' => $article->id]) }}" method="post">
-
                                     {{ csrf_field() }}
                                     {{--This is necessary if using route::resource--}}
                                     {{ method_field('DELETE') }}
@@ -56,7 +55,7 @@
                     </tbody>
                      <tfoot>
                         <tr>
-                            <td colspan="5" class="text-center"> {{ $articles->links()}}</td>
+                            {{--  <td colspan="5" class="text-center"> {{ $articles->links()}}</td>  --}}
                         </tr>
                     </tfoot>
                 </table>
@@ -66,4 +65,12 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+        $('#articles').DataTable();
+    } );
+    </script>
 @endsection

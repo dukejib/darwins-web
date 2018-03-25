@@ -39,6 +39,11 @@ class User extends Authenticatable
         return $this->hasOne('App\Profile');
     }
 
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
+
     /** Methods */
     public function referredBy(){
        $ref = Auth::user()->referred_by;
@@ -62,4 +67,14 @@ class User extends Authenticatable
             return true;
         }
     }
+
+    /** Event Handling */
+    // protected static function boot() {
+    //     parent::boot();
+
+    //     User::deleting(function($user) {
+    //         // $user->orders()->order_details()->delete();
+    //         $user->orders()->delete();
+    //     });
+    // }
 }

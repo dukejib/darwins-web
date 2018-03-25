@@ -22,7 +22,7 @@ class ArticleController extends Controller
     public function index()
     {
         return view('admin.articles.index')
-            ->with(Helper::getAdminData());
+            ->with(Helper::dataForAdminPages());
     }
 
     /**
@@ -33,7 +33,7 @@ class ArticleController extends Controller
     public function create()
     {
         return view('admin.articles.create')
-            ->with(Helper::getAdminData());
+            ->with(Helper::dataForAdminPages());
     }
 
     /**
@@ -71,7 +71,7 @@ class ArticleController extends Controller
     {
         return view('admin.articles.show')
         ->with('article',Article::find($id))
-            ->with(Helper::getAdminData());
+            ->with(Helper::dataForAdminPages());
     }
 
     /**
@@ -84,7 +84,7 @@ class ArticleController extends Controller
     {
         return view('admin.articles.edit')
         ->with('article',Article::find($id))   
-        ->with(Helper::getAdminData());
+        ->with(Helper::dataForAdminPages());
 
     }
 

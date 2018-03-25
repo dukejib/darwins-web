@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="{{ asset('css/darkly.theme.css') }}"> <!-- Darkly Theme -->
+    {{--  <link rel="stylesheet" href="{{ asset('css/darkly.theme.css') }}"> <!-- Darkly Theme -->  --}}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}"> <!-- Darkly Theme -->
     <link rel="stylesheet" href="{{ asset('css/font-awesome.css')}}"> <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"> <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('css/summernote.css') }}"> <!-- SummerNote -->
-   
+    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.css') }}"> <!- DataTables -->
+
 </head>
 
 <body>
-  
-
     {{--Page Content--}}
     <div class="container">
         {{--  Nav Bar  --}}
@@ -151,6 +151,7 @@
 <script src="{{ asset('js/toastr.min.js') }}"></script>
 <script src="{{ asset('js/summernote.js') }}"></script>
 <script src="{{ asset('js/admin.js') }}"></script>
+<script src="{{ asset('js/jquery.dataTables.js') }}"></script> <!-- DataTables -->
 <script>
     //Uses Toastr https://github.com/CodeSeven/toastr
     @if(Session::has('success'))

@@ -41,7 +41,7 @@
                             <h3>Basic Information</h3>
                             <div class="panel-body">
                                 <form action="{{ route('user.profile.basic') }}" method="post" class="form-horizontal">
-                                    {{ csrf_field() }} <!-- Must use this -->
+                                    {{ csrf_field() }} 
                                     <div class="form-group">
                                         <label for="first_name" class="control-label col-xs-3">First Name</label>
                                         <div class="col-xs-9">
@@ -205,13 +205,70 @@
                                 </div>
                                 @endif
                             </div>
+
                         </div>
 
-                        {{--  Shipping Address  --}}
+                        {{--  Orders  --}}
                         <div id="orders" class="tab-pane fade">
                             <h3>My Orders</h3>  
                             <div class="panel-body">
-                            Nothing Yet
+                            
+                            @if(count($orders)> 0)
+                                <table class="table table-striped table-condensed display" id="ordersTable">
+                                    <thead>
+                                    <tr>
+                                        <th>Order Id</th>
+                                        <th>SubTotal</th>
+                                        <th>F.E.D</th>
+                                        <th>Shipping</th>
+                                        <th>Total</th>
+                                        <th>Delivery Status</th>
+                                        <th>Payment Status</th>
+                                        <th>Details</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($orders as $order)
+                                    <tr>
+                                        <td>{{ $order->id }}</td>
+                                        <td>${{ $order->sub_total }}</td>
+                                        <td>${{ $order->tax }}</td>
+                                        <td>${{ $order->shipping_charges }}</td>
+                                        <td>${{ $order->order_total }}</td>
+                                        <td>
+                                            @if($order->delivery_status == 1) 
+                                                <span class="text-warning">PENDING</span> 
+                                            @elseif($order->delivery_status == 2) 
+                                                <span class="text-info">Transit</span> 
+                                            @elseif($order->delivery_status == 3) 
+                                                <span class="text-success">Delivered</span> 
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($order->delivery_status == 1) 
+                                                <span class="text-warning">Not Paid Yet</span> 
+                                            @elseif($order->delivery_status == 2) 
+                                                <span class="text-info">Partial Paid</span> 
+                                            @elseif($order->delivery_status == 3) 
+                                                <span class="text-success">Fully Paid</span> 
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="#" class="btn btn-xs btn-success"><i class="fa fa-binoculars"></i></a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                        
+                                </table>
+             
+                            @else
+                                <div class="text-center">There are no Orders Defined</div>
+                            @endif
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                             </div> 
                         </div>
 
@@ -228,4 +285,12 @@
     <br>
     <br>
     <br><br>
+@endsection
+
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+        $('#ordersTable').DataTable();
+    } );
+    </script>
 @endsection

@@ -5,11 +5,12 @@
     <div class="panel panel-primary">
         
         <div class="panel-heading">
-            Banners - Total : ({{$web_banners->total()}}) Records
+            Banners
+            {{--  Banners - Total : ({{$web_banners->total()}}) Records  --}}
         </div>
         <div class="panel-body">
             @if(count($web_banners)> 0)
-                <table class="table table-striped table-condensed">
+                <table class="table table-striped table-condensed" id="banners">
                     <thead>
                     <tr>
                         <th>Image</th>
@@ -37,11 +38,11 @@
                         </tr>
                     @endforeach
                     </tbody>
-                    <tfoot>
+                    {{--  <tfoot>
                         <tr>
                             <td colspan="5" class="text-center"> {{ $web_banners->links()}}</td>
                         </tr>
-                    </tfoot>
+                    </tfoot>  --}}
                 </table>
              
             @else
@@ -51,3 +52,11 @@
     </div>  
 
 @endsection
+
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+        $('#banners').DataTable();
+    } );
+    </script>
+@endsection 

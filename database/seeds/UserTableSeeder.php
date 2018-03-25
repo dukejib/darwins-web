@@ -14,6 +14,8 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        /** Delete All Rows if exists */
+        User::truncate();
         /** Create New User */
         $user1 = User::create([
             'first_name' => 'Main',
@@ -27,7 +29,6 @@ class UserTableSeeder extends Seeder
         $this->command->info('Admin Created');
         Profile::create([
             'user_id' => $user1->id,
-            'avatar' => 'img/avatars/avatar.png'
         ]);
         $this->command->info('Admin Profile Created');
 
@@ -44,7 +45,6 @@ class UserTableSeeder extends Seeder
         $this->command->info('Normal User Created');
         Profile::create([
             'user_id' => $user2->id,
-            'avatar' => 'img/avatars/avatar.png'
         ]);
         $this->command->info('Normal Profile Created');
     }

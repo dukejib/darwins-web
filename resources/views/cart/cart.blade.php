@@ -37,13 +37,13 @@
                                 <td><strong>${{ $subtotal }}</strong></td>
                             </tr>
                             <tr>
-                                <td colspan="2">F.E.D Tax</td>
-                                <td>${{ $fed = $subtotal * 0.15 }}</td>
+                                <td colspan="2">F.E.D Tax ({{ $settings->fed_tax }} %)</td>
+                                <td>${{ $fed = $subtotal * $settings->fed_tax }}</td>
 
                             </tr>
                             <tr>
-                                <td colspan="2">Shipping Charges</td>
-                                <td>${{ $shipping = ($subtotal * 0.23)}}</td>
+                                <td colspan="2">Shipping Charges ({{ $settings->shipping_charges }} %)</td>
+                                <td>${{ $shipping = ($subtotal * $settings->shipping_charges)}}</td>
                             </tr>
                             <tr class="label-primary">
                                 <td colspan="2"><strong>G.Total</strong></td>

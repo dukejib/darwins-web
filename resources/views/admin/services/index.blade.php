@@ -4,12 +4,12 @@
 
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Services - Total : ({{$services->total()}}) Records
+            Services {{--  Total : ({{$services->total()}}) Records  --}}
             <a href="{{ route('admin.service.create') }}" class="btn btn-xs btn-success pull-right">Add New Service</a>
         </div>
         <div class="panel-body">
             @if(count($services)> 0)
-                <table class="table table-striped table-condensed">
+                <table class="table table-striped table-condensed" id="services">
                     <thead>
                     <tr>
                         <td>Image</td>
@@ -75,7 +75,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="5" class="text-center"> {{ $services->links()}}</td>
+                            {{--  <td colspan="5" class="text-center"> {{ $services->links()}}</td>  --}}
                         </tr>
                     </tfoot>
                 </table>
@@ -85,4 +85,12 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+        $('#services').DataTable();
+    } );
+    </script>
 @endsection

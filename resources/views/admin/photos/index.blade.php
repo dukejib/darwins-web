@@ -5,7 +5,8 @@
     <div class="panel panel-primary">
         
         <div class="panel-heading">
-            Photos - Total : ({{$photos->total()}}) Records
+            Photos
+            {{--  Photos - Total : ({{$photos->total()}}) Records  --}}
             <form id="form" action="{{ route('admin.photo.store') }}" method="post" class="pull-right" enctype="multipart/form-data">
                 <label for="image" class="btn btn-xs btn-success pull-right">Add New Image (Max Size Allowed : 1024 Kb)</label>
                 <input id="image" style="visibility:hidden;" type="file" name="image" accept="image/x-png,image/gif,image/jpeg">
@@ -14,7 +15,7 @@
         </div>
         <div class="panel-body">
             @if(count($photos)> 0)
-                <table class="table table-striped table-condensed">
+                <table class="table table-striped table-condensed" id="photos">
                     <thead>
                     <tr>
                         <th>Image</th>
@@ -36,11 +37,11 @@
                         </tr>
                     @endforeach
                     </tbody>
-                    <tfoot>
+                    {{--  <tfoot>
                         <tr>
                             <td colspan="5" class="text-center"> {{ $photos->links()}}</td>
                         </tr>
-                    </tfoot>
+                    </tfoot>  --}}
                 </table>
              
             @else
@@ -53,8 +54,12 @@
 
 @section('scripts')
     <script>
-            document.getElementById("image").onchange = function() {
-                document.getElementById("form").submit();
-            };
+        document.getElementById("image").onchange = function() {
+            document.getElementById("form").submit();
+        };
+
+        $(document).ready( function () {
+            $('#photos').DataTable();
+        });
     </script>
 @endsection

@@ -10,7 +10,7 @@
 
         <div class="panel-body">
             @if($newsLetters->count() > 0)
-                <table class="table table-striped table-condensed" id="products">
+                <table class="table table-striped table-condensed" id="newsletter">
                     <thead>
                     <tr>
                         <td>id</td>
@@ -37,3 +37,10 @@
     </div>
 @endsection
 
+@section('scripts')
+    <script>
+    $(document).ready( function () {
+        $('#newsletter').DataTable();
+    } );
+    </script>
+@endsection 

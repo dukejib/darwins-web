@@ -12,6 +12,10 @@ class WebBannerTableSeeder extends Seeder
      */
     public function run()
     {
+
+        /** Delete All Rows if exists */
+        WebBanner::truncate();
+
         WebBanner::create([
             'title' => '468 x 60',
             'style' => 'Full Banner',

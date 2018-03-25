@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Helper\Helper;
 use App\WebBanner;
-use App\Transactions;
+use App\Order;
 
 
 class AdminController extends Controller
@@ -80,12 +80,6 @@ class AdminController extends Controller
         ->with('customers',User::where('role','=',1)->get());
     }
 
-    public function orders()
-    {
-        return view('admin.orders.index')
-        ->with('transactions',Transactions::all());
-    }
-
     public function store_photo(Request $request)
     {
         //We need image of max size 1024 Kb
@@ -125,7 +119,7 @@ class AdminController extends Controller
 
     public function web_banners()
     {
-        $web_banners = DB::table('web_banners')->paginate(5);
+        $web_banners = DB::table('web_banners')->get();
         return view('admin.web_banners.index')
             ->with('web_banners',$web_banners);
     }
@@ -159,5 +153,12 @@ class AdminController extends Controller
 
         Session::flash('success','Banner saved');
         return redirect()->route('admin.web_banner.index');
+    }
+
+    /////////////// ORDERS ////////////////////////////
+    public function orders()
+    {
+        return view('admin.orders.index')
+        ->with('orders',Order::orderBy('created_at','asc')->get());
     }
 }

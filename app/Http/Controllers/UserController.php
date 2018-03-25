@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Profile;
 use App\Helper\Helper;
+use App\OrderDetails;
+use App\Order;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
@@ -13,7 +15,7 @@ use Illuminate\Support\MessageBag;
 use Cookie;
 use App\Helper\Email;
 use Illuminate\Foundation\Auth\ThrottlesLogins; /** Needed for Login Throttling */
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers; /** Needed for Login Throttling */
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class UserController extends Controller
 {
@@ -203,6 +205,16 @@ class UserController extends Controller
     public function user_delete($id)
     {
         $user = User::find($id);
+        $orders = Order::where('user_id',$id)->get();
+        //Delete OrderDetails
+        foreach($orders as $order){
+            OrderDetails::where('order_id',$order->id)->delete();
+        }
+        //Delete Orders
+        foreach($orders as $order){
+            Order::where('user_id',$order->user_id)->delete();
+        }
+        //Delete User
         $user->delete();
 
         return response()->json(['reply'=> 'Customer/Affiliate Deleted']);

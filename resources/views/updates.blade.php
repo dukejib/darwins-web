@@ -17,11 +17,22 @@
                     <h3 class="text-warning">Updates / Additons </h3>
 
                     <ul class="list-group">
+                        <li class="list-group-item text-success">Following items added from 18-25 March
+                            <ul>
+                                <li class="text-info">Search Option for Tables in Admin Panel
+                                </li>
+                                <li class="text-info">Orders Table, Order Items Tables (Backend) and Orders in Admin Panel
+                                </li>
+                                <li class="text-info">F.E.D Tax & Shipping Charges fields to Settings in Admin Panel for Easy Access</li>
+                                <li class="text-info">Orders Data in User Account Section</li>
+                                <li class="text-info">Removed Admin Panel Theme due to Problems</li>
+                            </ul>
+                        </li>
                         <li class="list-group-item text-success">Following was added between 12-18 march 2018
                             <ul>
                                 <li class="text-info">Login Throttling : User can attempt 3 failed login attempt: lockdown 3600 sec/1 Hour
                                 </li>
-                                <li class="text-info">Added "Delete user" buttong to customer/affiliate > >> Admin
+                                <li class="text-danger">Added "Delete user" buttong to customer/affiliate > >> Admin
                                 </li>
                                 <li class="text-info">Only Protonmail user can Sign up with us</li>
                                 <li class="text-info">Email is sent to every one, who signs up with us</li>

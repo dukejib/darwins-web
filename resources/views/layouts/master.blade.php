@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"> <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}"> <!-- Slick -->
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}"> <!-- Slick -->
+    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.css') }}"> <!- DataTables -->
 
     <link rel="Shortcut Icon" href="{{ asset('img/favicon.ico')}}" type="image/x-icon" > 
     @yield('styles') <!-- More Styles -->
@@ -41,6 +42,7 @@
 <script src="{{ asset('js/toastr.min.js') }}"></script> <!-- Toastr -->
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script> <!-- Slick -->
 <script src="{{ asset('js/my.js') }}"></script> <!-- My.js -->
+<script src="{{ asset('js/jquery.dataTables.js') }}"></script> <!-- DataTables -->
 <script>
      //Uses Toastr https://github.com/CodeSeven/toastr
     @if(Session::has('success'))

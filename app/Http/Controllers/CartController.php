@@ -8,11 +8,14 @@ use App\Http\Requests;
 // use App\Cart;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Item;
+use App\Order;
+use App\OrderDetails;
 use Illuminate\Support\Facades\Auth;
 use App\Helper\Helper;
 use Blockchain\Blockchain;
 use App\Transactions;
 use Illuminate\Support\Facades\File;
+
 
 class CartController extends Controller
 {
@@ -46,14 +49,8 @@ class CartController extends Controller
             Session::flash('info','You Don\'t have any item in Cart');
             return redirect()->route('home');
         }
-        //It h
-        //$oldCart = Session::get('cart');
-        //$newCart = new Cart($oldCart);
-        //return compact('newCart');
-        // return view('shop.shopping-cart',['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
         return view('cart.cart')
         ->with('subtotal',Cart::subtotal())
-        //->with('products',$newCart->items)
         ->with(Helper::getBasicDataForCart());
     }
 
@@ -61,8 +58,8 @@ class CartController extends Controller
     public function clearCart()
     {
         if(Session::has('cart')){
-            //Session::forget('cart');//
             Cart::destroy();
+            Session::forget('cart');
         }
         Session::flash('success','Cart cleared');
         return redirect()->route('home');
@@ -75,13 +72,47 @@ class CartController extends Controller
         if(Auth::check()){
             //1 is for prouducts, 2 is for book only
             if($toggle == 1){
+                //Get The User Id
+                $user_id = Auth::id();
+                //Get Taxes Details form Settings
+                $settings = Helper::cartTaxes();
+                $fedtax = Cart::subtotal() * $settings->fed_tax; //Cart Subtotal * FED Tax from Settings
+                $shipping = Cart::subtotal() * $settings->shipping_charges; //Cart Subtotal * Shipping Charges from Settings
+                $total = Cart::total() + $fedtax + $shipping; //Cart Total 
+                //Create Order
+                $order = Order::create([
+                    'user_id' => $user_id,
+                    'sub_total' => Cart::subtotal(),
+                    'tax' => $fedtax,
+                    'shipping_charges' => $shipping,
+                    'order_total' => $total
+                    //Status is 'Pending' as default
+                ]);
+                // return $order;
+                foreach (Cart::content() as $purchase) {
+                    // return $purchase;
+                    //Create OrderDetails
+                    OrderDetails::create([
+                        'order_id' => $order->id,
+                        'item_id' => $purchase->id,
+                        'item_name' => $purchase->name,
+                        'item_qty' => $purchase->qty,
+                        'item_price' => $purchase->price
+                    ]);
+                }
                 //TODO::Add code to process the payment and add order
+                //Clear the Cart
+                Cart::destroy();
+                Session::forget('cart');
+                //Return View
                 return view('cart.checkout')
+                ->with('message','Your Order has been Placed, Please Pay the amount at Order Tab in your Account : Total is $' . $total)
                 ->with(Helper::getBasicData());
             }else if($toggle == 2){
                 //Call the Blockchain function - when we are buying a book
                 $amount = 1;
-                $this->process_order_bc($amount);
+                //$this->process_order_bc($amount);
+                
             }
         }
         else {
@@ -163,7 +194,7 @@ class CartController extends Controller
         Cart::update($id,$qty -1);
         return redirect()->back();
     }
-
+////////////////////////////////////////////////////////////////////
     /** For Stripe */
     public function checkout(){
         if(!Session::has('cart')){

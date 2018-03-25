@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Profile;
 use App\User;
+use App\Order;
 use App\Helper\Helper;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -15,15 +16,17 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        
+        $id = Auth::id();
+        // return $id;
         // return Auth::user()->profile;
         return view('users.profile')
             ->with('user',Auth::user())
             ->with('profile',Auth::user()->profile)
+            ->with('orders',Order::where('user_id',$id)->get())
             ->with('newsletter',NewsLetter::where('email',Auth::user()->email))
             ->with(Helper::getBasicData());
     }
-
+ 
     public function basic(Request $request)
     {
         /** Validate the Input */

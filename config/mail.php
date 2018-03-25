@@ -16,7 +16,8 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    // 'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'log'),
 
     /*
     |--------------------------------------------------------------------------
@@ -57,7 +58,15 @@ return [
     |
     */
 
-    'from' => ['address' => 'webmaster@morecreditcardservices.com', 'name' => 'Webmaster'],
+    // 'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'mailman@morecreditcardservices.com', 'name' => 'Mail Man'],
+    'stream' => [
+        'ssl' => [
+           'allow_self_signed' => true,
+           'verify_peer' => false,
+           'verify_peer_name' => false,
+        ],
+     ],
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

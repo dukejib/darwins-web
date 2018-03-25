@@ -23,7 +23,7 @@ class ServiceController extends Controller
     {
         //Use getAdminData() Helper to get specific paginated product data
         return view('admin.services.index')
-        ->with(Helper::getAdminData());
+        ->with(Helper::dataForAdminPages());
     }
 
     /**
@@ -34,7 +34,7 @@ class ServiceController extends Controller
     public function create()
     {
         return view('admin.services.create')
-        ->with(Helper::getAdminData());
+        ->with(Helper::dataForAdminPages());
     }
 
     /**
@@ -86,7 +86,7 @@ class ServiceController extends Controller
     {
         return view('admin.services.show')
             ->with('service',Item::find($id))
-            ->with(Helper::getAdminData());
+            ->with(Helper::dataForAdminPages());
     }
     /**
      * Show the form for editing the specified resource.
@@ -98,7 +98,7 @@ class ServiceController extends Controller
     {
         return view('admin.services.edit')
             ->with('service',Item::find($id))
-            ->with(Helper::getAdminData());
+            ->with(Helper::dataForAdminPages());
     }
 
     /**

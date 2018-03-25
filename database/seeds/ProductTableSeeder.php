@@ -12,6 +12,9 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
+        /** Delete All Rows if exists */
+        Item::truncate();
+
         $img = '/img/products/img_place_holder_product.png';
         $feat = 'Featured';
         $pop = 'Popular';
