@@ -95,26 +95,15 @@ class UserController extends Controller
         $user->save();
 
         /** Send Email */
-        $title = 'Welcome';
-        $email = $request['email'];
-        $name = $request['first_name'] . ' ' . $request['last_name'];
-
-        \Mail::send('admin.emails.welcome', ['title' => $title , 'name' => $name], function ($message) use($title,$email,$name) {
-            $message->to($email,$name);
-        //    $message->cc('john@johndoe.com', 'John Doe');
-        //    $message->bcc('john@johndoe.com', 'John Doe');
-        //    $message->replyTo('john@johndoe.com', 'John Doe');
-            $message->subject($title);
-        });
+        $this->sendWelcomeEmail($user);
         
          /** Forget the Session */
         if($request->session()->has('affiliate_id')){
             $request->session()->forget('affiliate_id');
         }
-
+        /** Save the Profile */
         Profile::create([
             'user_id' => $user->id,
-            'avatar' => 'img/avatars/avatar.png',
         ]);
 
         /** User must Sign in */
@@ -220,5 +209,17 @@ class UserController extends Controller
         return response()->json(['reply'=> 'Customer/Affiliate Deleted']);
         // Session::flash('success','User is not Affiliated anymore');
         // return redirect()->back();
+    }
+
+    public function sendWelcomeEmailToNewUser(User $user)
+    {
+        $title = 'Welcome';
+        $name = $user->first_name . ' ' . $user->last_name;
+        $email = $user->email;
+        //Send Email in Queue
+        \Mail::queue('emails.welcome',['title' => $title , 'name' => $name] ,function ($message) use($title,$email,$name) {
+            $message->to($email,$name);
+            $message->subject('Welcome');
+        });
     }
 }

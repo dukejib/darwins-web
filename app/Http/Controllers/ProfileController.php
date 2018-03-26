@@ -42,13 +42,8 @@ class ProfileController extends Controller
         $user->last_name = $request->last_name;
         // $user->email = $request->email;
         $user->save();
-        /** Save the data of User Profile */
-        //$user->profile->save();
-        /** If there is a change of password, save it too */
-        // If($request->has('password')){
-        //     $user->password = bcrypt($request->password);
-        //     $user->save();
-        // }
+        //Send Email to the User
+        $this->sendBasicProfileChangeEmail($user); 
         //
         Session::flash('success','Basic Information updated');
         return redirect()->back();
@@ -64,31 +59,11 @@ class ProfileController extends Controller
     
         /** Find the Authenticated User */
         $user = Auth::user();
-        /** If we have an Image file, Save it and Delete old File */
-        // if($request->hasFile('avatar')){
-        //     $avatar = $request->avatar;
-        //     $avatar_old = $user->profile->avatar;
-        //     $avatar_new_name = time().$avatar->getClientOriginalName();
-        //     $avatar->move('img/avatars/',$avatar_new_name);
-        //     $user->profile->avatar = 'img/avatars/'. $avatar_new_name;
-        //     //Delete old avatar
-        //     if(file_exists($avatar_old)){
-        //         if($avatar_old !== 'img/avatars/avatar.png'){
-        //             unlink($avatar_old);
-        //         }
-        //     }
-        //     $user->profile->save();
-        // }
         /** Save new data to the User table */
         $user->password = bcrypt($request->password);
         $user->save();
         /** Save the data of User Profile */
-        $user->profile->save();
-        /** If there is a change of password, save it too */
-        // If($request->has('password')){
-        //     $user->password = bcrypt($request->password);
-        //     $user->save();
-        // }
+        $this->sendAccountProfileChangeEmail($user,$request['password']);
         //
         Session::flash('success','Account updated');
         return redirect()->back();
@@ -116,7 +91,9 @@ class ProfileController extends Controller
         $user->profile->city = $request->city;
         $user->profile->country = $request->country;
         $user->profile->save();
-      
+        /** Send Email  */
+        $this->sendContactProfileChangeEmail($user);
+
         Session::flash('success','Contact Information updated');
         return redirect()->back();
     }
@@ -125,5 +102,51 @@ class ProfileController extends Controller
     {
         return view('users.buybook')
         ->with(Helper::getBasicData());
+    }
+
+    public function sendBasicProfileChangeEmail(User $user)
+    {
+        $title = 'Basic Info Update Notification';
+        $name = $user->first_name . ' ' . $user->last_name;
+        $email = $user->email;
+        //Send Email in Queue
+        \Mail::queue('emails.basicupdated',['title' => $title , 'name' => $name,'first' => $user->first_name, 'last' => $user->last_name] ,function ($message) use($title,$email,$name) {
+            $message->to($email,$name);
+            $message->subject($title);
+        });
+    }
+
+    public function sendAccountProfileChangeEmail(User $user,$password)
+    {
+        $title = 'Password Update Notification';
+        $name = $user->first_name . ' ' . $user->last_name;
+        $email = $user->email;
+
+        //Send Email in Queue
+        \Mail::queue('emails.accountupdate',['title' => $title , 'name' => $name, 'password' => $password] ,function ($message) use($title,$email,$name,$password) {
+            $message->to($email,$name);
+            $message->subject($title);
+        });
+    }
+
+    public function sendContactProfileChangeEmail(User $user)
+    {
+        $title = 'Contact Update Notification';
+        $name = $user->first_name . ' ' . $user->last_name;
+        $email = $user->email;
+        $data = [
+            'primary_contact_no' => $user->profile->primary_contact_no ,
+            'secondary_contact_no' => $user->profile->secondary_contact_no,
+            'postal_code' => $user->profile->postal_code,
+            'address' => $user->profile->address,
+            'address_continued' => $user->profile->address_continued,
+            'city' => $user->profile->city,
+            'country' => $user->profile->country,
+        ];
+        //Send Email in Queue
+        \Mail::queue('emails.contactupdate',$data ,function ($message) use($title,$email,$name) {
+            $message->to($email,$name);
+            $message->subject($title);
+        });     
     }
 }
