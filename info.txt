@@ -1,0 +1,15 @@
+Add Double Opt In option for the Newsletter subscribers (when they subscribe, an email with link will be send to them and they will click on it to be subscribed to news letter)
+
+Add Double Opt in option for the customers as well for articles (Add a button to article subscription for customers)
+
+Send Order email to customers
+
+Add Payment Option , discuss with darwin
+
+Add Order Proces stuff too.
+
+COnvince him to use laravel email setup
+
+allow to add banners to customers
+
+

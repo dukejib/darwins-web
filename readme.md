@@ -1,5 +1,5 @@
 /** Readme.md **/
-Simple E-Commerce Website Project for a Client.
+E-Commerce Website Project for a Client.
 
 The project uses the following repositories;
 
