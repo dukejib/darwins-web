@@ -135,6 +135,8 @@ class ProfileController extends Controller
         $name = $user->first_name . ' ' . $user->last_name;
         $email = $user->email;
         $data = [
+            'title' => $title,
+            'name' => $name,
             'primary_contact_no' => $user->profile->primary_contact_no ,
             'secondary_contact_no' => $user->profile->secondary_contact_no,
             'postal_code' => $user->profile->postal_code,

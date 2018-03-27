@@ -30,7 +30,7 @@
                 <td>{{ $address }}</td>
                 <td>{{ $address_continued }}</td>
                 <td>{{ $city }}</td>
-                <td>{{ $country }}</td>
+                <td>{{ $country }}</td> 
             </tr>
         </tbody>
     </table>

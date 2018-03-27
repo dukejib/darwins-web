@@ -95,7 +95,7 @@ class UserController extends Controller
         $user->save();
 
         /** Send Email */
-        $this->sendWelcomeEmail($user);
+        $this->sendWelcomeEmailToNewUser($user);
         
          /** Forget the Session */
         if($request->session()->has('affiliate_id')){
