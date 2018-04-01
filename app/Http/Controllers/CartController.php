@@ -66,20 +66,20 @@ class CartController extends Controller
     }
 
     //Checkout cart, depends on toggle,for Products or for Book(Affiliation)
-    public function checkoutCart($toggle)
+    public function checkoutCart($toggle,$paymentoptions)
     {
         //User is authenticated
         if(Auth::check()){
-            //1 is for prouducts, 2 is for book only
+            //Get The User Id
+            $user_id = Auth::id();
+            /** User is Purchasing Products */
             if($toggle == 1){
-                //Get The User Id
-                $user_id = Auth::id();
-                //Get Taxes Details form Settings
+                /** Get Taxes Details form Settings */
                 $settings = Helper::cartTaxes();
                 $fedtax = Cart::subtotal() * $settings->fed_tax; //Cart Subtotal * FED Tax from Settings
                 $shipping = Cart::subtotal() * $settings->shipping_charges; //Cart Subtotal * Shipping Charges from Settings
                 $total = Cart::total() + $fedtax + $shipping; //Cart Total 
-                //Create Order
+                /** Create Order */
                 $order = Order::create([
                     'user_id' => $user_id,
                     'sub_total' => Cart::subtotal(),
@@ -88,7 +88,7 @@ class CartController extends Controller
                     'order_total' => $total
                     //Status is 'Pending' as default
                 ]);
-                // return $order;
+                /** Process Cart */
                 foreach (Cart::content() as $purchase) {
                     // return $purchase;
                     //Create OrderDetails
@@ -100,19 +100,30 @@ class CartController extends Controller
                         'item_price' => $purchase->price
                     ]);
                 }
-                //TODO::Add code to process the payment and add order
-                //Clear the Cart
+                /** Clear Cart  */
                 Cart::destroy();
                 Session::forget('cart');
-                //Return View
-                return view('cart.checkout')
-                ->with('message','Your Order has been Placed, Please Pay the amount at Order Tab in your Account : Total is $' . $total)
-                ->with(Helper::getBasicData());
+                /** If value = 1 , African Express, Value = 2 USPS Money Order , Value = 3 Bitcoin */
+                $message = '';
+                if ($paymentoptions == 1){
+                    $message = 'Please use your African express vpc';
+                } 
+                elseif ($paymentoptions == 2){
+                    $message = 'Please print and send this usps page to us';
+                }
+                elseif ($paymentoptions == 3){
+                    $message = 'Use your bitcoin wallet to pay us';
+                }
+                /** Return to Ajax */
+                $html = view('cart.checkout')
+                ->with('message',$message)
+                ->with('option',$paymentoptions)
+                ->with(Helper::getBasicData())
+                ->render();
+                return response()->json($html);
             }else if($toggle == 2){
-                //Call the Blockchain function - when we are buying a book
-                $amount = 1;
-                //$this->process_order_bc($amount);
-                
+            /** User is Purchasing Book Only */
+                //TODO:: Book add in order special toggle it
             }
         }
         else {
@@ -179,7 +190,6 @@ class CartController extends Controller
             // $trans->save();
         }
     }
-
 
     //Increase the item in Cart
     public function increase_item($id,$qty)

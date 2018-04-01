@@ -27,6 +27,7 @@
     </strong>
    </p>
    <hr>
+   <p>Please add mailman@morecreditcardservices.com in your contacts, so that our future emails are not flagged as spam. Our future emails will be sent from mailman@morecreditcardservices.com only</p>
    Please do not reply, this is an auto generated email.
 </body>
 </html>

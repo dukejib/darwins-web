@@ -6,14 +6,13 @@
 
 @section('content')
 
-
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-primary">
 
                 <div class="panel-heading text-center">
                    Buy Our Book
-                </div>
+                </div> 
 
                 <div class="panel-body">
 
@@ -43,13 +42,13 @@
                                 <td><strong>$<?php echo $subtotal = 50 ?></strong></td>
                             </tr>
                             <tr>
-                                <td colspan="2">F.E.D Tax</td>
-                                <td>$<?php echo $fed = $subtotal * 0.15 ?></td>
+                                <td colspan="2">F.E.D Tax ({{ $settings->fed_tax }} %)</td>
+                                <td>$<?php echo $fed = $subtotal * $settings->fed_tax ?></td>
 
                             </tr>
                             <tr>
-                                <td colspan="2">Shipping Charges</td>
-                                <td>$<?php echo $shipping = ($subtotal * 0.23) ?></td>
+                                <td colspan="2">Shipping Charges ({{ $settings->shipping_charges }} %)</td>
+                                <td>$<?php echo $shipping = ($subtotal * $settings->shipping_charges) ?></td>
                             </tr>
                             <tr class="label-primary">
                                 <td colspan="2"><strong>G.Total</strong></td>
@@ -66,28 +65,19 @@
                     <div class="text-center">
                     <strong><h4>Select Payment Option</h4></strong>
                     </div>
-                    
-                    <div class="col-md-2" style="text-align:center;">
-                        <h5>African Express VPC</h5>
-                        <a href="http://">
-                        <img src="{{ asset('img/aevpclogo.png') }}" class="center-block img-responsive" width="64px">
-                        </a>
+                    <div class="radio text-center">
+                        <label>
+                            <input type="radio" name="paymentoptions" value="1">African Express VPC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="paymentoptions" value="2">USPS Money Orders&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="paymentoptions" value="3">Bitcoin Payment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </label>
                     </div>
+                   
+                </div>
 
-                    <div class="col-md-3" style="text-align:center;">
-                        <h5>USPS Money Orders</h5>
-                        <a href="http://">
-                        <img src="{{ asset('img/upsmoney.png') }}" class="center-block img-responsive" >
-                        </a>
-                    </div>
-
-                    <div class="col-md-3" style="text-align:center;">
-                        <h5>Bitcoin Payments</h5>
-                        <a href="{{ route('cart.checkout',['toggle' => 2])}}">
-                        <img src="{{ asset('img/bitcoin.png') }}" class="center-block img-responsive" >
-                        </a>
-                    </div>
-
+                <div class="panel-footer text-center">
+                        {{--  <a href="{{ route('cart.checkout',['toggle' => 1,'pay' => $paymentoption]) }}" >Hi</a>  --}}
+                    <button type="button" id="checkout"  class="btn btn-xs btn-success">Process Cart</button>
                 </div>
 
             </div>
@@ -98,6 +88,8 @@
 
 @section('scripts')
     <script>
+        $paymentoption = 0;
+        //For Bitcoin value calculation
         $(document).ready(function(){
             $usd = '{{ ($subtotal + $fed + $shipping)}}';
             $reply='';
@@ -110,6 +102,39 @@
                 }
             });
         });
+        // Read radio button changes
+        $(document).ready(function(){
+            $('input[type=radio]').change(function(){
+                $paymentoption = $('input[name=paymentoptions]:checked').val();
+                console.log($paymentoption);
+            })
+        });
+        // Process the cart.checkout url
+        $('#checkout').on('click',function(){
+            //if $paymentoptions is 0, then exit
+            if($paymentoption == 0){
+                alert('Select payment option first');
+                return;
+            }
+            //We are not 0, so proceed
+            $.ajax({
+            type: "GET",
+            url: '/cart/checkout/2' + $paymentoption,
+            data: { "toggle":2,"paymentoption" : $paymentoption},
+            dataType: "json",
+            success: function (response) {
+                //AdminController is sending json reply:answer
+                // console.log(response); 
+                document.write(response);
+                },
+            error:function(error){
+                // console.log(error.status);
+                alert('some error occured');
+                },
+            complete:function(){
 
+                }         
+            });
+        });
     </script>
 @endsection

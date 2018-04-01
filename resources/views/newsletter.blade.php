@@ -24,6 +24,8 @@
             </div>
         </div>
         
+        {{--  If we have artilces, then show them  --}}
+        @if(count($articles)>0)
         <div class="panel panel-primary">
             
             <div class="panel-heading">
@@ -31,7 +33,7 @@
             </div>
 
             <div class="panel-body">
-                @if(count($articles)>0)
+                
                     <ul class="list-group">
                         @foreach($articles as $article)
                         <li class="list-group-item text-center">
@@ -41,11 +43,11 @@
                         </li>
                         @endforeach
                     </ul>       
-                @endif
                 {{ $articles->links() }}
             </div>
 
         </div>
+        @endif
         <br>
         <br>
         <br>

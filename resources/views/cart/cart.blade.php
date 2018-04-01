@@ -10,7 +10,7 @@
             <div class="col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2">
                 <div class="panel panel-primary ">
                     <div class="panel-heading text-center">
-                        Your Shopping Cart has {{ Cart::content()->count() }} unique item(s)
+                        Step 1 : Add/Remove Items in Your Cart
                     </div>
                     <div class="panel-body">
                         <table class="table table-stripped  ">
@@ -51,17 +51,37 @@
                             </tr>
                             <tr class="label-warning">
                                 <td colspan="2"><strong>Bitcoins</strong></td>
-                                <td id="bit">calculating</td>
+                                <td id="bit">Calculating</td>
                             </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="panel-footer clearfix">
-                        <a href="{{ route('cart.clear') }}" class="btn btn-xs btn-danger pull-left">Clear Cart</a>
-                        <a href="{{ route('cart.checkout',['toggle' => 1]) }}" class="btn btn-xs btn-success pull-right">Checkout</a>
+                    <div class="panel-footer text-center">
+                        <a href="{{ route('cart.clear') }}" class="btn btn-xs btn-danger">Discard Cart</a>
                     </div>
                 </div>
+            </div>
 
+            <div class="col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2">
+                <div class="panel panel-primary ">
+                    <div class="panel-heading text-center">
+                        Step 2 : Select Payment Option
+                        {{--  Your Shopping Cart has {{ Cart::content()->count() }} unique item(s)  --}}
+                    </div>
+                    <div class="panel-body">
+                        <div class="radio text-center">
+                            <label>
+                                <input type="radio" name="paymentoptions" value="1">African Express VPC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="paymentoptions" value="2">USPS Money Orders&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="paymentoptions" value="3">Bitcoin Payment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </label>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                            {{--  <a href="{{ route('cart.checkout',['toggle' => 1,'pay' => $paymentoption]) }}" >Hi</a>  --}}
+                        <button type="button" id="checkout"  class="btn btn-xs btn-success">Process Cart</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -81,7 +101,7 @@
                     <div class="panel-heading">You haven't selected any product yet!</div>
                     <div class="panel-body">
                         <p class="myp">
-                        Please checkout our <a href="{{ route('home') }}">Products</a> page
+                        Please view our services catalouge our <a href="{{ route('home') }}">Products</a> page
                         </p>
                     </div>
                 </div>
@@ -97,6 +117,8 @@
 
 @section('scripts')
     <script>
+        $paymentoption = 0;
+        //Process the USD to Bitcoint Script
         $(document).ready(function(){
             $usd = '{{ ($subtotal + $fed + $shipping)}}';
             $reply='';
@@ -109,6 +131,39 @@
                 }
             });
         });
+        // Read radio button changes
+        $(document).ready(function(){
+            $('input[type=radio]').change(function(){
+                $paymentoption = $('input[name=paymentoptions]:checked').val();
+                console.log($paymentoption);
+            })
+        });
+        // Process the cart.checkout url
+        $('#checkout').on('click',function(){
+            //if $paymentoptions is 0, then exit
+            if($paymentoption == 0){
+                alert('Select payment option first');
+                return;
+            }
+            //We are not 0, so proceed
+            $.ajax({
+            type: "GET",
+            url: '/cart/checkout/1' + $paymentoption,
+            data: { "toggle":1,"paymentoption" : $paymentoption},
+            dataType: "json",
+            success: function (response) {
+                //AdminController is sending json reply:answer
+                // console.log(response); 
+                document.write(response);
+                },
+            error:function(error){
+                // console.log(error.status);
+                alert('some error occured');
+                },
+            complete:function(){
 
+                }         
+            });
+        });
     </script>
 @endsection

@@ -86,14 +86,6 @@
                                             <input type="password" class="form-control" name="password_confirmation" value="">
                                         </div>
                                     </div>
-                                    <!--
-                                    <div class="form-group">
-                                        <label for="avatar" class="control-label col-xs-3">Upload New Avatar</label>
-                                        <div class="col-xs-9">
-                                            <input type="file" name="avatar" class="form-control">
-                                        </div>
-                                    </div>
-                                    -->
                                             
                                     <div class="form-group">
                                         <div class="text-center">

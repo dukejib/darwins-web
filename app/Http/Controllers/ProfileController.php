@@ -100,7 +100,7 @@ class ProfileController extends Controller
 
     public function become_affiliate()
     {
-        return view('users.buybook')
+        return view('users.buybook') 
         ->with(Helper::getBasicData());
     }
 
