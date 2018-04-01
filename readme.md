@@ -8,5 +8,8 @@ The project uses the following repositories;
 
 on the backend, to support blockchain, Node.js is utilized on VPS Server
 
+/** NOTES **/
+all email uses hardcoded urls, change in future updates
+
 by 
 Duke

@@ -109,12 +109,17 @@ class FrontEndController extends Controller
             'email' => 'required|unique:newsletters|email'
         ]);
 
-        NewsLetter::create([
+        $news = NewsLetter::create([
             'email' => $request->email
         ]);
-
+        /** Send Email to User about Newsletter Confirmation */
+        $this->sendNewsLetterConfirmation($news->email);
         Session::flash('success','Subscribed successfully to Newsletter');
         return redirect()->route('newsLetter');
+    }
+
+    public function confirmNewsLetter($email,$confirm){
+        return $email . ' ' . $confirm;
     }
 
     public function article($id)
@@ -153,5 +158,17 @@ class FrontEndController extends Controller
         }
 
         //TODO::Add email routing here
+    }
+
+    public function sendNewsLetterConfirmation($e)
+    {
+        $title = 'Hi';
+        $name = $e;
+        $email = $e;
+        //Send Email in Queue
+        \Mail::queue('emails.newsletteroptin',['title' => $title , 'name' => $name ,'email' => $email] ,function ($message) use($title,$email,$name) {
+            $message->to($email,$name);
+            $message->subject($title);
+        });
     }
 }

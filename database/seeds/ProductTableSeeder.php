@@ -32,19 +32,19 @@ class ProductTableSeeder extends Seeder
         //1- Appartments 
         for ($i=0; $i < 6; $i++) { 
             $j = $i+1;
-            $new_name = $j . ' Book';
+            $new_name = $j . ' Product';
             Item::create(['title' =>  $new_name,'description' => $desc,'local_category_id' => 3,'slot' => $feat,'slug' => str_slug($new_name),'image' => $img, 'price' => rand(10,100) ]);
         }
 
         for ($i=0; $i < 6; $i++) { 
             $j = $i+1;
-            $new_name = $j . ' Book';
+            $new_name = $j . ' Product';
             Item::create(['title' =>  $new_name,'description' => $desc,'local_category_id' => 3,'slot' => $lat,'slug' => str_slug($new_name),'image' => $img , 'price' => rand(10,100)]);
         }
 
         for ($i=0; $i < 6; $i++) { 
             $j = $i+1;
-            $new_name = $j . ' Book';
+            $new_name = $j . ' Product';
             Item::create(['title' =>  $new_name,'description' => $desc,'local_category_id' => 3,'slot' => $pop,'slug' => str_slug($new_name),'image' => $img , 'price' => rand(10,100)]);
         }
 

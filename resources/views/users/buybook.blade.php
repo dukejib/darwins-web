@@ -30,7 +30,7 @@
 
                             <tbody>
                             <tr>
-                                <td>Affiliate Crowdfunding</td>
+                                <td>Affiliate Crowdfunding Book</td>
                                 <td>
                                     1
                                 </td>

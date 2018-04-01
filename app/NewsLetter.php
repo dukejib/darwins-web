@@ -8,5 +8,5 @@ class NewsLetter extends Model
 {
     protected $table = 'newsletters';
 
-    protected $fillable = [ 'email'];
+    protected $fillable = [ 'email','confirmed'];
 }

@@ -1,4 +1,5 @@
-Add Double Opt In option for the Newsletter subscribers (when they subscribe, an email with link will be send to them and they will click on it to be subscribed to news letter)
+Add email address unsubscribe to morecreditcardservices.customers (for dbl opt in).
+Add Double Opt In option for the Newsletter subscribers-Send them to a link to confirm their participation.
 
 Add Double Opt in option for the customers as well for articles (Add a button to article subscription for customers)
 

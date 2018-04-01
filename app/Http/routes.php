@@ -26,6 +26,7 @@ Route::get('/termsofservice','FrontEndController@termsOfService')->name('termsOf
 Route::get('/termsofservice/getpdf','FrontEndController@tos_getpdf')->name('getpdf');
 Route::get('/newsletter','FrontEndController@newsLetter')->name('newsLetter'); //Show page with form
 Route::post('/newsletter','FrontEndController@postNewsLetter')->name('newsLetter'); //Submit form
+Route::get('/newsletter/confirm/{confirmed}{email}','FrontEndController@confirmNewsLetter')->name('newsletter.confirm');
 Route::get('/article/{id}','FrontEndController@article')->name('article.show');
 Route::get('/contactus','FrontEndController@contactus')->name('contactus'); //Contact Form
 Route::post('/contactus','FrontEndController@storeContactUs')->name('contactus'); //Contact Form

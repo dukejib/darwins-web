@@ -70,8 +70,20 @@ class CartController extends Controller
     {
         //User is authenticated
         if(Auth::check()){
-            //Get The User Id
+            /** Get The User Id */
             $user_id = Auth::id();
+            /** If value = 1 , African Express, Value = 2 USPS Money Order , Value = 3 Bitcoin */
+            $message = '';
+            if ($paymentoptions == 1){
+                $message = 'Please use your African express vpc';
+            } 
+            elseif ($paymentoptions == 2){
+                $message = 'Please print and send this usps page to us';
+            }
+            elseif ($paymentoptions == 3){
+                $message = 'Use your bitcoin wallet to pay us';
+            }
+
             /** User is Purchasing Products */
             if($toggle == 1){
                 /** Get Taxes Details form Settings */
@@ -103,17 +115,7 @@ class CartController extends Controller
                 /** Clear Cart  */
                 Cart::destroy();
                 Session::forget('cart');
-                /** If value = 1 , African Express, Value = 2 USPS Money Order , Value = 3 Bitcoin */
-                $message = '';
-                if ($paymentoptions == 1){
-                    $message = 'Please use your African express vpc';
-                } 
-                elseif ($paymentoptions == 2){
-                    $message = 'Please print and send this usps page to us';
-                }
-                elseif ($paymentoptions == 3){
-                    $message = 'Use your bitcoin wallet to pay us';
-                }
+                
                 /** Return to Ajax */
                 $html = view('cart.checkout')
                 ->with('message',$message)
@@ -121,9 +123,17 @@ class CartController extends Controller
                 ->with(Helper::getBasicData())
                 ->render();
                 return response()->json($html);
-            }else if($toggle == 2){
+            }
             /** User is Purchasing Book Only */
-                //TODO:: Book add in order special toggle it
+            if($toggle == 2){
+                //TODO:: Add book in orders and get amount for it
+                /** Return to Ajax */
+                $html = view('cart.checkout')
+                ->with('message','You bought our Affilicate Crowdfunding Book')
+                ->with('option',$paymentoptions)
+                ->with(Helper::getBasicData())
+                ->render();
+                return response()->json($html);
             }
         }
         else {

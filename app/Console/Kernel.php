@@ -28,10 +28,10 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
          /** Send Email */
         
-        \Mail::raw('This is a Crontab Job', function ($message) {
-            $message->to('dukejib@gmail.com', 'Ali Raja');
-            $message->subject('Crontab Email');
-        });
+        // \Mail::raw('This is a Crontab Job', function ($message) {
+        //     $message->to('dukejib@gmail.com', 'Ali Raja');
+        //     $message->subject('Crontab Email');
+        // });
         
 
     }
