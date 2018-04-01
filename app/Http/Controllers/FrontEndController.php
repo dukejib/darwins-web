@@ -100,6 +100,8 @@ class FrontEndController extends Controller
     public function newsLetter()
     {
         return view('newsletter')
+        ->with('option',1)
+        ->with('message','') //This is used in confirmNewsLetter() function
         ->with(Helper::getBasicData());
     }
 
@@ -118,8 +120,41 @@ class FrontEndController extends Controller
         return redirect()->route('newsLetter');
     }
 
+    /** Confirms the Newsletter Subscription */
     public function confirmNewsLetter($email,$confirm){
-        return $email . ' ' . $confirm;
+        $nl = new NewsLetter();
+        $data = NewsLetter::where('email',$email)->firstOrFail(); //TODO::this is making last else fail
+        //return $data->id;
+        /** Check to see if we have data */
+        if(count($data)>0){
+            //Check confirm
+            if($confirm == 1){
+                //copy data to newsletter object
+                $data->confirmed = true;
+                $data->save();
+                return view('newsletter')
+                ->with('option',2)
+                ->with('message','Thank you for subscibing to our Newsletter')
+                ->with(Helper::getBasicData());
+            }
+            else if ($confirm == 0)
+            {
+                //copy data to newsletter object
+                $data->confirmed = false;
+                $data->save();
+                return view('newsletter')
+                ->with('option',2)
+                ->with('message','We have removed your email address form our Database')
+                ->with(Helper::getBasicData());
+            }
+        }
+        else 
+        {
+            return view('newsletter')
+            ->with('option',2)
+            ->with('message','Sorry we do not have your email address in our Database')
+            ->with(Helper::getBasicData());
+        }
     }
 
     public function article($id)
@@ -150,14 +185,15 @@ class FrontEndController extends Controller
         $response = json_decode($verify);
 
         if($response->success){
+            /** Send Email */
+            $this->sendContactUsEmail($request);
             Session::flash('success','Email Sent');
             return redirect()->route('contactus');
         }else {
             Session::flash('info','You must veryify that you aren\'t a Robot');
             return redirect()->back();
         }
-
-        //TODO::Add email routing here
+        
     }
 
     public function sendNewsLetterConfirmation($e)
@@ -170,5 +206,22 @@ class FrontEndController extends Controller
             $message->to($email,$name);
             $message->subject($title);
         });
+    }
+
+    public function sendContactUsEmail(Request $request)
+    {
+        $title = 'Hi';
+        $name = $request->name;
+        $email = $request->email;
+        $message = $request->message;
+        $subject = $request->subject;
+        //Send Email in Queue
+        
+        \Mail::raw($message, function ($message) use ($email,$name,$subject) {
+            $message->from($email, $name);    
+            $message->to('mailman@morecreditcardservices.com', 'Mail Man');
+            $message->subject($subject);
+        });
+        
     }
 }

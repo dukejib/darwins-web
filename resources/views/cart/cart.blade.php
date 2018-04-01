@@ -95,6 +95,7 @@
                 $fed = 0;
                 $shipping = 0;
                 $subtotal = 0;
+                $paymentoption = 0;
             ?>
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
                 <div class="panel panel-primary">
@@ -118,7 +119,7 @@
 @section('scripts')
     <script>
         $paymentoption = 0;
-        //Process the USD to Bitcoint Script
+        // Process the USD to Bitcoint Script
         $(document).ready(function(){
             $usd = '{{ ($subtotal + $fed + $shipping)}}';
             $reply='';
@@ -135,7 +136,9 @@
         $(document).ready(function(){
             $('input[type=radio]').change(function(){
                 $paymentoption = $('input[name=paymentoptions]:checked').val();
+                $functionUrl = $('input[type=button]').attr('url');
                 console.log($paymentoption);
+                console.log($functionUrl);
             })
         });
         // Process the cart.checkout url
@@ -148,7 +151,7 @@
             //We are not 0, so proceed
             $.ajax({
             type: "GET",
-            url: '/cart/checkout/1' + $paymentoption,
+            url: '/cart/checkout/1/' + $paymentoption,
             data: { "toggle":1,"paymentoption" : $paymentoption},
             dataType: "json",
             success: function (response) {
@@ -158,7 +161,7 @@
                 },
             error:function(error){
                 // console.log(error.status);
-                alert('some error occured');
+                //alert('some error occured');
                 },
             complete:function(){
 

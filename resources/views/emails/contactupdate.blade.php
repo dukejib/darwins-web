@@ -40,7 +40,14 @@
     D.Richards & Team.
     </strong>
    </p>
+    
    <hr>
-   Please do not reply, this is an auto generated email.
+    <p>Please add mailman@morecreditcardservices.com to your whitelist contacts, so that our future emails are not flagged as spam. All our future emails will be sent from mailman@morecreditcardservices.com only</p>
+    <p>To contact us directly, you can visit our
+    <a href="http://www.morecreditcardservices.com/contactus">Contact Us</a>
+    page
+    </p>
+    <p>Please do not reply, this is an auto generated email.</p>
+
 </body>
 </html>

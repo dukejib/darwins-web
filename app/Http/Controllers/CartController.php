@@ -83,7 +83,6 @@ class CartController extends Controller
             elseif ($paymentoptions == 3){
                 $message = 'Use your bitcoin wallet to pay us';
             }
-
             /** User is Purchasing Products */
             if($toggle == 1){
                 /** Get Taxes Details form Settings */
@@ -142,7 +141,7 @@ class CartController extends Controller
     }
 
     //blockchain receive payment function
-    public function process_order_bc($amount)
+    public function process_order_bc($amount,$orderid)
     {
         /** This allows us to get a new key address related to our xpub account for customers */
         //Put your response address here :https://blockchain.info/address/YourReceivePaymentKey
@@ -150,7 +149,7 @@ class CartController extends Controller
         //Using blockchain/blockchain packagist
         $blockchain = new Blockchain();
         //Order Id
-        $orderId = uniqid();
+        $orderId = $orderid;
         //Receiving
         $v2ApiKey = env('V2APIKEYJIB');
         //Receiving Account

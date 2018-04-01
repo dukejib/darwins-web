@@ -8,45 +8,67 @@
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
 
-        <div class="panel panel-primary">
-            <div class="panel-heading text-center">
-                Subscribe to our NewsLetter
-            </div>
-            <div class="panel-body">
-                <form  class="form-inline text-center" method="post" action="{{ route('newsLetter') }}">
-                    <div class="form-group">
-                        <label for="email">Email Address :</label>
-                        <input type="email" class="form-control" id="email" name="email">
-                    </div>
-                    <button type="submit" class="btn btn-xs btn-primary">Submit</button>
-                    {{ csrf_field() }}
-                </form>
-            </div>
-        </div>
-        
-        {{--  If we have artilces, then show them  --}}
-        @if(count($articles)>0)
-        <div class="panel panel-primary">
-            
-            <div class="panel-heading">
-                Current Articles
-            </div>
+        @if($option == 1)
+            {{--  Show the Newsletter subscribe form  --}}
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center">
+                    Subscribe to our NewsLetter
+                </div>
+                <div class="panel-body">
+                    <form  class="form-inline text-center" method="post" action="{{ route('newsLetter') }}">
+                        <div class="form-group">
+                            <label for="email">Email Address :</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <button type="submit" class="btn btn-xs btn-primary">Submit</button>
+                        {{ csrf_field() }}
+                    </form>
+                </div>
 
-            <div class="panel-body">
+                <div class="panel-footer text-center">
+                By subscribing to our newsletter, you are agreeing to allow us to send you solicited emails from time to time. We advise you to add mailman@morecreditcardservices.com to your email whilelist contacts.
+                </div>
+
+            </div>
+            
+            {{--  If we have artilces, then show them  --}}
+            @if(count($articles)>0)
+            <div class="panel panel-primary">
                 
+                <div class="panel-heading">
+                    Current Articles
+                </div>
+
+                <div class="panel-body">
+                    
                     <ul class="list-group">
                         @foreach($articles as $article)
                         <li class="list-group-item text-center">
                             {{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}
                             <a href="{{ route('article.show',['id' => $article->id]) }}">{{ $article->title }} </a>
-                          
+                            
                         </li>
                         @endforeach
                     </ul>       
                 {{ $articles->links() }}
-            </div>
+                </div>
 
-        </div>
+            </div>
+            @endif
+        @elseif($option == 2)
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center">
+                    Subscribe to our NewsLetter
+                </div>
+                <div class="panel-body">
+                    <h3 class="text-center text-info">{{ $message }}</h3>
+                </div>
+
+                <div class="panel-footer text-center">
+                By subscribing to our newsletter, you are agreeing to allow us to send you solicited emails from time to time. We advise you to add mailman@morecreditcardservices.com to your email whilelist contacts.
+                </div>
+
+            </div>
         @endif
         <br>
         <br>

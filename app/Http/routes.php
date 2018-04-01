@@ -7,7 +7,7 @@ Route::get('updates', function () {
 /** Cart Related Routes */
 Route::get('/cart','CartController@cart')->name('cart'); //Show Cart
 Route::get('/cart/clear','CartController@clearCart')->name('cart.clear'); //Clear Cart
-Route::get('/cart/checkout/{toggle}{paymentoptions}','CartController@checkoutCart')->name('cart.checkout'); //Checkout Cart
+Route::get('/cart/checkout/{toggle}/{paymentoptions}','CartController@checkoutCart')->name('cart.checkout'); //Checkout Cart
 Route::get('/cart/add_to_cart/{id}','CartController@add_to_cart')->name('cart.add');
 Route::get('/cart/decrease_item/{id}{qty}','CartController@decrease_item')->name('cart.decrease');
 Route::get('/cart/increase_item/{id}{qty}','CartController@increase_item')->name('cart.increase');
@@ -26,7 +26,7 @@ Route::get('/termsofservice','FrontEndController@termsOfService')->name('termsOf
 Route::get('/termsofservice/getpdf','FrontEndController@tos_getpdf')->name('getpdf');
 Route::get('/newsletter','FrontEndController@newsLetter')->name('newsLetter'); //Show page with form
 Route::post('/newsletter','FrontEndController@postNewsLetter')->name('newsLetter'); //Submit form
-Route::get('/newsletter/confirm/{confirmed}{email}','FrontEndController@confirmNewsLetter')->name('newsletter.confirm');
+Route::get('/newsletter/confirm/{email}/{confirm}','FrontEndController@confirmNewsLetter')->name('newsletter.confirm');
 Route::get('/article/{id}','FrontEndController@article')->name('article.show');
 Route::get('/contactus','FrontEndController@contactus')->name('contactus'); //Contact Form
 Route::post('/contactus','FrontEndController@storeContactUs')->name('contactus'); //Contact Form
