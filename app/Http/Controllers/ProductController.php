@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Item;
 use App\Helper\Helper;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;

@@ -69,6 +69,6 @@
     <script>
     $(document).ready( function () {
         $('#carousel').DataTable();
-    } );
+    });
     </script>
 @endsection

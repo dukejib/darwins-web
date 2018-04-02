@@ -59,7 +59,7 @@ Route::group(['prefix' => 'user'],function(){
     Route::get('/profile/becomeaffiliate','ProfileController@become_affiliate')->name('user.profile.become_affiliate')->middleware('auth');
     Route::get('/affiliate/{id}','UserController@user_affiliate')->name('user.affiliate')->middleware('auth');
     Route::get('/unaffiliate/{id}','UserController@user_unaffiliate')->name('user.unaffiliate')->middleware('auth');
-    Route::get('/delete/{id}','UserController@user_delete')->name('user.delete')->middleware('auth');
+    Route::get('/user/delete/{id}','UserController@user_delete')->name('user.delete')->middleware('auth');
     
 });
 

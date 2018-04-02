@@ -4,7 +4,7 @@
   
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Products -        {{--  Total : ({{$products->total()}}) Records  --}}
+            Products        {{--  Total : ({{$products->total()}}) Records  --}}
             <a href="{{ route('admin.product.create') }}" class="btn btn-xs btn-success pull-right">Add New Product</a>
         </div>
         <div class="panel-body">

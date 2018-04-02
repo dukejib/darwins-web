@@ -17,6 +17,7 @@
                 <table class="table table-striped table-condensed" id="orders">
                     <thead>
                     <tr>
+                        <th>id</th>
                         <th>User</th>
                         <th>SubTotal</th>
                         <th>F.E.D</th>
@@ -32,8 +33,9 @@
                     @foreach($orders as $order)
                         <tr>
                             {{--  using url::to because we need the exact url , which is needed in service pages  --}}
+                            <td>{{ $order->id }}</td>
                             <td>
-                                {{ $order->user_id }}
+                                {{ $order->user->first_name . ' ' . $order->user->last_name }}
                             </td>
                             <td>${{ $order->sub_total }}</td>
                             <td>${{ $order->tax }}</td>

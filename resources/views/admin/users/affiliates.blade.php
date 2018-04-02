@@ -19,6 +19,7 @@
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
+                        <th>Orders</th>
                         <th>Un Affiliate</th>
                         <th>View User</th>
                         <th>Delete User</th>
@@ -31,6 +32,7 @@
                             <td>{{ $affiliate->first_name }}</td>
                             <td>{{ $affiliate->last_name }}</td>
                             <td>{{ $affiliate->email }}</td>
+                            <td>{{ count($affiliate->orders)  }}</td>
                             <td>
                             @if(!$affiliate->isUserAffiliate())
                             <a href="{{ route('user.unaffiliate',['id' => $affiliate->id]) }}" class="btn btn-xs btn-warning">Unaffiliate</a>
@@ -40,7 +42,10 @@
                                 <a href="#" class="btn btn-xs btn-success">View User</a>
                             </td>
                             <td>
-                                <button type="button" id="deleteUser"  class="btn btn-danger btn-xs" value="{{ $affiliate->id }}" url = "{{ route('user.delete',['id' => $affiliate->id]) }}">Delete User</button>
+                                <a id="url" href="{{ route('user.delete',['id' => $affiliate->id]) }}" value="{{ $affiliate->id }}" hidden>Hi</a>
+                                <button type="button" id="deleteUser" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUserModal">
+                                    Delete User
+                                </button>
                             </td>
                        </tr>
                    @endforeach
@@ -60,15 +65,16 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Delete User</h4>
+        <h4 class="modal-title text-danger">Delete User</h4>
       </div>
       <div class="modal-body">
-        <p>Are you sure?</p>
-        This means the user will be deleted permanently. This user will not be recoverable anymore.
+        <p class="text-warning">Are you sure?</p>
+        <i class="fa fa-close fa-trash" style="color:yellow;font-size:5em"></i> 
+        By pressing DELETE PERMANENTLY , you would not be able to recover the User and related data anymore!
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger btn-xs pull-left" id="delete">Delete Permanently</button>
-        <button type="button" class="btn btn-default btn-xs pull-right" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success btn-xs pull-right" data-dismiss="modal">Cancel</button>
       </div>
     </div>
 
@@ -79,8 +85,9 @@
 
 @section('scripts')
     <script>
+    //Datatable 
     $(document).ready( function () {
         $('#affiliates').DataTable();
-    } );
+    });
     </script>
 @endsection 

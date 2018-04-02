@@ -47,5 +47,22 @@ class UserTableSeeder extends Seeder
             'user_id' => $user2->id,
         ]);
         $this->command->info('Normal Profile Created');
+
+        /** Create New User */
+        $user2 = User::create([
+            'first_name' => 'Normal2',
+            'last_name' => 'Norman2',
+            'email' => 'normal2@morecreditcardservices.com',
+            'password' => bcrypt('_mccs2018_'),
+            'role' => 1, //Customer
+            'affiliate_id' => Helper::getUniqueAffiliateId(),
+            'referred_by' => 1 //By Admin
+        ]);
+        $this->command->info('Normal2 User Created');
+        Profile::create([
+            'user_id' => $user2->id,
+        ]);
+        $this->command->info('Normal2 Profile Created');
+
     }
 }

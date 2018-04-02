@@ -76,7 +76,10 @@
                 </div>
 
                 <div class="panel-footer text-center">
-                        {{--  <a href="{{ route('cart.checkout',['toggle' => 1,'pay' => $paymentoption]) }}" >Hi</a>  --}}
+                    <?php 
+                        $paymentoption = 0; //Hack for proper route - actual value is changed from jquery
+                    ?>
+                    <a id="url" href="{{ route('cart.checkout',['toggle' => 2,'pay' => $paymentoption ]) }}" hidden></a>
                     <button type="button" id="checkout"  class="btn btn-xs btn-success">Process Cart</button>
                 </div>
 
@@ -103,9 +106,14 @@
             });
         });
         // Read radio button changes
+        // These variables will be used
+        $paymentoption = 0;
+        $url = '';
         $(document).ready(function(){
             $('input[type=radio]').change(function(){
                 $paymentoption = $('input[name=paymentoptions]:checked').val();
+                $url = $('#url').attr('href').slice(0,-1); //Remove the trailing 0 from the url (hack around)
+                console.log($url);
                 console.log($paymentoption);
             })
         });
@@ -119,8 +127,8 @@
             //We are not 0, so proceed
             $.ajax({
             type: "GET",
-            url: '/cart/checkout/2' + $paymentoption,
-            data: { "toggle":2,"paymentoption" : $paymentoption},
+            url: $url + $paymentoption,
+            data: { "toggle":1,"paymentoption" : $paymentoption},
             dataType: "json",
             success: function (response) {
                 //AdminController is sending json reply:answer
@@ -129,7 +137,7 @@
                 },
             error:function(error){
                 // console.log(error.status);
-                alert('some error occured');
+                //alert('some error occured');
                 },
             complete:function(){
 

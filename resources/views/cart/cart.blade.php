@@ -6,6 +6,7 @@
 
 @section('content')
     @if(Session::has('cart'))
+
         <div class="row">
             <div class="col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2">
                 <div class="panel panel-primary ">
@@ -63,10 +64,9 @@
             </div>
 
             <div class="col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2">
-                <div class="panel panel-primary ">
+                <div class="panel panel-primary">
                     <div class="panel-heading text-center">
                         Step 2 : Select Payment Option
-                        {{--  Your Shopping Cart has {{ Cart::content()->count() }} unique item(s)  --}}
                     </div>
                     <div class="panel-body">
                         <div class="radio text-center">
@@ -78,38 +78,35 @@
                         </div>
                     </div>
                     <div class="panel-footer text-center">
-                            {{--  <a href="{{ route('cart.checkout',['toggle' => 1,'pay' => $paymentoption]) }}" >Hi</a>  --}}
+                        <?php 
+                        $paymentoption = 0; //Hack for proper route - actual value is changed from jquery
+                        ?>
+                        <a id="url" href="{{ route('cart.checkout',['toggle' => 1,'pay' => $paymentoption ]) }}" hidden></a>
                         <button type="button" id="checkout"  class="btn btn-xs btn-success">Process Cart</button>
                     </div>
                 </div>
             </div>
         </div>
-
+        
         <br>
         <br>
         <br>
         <br>
     @else
         <div class="row">
-            <?php
-                $fed = 0;
-                $shipping = 0;
-                $subtotal = 0;
-                $paymentoption = 0;
-            ?>
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">You haven't selected any product yet!</div>
+                    <div class="panel-heading">You have not selected any product yet!</div>
                     <div class="panel-body">
                         <p class="myp">
-                        Please view our services catalouge our <a href="{{ route('home') }}">Products</a> page
+                        Please view our services catalouge at <a href="{{ route('home') }}">Products</a> page
                         </p>
                     </div>
                 </div>
                 <br>
                 <br>
-                <br><br>
-
+                <br>
+                <br>
             </div>
         </div>
     @endif
@@ -118,8 +115,7 @@
 
 @section('scripts')
     <script>
-        $paymentoption = 0;
-        // Process the USD to Bitcoint Script
+        // Process the USD to Bitcoin Script
         $(document).ready(function(){
             $usd = '{{ ($subtotal + $fed + $shipping)}}';
             $reply='';
@@ -133,12 +129,15 @@
             });
         });
         // Read radio button changes
+        // These variables will be used
+        $paymentoption = 0;
+        $url = '';
         $(document).ready(function(){
             $('input[type=radio]').change(function(){
                 $paymentoption = $('input[name=paymentoptions]:checked').val();
-                $functionUrl = $('input[type=button]').attr('url');
+                $url = $('#url').attr('href').slice(0,-1); //Remove the trailing 0 from the url (hack around)
+                console.log($url);
                 console.log($paymentoption);
-                console.log($functionUrl);
             })
         });
         // Process the cart.checkout url
@@ -151,7 +150,7 @@
             //We are not 0, so proceed
             $.ajax({
             type: "GET",
-            url: '/cart/checkout/1/' + $paymentoption,
+            url: $url + $paymentoption,
             data: { "toggle":1,"paymentoption" : $paymentoption},
             dataType: "json",
             success: function (response) {

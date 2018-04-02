@@ -15,7 +15,8 @@
                     <tr>
                         <td>id</td>
                         <td>Email Address</td>
-                        <td>Edit</td>
+                        <td>Double Opt In</td>
+                        {{--  <td>Edit</td>  --}}
                         <td>Delete</td>
                     </tr>
                     </thead>
@@ -24,7 +25,14 @@
                         <tr>
                             <td>{{ $newsLetter->id }}</td>
                             <td>{{ $newsLetter->email }}</td>
-                            <td><a href="{{ route('subscription.edit',['id' => $newsLetter->id]) }}" class="btn btn-xs btn-info">Edit</a></td>
+                            <td>
+                            @if($newsLetter->confirmed === 0)
+                                <span class="text-danger">False</span>
+                            @elseif($newsLetter->confirmed === 1)
+                                <span class="text-success">True</span>
+                            @endif 
+                            </td>
+                            {{--  <td><a href="{{ route('subscription.edit',['id' => $newsLetter->id]) }}" class="btn btn-xs btn-info">Edit</a></td>  --}}
                             <td><a href="{{ route('subscription.delete',['id' => $newsLetter->id]) }}" class="btn btn-xs btn-danger">Delete</a></td>
                         </tr>
                     @endforeach

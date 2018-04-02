@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"> <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}"> <!-- Slick -->
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}"> <!-- Slick -->
-    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.css') }}"> <!- DataTables -->
+    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.css') }}"> <!-- DataTables -->
 
     <link rel="Shortcut Icon" href="{{ asset('img/favicon.ico')}}" type="image/x-icon" > 
     @yield('styles') <!-- More Styles -->

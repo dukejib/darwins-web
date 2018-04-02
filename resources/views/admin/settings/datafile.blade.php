@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="panel panel-warning">
+<div class="panel panel-primary">
 
         <div class="panel-heading">
             Data File for Affiliates

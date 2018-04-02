@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="panel panel-danger">
+<div class="panel panel-primary">
 
     <div class="panel-heading">
         Global Website Settings - Proceed with Caution

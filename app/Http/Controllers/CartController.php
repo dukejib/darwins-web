@@ -82,7 +82,7 @@ class CartController extends Controller
             }
             elseif ($paymentoptions == 3){
                 $message = 'Use your bitcoin wallet to pay us';
-            }
+            } 
             /** User is Purchasing Products */
             if($toggle == 1){
                 /** Get Taxes Details form Settings */
