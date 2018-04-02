@@ -4,6 +4,10 @@ Route::get('updates', function () {
     return view('updates');
 });
 
+Route::get('pro',function(){
+    return \App\User::with(['orders','orders.order_details'])->where('role','=',1)->get();
+});
+
 /** Cart Related Routes */
 Route::get('/cart','CartController@cart')->name('cart'); //Show Cart
 Route::get('/cart/clear','CartController@clearCart')->name('cart.clear'); //Clear Cart

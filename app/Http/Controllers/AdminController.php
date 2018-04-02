@@ -70,14 +70,14 @@ class AdminController extends Controller
     {
         //$affiliates = User::where('role','=',2)->get(); //2-Affiliate
         return view('admin.users.affiliates')
-        ->with('affiliates',User::where('role','=',2)->get());
+        ->with('affiliates',User::with(['orders','orders.order_details'])->where('role','=',2)->get());
     }
 
     public function customers()
     {
         //$customers = User::where('role','=',1)->get(); //1-customer
         return view('admin.users.customers')
-        ->with('customers',User::where('role','=',1)->get());
+        ->with('customers',User::with(['orders','orders.order_details'])->where('role','=',1)->get());
     }
 
     public function store_photo(Request $request)
@@ -159,6 +159,6 @@ class AdminController extends Controller
     public function orders()
     {
         return view('admin.orders.index')
-        ->with('orders',Order::orderBy('created_at','asc')->get());
+        ->with('orders',Order::orderBy('created_at','asc')->with('order_details')->get());
     }
 }
