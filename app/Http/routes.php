@@ -1,12 +1,6 @@
 <?php
 
-Route::get('updates', function () {
-    return view('updates');
-});
-
-Route::get('pro',function(){
-    return \App\User::with(['orders','orders.order_details'])->where('role','=',1)->get();
-});
+Route::get('updates','FrontEndController@updates')->name('updates');
 
 /** Cart Related Routes */
 Route::get('/cart','CartController@cart')->name('cart'); //Show Cart
@@ -38,10 +32,6 @@ Route::get('/dropdown/{id}','FrontEndController@drop_down')->name('dropdown'); /
 Route::get('/product/selected/{id}','FrontEndController@get_item')->name('show.product');
 Route::get('/service/selected/{id}','FrontEndController@get_item')->name('show.service');
 Route::get('/referred','UserController@getRefferal'); //This reroute the refferal proparly
-Route::get('/clearsession',function(){
-    Session::flush();
-    return redirect()->route('home');
-});
 /** Authenticated Routes */
 
 

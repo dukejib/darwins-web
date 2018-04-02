@@ -10,10 +10,14 @@
     <link rel="stylesheet" href="{{ asset('css/darkly.theme.css') }}"> <!-- Darkly Theme -->
     {{--  <link rel="stylesheet" href="{{ asset('css/united.theme.css') }}"> <!-- United Theme -->  --}}
     {{--  <link rel="stylesheet" href="{{ asset('css/app.css') }}">   --}}
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.css')}}"> <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"> <!-- Toastr -->
+    {{--  <link rel="stylesheet" href="{{ asset('css/font-awesome.css')}}"> <!-- Font Awesome -->  --}}
+    {{--  <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"> <!-- Toastr -->  --}}
     <link rel="stylesheet" href="{{ asset('css/summernote.css') }}"> <!-- SummerNote -->
     <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.css') }}"> <!-- DataTables -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    {{--  <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"> <!-- Toastr -->  --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    {{--  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">  --}}
 
 </head>
 
@@ -147,10 +151,13 @@
 
 <script src="{{ asset('js/jquery-3.2.1.js')}}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/toastr.min.js') }}"></script>
+{{--  <script src="{{ asset('js/toastr.min.js') }}"></script>  --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js.map"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script src="{{ asset('js/summernote.js') }}"></script>
 <script src="{{ asset('js/admin.js') }}"></script>
-<script src="{{ asset('js/jquery.dataTables.js') }}"></script> <!-- DataTables -->
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+{{--  <script src="{{ asset('js/jquery.dataTables.js') }}"></script> <!-- DataTables -->  --}}
 <script>
     //Uses Toastr https://github.com/CodeSeven/toastr
     @if(Session::has('success'))

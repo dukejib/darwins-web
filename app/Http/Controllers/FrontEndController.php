@@ -20,6 +20,11 @@ class FrontEndController extends Controller
             ->with(Helper::getBasicData());
     }
 
+    public function updates()
+    {
+        return view('updates');
+    }
+
     public function drop_down($id)
     {
        
