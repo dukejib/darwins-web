@@ -41,7 +41,7 @@
                         <ul>
                             <li class="text-info">Login Throttling : User can attempt 3 failed login attempt: lockdown 3600 sec/1 Hour
                             </li>
-                            <li class="text-danger">Added "Delete user" buttong to customer/affiliate > >> Admin
+                            <li class="text-info">Added "Delete user" buttong to customer/affiliate > >> Admin
                             </li>
                             <li class="text-info">Only Protonmail user can Sign up with us</li>
                             <li class="text-info">Email is sent to every one, who signs up with us</li>

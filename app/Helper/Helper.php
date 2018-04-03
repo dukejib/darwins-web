@@ -16,9 +16,12 @@ use App\WebBanner;
 
 use DB;
 use App\Order;
+use Illuminate\Support\Facades\Cache;
 
 /** This Class Has functions to Help out Project */
 class Helper {
+
+    static private $cache_time = 24 * 7 * 60;
 
     public static function getBasicDataForCart()
     {
@@ -78,10 +81,9 @@ class Helper {
     public static function getBasicData()
     {
         /** create the Menu System */
-        $local = LocalCategory::where('active',1)->get();
+        $local =LocalCategory::where('active',1)->get(); 
         $sub = SubCategory::where('active',1)->get();
         $global = GlobalCategory::where('active',1)->get();
-
         //Hold Only Those Sub Categories, which have any Local Category
         $sub_categories  = array();  
         foreach($sub as $s):
@@ -118,10 +120,10 @@ class Helper {
         
         /** Settings for the system */
         $settings = Setting::first();
-
+        
         /** Carousel Data */
         $carousel = Carousel::all();
-
+        
         /** Product Array */
         $products = Item::where('product',1)->orderBy('created_at','desc')->get();
 
