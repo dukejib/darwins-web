@@ -22,7 +22,7 @@
     {{--  <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.css') }}"> <!-- DataTables -->  --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 
-    <link rel="Shortcut Icon" href="{{ asset('img/favicon.ico')}}" type="image/x-icon" > 
+    <link rel="Shortcut Icon" href="{{ asset('img/favicon.ico?')}}" type="image/x-icon" > 
     @yield('styles') <!-- More Styles -->
 
 </head>
