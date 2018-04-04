@@ -106,7 +106,7 @@ class ArticleController extends Controller
         $art = Article::find($id);
         $art->title = $request->title;
         $art->article = $request->article;
-        $art->article = $request->synopsis;
+        $art->synopsis = $request->synopsis;
         $art->slug = str_slug($request->title);
         $art->save();
 
