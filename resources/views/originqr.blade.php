@@ -47,8 +47,8 @@
                     <br>
                     <br>
                     <p class="mysubheading text-center">The screenshot below is the original CRQ & CueCat Installation Guide Outline:</p>
-                    <img src="{{ asset('img/cuecatguide1.png') }}" class="thumbnail img-responsive"><br>
-                    <img src="{{ asset('img/cuecatguide2.png') }}" class="thumbnail img-responsive"><br>
+                    <img src="{{ asset('img/cuecatguide1.jpg') }}" class="thumbnail img-responsive"><br>
+                    <img src="{{ asset('img/cuecatguide2.jpg') }}" class="thumbnail img-responsive"><br>
                     <p class="mysubheading">Play the videos below for more information on what Cue-Cat&apos;s purpose is and what it did before Mobile Phones with installed QR Code Scanning Apps came about into development
                     <table>
                         <tr>
@@ -71,7 +71,7 @@
                     <br>
                     <br>
                     <p class="myp">
-                        <img src="{{ asset('img/pic1.png') }}" class="thumbnail img-responsive" alt="Cuecat" style="float: left;margin-right:20px;">
+                        <img src="{{ asset('img/pic1.jpg') }}" class="thumbnail img-responsive" alt="Cuecat" style="float: left;margin-right:20px;">
                         The term App(s) means "Application" and generally speaking an App is defined as a means of using software to convert a desk-top website&apos;s visual format to the equivalent of a 2x4 or larger mobile device screens.<br><br>
                         It is also a means or mechanism of reducing a long URL name to just a few key strokes, needed because of the small size of mobile devices, using what is known as a <strong>Q.R. Code</strong> to implement the process, in other words it is all about ergonomics.<br><br>
                         Ergonomics is an applied science that deal with designing and arranging things at a high quality level so that people can interact with them most efficiently, effectively, easily and safely.

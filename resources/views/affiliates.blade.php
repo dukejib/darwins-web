@@ -18,7 +18,7 @@
                 <div class="panel-body">
 
                     <div class="col-md-4">
-                        <img src="{{ asset('img/affiliatecrowdfundingcover.png') }}" alt="Affiliate Crowdfunding Book" width="300px">
+                        <img src="{{ asset('img/affiliatecrowdfundingcover.jpg') }}" alt="Affiliate Crowdfunding Book" width="300px">
                     </div>
 
                     <div class="col-md-8">
