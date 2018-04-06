@@ -17,6 +17,14 @@
                 <h3 class="text-warning">Updates / Additons </h3>
 
                 <ul class="list-group">
+                    <li class="list-group-item text-success">Following items added from 2nd April - 5 April
+                        <ul>
+                            <li class="text-info">Graphics Overhaul - Changed Formats of all graphics for faster loading
+                            </li>
+                            <li class="text-info">Rewroked on the logo</li>
+                            <li class="text-info">Favicon updated <img src="{{ asset('img/favicon.ico?')}}" alt="" width="32px">   </li>
+                        </ul>
+                    </li>
                     <li class="list-group-item text-success">Following items added from 26 Mar - 1 April
                         <ul>
                             <li class="text-info">Crowdfunding Affiliate Book & Items Purchase Now have Payment option selection
