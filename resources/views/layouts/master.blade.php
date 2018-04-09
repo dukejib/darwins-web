@@ -45,7 +45,7 @@
 <script src="{{ asset('js/jquery-3.2.1.js')}}"></script> <!-- Jquery -->
 <script src="{{ asset('js/app.js') }}"></script> <!-- Bootstrap -->
 {{--  <script src="{{ asset('js/toastr.min.js') }}"></script> <!-- Toastr -->  --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js.map"></script>
+{{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js.map"></script>  --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 {{--  <script src="{{ asset('js/owl.carousel.min.js') }}"></script> <!-- Slick -->  --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>

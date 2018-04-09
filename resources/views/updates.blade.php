@@ -19,6 +19,7 @@
                 <ul class="list-group">
                     <li class="list-group-item text-success">Following items added from 2nd April - 5 April
                         <ul>
+                            <li class="text-warn">On Cart Page, If user is not logged in- Jquery is not working - FIX IT</li>
                             <li class="text-info">Graphics Overhaul - Changed Formats of all graphics for faster loading
                             </li>
                             <li class="text-info">Rewroked on the logo</li>

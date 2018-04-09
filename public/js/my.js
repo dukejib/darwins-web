@@ -32,18 +32,6 @@ $(document).ready(function(){
   });
 });
 
-/** main Carousel */
-$(document).ready(function () {
-    //Get the Carousel Interval Time from Settings
-    $carouselInterval = $('#carousel_time').attr('value');   
-    console.log($carouselInterval);
-    /** Carousel Slider Interval **/
-    $('.carousel').carousel({
-        
-    interval: $carouselInterval
-    });
-});
-
 /** Owl Carousel Slider Interval **/
 $(document).ready(function(){
   $('.owl-carousel').owlCarousel({
@@ -62,6 +50,6 @@ $(document).ready(function(){
               items:5
           }
       }
-  })
+  });
 });
 

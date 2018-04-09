@@ -22,7 +22,7 @@ class ProfileController extends Controller
         return view('users.profile')
             ->with('user',Auth::user())
             ->with('profile',Auth::user()->profile)
-            ->with('orders',Order::where('user_id',$id)->get())
+            ->with('orders',Order::where('user_id',$id)->with('order_details')->get())
             ->with('newsletter',NewsLetter::where('email',Auth::user()->email))
             ->with(Helper::getBasicData());
     }

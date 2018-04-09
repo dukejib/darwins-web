@@ -246,7 +246,8 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-xs btn-success"><i class="fa fa-binoculars"></i></a>
+                                            <button type="button" class="btn btn-xs btn-success"><i class="fa fa-binoculars"></i> Click Me</button>
+                                            <a href="" id="details" value="{{ $order->id }}" >Hi</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -283,6 +284,15 @@
     <script>
     $(document).ready( function () {
         $('#ordersTable').DataTable();
-    } );
+    });
+    
+    $(document).ready(function(){
+
+        $('input[type=button]').on('click',function(){
+            alert('hi');
+        });
+    
+    });
+    
     </script>
 @endsection

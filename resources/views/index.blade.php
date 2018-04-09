@@ -18,3 +18,22 @@
     @include('partials.services_carousel')
 
 @endsection
+
+
+@section('scripts')
+    <script>
+    /** main Carousel */
+    $(document).ready(function () {
+        //Get the Carousel Interval Time from Settings
+        $carouselInterval = $('#carousel_time').attr('value');   
+        console.log($carouselInterval);
+        /** Carousel Slider Interval **/
+        $('.carousel').carousel({
+            
+        interval: $carouselInterval
+        });
+    });
+    </script>
+    
+@stop
+
