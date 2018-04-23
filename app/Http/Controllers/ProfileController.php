@@ -23,6 +23,7 @@ class ProfileController extends Controller
             ->with('user',Auth::user())
             ->with('profile',Auth::user()->profile)
             ->with('orders',Order::where('user_id',$id)->with('order_details')->get())
+            // ->with('orders',Order::where('user_id',$id)->get())
             ->with('newsletter',NewsLetter::where('email',Auth::user()->email))
             ->with(Helper::getBasicData());
     }

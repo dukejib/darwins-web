@@ -103,9 +103,9 @@ class FrontEndController extends Controller
     }
 
     public function newsLetter()
-    {
+    { 
         return view('newsletter')
-        ->with('option',1)
+        ->with('option',1)  // 1 Means, WE are only showing newsletter subscription only. 2 will be a message, send by system after email confirmation.
         ->with('message','') //This is used in confirmNewsLetter() function
         ->with(Helper::getBasicData());
     }
@@ -132,23 +132,23 @@ class FrontEndController extends Controller
         //return $data->id;
         /** Check to see if we have data */
         if(count($data)>0){
-            //Check confirm
+            //Check confirm if the User is accepting or rejecting
             if($confirm == 1){
                 //copy data to newsletter object
                 $data->confirmed = true;
                 $data->save();
                 return view('newsletter')
-                ->with('option',2)
+                ->with('option',2)//Customer agreed with dbl-opt in, so show the message.
                 ->with('message','Thank you for subscibing to our Newsletter')
                 ->with(Helper::getBasicData());
             }
-            else if ($confirm == 0)
+            else if ($confirm == 0) //Customer has rejected
             {
                 //copy data to newsletter object
                 $data->confirmed = false;
                 $data->save();
                 return view('newsletter')
-                ->with('option',2)
+                ->with('option',2) //Customer agreed with dbl-opt in, so show the message.
                 ->with('message','We have removed your email address form our Database')
                 ->with(Helper::getBasicData());
             }

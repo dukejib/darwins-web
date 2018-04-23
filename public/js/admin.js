@@ -18,7 +18,7 @@ $(document).ready(function () {
         $userId = $('#url').attr('value');
         console.log($functionUrl);
         console.log($userId);
-        
+         
         $.ajax({
             type: "GET",
             url: $functionUrl,

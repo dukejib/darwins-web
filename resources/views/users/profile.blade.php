@@ -244,15 +244,29 @@
                                             @elseif($order->delivery_status == 3) 
                                                 <span class="text-success">Fully Paid</span> 
                                             @endif
-                                        </td>
+                                        </td> 
                                         <td>
-                                            <button type="button" class="btn btn-xs btn-success"><i class="fa fa-binoculars"></i> Click Me</button>
-                                            <a href="" id="details" value="{{ $order->id }}" >Hi</a>
+                                            <button type="button" class="btn btn-xs btn-success"
+                                            data-toggle="modal" data-target="#orderDetailsModal" data-details="{{$order->order_details}}" data-who="{{$order->id}}">
+                                                <i class="fa fa-binoculars"></i>
+                                            </button>
                                         </td>
                                     </tr>
+                                   
                                     @endforeach
                                     </tbody>
-                        
+                                    <tfoot>
+                                        <tr>
+                                            <th>Order Id</th>
+                                            <th>SubTotal</th>
+                                            <th>F.E.D</th>
+                                            <th>Shipping</th>
+                                            <th>Total</th>
+                                            <th>Delivery Status</th>
+                                            <th>Payment Status</th>
+                                            <th>Details</th>
+                                        </tr>
+                                    </tfoot>
                                 </table>
              
                             @else
@@ -278,21 +292,69 @@
     <br>
     <br>
     <br><br>
+
+<!-- Modal Order Details -->
+<div id="orderDetailsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title text-danger">Order Details</h3>
+                
+            </div>
+            <div class="modal-body">
+                <table class="table table-condensed table-stripped" id="mytable">
+                    <caption style="font-weight:bold;"></caption>
+                    <br>
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Item</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {{--  Your Content will come here via jquery  --}}
+                        </tbody>
+                </table>
+            </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success pull-right" data-dismiss="modal">Ok</button>
+        </div>
+
+    </div>
+</div>
+
+
 @endsection
 
 @section('scripts')
     <script>
+    //For Datatable
     $(document).ready( function () {
         $('#ordersTable').DataTable();
     });
-    
-    $(document).ready(function(){
-
-        $('input[type=button]').on('click',function(){
-            alert('hi');
-        });
-    
+    //Modal Script
+    $('#orderDetailsModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var details = button.data('details');
+        var recipient = button.data('who'); // Extract info from data-* attributes
+          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this);
+        var html = "";
+        //console.log(details);
+        for (i = 0 ; i < details.length ; i++){
+            //console.log(details[i].item_qty);
+            html += "<tr><td>" + details[i].item_id + "</td><td>" + details[i].item_name + "</td><td>" + details[i].item_qty + "</td><td>$" + details[i].item_price + "</td></tr>"
+        }
+        //console.log(html);
+        $('#mytable caption').html("Order # : " + details[0].order_id);
+        $('#mytable tbody').html(html);
     });
-    
     </script>
 @endsection

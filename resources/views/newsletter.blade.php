@@ -26,35 +26,40 @@
                 </div>
 
                 <div class="panel-footer text-center">
-                By subscribing to our newsletter, you are agreeing to allow us to send you solicited emails from time to time. We advise you to add mailman@morecreditcardservices.com to your email whilelist contacts.
+                By subscribing to our newsletter, you are agreeing to allow us to send you solicited emails from time to time. We advise you to add  <em>mailman@morecreditcardservices.com</em> to your email whilelist contacts.
                 </div>
 
             </div>
             
             {{--  If we have artilces, then show them  --}}
-            @if(count($articles)>0)
-            <div class="panel panel-primary">
-                
-                <div class="panel-heading">
-                    Current Articles
-                </div>
+            @if(Auth::check())
+                 @if(count($articles)>0)
+                    <div class="panel panel-primary">
+                        
+                        <div class="panel-heading">
+                            Current Articles
+                        </div>
 
-                <div class="panel-body">
-                    
-                    <ul class="list-group">
-                        @foreach($articles as $article)
-                        <li class="list-group-item text-center">
-                            {{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}
-                            <a href="{{ route('article.show',['id' => $article->id]) }}">{{ $article->title }} </a>
+                        <div class="panel-body">
                             
-                        </li>
-                        @endforeach
-                    </ul>       
-                {{ $articles->links() }}
-                </div>
+                            <ul class="list-group">
+                                @foreach($articles as $article)
+                                <li class="list-group-item text-center">
+                                    {{ \Carbon\Carbon::parse($article->published_date)->diffForHumans() }}
+                                    <a href="{{ route('article.show',['id' => $article->id]) }}">{{ $article->title }} </a>
+                                    
+                                </li>
+                                @endforeach
+                            </ul>       
+                        {{ $articles->links() }}
+                        </div>
 
-            </div>
+                    </div>
+                @endif 
             @endif
+            {{--  Articles @If ends Here  --}}
+
+        {{--  This option 2 is shown, when user verifies Dbl-Opt in email  --}}
         @elseif($option == 2)
             <div class="panel panel-primary">
                 <div class="panel-heading text-center">
@@ -65,11 +70,12 @@
                 </div>
 
                 <div class="panel-footer text-center">
-                By subscribing to our newsletter, you are agreeing to allow us to send you solicited emails from time to time. We advise you to add mailman@morecreditcardservices.com to your email whilelist contacts.
+                By subscribing to our newsletter, you are agreeing to allow us to send you solicited emails from time to time. We advise you to add <em>mailman@morecreditcardservices.com</em> to your email whilelist contacts.
                 </div>
 
             </div>
         @endif
+
         <br>
         <br>
         <br>
