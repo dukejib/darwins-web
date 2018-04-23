@@ -229,7 +229,7 @@
                                         <td>${{ $order->order_total }}</td>
                                         <td>
                                             @if($order->delivery_status == 1) 
-                                                <span class="text-warning">PENDING</span> 
+                                                <span class="text-warning">Pending</span> 
                                             @elseif($order->delivery_status == 2) 
                                                 <span class="text-info">Transit</span> 
                                             @elseif($order->delivery_status == 3) 
@@ -237,16 +237,17 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @if($order->delivery_status == 1) 
-                                                <span class="text-warning">Not Paid Yet</span> 
+                                            @if($order->delivery_status == 1)
+                                                <button type="button" class="btn btn-xs btn-success" title="You haven't paid against your order yet." data-toggle="modal" data-target="#payNowModal" data-orderid="{{$order->id}}">Pay Now</button>
                                             @elseif($order->delivery_status == 2) 
+                                                <a href="#" class="btn btn-xs btn-warning"  title="You have partially paid us, please complete your payment">Complete Payment</a>
                                                 <span class="text-info">Partial Paid</span> 
                                             @elseif($order->delivery_status == 3) 
-                                                <span class="text-success">Fully Paid</span> 
+                                                <span class="text-success" title="we have received full payment against your order">Fully Paid</span> 
                                             @endif
                                         </td> 
                                         <td>
-                                            <button type="button" class="btn btn-xs btn-success"
+                                            <button type="button" class="btn btn-xs btn-info"
                                             data-toggle="modal" data-target="#orderDetailsModal" data-details="{{$order->order_details}}" data-who="{{$order->id}}">
                                                 <i class="fa fa-binoculars"></i>
                                             </button>
@@ -322,13 +323,46 @@
                 </table>
             </div>
 
-        <div class="modal-footer">
-            <button type="button" class="btn btn-success pull-right" data-dismiss="modal">Ok</button>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Ok</button>
+            </div>
         </div>
 
     </div>
 </div>
 
+<!-- Modal Pay Now -->
+<div id="payNowModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title text-danger">Select Payment Option</h3>
+                
+            </div>
+            <div class="modal-body">
+                
+                <div class="radio text-center">
+                    <label>
+                        <input type="radio" name="paymentoptions" value="1">African Express VPC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="paymentoptions" value="2">USPS Money Orders&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="paymentoptions" value="3">Bitcoin Payment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>
+
+            </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Cancel</button>
+            <button class="btn btn-success pull-left" id="payNowProceed">Proceed</button>
+        </div>
+
+        </div>
+
+    </div>
+</div>
 
 @endsection
 
@@ -338,7 +372,7 @@
     $(document).ready( function () {
         $('#ordersTable').DataTable();
     });
-    //Modal Script
+    //Modal Script orderDetailsModal
     $('#orderDetailsModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget); // Button that triggered the modal
         var details = button.data('details');
@@ -355,6 +389,20 @@
         //console.log(html);
         $('#mytable caption').html("Order # : " + details[0].order_id);
         $('#mytable tbody').html(html);
+    });
+    //Modal script payNowModal
+    $('#payNowModal').on('show.bs.modal',function(event){
+        var button = $(event.relatedTarget); //button that triggered the modal
+        $('input[name="paymentoptions"]:checked').prop('checked', false); //I'm doing this coz every time new popup opens redio button will be reset to none. If you don't need to do this remove this line
+        var orderId = button.data('orderid');
+        //
+        var modal = $(this);
+    });
+    //Modal script PayNowModal Proceed is clicked
+    $('#payNowProceed').on('click',function(){
+        //Your Ajax Call here
+        $i =  $('input[name="paymentoptions"]:checked').val();
+        console.log($i);
     });
     </script>
 @endsection
