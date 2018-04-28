@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class="col-md-10 col-sm-12 col-xs-12 col-lg-6">
+
 <div class="panel panel-primary">
 
     <div class="panel-heading">
@@ -14,42 +16,42 @@
 
             <div class="form-group form-inline">
                 <label for="site_name" style="width:200px">Site Name</label>
-                <input type="text" class="form-control" name="site_name" value="{{ $settings->site_name }}" style="width:400px">
+                <input type="text" class="form-control" name="site_name" value="{{ $settings->site_name }}" style="width:100%">
             </div>
 
             <div class="form-group form-inline">
                 <label for="address_line1" style="width:200px">Address Line 1</label>
-                <input type="text" class="form-control" name="address_line1" value="{{ $settings->address_line1 }}" style="width:400px">
+                <input type="text" class="form-control" name="address_line1" value="{{ $settings->address_line1 }}" style="width:100%">
             </div>
 
             <div class="form-group form-inline">
                 <label for="address_line2" style="width:200px">Address Line 2</label>
-                <input type="text" class="form-control" name="address_line2" value="{{ $settings->address_line2 }}" style="width:400px">
+                <input type="text" class="form-control" name="address_line2" value="{{ $settings->address_line2 }}" style="width:100%">
             </div>
 
             <div class="form-group form-inline">
                 <label for="address_line3" style="width:200px">Address Line 3</label>
-                <input type="text" class="form-control" name="address_line3" value="{{ $settings->address_line3 }}" style="width:400px">
+                <input type="text" class="form-control" name="address_line3" value="{{ $settings->address_line3 }}" style="width:100%">
             </div>
 
             <div class="form-group form-inline">
                 <label for="contact_line1" style="width:200px">Contact Number 1</label>
-                <input type="text" class="form-control" name="contact_line1" value="{{ $settings->contact_line1 }}" style="width:400px">
+                <input type="text" class="form-control" name="contact_line1" value="{{ $settings->contact_line1 }}" style="width:100%">
             </div>
 
             <div class="form-group form-inline">
                 <label for="contact_line2" style="width:200px">Contact Number 2</label>
-                <input type="text" class="form-control" name="contact_line2" value="{{ $settings->contact_line2 }}" style="width:400px">
+                <input type="text" class="form-control" name="contact_line2" value="{{ $settings->contact_line2 }}" style="width:100%">
             </div>
 
             <div class="form-group form-inline">
                 <label for="contact_mobile" style="width:200px">Contact Mobile</label>
-                <input type="text" class="form-control" name="contact_mobile" value="{{ $settings->contact_mobile }}" style="width:400px">
+                <input type="text" class="form-control" name="contact_mobile" value="{{ $settings->contact_mobile }}" style="width:100%">
             </div>
 
             <div class="form-group form-inline">
                 <label for="contact_email" style="width:200px">Contact Email</label>
-                <input type="text" class="form-control" name="contact_email" value="{{ $settings->contact_email }}" style="width:400px">
+                <input type="text" class="form-control" name="contact_email" value="{{ $settings->contact_email }}" style="width:100%">
             </div>
 
             <div class="form-group form-inline">
@@ -76,6 +78,8 @@
         </form>
 
     </div>
+
+</div>
 
 </div>
 

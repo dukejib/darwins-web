@@ -2,7 +2,9 @@
 
 @section('content')
 
-<div class="panel panel-primary">
+<div class="col-md-10 col-sm-12 col-xs-12 col-lg-6">
+
+    <div class="panel panel-primary">
 
         <div class="panel-heading">
             Data File for Affiliates
@@ -18,7 +20,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="">{{ URL::to('files/' . $settings->datafile) }}</label>
+                    <label for="" id="mydatafileurl">{{ URL::to('files/' . $settings->datafile) }}</label>&nbsp;&nbsp;
                 </div>
 
                 <div class="form-group">
@@ -33,4 +35,5 @@
 
     </div>
 
+</div>
 @endsection

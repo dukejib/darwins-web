@@ -2,7 +2,9 @@
 
 @section('content')
 
-<div class="panel panel-primary">
+<div class="col-md-10 col-sm-12 col-xs-12 col-lg-6">
+
+    <div class="panel panel-primary">
 
         <div class="panel-heading">
             Terms of Service
@@ -29,4 +31,5 @@
 
     </div>
 
+</div>
 @endsection

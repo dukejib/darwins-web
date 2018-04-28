@@ -84,5 +84,16 @@
             </div>
         </div>
     </div>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+        <div class="panel panel-info">
+            <div class="panel-heading text-center">
+                Pending Orders
+            </div>
+
+            <div class="panel-body">
+                <h1 class="text-center">{{ $pending_orders }}</h1>
+            </div>
+        </div>
+    </div>
 
 @endsection

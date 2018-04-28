@@ -6,3 +6,4 @@ $(document).ready(function() {
     $('#refill').summernote();
     $('#app').summernote();
 });
+ 
