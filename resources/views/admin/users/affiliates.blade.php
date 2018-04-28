@@ -102,46 +102,47 @@
 
 @section('scripts')
     <script>
+    //Global Variables
+    $userId = "";
+    $url = "";
     //Datatable 
     $(document).ready( function () {
         $('#affiliates').DataTable();
     });
 
     //For Modal deleteUserModal
-        $userId = "";
-        $url = "";
-        $('#deleteUserModal').on('show.bs.modal',function(event){
-            var button = $(event.relatedTarget); //Get Reference to the Button
-            $url = button.data('url');
-            $userId = button.data('userid');
-            console.log($url);
-            console.log($userId);
-            //This uses Modal Proceed Button
-            $('#delete').on('click', function () {
-                //
-                $.ajax({
-                    type: "GET",
-                    url: $url,
-                    // url : '/customer/makeaffiliate/' +userId,
-                    // data: { "id" :userId},
-                    dataType: "json",
-                    success: function (response) {
-                        //AdminController is sending json reply:answer
-                        //console.log(response.reply); 
-                        //Hide and remove the relevant TR
-                        //console.log('#' + $userId);
-                        $('#' + $userId).fadeOut(1000,function(){
-                            $('#' + $userId).remove();
-                        });
-                        //document.write(response);
-                    },
-                    error:function(){
-                        //alert('There was an error');
-                    }            
-                });
-                $('#deleteUserModal').modal('hide');
+    $('#deleteUserModal').on('show.bs.modal',function(event){
+        var button = $(event.relatedTarget); //Get Reference to the Button
+        $url = button.data('url');
+        $userId = button.data('userid');
+        console.log($url);
+        console.log($userId);
+        //This uses Modal Proceed Button
+        $('#delete').on('click', function () {
+            //
+            $.ajax({
+                type: "GET",
+                url: $url,
+                // url : '/customer/makeaffiliate/' +userId,
+                // data: { "id" :userId},
+                dataType: "json",
+                success: function (response) {
+                    //AdminController is sending json reply:answer
+                    //console.log(response.reply); 
+                    //Hide and remove the relevant TR
+                    //console.log('#' + $userId);
+                    $('#' + $userId).fadeOut(1000,function(){
+                        $('#' + $userId).remove();
+                    });
+                    //document.write(response);
+                },
+                error:function(){
+                    //alert('There was an error');
+                }            
             });
+            $('#deleteUserModal').modal('hide');
         });
+    });
 
     //For Modal userDetailsModal
     $('#userDetailsModal').on('show.bs.modal',function(event){
@@ -156,6 +157,7 @@
         html += '<tr><td>Email Address</td><td>' + details.email + '</td></tr>';
         html += '<tr><td>Is User Affiliate</td><td>Yes</td></tr>';
         html += '<tr><td># of Orders</td><td>' + details.orders.length + '</td></tr>';
+        html += '<tr><td>Has Opted for Book</td><td id="optin"> ' + details.book_optin + '</td></tr>';
         html += '</tbody></table>';
         html += '<h5>For Orders, Please check Orders Page</h5>';
         //Add the data to the body of modal

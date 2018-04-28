@@ -189,12 +189,18 @@
                                     {{ $user->totalAffiliates() }}
                                 </div>
                                 @else
-                                <div>
-                                    <a href="{{ route('user.profile.become_affiliate') }}" class="btn btn-success">Become Our Affiliate</a>
-                                </div>
-                                <div>
-                                    Read more about our <a href="{{ route('affiliate.document') }}" target="_blank">Affiliate</a> progarm.
-                                </div>
+                                    @if($user->hasOptedForBook())
+                                    <div>
+                                        <strong class="text-primary"><h4>Your Book purchase is in process. Please check these page later on for updates</h4></strong>
+                                    </div>
+                                    @else
+                                    <div>
+                                        <a href="{{ route('user.profile.become_affiliate') }}" class="btn btn-success">Become Our Affiliate</a>
+                                    </div>
+                                    <div>
+                                        Read more about our <a href="{{ route('affiliate.document') }}" target="_blank">Affiliate</a> progarm.
+                                    </div>
+                                    @endif
                                 @endif
                             </div>
 

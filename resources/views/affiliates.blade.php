@@ -6,7 +6,6 @@
 
 @section('content')
 
-
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-primary">
@@ -42,7 +41,7 @@
                             <li>Learn how to build an organization from the serious affiliates you refer and earn extra capital!</li>
                             <li>Our Affiliate Crowdfunding Program cultivates and preserves Black Business & Community!</li>
                             <li>Learn how to invest in Bitcoin (BTC) more effectively to fund your personal endeavors!</li>
-                            <li>As Bitcoin (BTC) rises, it's never too late investing in it through our Affiliate Crowdfunding Program!</li>
+                            <li>As Bitcoin (BTC) rises, it is never too late investing in it through our Affiliate Crowdfunding Program!</li>
                             <li>Receive our FREE Affiliate Tools Package when becoming an Affiliate Crowdfunding Member! </li>
                         </ul>
 

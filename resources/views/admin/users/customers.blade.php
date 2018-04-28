@@ -31,9 +31,10 @@
                         <td>{{ $customer->email }}</td>
                         <td>{{ count($customer->orders) }}</td>
                         <td>
-                        @if(!$customer->isUserAffiliate())
+                        {{--  @if(!$customer->isUserAffiliate())
                             <a href="{{ route('user.affiliate',['id' => $customer->id]) }}" class="btn btn-xs btn-warning">Make Affiliate</a>
-                        @endif
+                        @endif  --}}
+                            <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#makeAffiliateModal"  data-url="{{ route('user.affiliate',['id' => $customer->id]) }}" data-userid="{{ $customer->id }}">Make Affiliate</button>
                         </td>
                         <td>
                             <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#userDetailsModal" data-details="{{ $customer }}">Details</button>
@@ -51,7 +52,7 @@
     </div>
 </div>
 
-<!-- Modal Customer -->
+<!-- Modal Delete Customer -->
 <div id="deleteUserModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -95,18 +96,43 @@
     </div>
 </div>
 
+<!-- Modal Make Affiliate -->
+<div id="makeAffiliateModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Make Affiliate</h4>
+        </div>
+        <div class="modal-body">
+            <p class="text-warning">Are you sure?</p>
+            Only make the user an <strong class="text-info">Affiliate</strong> if he/she has purchased our book <strong class="text-info">Affiliate Crowdfunding</strong> and submitted the amount.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger pull-left" id="makeAffiliate">Make Affiliate</button>
+            <button type="button" class="btn btn-success pull-right" data-dismiss="modal">Cancel</button>
+        </div>
+    </div>
+
+    </div>
+</div>
+
 @endsection
 
 @section('scripts')
     <script> 
+        //Globally Used Variables
+        $userId = "";
+        $url = "";
+
         //For Data Table
         $(document).ready( function () {
             $('#customers').DataTable();
         });
 
         //For Modal deleteUserModal
-        $userId = "";
-        $url = "";
         $('#deleteUserModal').on('show.bs.modal',function(event){
             var button = $(event.relatedTarget); //Get Reference to the Button
             $url = button.data('url');
@@ -152,11 +178,46 @@
             html += '<tr><td>Member Since</td><td>' + details.created_at + '</td></tr>';
             html += '<tr><td>Email Address</td><td>' + details.email + '</td></tr>';
             html += '<tr><td># of Orders</td><td>' + details.orders.length + '</td></tr>';
+            html += '<tr><td>Has Opted for Book</td><td id="optin"> ' + details.book_optin + '</td></tr>';
             html += '</tbody></table>';
             html += '<h5>For Orders, Please check Orders Page</h5>';
             //Add the data to the body of modal
             $('#userDetailBody').html(html);
             
+        });
+
+        //For Modal makeAffliateModal
+        $('#makeAffiliateModal').on('show.bs.modal',function(event){
+            var button = $(event.relatedTarget); //Get the reference to the button 
+            $url = button.data('url');
+            $userId = button.data('userid');
+            console.log($url);
+            console.log($userId);
+            //This uses Modal Make Affiliate Button
+            $('#makeAffiliate').on('click',function(){
+                //
+                $.ajax({
+                    type: "GET",
+                    url: $url,
+                    // url : '/customer/makeaffiliate/' +userId,
+                    // data: { "id" :userId},
+                    dataType: "json",
+                    success: function (response) {
+                        //AdminController is sending json reply:answer
+                        //console.log(response.reply); 
+                        //Hide and remove the relevant TR
+                        //console.log('#' + $userId);
+                        $('#' + $userId).fadeOut(1000,function(){
+                            $('#' + $userId).remove();
+                        });
+                        //document.write(response);
+                    },
+                    error:function(){
+                        //alert('There was an error');
+                    }            
+                });
+                $('#makeAffiliateModal').modal('hide');
+            })
         });
     </script>
 @endsection 

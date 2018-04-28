@@ -175,9 +175,8 @@ class UserController extends Controller
         $user->role = 2;
         $user->book_purchased = true;
         $user->save();
-        
-        Session::flash('success','User is now Affiliate');
-        return redirect()->back();
+
+        return response()->json(['reply'=> 'User Affiliated']);
     }
 
     public function user_unaffiliate($id)

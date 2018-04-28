@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('referred_by')->nullable();
             $table->string('affiliate_id')->unique();
             $table->boolean('book_purchased')->default(false); //Not Purchased (Change this)
+            $table->boolean('book_optin')->default(false); //Has he/she opted to buy book?
             $table->rememberToken();
             $table->timestamps();
         });

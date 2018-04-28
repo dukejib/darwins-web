@@ -9,6 +9,7 @@ use App\Http\Requests;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Item;
 use App\Order;
+use App\User;
 use App\OrderDetails;
 use Illuminate\Support\Facades\Auth;
 use App\Helper\Helper;
@@ -123,9 +124,31 @@ class CartController extends Controller
                 ->render();
                 return response()->json($html);
             }
+
             /** User is Purchasing Book Only */
             if($toggle == 2){
-                //TODO:: Add book in orders and get amount for it
+                /** Create Order */
+                $order = Order::create([
+                    'user_id' => $user_id,
+                    'sub_total' => 50,
+                    'tax' => 0,
+                    'shipping_charges' => 0,
+                    'order_total' => 50
+                    //Status is 'Pending' as default
+                ]);
+                //Create OrderDetails
+                OrderDetails::create([
+                    'order_id' => $order->id,
+                    'item_id' => 0,
+                    'item_name' => 'Affiliate Crowdfunding',
+                    'item_qty' => 1,
+                    'item_price' => 50
+                ]);
+                //Update User
+                $user = User::find($user_id);
+                $user->book_optin = 1;
+                //$user->book_purchased = true;
+                $user->save();
                 /** Return to Ajax */
                 $html = view('cart.checkout')
                 ->with('message','You bought our Affilicate Crowdfunding Book')

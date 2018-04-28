@@ -21,7 +21,8 @@ class User extends Authenticatable
         'role',
         'referred_by',
         'affiliate_id',
-        'book_purchased'
+        'book_purchased',
+        'book_optin',
     ];
 
     /**
@@ -65,6 +66,16 @@ class User extends Authenticatable
         }elseif ($role === 2)
         {
             return true;
+        }
+    }
+
+    public function hasOptedForBook()
+    {
+        $opted = Auth::user()->book_optin;
+        if($opted){
+            return true;
+        }else{
+            return false;
         }
     }
 
