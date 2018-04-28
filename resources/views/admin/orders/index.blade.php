@@ -26,7 +26,6 @@
                         <th>Delivery Status</th>
                         <th>Payment Status</th>
                         <th>Details</th>
-                        <th>Edit</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -60,10 +59,10 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="#" class="btn btn-xs btn-success"><i class="fa fa-binoculars"></i></a>
-                            </td>
-                            <td>
-                                <a href="#" class="btn btn-xs btn-info"><i class="fa fa-pencil icon-edit"></i></a>
+                                <button type="button" class="btn btn-xs btn-info"
+                                    data-toggle="modal" data-target="#orderDetailsModal" data-details="{{$order->order_details}}" data-who="{{$order}}">
+                                    <i class="fa fa-binoculars"></i>
+                                </button>
                             </td>
                         </tr>
                     @endforeach
@@ -81,14 +80,79 @@
         </div>
 
     </div>
+
+<!-- Modal Order Details -->
+<div id="orderDetailsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title text-danger">Order Details</h3>
+                
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped table-condensed" id="mytable">
+                    <caption style="font-weight:bold;"></caption>
+                    <br>
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Item</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {{--  Your Content will come here via jquery  --}}
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 @endsection
 
 
 @section('scripts')
     <script>
+    //For Datatables
     $(document).ready( function () {
         $('#orders').DataTable();
     } );
+    
+    //Modal Script orderDetailsModal
+    $('#orderDetailsModal').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var details = button.data('details');
+        var order = button.data('who'); // Extract info from data-* attributes
+          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this);
+        var html = "";
+        //console.log(details);
+        for (i = 0 ; i < details.length ; i++){
+            //console.log(details[i].item_qty);
+            html += "<tr><td>" + details[i].item_id + "</td><td>" + details[i].item_name + "</td><td>" + details[i].item_qty + "</td><td>$" + details[i].item_price * details[i].item_qty + "  [" + details[i].item_price + "]</td></tr>";
+        }
+        //Now show the order details
+        html += "<tr><td colspan='3' style='text-align:right;'><strong>Sub Total</strong></td><td><strong>$" + order.sub_total + "</strong></td></tr>"
+        html += "<tr><td colspan='3' style='text-align:right;'>F.E.D Tax</td><td>$" + order.tax + "</td></tr>"
+        html += "<tr><td colspan='3' style='text-align:right;'>Shipping Charges</td><td>$" + order.shipping_charges + "</td></tr>"
+        html += "<tr><td colspan='3' style='text-align:right;'><strong>Grand Total</strong></td><td><strong>$" + order.order_total + "</strong></td></tr>"
+
+        //console.log(html);
+        $('#mytable caption').html("Order # : " + order.id); //Set Heading
+        $('#mytable tbody').html(html);
+    });
+
     </script>
 @endsection
 

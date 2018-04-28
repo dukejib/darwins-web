@@ -38,20 +38,20 @@
                                 <td><strong>${{ $subtotal }}</strong></td>
                             </tr>
                             <tr>
-                                <td colspan="2">F.E.D Tax ({{ $settings->fed_tax }} %)</td>
+                                <td colspan="2" style="text-align:right;">F.E.D Tax ({{ $settings->fed_tax }} %)</td>
                                 <td>${{ $fed = $subtotal * $settings->fed_tax }}</td>
 
                             </tr>
                             <tr>
-                                <td colspan="2">Shipping Charges ({{ $settings->shipping_charges }} %)</td>
+                                <td colspan="2" style="text-align:right;">Shipping Charges ({{ $settings->shipping_charges }} %)</td>
                                 <td>${{ $shipping = ($subtotal * $settings->shipping_charges)}}</td>
                             </tr>
                             <tr class="label-primary">
-                                <td colspan="2"><strong>G.Total</strong></td>
+                                <td colspan="2" style="text-align:right;"><strong>G.Total</strong></td>
                                 <td><strong>${{ ($subtotal + $fed + $shipping)}}</strong></td>
                             </tr>
                             <tr class="label-warning">
-                                <td colspan="2"><strong>Bitcoins</strong></td>
+                                <td colspan="2" style="text-align:right;"><strong>Bitcoins</strong></td>
                                 <td id="bit">Calculating</td>
                             </tr>
                             </tbody>

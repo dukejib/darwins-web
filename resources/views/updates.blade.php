@@ -17,6 +17,14 @@
                 <h3 class="text-warning">Updates / Additons </h3>
 
                 <ul class="list-group">
+                <li class="list-group-item text-success">Following items added 
+                        <ul>
+                            <li class="text-info">On User Account Page > Order Details & Payment options added | Work left to actually process the payment selection</li>
+                            <li class="text-info">Orders in admin panel now shows details of the order as well
+                            </li>
+                            <li class="text-info">Minor tweaking with Javascript/Jquery</li>
+                        </ul>
+                    </li>
                     <li class="list-group-item text-success">Following items added from 2nd April - 5 April
                         <ul>
                             <li class="text-warn">On Cart Page, If user is not logged in- Jquery is not working - FIX IT</li>

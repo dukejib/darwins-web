@@ -248,7 +248,7 @@
                                         </td> 
                                         <td>
                                             <button type="button" class="btn btn-xs btn-info"
-                                            data-toggle="modal" data-target="#orderDetailsModal" data-details="{{$order->order_details}}" data-who="{{$order->id}}">
+                                            data-toggle="modal" data-target="#orderDetailsModal" data-details="{{$order->order_details}}" data-who="{{$order}}">
                                                 <i class="fa fa-binoculars"></i>
                                             </button>
                                         </td>
@@ -306,7 +306,7 @@
                 
             </div>
             <div class="modal-body">
-                <table class="table table-condensed table-stripped" id="mytable">
+                <table class="table table-striped table-condensed" id="mytable">
                     <caption style="font-weight:bold;"></caption>
                     <br>
                         <thead>
@@ -355,8 +355,11 @@
             </div>
 
         <div class="modal-footer">
+                <?php 
+                    $paymentoption = 0; //Hack for proper route - actual value is changed from jquery
+                ?>
             <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Cancel</button>
-            <button class="btn btn-success pull-left" id="payNowProceed">Proceed</button>
+            <button class="btn btn-success pull-left" id="payNowProceed" data-url="{{ route('cart.checkout',['toggle' => 1,'pay' => $paymentoption ]) }}">Proceed</button>
         </div>
 
         </div>
@@ -372,11 +375,12 @@
     $(document).ready( function () {
         $('#ordersTable').DataTable();
     });
+    
     //Modal Script orderDetailsModal
     $('#orderDetailsModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget); // Button that triggered the modal
         var details = button.data('details');
-        var recipient = button.data('who'); // Extract info from data-* attributes
+        var order = button.data('who'); // Extract info from data-* attributes
           // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
           // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
         var modal = $(this);
@@ -384,12 +388,19 @@
         //console.log(details);
         for (i = 0 ; i < details.length ; i++){
             //console.log(details[i].item_qty);
-            html += "<tr><td>" + details[i].item_id + "</td><td>" + details[i].item_name + "</td><td>" + details[i].item_qty + "</td><td>$" + details[i].item_price + "</td></tr>"
+            html += "<tr><td>" + details[i].item_id + "</td><td>" + details[i].item_name + "</td><td>" + details[i].item_qty + "</td><td>$" + details[i].item_price * details[i].item_qty + "  [" + details[i].item_price + "]</td></tr>";
         }
+        //Now show the order details
+        html += "<tr><td colspan='3' style='text-align:right;'><strong>Sub Total</strong></td><td><strong>$" + order.sub_total + "</strong></td></tr>"
+        html += "<tr><td colspan='3' style='text-align:right;'>F.E.D Tax</td><td>$" + order.tax + "</td></tr>"
+        html += "<tr><td colspan='3' style='text-align:right;'>Shipping Charges</td><td>$" + order.shipping_charges + "</td></tr>"
+        html += "<tr><td colspan='3' style='text-align:right;'><strong>Grand Total</strong></td><td><strong>$" + order.order_total + "</strong></td></tr>"
+
         //console.log(html);
-        $('#mytable caption').html("Order # : " + details[0].order_id);
+        $('#mytable caption').html("Order # : " + order.id); //Set Heading
         $('#mytable tbody').html(html);
     });
+    
     //Modal script payNowModal
     $('#payNowModal').on('show.bs.modal',function(event){
         var button = $(event.relatedTarget); //button that triggered the modal
@@ -398,11 +409,18 @@
         //
         var modal = $(this);
     });
+    // Read radio button changes
+    // These variables will be used
+    $paymentoption = 0;
+    $url = '';
     //Modal script PayNowModal Proceed is clicked
     $('#payNowProceed').on('click',function(){
         //Your Ajax Call here
-        $i =  $('input[name="paymentoptions"]:checked').val();
-        console.log($i);
+        var button = $('#payNowProceed'); //Get button reference
+        $paymentoption =  $('input[name="paymentoptions"]:checked').val();
+        $url = button.data('url').slice(0,-1); //Remove the trailing 0 from the url (hack around)
+        console.log($paymentoption);
+        console.log($url);
     });
     </script>
 @endsection
