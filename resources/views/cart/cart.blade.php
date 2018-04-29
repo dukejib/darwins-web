@@ -71,17 +71,14 @@
                     <div class="panel-body">
                         <div class="radio text-center">
                             <label>
-                                <input type="radio" name="paymentoptions" value="1">African Express VPC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="paymentoptions" value="1" disabled>African Express VPC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <input type="radio" name="paymentoptions" value="2">USPS Money Orders&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <input type="radio" name="paymentoptions" value="3">Bitcoin Payment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </label>
                         </div>
                     </div>
                     <div class="panel-footer text-center">
-                        <?php 
-                        $paymentoption = 0; //Hack for proper route - actual value is changed from jquery
-                        ?>
-                        <a id="url" href="{{ route('cart.checkout',['toggle' => 1,'pay' => $paymentoption ]) }}" hidden></a>
+                        <a id="url" href="{{ route('cart.checkout',['toggle' => 1,'pay' => 0 ]) }}" hidden></a>
                         <button type="button" id="checkout"  class="btn btn-xs btn-success">Process Cart</button>
                     </div>
                 </div>
@@ -114,58 +111,58 @@
 @endsection
 
 @section('scripts')
-    <script>
-        // Process the USD to Bitcoin Script
-        $(document).ready(function(){
-            $usd = '{{ ($subtotal + $fed + $shipping)}}';
-            $reply='';
-            $.ajax({
-                url: 'https://blockchain.info/tobtc?currency=USD&value='+ $usd,
-                dataType: 'json',
-                success: function(data){
-                    console.log( data );
-                    $('#bit').html(data);
-                }
-            });
-        });
-        // Read radio button changes
-        // These variables will be used
-        $paymentoption = 0;
-        $url = '';
-        $(document).ready(function(){
-            $('input[type=radio]').change(function(){
-                $paymentoption = $('input[name=paymentoptions]:checked').val();
-                $url = $('#url').attr('href').slice(0,-1); //Remove the trailing 0 from the url (hack around)
-                console.log($url);
-                console.log($paymentoption);
-            })
-        });
-        // Process the cart.checkout url
-        $('#checkout').on('click',function(){
-            //if $paymentoptions is 0, then exit
-            if($paymentoption == 0){
-                alert('Select payment option first');
-                return;
+<script>
+    // Process the USD to Bitcoin Script
+    $(document).ready(function(){
+        $usd = '{{ ($subtotal + $fed + $shipping)}}';
+        $reply='';
+        $.ajax({
+            url: 'https://blockchain.info/tobtc?currency=USD&value='+ $usd,
+            dataType: 'json',
+            success: function(data){
+                console.log( data );
+                $('#bit').html(data);
             }
-            //We are not 0, so proceed
-            $.ajax({
-            type: "GET",
-            url: $url + $paymentoption,
-            data: { "toggle":1,"paymentoption" : $paymentoption},
-            dataType: "json",
-            success: function (response) {
-                //AdminController is sending json reply:answer
-                // console.log(response); 
-                document.write(response);
-                },
-            error:function(error){
-                // console.log(error.status);
-                //alert('some error occured');
-                },
-            complete:function(){
-
-                }         
-            });
         });
-    </script>
+    });
+    // Read radio button changes
+    // These variables will be used
+    $paymentoption = 0;
+    $url = '';
+    $(document).ready(function(){
+        $('input[type=radio]').change(function(){
+            $paymentoption = $('input[name=paymentoptions]:checked').val();
+            $url = $('#url').attr('href').slice(0,-1); //Remove the trailing 0 from the url (hack around)
+            console.log($url);
+            console.log($paymentoption);
+        })
+    });
+    // Process the cart.checkout url
+    $('#checkout').on('click',function(){
+        //if $paymentoptions is 0, then exit
+        if($paymentoption == 0){
+            alert('Select payment option first');
+            return;
+        }
+        //We are not 0, so proceed
+        $.ajax({
+        type: "GET",
+        url: $url + $paymentoption,
+        data: { "toggle":1,"paymentoption" : $paymentoption},
+        dataType: "json",
+        success: function (response) {
+            //AdminController is sending json reply:answer
+            // console.log(response); 
+            document.write(response);
+            },
+        error:function(error){
+            // console.log(error.status);
+            //alert('some error occured');
+            },
+        complete:function(){
+
+            }         
+        });
+    });
+</script>
 @endsection

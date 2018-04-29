@@ -17,12 +17,16 @@
                 <h3 class="text-warning">Updates / Additons </h3>
 
                 <ul class="list-group">
-                <li class="list-group-item text-success">Following items added 
+
+                    <li class="list-group-item text-success">Following items added 
                         <ul>
                             <li class="text-info">On User Account Page > Order Details & Payment options added | Work left to actually process the payment selection</li>
-                            <li class="text-info">Orders in admin panel now shows details of the order as well
-                            </li>
-                            <li class="text-info">Minor tweaking with Javascript/Jquery</li>
+                            <li class="text-info">Orders in admin panel now shows details of the order</li>
+                            <li class="text-info">Tweaking with Javascript/Jquery</li>
+                            <li class="text-danger">African Express VPC Is disabled >buybook.php > cart.php > profile.php </li>
+                            <li class="text-info">Affiliation - Book purchase streamlined - Now, system reflects properly about book purchase and payment received</li>
+                            <li class="text-info">User Account page now has the option to pay for orders as well</li>
+                            <li class="text-info">Cart page tweaked to deliver proper status of orders.</li>
                         </ul>
                     </li>
                     <li class="list-group-item text-success">Following items added from 2nd April - 5 April

@@ -66,6 +66,20 @@ class CartController extends Controller
         return redirect()->route('home');
     }
 
+    //Increase the item in Cart
+    public function increase_item($id,$qty)
+    {
+        Cart::update($id,$qty + 1);
+        return redirect()->back();
+    }
+
+    //decrease the Item in cart
+    public function decrease_item($id,$qty)
+    {
+        Cart::update($id,$qty -1);
+        return redirect()->back();
+    }
+
     //Checkout cart, depends on toggle,for Products or for Book(Affiliation)
     public function checkoutCart($toggle,$paymentoptions)
     {
@@ -120,6 +134,7 @@ class CartController extends Controller
                 $html = view('cart.checkout')
                 ->with('message',$message)
                 ->with('option',$paymentoptions)
+                ->with('total',$total)
                 ->with(Helper::getBasicData())
                 ->render();
                 return response()->json($html);
@@ -128,12 +143,13 @@ class CartController extends Controller
             /** User is Purchasing Book Only */
             if($toggle == 2){
                 /** Create Order */
+                $totalbook = 50;
                 $order = Order::create([
                     'user_id' => $user_id,
-                    'sub_total' => 50,
+                    'sub_total' => $totalbook,
                     'tax' => 0,
                     'shipping_charges' => 0,
-                    'order_total' => 50
+                    'order_total' => $totalbook
                     //Status is 'Pending' as default
                 ]);
                 //Create OrderDetails
@@ -151,8 +167,9 @@ class CartController extends Controller
                 $user->save();
                 /** Return to Ajax */
                 $html = view('cart.checkout')
-                ->with('message','You bought our Affilicate Crowdfunding Book')
+                ->with('message',$message)
                 ->with('option',$paymentoptions)
+                ->with('total',$totalbook)
                 ->with(Helper::getBasicData())
                 ->render();
                 return response()->json($html);
@@ -163,6 +180,7 @@ class CartController extends Controller
         }
     }
 
+      
     //blockchain receive payment function
     public function process_order_bc($amount,$orderid)
     {
@@ -222,21 +240,7 @@ class CartController extends Controller
             // $trans->save();
         }
     }
-
-    //Increase the item in Cart
-    public function increase_item($id,$qty)
-    {
-        Cart::update($id,$qty + 1);
-        return redirect()->back();
-    }
-
-    //decrease the Item in cart
-    public function decrease_item($id,$qty)
-    {
-        Cart::update($id,$qty -1);
-        return redirect()->back();
-    }
-////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
     /** For Stripe */
     public function checkout(){
         if(!Session::has('cart')){

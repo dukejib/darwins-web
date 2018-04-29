@@ -122,102 +122,102 @@
 @endsection
 
 @section('scripts')
-    <script> 
-        //Globally Used Variables
-        $userId = "";
-        $url = "";
+<script> 
+    //Globally Used Variables
+    $userId = "";
+    $url = "";
 
-        //For Data Table
-        $(document).ready( function () {
-            $('#customers').DataTable();
-        });
+    //For Data Table
+    $(document).ready( function () {
+        $('#customers').DataTable();
+    });
 
-        //For Modal deleteUserModal
-        $('#deleteUserModal').on('show.bs.modal',function(event){
-            var button = $(event.relatedTarget); //Get Reference to the Button
-            $url = button.data('url');
-            $userId = button.data('userid');
-            console.log($url);
-            console.log($userId);
-            //This uses Modal Proceed Button
-            $('#delete').on('click', function () {
-                //
-                $.ajax({
-                    type: "GET",
-                    url: $url,
-                    // url : '/customer/makeaffiliate/' +userId,
-                    // data: { "id" :userId},
-                    dataType: "json",
-                    success: function (response) {
-                        //AdminController is sending json reply:answer
-                        //console.log(response.reply); 
-                        //Hide and remove the relevant TR
-                        //console.log('#' + $userId);
-                        $('#' + $userId).fadeOut(1000,function(){
-                            $('#' + $userId).remove();
-                        });
-                        //document.write(response);
-                    },
-                    error:function(){
-                        //alert('There was an error');
-                    }            
-                });
-                $('#deleteUserModal').modal('hide');
+    //For Modal deleteUserModal
+    $('#deleteUserModal').on('show.bs.modal',function(event){
+        var button = $(event.relatedTarget); //Get Reference to the Button
+        $url = button.data('url');
+        $userId = button.data('userid');
+        console.log($url);
+        console.log($userId);
+        //This uses Modal Proceed Button
+        $('#delete').on('click', function () {
+            //
+            $.ajax({
+                type: "GET",
+                url: $url,
+                // url : '/customer/makeaffiliate/' +userId,
+                // data: { "id" :userId},
+                dataType: "json",
+                success: function (response) {
+                    //AdminController is sending json reply:answer
+                    //console.log(response.reply); 
+                    //Hide and remove the relevant TR
+                    //console.log('#' + $userId);
+                    $('#' + $userId).fadeOut(1000,function(){
+                        $('#' + $userId).remove();
+                    });
+                    //document.write(response);
+                },
+                error:function(){
+                    //alert('There was an error');
+                }            
             });
+            $('#deleteUserModal').modal('hide');
         });
+    });
 
-        //For Modal userDetailsModal
-        $('#userDetailsModal').on('show.bs.modal',function(event){
-            var button = $(event.relatedTarget);
-            var details = button.data('details');
-            console.log(details);
-            var html ='<h3>User Id : ' + details.id + '</h3>'; 
-            html += '<table class="table table-striped table-condensed"><tbody>'; 
-            html += '<tr><td>Name</td><td>' + details.first_name + ' ' + details.last_name + '</td></tr>';
-            html += '<tr><td>Affiliation Id</td><td>' + details.affiliate_id + '</td></tr>';
-            html += '<tr><td>Member Since</td><td>' + details.created_at + '</td></tr>';
-            html += '<tr><td>Email Address</td><td>' + details.email + '</td></tr>';
-            html += '<tr><td># of Orders</td><td>' + details.orders.length + '</td></tr>';
-            html += '<tr><td>Has Opted for Book</td><td id="optin"> ' + details.book_optin + '</td></tr>';
-            html += '</tbody></table>';
-            html += '<h5>For Orders, Please check Orders Page</h5>';
-            //Add the data to the body of modal
-            $('#userDetailBody').html(html);
-            
-        });
+    //For Modal userDetailsModal
+    $('#userDetailsModal').on('show.bs.modal',function(event){
+        var button = $(event.relatedTarget);
+        var details = button.data('details');
+        console.log(details);
+        var html ='<h3>User Id : ' + details.id + '</h3>'; 
+        html += '<table class="table table-striped table-condensed"><tbody>'; 
+        html += '<tr><td>Name</td><td>' + details.first_name + ' ' + details.last_name + '</td></tr>';
+        html += '<tr><td>Affiliation Id</td><td>' + details.affiliate_id + '</td></tr>';
+        html += '<tr><td>Member Since</td><td>' + details.created_at + '</td></tr>';
+        html += '<tr><td>Email Address</td><td>' + details.email + '</td></tr>';
+        html += '<tr><td># of Orders</td><td>' + details.orders.length + '</td></tr>';
+        html += '<tr><td>Has Opted for Book</td><td id="optin"> ' + details.book_optin + '</td></tr>';
+        html += '</tbody></table>';
+        html += '<h5>For Orders, Please check Orders Page</h5>';
+        //Add the data to the body of modal
+        $('#userDetailBody').html(html);
+        
+    });
 
-        //For Modal makeAffliateModal
-        $('#makeAffiliateModal').on('show.bs.modal',function(event){
-            var button = $(event.relatedTarget); //Get the reference to the button 
-            $url = button.data('url');
-            $userId = button.data('userid');
-            console.log($url);
-            console.log($userId);
-            //This uses Modal Make Affiliate Button
-            $('#makeAffiliate').on('click',function(){
-                //
-                $.ajax({
-                    type: "GET",
-                    url: $url,
-                    // url : '/customer/makeaffiliate/' +userId,
-                    // data: { "id" :userId},
-                    dataType: "json",
-                    success: function (response) {
-                        //AdminController is sending json reply:answer
-                        //console.log(response.reply); 
-                        //Hide and remove the relevant TR
-                        //console.log('#' + $userId);
-                        $('#' + $userId).fadeOut(1000,function(){
-                            $('#' + $userId).remove();
-                        });
-                        //document.write(response);
-                    },
-                    error:function(){
-                        //alert('There was an error');
-                    }            
-                });
-                $('#makeAffiliateModal').modal('hide');
-            })
-        });
-    </script>
+    //For Modal makeAffliateModal
+    $('#makeAffiliateModal').on('show.bs.modal',function(event){
+        var button = $(event.relatedTarget); //Get the reference to the button 
+        $url = button.data('url');
+        $userId = button.data('userid');
+        console.log($url);
+        console.log($userId);
+        //This uses Modal Make Affiliate Button
+        $('#makeAffiliate').on('click',function(){
+            //
+            $.ajax({
+                type: "GET",
+                url: $url,
+                // url : '/customer/makeaffiliate/' +userId,
+                // data: { "id" :userId},
+                dataType: "json",
+                success: function (response) {
+                    //AdminController is sending json reply:answer
+                    //console.log(response.reply); 
+                    //Hide and remove the relevant TR
+                    //console.log('#' + $userId);
+                    $('#' + $userId).fadeOut(1000,function(){
+                        $('#' + $userId).remove();
+                    });
+                    //document.write(response);
+                },
+                error:function(){
+                    //alert('There was an error');
+                }            
+            });
+            $('#makeAffiliateModal').modal('hide');
+        })
+    });
+</script>
 @endsection 
