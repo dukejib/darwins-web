@@ -87,17 +87,23 @@ class CartController extends Controller
         if(Auth::check()){
             /** Get The User Id */
             $user_id = Auth::id();
+            $user = User::find($user_id);
+            $total = '';
+            /** make order Object*/
+            $order = '';
+            /** make order_details Object */
+            $order_details ='';
             /** If value = 1 , African Express, Value = 2 USPS Money Order , Value = 3 Bitcoin */
-            $message = '';
-            if ($paymentoptions == 1){
-                $message = 'Please use your African express vpc';
-            } 
-            elseif ($paymentoptions == 2){
-                $message = 'Please print and send this usps page to us';
-            }
-            elseif ($paymentoptions == 3){
-                $message = 'Use your bitcoin wallet to pay us';
-            } 
+            // $message = '';
+            // if ($paymentoptions == 1){
+            //     $message = 'Please use your African express vpc';
+            // } 
+            // elseif ($paymentoptions == 2){
+            //     $message = 'Please print and send this usps page to us';
+            // }
+            // elseif ($paymentoptions == 3){
+            //     $message = 'Use your bitcoin wallet to pay us';
+            // } 
             /** User is Purchasing Products */
             if($toggle == 1){
                 /** Get Taxes Details form Settings */
@@ -116,9 +122,8 @@ class CartController extends Controller
                 ]);
                 /** Process Cart */
                 foreach (Cart::content() as $purchase) {
-                    // return $purchase;
                     //Create OrderDetails
-                    OrderDetails::create([
+                    $order_details =  OrderDetails::create([
                         'order_id' => $order->id,
                         'item_id' => $purchase->id,
                         'item_name' => $purchase->name,
@@ -129,31 +134,22 @@ class CartController extends Controller
                 /** Clear Cart  */
                 Cart::destroy();
                 Session::forget('cart');
-                
-                /** Return to Ajax */
-                $html = view('cart.checkout')
-                ->with('message',$message)
-                ->with('option',$paymentoptions)
-                ->with('total',$total)
-                ->with(Helper::getBasicData())
-                ->render();
-                return response()->json($html);
             }
 
             /** User is Purchasing Book Only */
             if($toggle == 2){
                 /** Create Order */
-                $totalbook = 50;
+                $total = 50;
                 $order = Order::create([
                     'user_id' => $user_id,
-                    'sub_total' => $totalbook,
+                    'sub_total' => $total,
                     'tax' => 0,
                     'shipping_charges' => 0,
-                    'order_total' => $totalbook
+                    'order_total' => $total
                     //Status is 'Pending' as default
                 ]);
                 //Create OrderDetails
-                OrderDetails::create([
+                $order_details = OrderDetails::create([
                     'order_id' => $order->id,
                     'item_id' => 0,
                     'item_name' => 'Affiliate Crowdfunding',
@@ -161,25 +157,44 @@ class CartController extends Controller
                     'item_price' => 50
                 ]);
                 //Update User
-                $user = User::find($user_id);
                 $user->book_optin = 1;
                 //$user->book_purchased = true;
                 $user->save();
-                /** Return to Ajax */
-                $html = view('cart.checkout')
-                ->with('message',$message)
-                ->with('option',$paymentoptions)
-                ->with('total',$totalbook)
-                ->with(Helper::getBasicData())
-                ->render();
-                return response()->json($html);
             }
+            /** Return to Ajax */
+            $html = view('cart.checkout')
+            // ->with('message',$message)
+            ->with('option',$paymentoptions)
+            ->with('total',$total)
+            ->with(Helper::getBasicData())
+            ->render();
+            return response()->json($html);
         }
         else {
             return redirect()->route('signin');
         }
     }
 
+    public function paynow($orderid,$paymentoptions)
+    {
+        if(Auth::check()){
+            /** Get The User Id */
+            $user_id = Auth::id();
+            $order = Order::find($orderid);
+            $total = $order->order_total;
+            /** Return to Ajax */
+            $html = view('cart.checkout')
+            // ->with('message',$message)
+            ->with('option',$paymentoptions)
+            ->with('total',$total)
+            ->with(Helper::getBasicData())
+            ->render();
+            return response()->json($html);
+        }
+        else {
+            return redirect()->route('signin');
+        }
+    }
       
     //blockchain receive payment function
     public function process_order_bc($amount,$orderid)

@@ -31,9 +31,6 @@
                         <td>{{ $customer->email }}</td>
                         <td>{{ count($customer->orders) }}</td>
                         <td>
-                        {{--  @if(!$customer->isUserAffiliate())
-                            <a href="{{ route('user.affiliate',['id' => $customer->id]) }}" class="btn btn-xs btn-warning">Make Affiliate</a>
-                        @endif  --}}
                             <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#makeAffiliateModal"  data-url="{{ route('user.affiliate',['id' => $customer->id]) }}" data-userid="{{ $customer->id }}">Make Affiliate</button>
                         </td>
                         <td>

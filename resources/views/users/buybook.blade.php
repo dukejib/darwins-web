@@ -62,57 +62,57 @@
 @endsection
 
 @section('scripts')
-    <script>
-        //Global Variables
-        $paymentoption = 0;
-        $url = '';
-        //For Bitcoin value calculation
-        $(document).ready(function(){
-            $usd = 50;
-            $reply='';
-            $.ajax({
-                url: 'https://blockchain.info/tobtc?currency=USD&value='+ $usd,
-                dataType: 'json',
-                success: function(data){
-                    console.log( data );
-                    $('#bit').html(data);
-                }
-            });
-        });
-        // Read radio button changes
-        $(document).ready(function(){
-            $('input[type=radio]').change(function(){
-                $paymentoption = $('input[name=paymentoptions]:checked').val();
-                console.log($paymentoption);
-            })
-        });
-        // Process the cart.checkout url
-        $('#checkout').on('click',function(){
-            //if $paymentoptions is 0, then exit
-            if($paymentoption == 0){
-                alert('Select payment option first');
-                return;
+<script>
+    //Global Variables
+    $paymentoption = 0;
+    $url = '';
+    //For Bitcoin value calculation
+    $(document).ready(function(){
+        $usd = 50;
+        $reply='';
+        $.ajax({
+            url: 'https://blockchain.info/tobtc?currency=USD&value='+ $usd,
+            dataType: 'json',
+            success: function(data){
+                console.log( data );
+                $('#bit').html(data);
             }
-            $url = $('#checkout').attr('data-url').slice(0,-1);
-            console.log($url + $paymentoption);
-            //We are not 0, so proceed
-            $.ajax({
-            type: "GET",
-            url: $url + $paymentoption,
-            dataType: "json",
-            success: function (response) {
-                //AdminController is sending json reply:answer
-                // console.log(response); 
-                document.write(response);
-                },
-            error:function(error){
-                // console.log(error.status);
-                //alert('some error occured');
-                },
-            complete:function(){
-
-                }         
-            });
         });
-    </script>
+    });
+    // Read radio button changes
+    $(document).ready(function(){
+        $('input[type=radio]').change(function(){
+            $paymentoption = $('input[name=paymentoptions]:checked').val();
+            console.log($paymentoption);
+        })
+    });
+    // Process the cart.checkout url
+    $('#checkout').on('click',function(){
+        //if $paymentoptions is 0, then exit
+        if($paymentoption == 0){
+            alert('Select payment option first');
+            return;
+        }
+        $url = $('#checkout').attr('data-url').slice(0,-1);
+        console.log($url + $paymentoption);
+        //We are not 0, so proceed
+        $.ajax({
+        type: "GET",
+        url: $url + $paymentoption,
+        dataType: "json",
+        success: function (response) {
+            //AdminController is sending json reply:answer
+            // console.log(response); 
+            document.write(response);
+            },
+        error:function(error){
+            // console.log(error.status);
+            //alert('some error occured');
+            },
+        complete:function(){
+
+            }         
+        });
+    });
+</script>
 @endsection
