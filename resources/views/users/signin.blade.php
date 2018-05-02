@@ -18,13 +18,13 @@
                     <form action="{{ route('signin') }}" method="post">
 
                         <div class="form-group {{ $errors->has('password')? 'has-error':'' }}">
-                            <label for="email">Your E-Mail</label>
-                            <input type="text" id="email" name="email" class="form-control">
+                            <label for="email">E-Mail</label>
+                            <input type="text" id="email" name="email" class="form-control" placeholder="Email">
                         </div>
 
                         <div class="form-group {{ $errors->has('password')? 'has-error':'' }}">
-                            <label for="password">Your Password</label>
-                            <input type="password" id="password" name="password" class="form-control">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" placeholder ="Password">
                         </div>
 
                         <button type="submit" class="btn btn-success pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</button>

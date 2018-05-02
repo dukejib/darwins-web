@@ -177,17 +177,49 @@
                         <h3>Your Referal Link</h3>
                         <div class="panel-body">
                             @if($user->isUserAffiliate())
-                            <div class="form-control">
-                                <label for="">{{url('/').'/referred?refferal='.$user->affiliate_id}}</label>
-                            </div>
-                            <div class="form-control">
-                                <label for="">Reffered By</label>
-                                {{ $user->referredBy() }}
-                            </div>
-                            <div class="form-control">
-                                <label for="">Total Affiliates</label>
-                                {{ $user->totalAffiliates() }}
-                            </div>
+                            <h5>Referal Link</h5>
+                            <h5 class="text-success">{{url('/').'/referred?refferal='.$user->affiliate_id}}</h4>
+                            <br>
+                            <h5>Your were Refered By</h5>
+                            <h5 class="text-info">Name : {{ $user->referredBy()->first_name . ' ' . $user->referredBy()->last_name  }}</h4>
+                            <h5 class="text-info">Email Address : {{ $user->referredBy()->email }}</h5>
+                            <br>
+                            <h5>Your Sponsored</h5>
+                            <h5 class="text-info">{{ $user->totalAffiliates() }}</h5>
+                            <br>
+                            <h5>List of Sponsored</h5>
+                            <table class="table table-striped table-condensed display" id="myaffiliates">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Profile</th>
+                                        <th>Opted For Book</th>
+                                    </tr>
+                                </thead>
+                            
+                                <tbody>
+                                {{--  Get Our Affiliates  --}}
+                                @foreach($user->getMyAffiliates()  as $customer)
+                                    <tr id ="{{ $customer->id }}">
+                                        <td>{{ $customer->id }}</td>
+                                        <td>{{ $customer->first_name . ' ' . $customer->last_name }}</td>
+                                        <td>{{ $customer->email }}</td>
+                                        <td>
+                                        <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#userDetailsModal" data-customer="{{ $customer }}" data-profile="{{ $customer->getUserProfile($customer->id) }}">Details</button>
+                                        </td>
+                                        <td>
+                                            @if($customer->book_optin)
+                                                <span class="text-success">Yes</span>
+                                            @else
+                                                <span class="text-info">No</span>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
                             @else
                                 @if($user->hasOptedForBook())
                                 <div>
@@ -376,6 +408,27 @@
     </div>
 </div>
 
+<!-- Modal User Details-->
+<div id="userDetailsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header text-primary">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">User Information</h4>
+        </div>
+        <div class="modal-body" id="userDetailBody">
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success pull-right" data-dismiss="modal">ok</button>
+        </div>
+    </div>
+
+    </div>
+</div>
+
 @endsection
 
 @section('scripts')
@@ -386,6 +439,7 @@
     //For Datatable
     $(document).ready( function () {
         $('#ordersTable').DataTable();
+        $('#myaffiliates').Datatable();
     });
     
     //Modal Script orderDetailsModal
@@ -455,6 +509,32 @@
             }            
         });
         $('#payNowModal').modal('hide');
+    });
+
+       //For Modal userDetailsModal
+    $('#userDetailsModal').on('show.bs.modal',function(event){
+        var button = $(event.relatedTarget);
+        var customer = button.data('customer');
+        var profile = button.data('profile');
+        //console.log(profile);
+        //console.log(customer);
+        var html ='<h3>User Id : ' + customer.id + '</h3>'; 
+        html += '<table class="table table-striped table-condensed"><tbody>'; 
+        html += '<tr><td>Name</td><td>' + customer.first_name + ' ' + customer.last_name + '</td></tr>';
+        html += '<tr><td>Affiliation Id</td><td>' + customer.affiliate_id + '</td></tr>';
+        html += '<tr><td>Member Since</td><td>' + customer.created_at + '</td></tr>';
+        html += '<tr><td>Email Address</td><td>' + customer.email + '</td></tr>';
+        html += '<tr><td>Primary Contact #</td><td> ' + profile.primary_contact_no + '</td></tr>';
+        html += '<tr><td>Secondary Contact #</td><td> ' + profile.secondary_contact_no + '</td></tr>';
+        html += '<tr><td>Mailing Address #</td><td> ' + profile.address + ' ' + profile.address_continued + '</td></tr>';
+        html += '<tr><td>Postal Code</td><td> ' + profile.postal_code + '</td></tr>';
+        html += '<tr><td>City</td><td> ' + profile.city + '</td></tr>';
+        html += '<tr><td>Country</td><td>' + profile.country + '</td></tr>';
+        html += '</tbody></table>';
+        
+        //Add the data to the body of modal
+        $('#userDetailBody').html(html);
+        
     });
     </script>
 @endsection

@@ -19,6 +19,7 @@ class CreateWebBannersTable extends Migration
             $table->string('gif_weight');
             $table->string('flash_weight');
             $table->string('image')->nullable();
+            $table->boolean('published')->default(false);
             $table->timestamps();
         });
     }

@@ -16,11 +16,12 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>Name</th>
                     <th>Email</th>
                     <th>Orders</th>
-                    <th>Un Affiliate</th>
+                    <th>Reffered By</th>
+                    <th>Refferer Id</th>
+                    <th>Affiliates</th>
                     <th>View</th>
                     <th>Delete</th>
                 </tr>
@@ -29,15 +30,17 @@
                 @foreach($affiliates as $affiliate)
                     <tr id = "{{ $affiliate->id }}">
                         <td>{{ $affiliate->id }}</td>
-                        <td>{{ $affiliate->first_name }}</td>
-                        <td>{{ $affiliate->last_name }}</td>
+                        <td>{{ $affiliate->first_name . ' ' . $affiliate->last_name }}</td>
                         <td>{{ $affiliate->email }}</td>
                         <td>{{ count($affiliate->orders)  }}</td>
                         <td>
-                        @if(!$affiliate->isUserAffiliate())
+                        {{ $affiliate->getReffererName($affiliate->referred_by) }}
+                        {{--  @if(!$affiliate->isUserAffiliate())
                         <a href="{{ route('user.unaffiliate',['id' => $affiliate->id]) }}" class="btn btn-xs btn-warning">Unaffiliate</a>
-                        @endif
+                        @endif  --}}
                         </td>
+                        <td>{{ $affiliate->referred_by }}</td>
+                        <td>{{ $affiliate->totalAffiliatesCount($affiliate->affiliate_id) }}</td>
                         <td>
                             <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#userDetailsModal" data-details="{{ $affiliate }}">Details</button>
                         </td>

@@ -18,6 +18,8 @@
                         <th>Style</th>
                         <th>Gif Weight</th>
                         <th>Flash Weight</th>
+                        <th>Link</th>
+                        {{--  <th>Published</th>  --}}
                         <th>Edit</th>
                     </tr>
                     </thead>
@@ -30,6 +32,18 @@
                             <td>{{ $banner->style }}</td>
                             <td>{{ $banner->gif_weight }}</td>
                             <td>{{ $banner->flash_weight }}</td>
+                            <td>
+                            @if( $banner->image )
+                                {{ URL::to('/img/web_banners/' . $banner->image) }}
+                            @endif
+                            </td>
+                            {{--  <td>
+                            @if($banner->published)
+                                True
+                            @else
+                                False
+                            @endif
+                            </td>  --}}
                             <td>
                                 <a href="{{ route('admin.web_banner.edit',['id' => $banner->id]) }}" class="btn btn-xs btn-info" type="submit">
                                     <i class="fa fa-pencil"></i>

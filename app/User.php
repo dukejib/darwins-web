@@ -46,16 +46,41 @@ class User extends Authenticatable
     }
 
     /** Methods */
+    //Used by Public Profile/Account Page
     public function referredBy(){
-       $ref = Auth::user()->referred_by;
-       $user = User::where('affiliate_id',$ref)->first(); 
-       return 'Reffered By : ' . $user->first_name . ' ' . $user->last_name . ' Affiliation Id : ' . $user->affiliate_id; 
+        $ref = Auth::user()->referred_by;
+        $referrer = User::where('affiliate_id',$ref)->first(); 
+        return $referrer;   
     }
-
+    //Used by Public Profile/Account Page
     public function totalAffiliates()
     {
         $total = count(User::where('referred_by',Auth::user()->affiliate_id)->get());
-        return 'total affiliates made : ' . $total; 
+        return $total; 
+    }
+    //Use by Public Profile/Account Page
+    public function getMyAffiliates()
+    {
+        $myaffiliates = User::where('referred_by',Auth::user()->affiliate_id)->get();
+        return $myaffiliates;
+    }
+    //Used by Public Profile/Account Page
+    public function getUserProfile($id){
+        $profile = User::find($id)->profile()->get();
+        return $profile;
+    }
+
+    //Used by Admin Panel
+    public function getReffererName($id)
+    {
+        $user = User::where('affiliate_id',$id)->first(); 
+        return $user->first_name . ' ' . $user->last_name; 
+    }
+    //Used by Admin Panel
+    public function totalAffiliatesCount($id)
+    {
+        $total = count(User::where('referred_by',$id)->get());
+        return $total; 
     }
 
     public function isUserAffiliate()

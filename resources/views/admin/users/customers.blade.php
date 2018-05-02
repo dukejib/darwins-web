@@ -13,10 +13,10 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>Name</th>
                     <th>Email</th>
                     <th>Orders</th>
+                    <th>Opted for Book</th>
                     <th>Affiliation</th>
                     <th>View</th>
                     <th>Delete</th>
@@ -26,10 +26,16 @@
                 @foreach($customers as $customer)
                     <tr id ="{{ $customer->id }}">
                         <td>{{ $customer->id }}</td>
-                        <td>{{ $customer->first_name }}</td>
-                        <td>{{ $customer->last_name }}</td>
+                        <td>{{ $customer->first_name . ' ' . $customer->last_name }}</td>
                         <td>{{ $customer->email }}</td>
                         <td>{{ count($customer->orders) }}</td>
+                        <td>
+                        @if($customer->book_optin)
+                            <span class="text-success">Yes</span>
+                        @else
+                            <span class="text-info">No</span>
+                        @endif
+                        </td>
                         <td>
                             <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#makeAffiliateModal"  data-url="{{ route('user.affiliate',['id' => $customer->id]) }}" data-userid="{{ $customer->id }}">Make Affiliate</button>
                         </td>

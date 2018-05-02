@@ -149,6 +149,7 @@ class AdminController extends Controller
         }
         //Now proceed
         $web_banner->image = $new_image;
+        // $web_banner->link = '/img/web_banners/' . $new_image;
         $web_banner->save();
 
         Session::flash('success','Banner saved');

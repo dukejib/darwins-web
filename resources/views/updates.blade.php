@@ -19,7 +19,7 @@
                 <ul class="list-group">
 
                     <li class="list-group-item text-success">Following items added 
-                        <ul>
+                        <ul><li class="text-danger">New User Signup -- Protonmail check is removed for testing purposes</li>
                             <li class="text-info">On User Account Page > Order Details & Payment options added | Work left to actually process the payment selection</li>
                             <li class="text-info">Orders in admin panel now shows details of the order</li>
                             <li class="text-info">Tweaking with Javascript/Jquery</li>

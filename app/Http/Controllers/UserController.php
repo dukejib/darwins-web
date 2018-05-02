@@ -78,7 +78,7 @@ class UserController extends Controller
         $this->validate($request,[
             'first_name' => 'required|min:2|max:80',
             'last_name' => 'required|min:2|max:80',
-            'email' => 'required|email_domain:' . $request['email'] . '|max:255|unique:users',
+            // 'email' => 'required|email_domain:' . $request['email'] . '|max:255|unique:users',
             'password' => 'required|min:4|confirmed',
             'password_confirmation' => 'required|min:4',
         ]);
