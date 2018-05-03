@@ -101,6 +101,7 @@ Route::group(['prefix' => 'admin'],function(){
     Route::get('/photos/destroy/{id}','AdminController@destroy_photo')->name('admin.photo.destroy');
     Route::get('/web_banner','AdminController@web_banners')->name('admin.web_banner.index');
     Route::get('/web_banner/edit/{id}','AdminController@web_banner_edit')->name('admin.web_banner.edit');
+    Route::get('/web_banner/publish/{id}','AdminController@web_banner_publish')->name('admin.web_banner.publish');
     Route::post('/web_banners/update/{id}','AdminController@web_banner_update')->name('admin.web_banner.update');
     Route::get('/affiliates','AdminController@affiliates')->name('affiliates');
     Route::get('/customers','AdminController@customers')->name('customers');

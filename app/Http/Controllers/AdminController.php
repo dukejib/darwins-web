@@ -130,6 +130,17 @@ class AdminController extends Controller
             ->with('web_banner',WebBanner::find($id));
     }
 
+    public function web_banner_publish($id)
+    {
+        $banner = WebBanner::find($id);
+        $banner->published = true;
+        $banner->save();
+
+        Session::flash('success','Banner Published');
+        return redirect()->back();
+
+    }
+    
     public function web_banner_update(Request $request)
     {
          //We need image of max size 256 Kb

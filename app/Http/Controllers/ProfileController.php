@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Profile;
 use App\User;
 use App\Order;
+use App\WebBanner;
 use App\Helper\Helper;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -21,6 +22,7 @@ class ProfileController extends Controller
         // return Auth::user()->profile;
         return view('users.profile')
             ->with('user',Auth::user())
+            ->with('banners',WebBanner::where('published',1)->get())
             ->with('profile',Auth::user()->profile)
             ->with('orders',Order::where('user_id',$id)->with('order_details')->get())
             // ->with('orders',Order::where('user_id',$id)->get())
@@ -28,6 +30,7 @@ class ProfileController extends Controller
             ->with(Helper::getBasicData());
     }
  
+    /** Update Basic Data */
     public function basic(Request $request)
     {
         /** Validate the Input */
@@ -49,7 +52,7 @@ class ProfileController extends Controller
         Session::flash('success','Basic Information updated');
         return redirect()->back();
     }
-
+    /** Update password */
     public function account(Request $request)
     {
         /** Validate the Input */
@@ -69,7 +72,7 @@ class ProfileController extends Controller
         Session::flash('success','Account updated');
         return redirect()->back();
     }
-
+    /** Update Contact Data */
     public function contact(Request $request)
     {
         /** Validate the Input */
@@ -98,7 +101,7 @@ class ProfileController extends Controller
         Session::flash('success','Contact Information updated');
         return redirect()->back();
     }
-
+    /** Customr wants to buy our book and become affiliate */
     public function become_affiliate()
     {
         return view('users.buybook') 

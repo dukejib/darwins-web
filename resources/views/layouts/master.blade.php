@@ -13,15 +13,15 @@
     <link rel="stylesheet" href="{{ asset('css/my.css') }}"> <!-- My.css some basic styling -->
     <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}"> <!-- Font Awesome -->
     {{--  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">  --}}
-    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"> <!-- Toastr -->
-    {{--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">  --}}
+    {{--  <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}"> <!-- Toastr -->  --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}"> <!-- Slick -->
     {{--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">  --}}
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}"> <!-- Slick -->
     {{--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">  --}}
     {{--  <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.css') }}"> <!-- DataTables -->  --}}
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.13/css/jquery.dataTables.min.css'/>
-
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/jquery.dataTables.min.css'/>
+    
     <link rel="Shortcut Icon" href="{{ asset('img/favicon.ico?')}}" type="image/x-icon" > 
     @yield('styles') <!-- More Styles -->
 
@@ -42,17 +42,20 @@
 {{-- Include bottom navigation --}}
     @include('partials.navigationbottom')
 
-{{--  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>  --}}
-<script src="{{ asset('js/jquery-3.2.1.js')}}"></script> <!-- Jquery -->
-<script src="{{ asset('js/app.js') }}"></script> <!-- Bootstrap -->
-<script src="{{ asset('js/toastr.min.js') }}"></script> <!-- Toastr -->
-{{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js.map"></script>  --}}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+{{--  <script src="{{ asset('js/jquery-3.2.1.js')}}"></script> <!-- Jquery -->  --}}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js'></script>
+{{--  <script src="{{ asset('js/app.js') }}"></script> <!-- Bootstrap -->  --}}
+{{--  <script src="{{ asset('js/toastr.min.js') }}"></script> <!-- Toastr -->  --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+{{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js.map"></script>  --}}
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script> <!-- Slick -->
 {{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>  --}}
 <script src="{{ asset('js/my.js') }}"></script> <!-- My.js -->  
 {{--  <script src="{{ asset('js/jquery.dataTables.js') }}"></script> <!-- DataTables -->  --}}
-<script src='https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/jquery.dataTables.js'></script>
+
+{{--  <script src="{{ asset('js/clipboard-2.0.1.js') }}"></script>  --}}
 <script>
      //Uses Toastr https://github.com/CodeSeven/toastr
     @if(Session::has('success'))

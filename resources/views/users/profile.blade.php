@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="col-md-10 col-md-offset-1">
+<div>
 
     <div class="panel panel-primary">
 
@@ -18,7 +18,7 @@
             @endif
         </div>
 
-        <div class="row">
+        {{--  <div class="panel-body">  --}}
 
             <div class="profile_tabs">
 
@@ -33,13 +33,16 @@
                     <li><a data-toggle="tab" href="#contact">Contact Details</a></li>
                     <li><a data-toggle="tab" href="#referal">Referal</a></li>
                     <li><a data-toggle="tab" href="#orders">My Orders</a></li>
+                    @if($user->isUserAffiliate())
+                    <li><a data-toggle="tab" href="#banners">My Banners</a></li>
+                    @endif
                 </ul>
                             
                 <div class="tab-content">
                     {{--  User Information  --}}
                     <div id="basic" class="tab-pane fade in active">
-                        <h3>Basic Information</h3>
                         <div class="panel-body">
+                            <br>
                             <form action="{{ route('user.profile.basic') }}" method="post" class="form-horizontal">
                                 {{ csrf_field() }} 
                                 <div class="form-group">
@@ -68,11 +71,11 @@
 
                     {{-- Account Settings   --}}
                     <div id="account" class="tab-pane fade">
-                        <h3>Account Settings</h3>
+                        <br>
                         <div class="panel-body">
                             <form action="{{ route('user.profile.account') }}" method="post" class="form-horizontal">
-                                {{ csrf_field() }} <!-- Must use this -->
-            
+                                {{--  Must USe This  --}}
+                                {{ csrf_field() }} 
                                 <div class="form-group">
                                     <label for="password" class="control-label col-xs-3">New Password</label>
                                     <div class="col-xs-9">
@@ -99,7 +102,7 @@
 
                     {{--  Contact Information  --}}
                     <div id="contact" class="tab-pane fade">
-                        <h3>Contact Information</h3>
+                        <br>
                         <div class="panel-body">
                             <form action="{{ route('user.profile.contact') }}" method="post" class="form-horizontal">
                                 {{ csrf_field() }} <!-- Must use this -->
@@ -173,12 +176,16 @@
 
                     {{--  Referal Information  --}}
                     <div id="referal" class="tab-pane fade">
-                        
-                        <h3>Your Referal Link</h3>
+                        <br>
                         <div class="panel-body">
                             @if($user->isUserAffiliate())
                             <h5>Referal Link</h5>
-                            <h5 class="text-success">{{url('/').'/referred?refferal='.$user->affiliate_id}}</h4>
+                            {{--  This is hidden  --}}
+                            <input id="myhiddentext" value="{{url('/').'/referred?refferal=' . $user->affiliate_id}}"  hidden>
+                            <span class="text-success" style="font-size:14px;">
+                                {{url('/').'/referred?refferal='.$user->affiliate_id}}
+                            </span>
+                    
                             <br>
                             <h5>Your were Refered By</h5>
                             <h5 class="text-info">Name : {{ $user->referredBy()->first_name . ' ' . $user->referredBy()->last_name  }}</h4>
@@ -187,43 +194,45 @@
                             <h5>Your Sponsored</h5>
                             <h5 class="text-info">{{ $user->totalAffiliates() }}</h5>
                             <br>
-                            <h5>List of Sponsored</h5>
-                            <table class="table table-striped table-condensed display" id="myaffiliates">
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Profile</th>
-                                        <th>Opted For Book</th>
-                                    </tr>
-                                </thead>
-                            
-                                <tbody>
-                                {{--  Get Our Affiliates  --}}
-                                @foreach($user->getMyAffiliates()  as $customer)
-                                    <tr id ="{{ $customer->id }}">
-                                        <td>{{ $customer->id }}</td>
-                                        <td>{{ $customer->first_name . ' ' . $customer->last_name }}</td>
-                                        <td>{{ $customer->email }}</td>
-                                        <td>
-                                        <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#userDetailsModal" data-customer="{{ $customer }}" data-profile="{{ $customer->getUserProfile($customer->id) }}">Details</button>
-                                        </td>
-                                        <td>
-                                            @if($customer->book_optin)
-                                                <span class="text-success">Yes</span>
-                                            @else
-                                                <span class="text-info">No</span>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                @if(count($user->totalAffiliates()>0))
+                                <h5>List of Sponsored</h5>
+                                    <table class="table table-striped table-condensed display" id="myaffiliates">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Profile</th>
+                                                <th>Opted For Book</th>
+                                            </tr>
+                                        </thead>
+                                    
+                                        <tbody>
+                                        {{--  Get Our Affiliates  --}}
+                                        @foreach($user->getMyAffiliates()  as $customer)
+                                            <tr id ="{{ $customer->id }}">
+                                                <td>{{ $customer->id }}</td>
+                                                <td>{{ $customer->first_name . ' ' . $customer->last_name }}</td>
+                                                <td>{{ $customer->email }}</td>
+                                                <td>
+                                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#userDetailsModal" data-customer="{{ $customer }}" data-profile="{{ $customer->getUserProfile($customer->id) }}">Details</button>
+                                                </td>
+                                                <td>
+                                                    @if($customer->book_optin)
+                                                        <span class="text-success">Yes</span>
+                                                    @else
+                                                        <span class="text-info">No</span>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                @endif
                             @else
                                 @if($user->hasOptedForBook())
                                 <div>
-                                    <strong class="text-primary"><h4>Your Book purchase is in process. Please check these page later on for updates</h4></strong>
+                                    <strong class="text-primary"><h5>Your Book purchase is in process. Please check these page later on for updates</h5></strong>
                                 </div>
                                 @else
                                 <div>
@@ -240,9 +249,8 @@
 
                     {{--  Orders  --}}
                     <div id="orders" class="tab-pane fade">
-                        <h3>My Orders</h3>  
+                        <br>
                         <div class="panel-body">
-                        
                         @if(count($orders)> 0)
                             <table class="table table-striped table-condensed display" id="ordersTable">
                                 <thead>
@@ -322,6 +330,36 @@
                         <br>
                         </div> 
                     </div>
+                    
+                    {{-- Banners Settings   --}}
+                    <div id="banners" class="tab-pane fade">
+                        <br>
+                        <div class="panel-body">
+                            <h4>Banners</h4>
+                            @if(count($banners)>0)
+                                @foreach($banners as $banner)
+                                <hr>
+                            <div>
+                                
+                                <div class="col-md-6">
+                                Banner Preview : <span class="text-success">{{ $banner->title }}</span>
+                                <img src="{{ URL::to('/img/web_banners/' . $banner->image) }}" alt="" srcset="" width="300px" class="img img-responsive">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <span class="text-success">To Use This Banner, Copy and Paste the HTML Code Below Into Any HTML Area On Your Site</span>
+                                    
+                                    <textarea class="form-control" rows="3">&lt;a href="{{url('/').'/referred?refferal=' . $user->affiliate_id}}" target="_blank"&gt;&lt;img src="{{ URL::to('/img/web_banners/' . $banner->image) }}" alt=""&gt;&lt;/a&gt;
+                                    </textarea>
+
+                                </div>
+                                
+                            </div>
+                                @endforeach
+
+                            @endif
+                        </div>
+                    </div>
 
                     {{-- tab Content   --}}
                 </div>
@@ -329,8 +367,9 @@
             {{--  End of profile_tabs  --}}
             </div> 
         {{--  End of row  --}}
-        </div>
+        {{--  </div>  --}}
     </div>
+    
 </div>
 <br>
 <br>
@@ -432,6 +471,7 @@
 @endsection
 
 @section('scripts')
+
     <script>
     //Global Variables
     $paymentoption = 0;
@@ -441,7 +481,7 @@
         $('#ordersTable').DataTable();
         $('#myaffiliates').Datatable();
     });
-    
+
     //Modal Script orderDetailsModal
     $('#orderDetailsModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget); // Button that triggered the modal
@@ -536,5 +576,6 @@
         $('#userDetailBody').html(html);
         
     });
+
     </script>
 @endsection
