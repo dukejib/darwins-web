@@ -1,3 +1,13 @@
+/* Variables */
+:root{
+    --main-primary-color:rgb(233,84,32);
+    --main-primary-text-color:white;
+    --main-primary-border-color:var(--main-primary-color);
+} 
+
+.primary-text-color{
+    color:var(--main-primary-color);
+}
 
 /* Dropdown Menu for FrontEnd */
 .dropdown-submenu {
@@ -26,7 +36,7 @@
 }
 
 .myp strong{
-    color: rgb(233, 84, 32);
+    color:var(--main-primary-color);
     font-size:14px;
     font-weight: bold;
 }
@@ -37,11 +47,13 @@
 
 .myfooter {
     padding-top: 10px;
+    background-color: var(--main-primary-color);
+    color:var(--main-primary-text-color);
 }
 
 /* Carousel Main Captions etc */
 .carousel-caption{
-    background-color: rgba(233, 86, 32, 0.5);
+    background-color: var(--main-primary-color);
     padding-top:0px;
 }
 .carousel-caption h4,p {
@@ -62,7 +74,7 @@
 
 /* Admin Panel */
 .adminheader {
-    color:white;
+    color: var(--main-primary-text-color);
 }
 
 .thumbnail {
@@ -71,7 +83,7 @@
 }
 .thumbnail img{
     max-height: 150px;
-    border:2px solid #EEEEEE;
+    border:2px solid var(--main-primary-border-color);
 }
 
 .thumbnail .description{
@@ -105,3 +117,21 @@
     padding-top: 2.5%;
     padding-right : 5%;
 }
+/* Center Items in Navbar */
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+
+  }
+  .navbar-toggle {
+    z-index: 3;
+  }
+  .nav.navbar-nav {
+    float: none !important;
+    display: inline-block;
+  }

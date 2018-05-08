@@ -1,6 +1,7 @@
 
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        {{--  <div class="col-md-10 col-md-offset-1">  --}}
+        <div class="col-md-12">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     {{--<!-- Brand and toggle get grouped for better mobile display -->--}}
@@ -15,7 +16,7 @@
                         {{--<img src="{{ asset('img/logo.png') }}" width="55px" class="navbar-text   ">--}}
                     {{--</div>--}}
                     <!-- this div should have #mainNavbar id to be collapsed -->
-                    <div>
+                    <div class="text-center">
 
                         <ul class="nav navbar-nav navbar-left">
                             <li><a href="{{ route('privacyPolicy') }}">

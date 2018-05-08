@@ -39,7 +39,7 @@
                         </td>
                         <td>
                         @if($banner->published)
-                            True
+                            Published
                         @else
                             <a href="{{ route('admin.web_banner.publish',['id' => $banner->id])  }}" class="btn btn-xs btn-warning">Publish</a>
                         @endif

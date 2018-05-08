@@ -43,14 +43,17 @@ Route::group(['prefix' => 'user'],function(){
     Route::get('/signup','UserController@getUserSignUp')->name('signup');
     Route::post('/signup','UserController@postUserSignUp')->name('signup');
     Route::get('/signout','UserController@getUserSignOut')->name('signout')->middleware('auth');
-    Route::get('/profile','ProfileController@index')->name('user.profile')->middleware('auth'); // User Profile
+    Route::get('/affiliate/{id}','UserController@user_affiliate')->name('user.affiliate')->middleware('auth');
+    // Route::get('/unaffiliate/{id}','UserController@user_unaffiliate')->name('user.unaffiliate')->middleware('auth');
+    Route::get('/delete/{id}','UserController@user_delete')->name('user.delete')->middleware('auth');
+    
+    Route::get('/profile','ProfileController@index')->name('user.profile')->middleware('auth'); // Get The Page
+
     Route::post('/profile/basic','ProfileController@basic')->name('user.profile.basic')->middleware('auth'); 
     Route::post('/profile/account','ProfileController@account')->name('user.profile.account')->middleware('auth'); 
     Route::post('/profile/contact','ProfileController@contact')->name('user.profile.contact')->middleware('auth');
     Route::get('/profile/becomeaffiliate','ProfileController@become_affiliate')->name('user.profile.become_affiliate')->middleware('auth');
-    Route::get('/affiliate/{id}','UserController@user_affiliate')->name('user.affiliate')->middleware('auth');
-    Route::get('/unaffiliate/{id}','UserController@user_unaffiliate')->name('user.unaffiliate')->middleware('auth');
-    Route::get('/user/delete/{id}','UserController@user_delete')->name('user.delete')->middleware('auth');
+    
     
 });
 

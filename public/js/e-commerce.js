@@ -46,8 +46,11 @@ $(document).ready(function(){
           600:{
               items:3
           },
+          300:{
+              items:2
+          },
           1000:{
-              items:5
+              items:6
           }
       }
   });

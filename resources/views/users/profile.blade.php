@@ -5,12 +5,12 @@
 @endsection
 
 @section('content')
-<div>
+<div class="col-md-12">
 
     <div class="panel panel-primary">
 
         <div class="panel-heading">
-            Edit User Profile 
+            Edit Profile &nbsp; > &nbsp;
             @if($user->isUserAffiliate())
                 Affiliate
             @else
@@ -31,10 +31,11 @@
                     <li class="active"><a data-toggle="tab" href="#basic">Basic Information</a></li>
                     <li><a data-toggle="tab" href="#account">Account Settings</a></li>
                     <li><a data-toggle="tab" href="#contact">Contact Details</a></li>
-                    <li><a data-toggle="tab" href="#referal">Referal</a></li>
-                    <li><a data-toggle="tab" href="#orders">My Orders</a></li>
+                    <li><a data-toggle="tab" href="#refferal">Referal</a></li>
+                    <li><a data-toggle="tab" href="#orders">Orders</a></li>
                     @if($user->isUserAffiliate())
-                    <li><a data-toggle="tab" href="#banners">My Banners</a></li>
+                        <li><a data-toggle="tab" href="#banners">Banners</a></li>
+                        <li><a data-toggle="tab" href="#groups">Groups</a></li>
                     @endif
                 </ul>
                             
@@ -175,17 +176,15 @@
                     </div>
 
                     {{--  Referal Information  --}}
-                    <div id="referal" class="tab-pane fade">
+                    <div id="refferal" class="tab-pane fade">
                         <br>
                         <div class="panel-body">
                             @if($user->isUserAffiliate())
                             <h5>Referal Link</h5>
-                            {{--  This is hidden  --}}
-                            <input id="myhiddentext" value="{{url('/').'/referred?refferal=' . $user->affiliate_id}}"  hidden>
                             <span class="text-success" style="font-size:14px;">
                                 {{url('/').'/referred?refferal='.$user->affiliate_id}}
                             </span>
-                    
+                            <button id="urlCopyBtn" class="btn btn-xs btn-success" data-clipboard-text=<?php echo url('/').'/referred?refferal=' . $user->affiliate_id; ?> title="Copy the Referal Code" ><span class="fa fa-copy"></span></button>
                             <br>
                             <h5>Your were Refered By</h5>
                             <h5 class="text-info">Name : {{ $user->referredBy()->first_name . ' ' . $user->referredBy()->last_name  }}</h4>
@@ -247,12 +246,21 @@
 
                     </div>
 
+                    {{--  Groups  --}}
+                    <div id="groups" class="tab-pane fade">
+                        <br>
+                        <div class="panel-body">
+                            Panel Body
+                        </div>
+
+                    </div>
+
                     {{--  Orders  --}}
                     <div id="orders" class="tab-pane fade">
                         <br>
                         <div class="panel-body">
                         @if(count($orders)> 0)
-                            <table class="table table-striped table-condensed display" id="ordersTable">
+                            <table class="display" id="ordersTable">
                                 <thead>
                                 <tr>
                                     <th>Order Id</th>
@@ -349,11 +357,14 @@
                                 <div class="col-md-6">
                                     <span class="text-success">To Use This Banner, Copy and Paste the HTML Code Below Into Any HTML Area On Your Site</span>
                                     
-                                    <textarea class="form-control" rows="3">&lt;a href="{{url('/').'/referred?refferal=' . $user->affiliate_id}}" target="_blank"&gt;&lt;img src="{{ URL::to('/img/web_banners/' . $banner->image) }}" alt=""&gt;&lt;/a&gt;
+                                    <textarea id="{{ $banner->title }}" class="form-control" rows="3">
+                                    &lt;a href="{{url('/').'/referred?refferal=' . $user->affiliate_id}}" target="_blank" &gt;
+                                    &lt;img src="{{ URL::to('/img/web_banners/' . $banner->image) }}" alt="" &gt;
+                                    &lt;/a&gt;
                                     </textarea>
 
                                 </div>
-                                
+                               
                             </div>
                                 @endforeach
 
@@ -367,7 +378,7 @@
             {{--  End of profile_tabs  --}}
             </div> 
         {{--  End of row  --}}
-        {{--  </div>  --}}
+      
     </div>
     
 </div>
@@ -384,7 +395,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title text-danger">Order Details</h3>
+                <h3 class="modal-title primary-text-color">Order Details</h3>
                 
             </div>
             <div class="modal-body">
@@ -413,7 +424,7 @@
     </div>
 </div>
 
-<!-- Modal Pay Now -->
+{{--  Modal Pay Now  --}}
 <div id="payNowModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -421,7 +432,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title text-danger">Select Payment Option</h3>
+                <h3 class="modal-title primary-text-color">Select Payment Option</h3>
                 
             </div>
             <div class="modal-body">
@@ -471,7 +482,7 @@
 @endsection
 
 @section('scripts')
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.js'></script>
     <script>
     //Global Variables
     $paymentoption = 0;
@@ -481,7 +492,18 @@
         $('#ordersTable').DataTable();
         $('#myaffiliates').Datatable();
     });
-
+    //For Clipboard.js
+    $(document).ready(function(){
+        var btn = document.getElementById('urlCopyBtn');
+        var clipboard = new ClipboardJS(btn);
+        
+        //clipboard.on('success', function(e) {
+        //console.log(e);
+        //});
+        //clipboard.on('error', function(e) {
+        //console.log(e);
+        //});
+    });
     //Modal Script orderDetailsModal
     $('#orderDetailsModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget); // Button that triggered the modal

@@ -179,16 +179,16 @@ class UserController extends Controller
         return response()->json(['reply'=> 'User Affiliated']);
     }
 
-    public function user_unaffiliate($id)
-    {
-        $user = User::find($id);
-        $user->role = 1;
-        $user->book_purchased = false;
-        $user->save();
+    // public function user_unaffiliate($id)
+    // {
+    //     $user = User::find($id);
+    //     $user->role = 1;
+    //     $user->book_purchased = false;
+    //     $user->save();
 
-        Session::flash('success','User is not Affiliated anymore');
-        return redirect()->back();
-    }
+    //     Session::flash('success','User is not Affiliated anymore');
+    //     return redirect()->back();
+    // }
 
     public function user_delete($id)
     {

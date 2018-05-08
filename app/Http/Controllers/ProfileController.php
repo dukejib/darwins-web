@@ -29,7 +29,6 @@ class ProfileController extends Controller
             ->with('newsletter',NewsLetter::where('email',Auth::user()->email))
             ->with(Helper::getBasicData());
     }
- 
     /** Update Basic Data */
     public function basic(Request $request)
     {
@@ -108,6 +107,7 @@ class ProfileController extends Controller
         ->with(Helper::getBasicData());
     }
 
+    /** EMAILS TO USERS */
     public function sendBasicProfileChangeEmail(User $user)
     {
         $title = 'Basic Info Update Notification';
