@@ -3,12 +3,19 @@
     
     @foreach($products as $product) 
     {{--  class='item' is required by owl-carousel >> check my.js  --}}
-    <div class="item">
+    <div>
         <a href="{{ route('show.product',['id' => $product->id]) }}">
-            <img src="{{ asset($product->image) }}" alt="{{ $product->title }}" width = "200px">
+        @if($product->slot == 'Featured')
+            <div class="featured"></div>
+        @elseif ($product->slot == 'Popular')
+            <div class="popular"></div>
+        @elseif($product->slot == 'Latest')
+            <div class="latest"></div>
+        @endif
+        <img src="{{ asset($product->image) }}" alt="{{ $product->title }}">
         </a>
         <div class="text-center"><strong>{{ $product->title }}</strong></div>
-        <a href="{{ route('cart.add',['id' => $product->id]) }}" class="btn btn-xs btn-success btn-block"><i class="fa fa-plus"></i>Add To Cart</a>    
+        <a href="{{ route('cart.add',['id' => $product->id]) }}" class="btn btn-xs btn-default btn-block"><i class="fa fa-plus"></i>Add To Cart</a>    
     </div>
     @endforeach
     

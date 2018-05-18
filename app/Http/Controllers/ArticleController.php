@@ -22,7 +22,8 @@ class ArticleController extends Controller
     public function index()
     {
         return view('admin.articles.index')
-            ->with(Helper::dataForAdminPages());
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with(Helper::dataForAdminPages());
     }
 
     /**
@@ -33,7 +34,8 @@ class ArticleController extends Controller
     public function create()
     {
         return view('admin.articles.create')
-            ->with(Helper::dataForAdminPages());
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with(Helper::dataForAdminPages());
     }
 
     /**
@@ -70,8 +72,9 @@ class ArticleController extends Controller
     public function show($id)
     {
         return view('admin.articles.show')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('article',Article::find($id))
-            ->with(Helper::dataForAdminPages());
+        ->with(Helper::dataForAdminPages());
     }
 
     /**
@@ -83,6 +86,7 @@ class ArticleController extends Controller
     public function edit($id)
     {
         return view('admin.articles.edit')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('article',Article::find($id))   
         ->with(Helper::dataForAdminPages());
 

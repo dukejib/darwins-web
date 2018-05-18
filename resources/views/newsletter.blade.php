@@ -20,7 +20,7 @@
                             <label for="email">Email Address :</label>
                             <input type="email" class="form-control" id="email" name="email">
                         </div>
-                        <button type="submit" class="btn btn-xs btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
                         {{ csrf_field() }}
                     </form>
                 </div>

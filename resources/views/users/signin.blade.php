@@ -27,12 +27,12 @@
                             <input type="password" id="password" name="password" class="form-control" placeholder ="Password">
                         </div>
 
-                        <button type="submit" class="btn btn-success pull-right"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</button>
+                        <button type="submit" class="btn btn-success btn-block"c><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</button>
                         {{ csrf_field() }}
                     </form>
                 </div>
 
-                <div class="panel-footer">
+                <div class="panel-footer text-center">
                     Do not have an account!
                     <a href="{{ route('signup') }}">Sign Up here</a>
                 </div>

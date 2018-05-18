@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\LocalCategory;
 use App\GlobalCategory;
 use App\Http\Requests;
+use App\Helper\Helper;
 use Illuminate\Support\Facades\Session;
 use App\SubCategory;
 
@@ -24,7 +25,8 @@ class LocalCategoriesController extends Controller
     public function index()
     {
         return view('admin.categories.local.index')
-            ->with('local_categories',LocalCategory::orderBy('sub_category_id','asc')->paginate(10));
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('local_categories',LocalCategory::orderBy('sub_category_id','asc')->paginate(10));
     }
 
     /**
@@ -35,7 +37,8 @@ class LocalCategoriesController extends Controller
     public function create()
     {
         return view('admin.categories.local.create')
-            ->with('sub_categories',SubCategory::where('active',1)->get());
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('sub_categories',SubCategory::where('active',1)->get());
     }
 
     /**
@@ -82,8 +85,9 @@ class LocalCategoriesController extends Controller
     public function edit($id)
     {
         return view('admin.categories.local.edit')
-            ->with('local_category',LocalCategory::find($id))
-            ->with('sub_categories',SubCategory::where('active',1)->get());
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('local_category',LocalCategory::find($id))
+        ->with('sub_categories',SubCategory::where('active',1)->get());
     }
 
     /**

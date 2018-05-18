@@ -17,7 +17,7 @@ class FrontEndController extends Controller
     public function index()
     {
         return view('index')
-            ->with(Helper::getBasicData());
+        ->with(Helper::getBasicData());
     }
 
     public function updates()
@@ -39,6 +39,11 @@ class FrontEndController extends Controller
     public function get_item($id)
     {
         $item = Item::find($id);
+        //Add the item_view_count 
+        // $item->item_view_count += 1;
+        $item->increment('item_view_count');
+        $item->save();
+        //Now Return the Data
         return view('item')
             ->with('item',$item)
             ->with(Helper::getBasicData());

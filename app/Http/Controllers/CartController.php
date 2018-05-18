@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests;
-// use App\Cart;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Item;
 use App\Order;
@@ -56,7 +55,7 @@ class CartController extends Controller
     }
 
     //clears our cart
-    public function clearCart()
+    public function clear_cart()
     {
         if(Session::has('cart')){
             Cart::destroy();
@@ -80,120 +79,133 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-    //Checkout cart, depends on toggle,for Products or for Book(Affiliation)
-    public function checkoutCart($toggle,$paymentoptions)
-    {
-        //User is authenticated
+    //Cart Book Checkout
+    public function cart_order_placed($toggle,$option,$bitcoin)
+    {  
+        $order = '';        //For Order
+        $order_details =''; //FOr Order Details
+        $user = '';         //For Authenticated User
+        $total_usd = 50;    //For Book Only, Change as you like
+
+        //Authenticate User
         if(Auth::check()){
             /** Get The User Id */
-            $user_id = Auth::id();
-            $user = User::find($user_id);
-            $total = '';
-            /** make order Object*/
-            $order = '';
-            /** make order_details Object */
-            $order_details ='';
-            /** If value = 1 , African Express, Value = 2 USPS Money Order , Value = 3 Bitcoin */
-            // $message = '';
-            // if ($paymentoptions == 1){
-            //     $message = 'Please use your African express vpc';
-            // } 
-            // elseif ($paymentoptions == 2){
-            //     $message = 'Please print and send this usps page to us';
-            // }
-            // elseif ($paymentoptions == 3){
-            //     $message = 'Use your bitcoin wallet to pay us';
-            // } 
-            /** User is Purchasing Products */
-            if($toggle == 1){
-                /** Get Taxes Details form Settings */
-                $settings = Helper::cartTaxes();
-                $fedtax = Cart::subtotal() * $settings->fed_tax; //Cart Subtotal * FED Tax from Settings
-                $shipping = Cart::subtotal() * $settings->shipping_charges; //Cart Subtotal * Shipping Charges from Settings
-                $total = Cart::total() + $fedtax + $shipping; //Cart Total 
-                /** Create Order */
-                $order = Order::create([
-                    'user_id' => $user_id,
-                    'sub_total' => Cart::subtotal(),
-                    'tax' => $fedtax,
-                    'shipping_charges' => $shipping,
-                    'order_total' => $total
-                    //Status is 'Pending' as default
-                ]);
-                /** Process Cart */
-                foreach (Cart::content() as $purchase) {
-                    //Create OrderDetails
-                    $order_details =  OrderDetails::create([
-                        'order_id' => $order->id,
-                        'item_id' => $purchase->id,
-                        'item_name' => $purchase->name,
-                        'item_qty' => $purchase->qty,
-                        'item_price' => $purchase->price
-                    ]);
-                }
-                /** Clear Cart  */
-                Cart::destroy();
-                Session::forget('cart');
-            }
-
-            /** User is Purchasing Book Only */
-            if($toggle == 2){
-                /** Create Order */
-                $total = 50;
-                $order = Order::create([
-                    'user_id' => $user_id,
-                    'sub_total' => $total,
-                    'tax' => 0,
-                    'shipping_charges' => 0,
-                    'order_total' => $total
-                    //Status is 'Pending' as default
-                ]);
-                //Create OrderDetails
-                $order_details = OrderDetails::create([
-                    'order_id' => $order->id,
-                    'item_id' => 0,
-                    'item_name' => 'Affiliate Crowdfunding',
-                    'item_qty' => 1,
-                    'item_price' => 50
-                ]);
-                //Update User
-                $user->book_optin = 1;
-                //$user->book_purchased = true;
-                $user->save();
-            }
-            /** Return to Ajax */
-            $html = view('cart.checkout')
-            // ->with('message',$message)
-            ->with('option',$paymentoptions)
-            ->with('total',$total)
-            ->with(Helper::getBasicData())
-            ->render();
-            return response()->json($html);
+            $user = User::find(Auth::id());
         }
         else {
-            /** Return to Ajax */
-            $html = view('users.signin')
-            // ->with('message',$message)
-            // ->with('option',$paymentoptions)
-            // ->with('total',$total)
-            ->with(Helper::getBasicData())
-            ->render();
-            return response()->json($html);
+            /** User Not Authenticated - Return him back to Singin Page */
+            return redirect()->route('signin');
         }
+        /** We are logged In */
+        
+        //Now Check The Toggle
+        if($toggle == 1){
+            //This is an Product Order
+            /** Get Taxes Details form Settings */
+            $settings = Helper::cartTaxes();
+            $fedtax = Cart::subtotal() * $settings->fed_tax; //Cart Subtotal * FED Tax from Settings
+            $shipping = Cart::subtotal() * $settings->shipping_charges; //Cart Subtotal * Shipping Charges from Settings
+            $total_usd = Cart::subtotal() + $fedtax + $shipping; //Cart _usd 
+            /** Create Order */
+            $order = Order::create([
+                'user_id' => $user->id,
+                'sub_total' => Cart::subtotal(),
+                'tax' => $fedtax,
+                'shipping_charges' => $shipping,
+                'order_total_usd' => $total_usd,
+                'order_total_btc' => $bitcoin
+                //Status is 'Pending' as default
+            ]);
+            /** Process Cart */
+            foreach (Cart::content() as $purchase) {
+                //Create OrderDetails
+                $order_details =  OrderDetails::create([
+                    'order_id' => $order->id,
+                    'item_id' => $purchase->id,
+                    'item_name' => $purchase->name,
+                    'item_qty' => $purchase->qty,
+                    'item_price' => $purchase->price
+                ]);
+                //Add Item_purchased_count
+                $item = Item::find($purchase->id);
+                // $item->item_purchased_count += 1;
+                $item->increment('item_purchased_count');
+                $item->save();
+            }
+            /** Clear Cart  */
+            Cart::destroy();
+            Session::forget('cart');
+
+        }else if ($toggle == 2){
+            //This is a book People
+            /** Create Order */
+            $order = Order::create([
+                'user_id' => $user->id,
+                'sub_total' => $total_usd,
+                'tax' => 0,
+                'shipping_charges' => 0,
+                'order_total_usd' => $total_usd,
+                'order_total_btc' => $bitcoin
+                //Status is 'Pending' as default
+            ]);
+            //Create OrderDetails
+            $order_details = OrderDetails::create([
+                'order_id' => $order->id,
+                'item_id' => 0,
+                'item_name' => 'Affiliate Crowdfunding',
+                'item_qty' => 1,
+                'item_price' => 50
+            ]);
+            //Update User
+            //$user->book_optin = 1;
+            //$user->book_purchased = true;
+            //$user->save();
+        }
+        
+        //Check option
+        // if($option == 3){
+        //     //We have bitcoin
+        //     //    $this->process_order_bc($order->order_total_usd,$order->id);
+        // } 
+        if ($option == 2 || $option == 1){
+            $order->btc_address = '';
+            $order->save();
+        }
+        //All Done, Return Page
+        Session::flash('success','Order Placed');
+        return view('cart.checkout')
+        ->with('option',$option)
+        ->with('total',$total_usd)
+        ->with('order',$order)
+        ->with(Helper::getBasicData());
+
     }
 
-    public function paynow($orderid,$paymentoptions)
+    //TODO:: work on it. Make it remove qr address if user changes bitcoin payment to usps or vpc - vice versa
+    //Utlizied when user checks his/her orders
+    public function paynow($orderid,$option)
     {
         if(Auth::check()){
             /** Get The User Id */
             $user_id = Auth::id();
             $order = Order::find($orderid);
-            $total = $order->order_total;
+            $total_usd = $order->order_total_usd;
+
+             //Check option
+            if($option == 3){
+                //We have bitcoin
+                $this->process_order_bc($order->order_total_usd,$order->id);
+            }else if ($option == 2 || $option == 1){
+                $order->btc_address = '';
+                $order->save();
+            }
+
             /** Return to Ajax */
             $html = view('cart.checkout')
             // ->with('message',$message)
-            ->with('option',$paymentoptions)
-            ->with('total',$total)
+            ->with('option',$option)
+            ->with('total',$total_usd)
+            ->with('order',$order)
             ->with(Helper::getBasicData())
             ->render();
             return response()->json($html);
@@ -201,15 +213,12 @@ class CartController extends Controller
         else {
              /** Return to Ajax */
              $html = view('users.signin')
-             // ->with('message',$message)
-             // ->with('option',$paymentoptions)
-             // ->with('total',$total)
              ->with(Helper::getBasicData())
              ->render();
              return response()->json($html);
         }
     }
-      
+
     //blockchain receive payment function
     public function process_order_bc($amount,$orderid)
     {
@@ -218,30 +227,27 @@ class CartController extends Controller
         //Docs : https://github.com/blockchain/api-v1-client-php/blob/HEAD/docs/v2/receive.md
         //Using blockchain/blockchain packagist
         $blockchain = new Blockchain();
-        //Order Id
-        $orderId = $orderid;
-        //Receiving
-        $v2ApiKey = env('V2APIKEYJIB');
-        //Receiving Account
-        $xPub = env('XPUBJIB');
+        $rootUrl = 'http://www.morecreditcardservices.com'; 
+        $v2ApiKey = env('V2APIKEYJIB'); //Receive Key
+        $xPub = env('XPUBJIB'); //Xpub
+        $order_id = $orderid;
         //This where you want to be notified of your payment-A route in laravel
-        $rootUrl = 'http://www.morecreditcardservices.net'; 
         //Callback Url
-        $callbackUrl = $rootUrl . "/receive_payment?orderId=" . $orderId . "&secret=" . $this->secret;
+        $callbackUrl = $rootUrl . "/receive_payment?orderId=" . $order_id . "&secret=" . $this->secret;
         //Encode url
         $encUrl = urlencode($callbackUrl);
         //Gap Limit
         $gap_limit = 3; //Optional
-      
         //Generate the Link to receive Payments
-        $res =$blockchain->ReceiveV2->generate($v2ApiKey,$xPub,$callbackUrl,$gap_limit);
-    
+        $result =$blockchain->ReceiveV2->generate($v2ApiKey,$xPub,$callbackUrl,$gap_limit);
+
+        //return $result;
         //Get the receive address - which we can show to the public for scanning
-        $address =  $res->getReceiveAddress();
-        //Google api thing not working
-        //echo '<div><img src="http://chart.googleapis.com/chart?chs=400x400&cht=qr&chl="' . $address . '"></div>';
-        echo '<div><img src="https://blockchain.info/qr?data=' . $address  . '&size=200"></div>';
-        echo '<br><div>Send Your Coins at : ' . $address . '</div>';
+        $address =  $result->getReceiveAddress();
+        //Add QR Address to Order btc_address field
+        $order = Order::find($orderid);
+        $order->btc_address = $address;
+        $order->save();
     }
 
     //This function is a callback for blockchain, it triggers, when we get the amount
@@ -256,17 +262,12 @@ class CartController extends Controller
             $data = request()->all();
             $filename = 'databtc.txt';
             File::put(public_path() . '/' . $filename,$data);
-            //Update the user as buying our book - Do check if he is paying full amount
-            // $user = Auth::id();
-            // $user->role = 2;
-            // $user->book_purchased = true;
-            // $user->save();
-            // $trans = new Transactions();
-            // $trans->value = request()->all();
-            // $trans->transaction_hash = 'none';
-            // $trans->confirmations = 'none';
-            // $trans->order_id = 'none';
-            // $trans->save();
+            /** From Call back we get
+             * $secret = 
+             * $orderid =
+             * $transaction_hash =
+             * $value_in_satoshi = value / 100000000
+             */
         }
     }
     ////////////////////////////////////////////////////////////////////

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\GlobalCategory;
 use App\Http\Requests;
 use App\SubCategory;
+use App\Helper\Helper;
 use Illuminate\Support\Facades\Session;
 
 class SubCategoriesController extends Controller
@@ -19,6 +20,7 @@ class SubCategoriesController extends Controller
     {
         // return SubCategory::all();
         return view('admin.categories.sub.index')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('categories',SubCategory::orderBy('global_category_id','asc')->paginate(10));
     }
 
@@ -30,6 +32,7 @@ class SubCategoriesController extends Controller
     public function create()
     {
         return view('admin.categories.sub.create')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('global_categories',GlobalCategory::orderBy('title','asc')->where('active',1)->get());
     }
 
@@ -80,6 +83,7 @@ class SubCategoriesController extends Controller
     public function edit($id)
     {
         return view('admin.categories.sub.edit')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('sub_category',SubCategory::find($id))
         ->with('global_categories',GlobalCategory::orderBy('title','asc')->where('active',1)->get());
     }

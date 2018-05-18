@@ -1,11 +1,10 @@
 <?php
-
+ 
 Route::get('updates','FrontEndController@updates')->name('updates');
-
 /** Cart Related Routes */
 Route::get('/cart','CartController@cart')->name('cart'); //Show Cart
-Route::get('/cart/clear','CartController@clearCart')->name('cart.clear'); //Clear Cart
-Route::get('/cart/checkout/{toggle}/{paymentoptions}','CartController@checkoutCart')->name('cart.checkout'); //Checkout Cart
+Route::get('/cart/clear','CartController@clear_cart')->name('cart.clear'); //Clear Cart
+Route::get('/cart/order/{toggle}/{option}/{bitcoin}','CartController@cart_order_placed')->name('cart.order'); //Checkout Cart
 Route::get('/cart/paynow/{orderid}/{paymentoptions}','CartController@paynow')->name('cart.paynow'); //Pay Now Process
 Route::get('/cart/add_to_cart/{id}','CartController@add_to_cart')->name('cart.add');
 Route::get('/cart/decrease_item/{id}{qty}','CartController@decrease_item')->name('cart.decrease');
@@ -53,7 +52,8 @@ Route::group(['prefix' => 'user'],function(){
     Route::post('/profile/account','ProfileController@account')->name('user.profile.account')->middleware('auth'); 
     Route::post('/profile/contact','ProfileController@contact')->name('user.profile.contact')->middleware('auth');
     Route::get('/profile/becomeaffiliate','ProfileController@become_affiliate')->name('user.profile.become_affiliate')->middleware('auth');
-    
+    //Groups & Group_Users
+    Route::post('/group/create','ProfileController@create_group')->name('user.group.create')->middleware('auth');
     
 });
 

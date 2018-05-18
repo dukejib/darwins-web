@@ -6,6 +6,8 @@ use App\Profile;
 use App\User;
 use App\Order;
 use App\WebBanner;
+use App\Group;
+use App\GroupUser;
 use App\Helper\Helper;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -15,18 +17,16 @@ use App\NewsLetter;
 
 class ProfileController extends Controller
 {
+
     public function index()
     {
         $id = Auth::id();
-        // return $id;
-        // return Auth::user()->profile;
         return view('users.profile')
             ->with('user',Auth::user())
             ->with('banners',WebBanner::where('published',1)->get())
             ->with('profile',Auth::user()->profile)
             ->with('orders',Order::where('user_id',$id)->with('order_details')->get())
-            // ->with('orders',Order::where('user_id',$id)->get())
-            ->with('newsletter',NewsLetter::where('email',Auth::user()->email))
+            ->with('groups',Auth::user()->groups()->where('user_id',Auth::id())->get())
             ->with(Helper::getBasicData());
     }
     /** Update Basic Data */
@@ -49,7 +49,7 @@ class ProfileController extends Controller
         $this->sendBasicProfileChangeEmail($user); 
         //
         Session::flash('success','Basic Information updated');
-        return redirect()->back();
+        return redirect()->back()->withInput(['tab' => 'basic']);
     }
     /** Update password */
     public function account(Request $request)
@@ -69,7 +69,7 @@ class ProfileController extends Controller
         $this->sendAccountProfileChangeEmail($user,$request['password']);
         //
         Session::flash('success','Account updated');
-        return redirect()->back();
+        return redirect()->back()->withInput(['tab' => 'account']);
     }
     /** Update Contact Data */
     public function contact(Request $request)
@@ -98,13 +98,31 @@ class ProfileController extends Controller
         $this->sendContactProfileChangeEmail($user);
 
         Session::flash('success','Contact Information updated');
-        return redirect()->back();
+        return redirect()->back()->withInput(['tab' => 'contact']);
     }
     /** Customr wants to buy our book and become affiliate */
     public function become_affiliate()
     {
         return view('users.buybook') 
         ->with(Helper::getBasicData());
+    }
+    /** Create Group */
+    public function create_group(Request $request)
+    {
+        $this->validate($request,[
+            'group_title' => 'required|min:5'
+        ]);
+        //Get the Authenticated user
+        $user = Auth::user();
+        //Create Group
+        $group = Group::create([
+            'group_title' => request()->group_title
+        ]);
+        //Create Group_users
+        $group->users()->attach($user->id);
+
+        Session::flash('success','Group created');
+        return redirect()->back()->withInput(['tab' => 'groups']);
     }
 
     /** EMAILS TO USERS */

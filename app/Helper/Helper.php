@@ -5,7 +5,7 @@ namespace App\Helper;
 use App\GlobalCategory;
 use App\SubCategory;
 use App\LocalCategory;
-
+use Kim\Activity\Activity;
 use App\Setting;
 use App\Item;
 use App\Carousel;
@@ -13,6 +13,7 @@ use App\NewsLetter;
 use App\Article;
 use App\User;
 use App\WebBanner;
+use App\Photo;
 
 use DB;
 use App\Order;
@@ -218,7 +219,8 @@ class Helper {
         $affiliations = User::where('role','=',2)->get()->count();
         $articles = Article::all()->count();
         $web_banners = WebBanner::all()->count();
-        $pending_orders = Order::where('delivery_status','=',1)->get()->count();
+        $pending_orders = Order::all()->count();
+        $photos = Photo::all()->count();
 
         return compact(
             'global_categories',
@@ -229,10 +231,28 @@ class Helper {
             'affiliations',
             'articles',
             'web_banners',
-            'pending_orders'
+            'pending_orders',
+            'photos'
         );
     }
 
+    public static function getStats()
+    {
+        $most_viewed_items = Item::all()->sortByDesc('item_view_count')->take();
+        $most_purchased_items = Item::all()->sortByDesc('item_purchased_count')->take();
+
+        return compact(
+            'most_viewed_items',
+            'most_purchased_items'
+        );
+    }
+
+    public static function getOnlineUsersCount()
+    {
+        $online_user_count = Activity::users()->get()->count();
+        return $online_user_count;
+    }
+    
     public static function getUniqueAffiliateId(){
         return 'MCCS' . uniqid();
     }

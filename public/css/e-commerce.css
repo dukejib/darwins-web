@@ -135,3 +135,69 @@
     float: none !important;
     display: inline-block;
   }
+
+  /* for Column in Banners */
+  .banner-img-responsive {
+    margin: 0 auto;
+}
+
+/* For checkboxes - buybook */
+.check
+{
+    opacity:0.5;
+	color:#996;
+}
+.box{
+    margin-bottom:5px;
+}
+
+/** For Thumbnails */
+
+.featured {
+    background: url("../img/featured.png") no-repeat scroll 0 0 transparent;
+    width:200px;
+    height:200px;
+    position: absolute; /* Added Position */
+    top: 0px; /* Added Top Position */        
+    z-index: 2; /* Added Higher Z-Index Value from thumbnail div */
+}
+
+.popular {
+    background: url("../img/popular.png") no-repeat scroll 0 0 transparent;
+    width:200px;
+    height:200px;
+    position: absolute; /* Added Position */
+    top: 0px; /* Added Top Position */        
+    z-index: 2; /* Added Higher Z-Index Value from thumbnail div */
+}
+
+.latest {
+    background: url("../img/latest.png") no-repeat scroll 0 0 transparent;
+    width:200px;
+    height:200px;
+    position: absolute; /* Added Position */
+    top: 0px; /* Added Top Position */        
+    z-index: 2; /* Added Higher Z-Index Value from thumbnail div */
+}
+
+/** For Loaders */
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

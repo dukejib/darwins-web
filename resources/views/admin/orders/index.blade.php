@@ -22,9 +22,9 @@
                         <th>SubTotal</th>
                         <th>F.E.D</th>
                         <th>Shipping</th>
-                        <th>Total</th>
-                        <th>Delivery Status</th>
-                        <th>Payment Status</th>
+                        <th>Total (USD)</th>
+                        <th>Total (BTC)</th>
+                        <th>QR Address</th>
                         <th>Details</th>
                     </tr>
                     </thead>
@@ -39,25 +39,9 @@
                             <td>${{ $order->sub_total }}</td>
                             <td>${{ $order->tax }}</td>
                             <td>${{ $order->shipping_charges }}</td>
-                            <td>${{ $order->order_total }}</td>
-                            <td>
-                                @if($order->delivery_status == 1) 
-                                    <span class="text-warning">PENDING</span> 
-                                @elseif($order->delivery_status == 2) 
-                                    <span class="text-info">Transit</span> 
-                                @elseif($order->delivery_status == 3) 
-                                    <span class="text-success">Delivered</span> 
-                                @endif
-                            </td>
-                            <td>
-                                @if($order->delivery_status == 1) 
-                                    <span class="text-warning">Not Paid Yet</span> 
-                                @elseif($order->delivery_status == 2) 
-                                    <span class="text-info">Partial Paid</span> 
-                                @elseif($order->delivery_status == 3) 
-                                    <span class="text-success">Fully Paid</span> 
-                                @endif
-                            </td>
+                            <td>${{ $order->order_total_usd }}</td>
+                            <td>{{ $order->order_total_btc }}</td>
+                            <td>{{ $order->btc_address }}</td>
                             <td>
                                 <button type="button" class="btn btn-xs btn-info"
                                     data-toggle="modal" data-target="#orderDetailsModal" data-details="{{$order->order_details}}" data-who="{{$order}}">
@@ -146,7 +130,8 @@
         html += "<tr><td colspan='3' style='text-align:right;'><strong>Sub Total</strong></td><td><strong>$" + order.sub_total + "</strong></td></tr>"
         html += "<tr><td colspan='3' style='text-align:right;'>F.E.D Tax</td><td>$" + order.tax + "</td></tr>"
         html += "<tr><td colspan='3' style='text-align:right;'>Shipping Charges</td><td>$" + order.shipping_charges + "</td></tr>"
-        html += "<tr><td colspan='3' style='text-align:right;'><strong>Grand Total</strong></td><td><strong>$" + order.order_total + "</strong></td></tr>"
+        html += "<tr><td colspan='3' style='text-align:right;'><strong>Grand Total (USD)</strong></td><td><strong>$" + order.order_total_usd + "</strong></td>"
+        html += "<tr><td colspan='3' style='text-align:right;'><strong>Grand Total (BTC)</strong></td><td><strong>" + order.order_total_btc + "</strong></td></tr>"
 
         //console.log(html);
         $('#mytable caption').html("Order # : " + order.id); //Set Heading

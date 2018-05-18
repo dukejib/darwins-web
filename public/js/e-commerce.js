@@ -43,14 +43,20 @@ $(document).ready(function(){
           0:{
               items:1
           },
+          200:{
+              items:1
+          },
+          400:{
+              items:2
+          },
           600:{
               items:3
           },
-          300:{
-              items:2
+          800:{
+              items:4
           },
           1000:{
-              items:6
+              items:5
           }
       }
   });

@@ -8,8 +8,12 @@ class Order extends Model
 {
     protected $table = 'orders';
 
+    // protected $fillable = [
+    //     'user_id','delivery_status','sub_total','tax','shipping_charges','order_total','payment'
+    // ];
+
     protected $fillable = [
-        'user_id','delivery_status','sub_total','tax','shipping_charges','order_total','payment'
+        'user_id','sub_total','tax','shipping_charges','order_total_usd','order_total_btc','btc_address'
     ];
 
     /** Relationships */

@@ -3,8 +3,9 @@ E-Commerce Website Project for a Client.
 
 The project uses the following repositories;
 
-"blockchain/blockchain": "^1.4",
-"gloudemans/shoppingcart": "^2.4"
+"blockchain/blockchain": "^1.4", //Blockchain Bitcoin Wallets/ Payment Receive
+"gloudemans/shoppingcart": "^2.4" //Shopping Cart 
+"kim/activity": "^1.1"  //For Session Handling (Online Users Etc)
 
 on the backend, to support blockchain, Node.js is utilized on VPS Server
 

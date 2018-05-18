@@ -61,6 +61,7 @@ class UserController extends Controller
         /** Check referal code and set to 1, if not found */
         $ref_code = $request->affiliate_id;
         if(empty($ref_code)){
+            //TODO::Change '1' to Something Else
             $ref_code = 1;
         }
         /** If its one, use signed up by himself, else reffered */
@@ -105,7 +106,7 @@ class UserController extends Controller
         Profile::create([
             'user_id' => $user->id,
         ]);
-
+        
         /** User must Sign in */
         Auth::login($user);
 

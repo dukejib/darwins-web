@@ -39,12 +39,12 @@
 
                             <div class="col-md-4" style="text-align:center;">
                                 <h4>USPS Money Orders</h4>
-                                <img src="{{ asset('img/upsmoney.jpg') }}" class="center-block img-responsive"  width="120px">
+                                <img src="{{ asset('img/upsmoney.png') }}" class="center-block img-responsive"  width="100px">
                             </div>
 
                             <div class="col-md-4" style="text-align:center;">
                                 <h4>Bitcoin Payments</h4>
-                                <img src="{{ asset('img/bitcoin.jpg') }}" class="center-block img-responsive" width="120px" >
+                                <img src="{{ asset('img/bitcoin.png') }}" class="center-block img-responsive" width="100px" >
                             </div>
                         </div>
                 </div>

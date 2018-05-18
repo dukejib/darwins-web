@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Helper\Helper;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests;
 use App\Carousel;
@@ -22,7 +23,8 @@ class CarouselController extends Controller
     public function index()
     {
         return view('admin.carousel.index')
-            ->with('carousels',Carousel::paginate(10));
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('carousels',Carousel::paginate(10));
     }
 
     /**
@@ -32,7 +34,8 @@ class CarouselController extends Controller
      */
     public function create()
     {
-        return view('admin.carousel.create');
+        return view('admin.carousel.create')
+        ->with('online_user_count',Helper::getOnlineUsersCount());
     }
 
     /**
@@ -91,7 +94,8 @@ class CarouselController extends Controller
     public function edit($id)
     {
         return view('admin.carousel.edit')
-            ->with('carousel',Carousel::find($id));
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('carousel',Carousel::find($id));
     }
 
     /**

@@ -22,6 +22,7 @@ class ProductController extends Controller
     public function index()
     {
         return view('admin.products.index')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with(Helper::dataForAdminPages());
     }
 
@@ -33,6 +34,7 @@ class ProductController extends Controller
     public function create()
     {
         return view('admin.products.create')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with(Helper::dataForAdminPages());
     }
 
@@ -85,8 +87,9 @@ class ProductController extends Controller
     public function show($id)
     {
         return view('admin.products.show')
-            ->with('product',Item::find($id))
-            ->with(Helper::dataForAdminPages());
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('product',Item::find($id))
+        ->with(Helper::dataForAdminPages());
     }
     /**
      * Show the form for editing the specified resource.
@@ -97,8 +100,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         return view('admin.products.edit')
-            ->with('product',Item::find($id))
-            ->with(Helper::dataForAdminPages());
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('product',Item::find($id))
+        ->with(Helper::dataForAdminPages());
     }
 
     /**

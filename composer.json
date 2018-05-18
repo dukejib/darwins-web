@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "blockchain/blockchain": "^1.4",
-        "gloudemans/shoppingcart": "^2.4"
+        "gloudemans/shoppingcart": "^2.4",
+        "kim/activity": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -11,6 +11,7 @@ use App\NewsLetter;
 use App\User;
 use App\Photo;
 use DB;
+use Kim\Activity\Activity;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
@@ -31,19 +32,23 @@ class AdminController extends Controller
 
     public function dashboard()
     {
+        
         return view('admin.dashboard')
+            ->with('online_user_count',Helper::getOnlineUsersCount())
             ->with(Helper::getElementsCount());
     }
 
     public function newsLetters()
     {
         return view('admin.newsletter.index')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('newsLetters',NewsLetter::orderBy('created_at','desc')->get());
     }
 
     public function editNewsLetter($id)
     {
         return view('admin.newsletter.edit')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('subs',NewsLetter::find($id));
     }
 
@@ -70,6 +75,7 @@ class AdminController extends Controller
     {
         //$affiliates = User::where('role','=',2)->get(); //2-Affiliate
         return view('admin.users.affiliates')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('affiliates',User::with(['orders','orders.order_details'])->where('role','=',2)->get());
     }
 
@@ -77,6 +83,7 @@ class AdminController extends Controller
     {
         //$customers = User::where('role','=',1)->get(); //1-customer
         return view('admin.users.customers')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('customers',User::with(['orders','orders.order_details'])->where('role','=',1)->get());
     }
 
@@ -114,20 +121,23 @@ class AdminController extends Controller
     {
         $photos = DB::table('photos')->orderBy('created_at','desc')->paginate(5);
         return view('admin.photos.index')
-            ->with('photos',$photos);
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('photos',$photos);
     }
 
     public function web_banners()
     {
         $web_banners = DB::table('web_banners')->get();
         return view('admin.web_banners.index')
-            ->with('web_banners',$web_banners);
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('web_banners',$web_banners);
     }
 
     public function web_banner_edit($id)
     {
         return view('admin.web_banners.edit')
-            ->with('web_banner',WebBanner::find($id));
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('web_banner',WebBanner::find($id));
     }
 
     public function web_banner_publish($id)
@@ -167,10 +177,12 @@ class AdminController extends Controller
         return redirect()->route('admin.web_banner.index');
     }
 
-    /////////////// ORDERS ////////////////////////////
+    /** ORDER CRUD FOR ADMIN PANEL */
+    /** Frontend Order Handling CartController.php */
     public function orders()
     {
         return view('admin.orders.index')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('orders',Order::orderBy('created_at','asc')->with('order_details')->get());
     }
 }

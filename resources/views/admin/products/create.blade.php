@@ -45,11 +45,15 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="image" class="btn btn-success pull-left">Add New Image</label>
-                    <input id="image" style="visibility:hidden;" type="file" name="image" accept="image/x-png,image/gif,image/jpeg">
+                <label for="">Ensure that Image size is 200x200 px only, otherwise, it will look bad</label>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-xs btn-success pull-right">Save Product</button>
+                    <label for="image" class="btn btn-info pull-left">Add New Image</label>
+                    <input id="image" style="visibility:hidden;" type="file" name="image" accept="image/x-png,image/gif,image/jpeg">
+                </div>
+                <br>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-block">Save Product</button>
                 </div>
                 {{ csrf_field() }}
             </form>

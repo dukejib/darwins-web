@@ -72,7 +72,7 @@ class UserTableSeeder extends Seeder
             'password' => bcrypt('_mccs2018_'),
             'role' => 1, //Customer
             'affiliate_id' => Helper::getUniqueAffiliateId(),
-            'referred_by' => 2 //By Admin
+            'referred_by' => 1 //By Admin
         ]);
         $this->command->info('Normal3 User Created');
         Profile::create([

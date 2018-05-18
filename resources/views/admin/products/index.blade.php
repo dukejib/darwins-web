@@ -48,11 +48,13 @@
                             </td>
                             <!-- is it in featured list -->
                             @if($product->slot == 'Featured')
-                                <td>Featured</td>
+                                <td class="text-success">Featured</td>
                             @elseif($product->slot == 'Popular')
-                                <td>Popular</td>
+                                <td class="texst-infor">Popular</td>
                             @elseif($product->slot == 'Latest')
-                                <td>Latest</td>
+                                <td class="text-warning">Latest</td>
+                            @elseif($product->slot == 'Normal')
+                                <td>Normal</td>
                             @endif
                             <td>
                                 <a href="{{ route('admin.product.show',['product' => $product->id]) }}" class="btn btn-xs btn-success"><i class="fa fa-binoculars"></i></a>

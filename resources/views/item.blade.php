@@ -16,7 +16,16 @@
     <div class="panel-body">
         <div class="col-md-4">
             <div class="form-group">
-                <img src="{{ asset($item->image) }}" width = "250px" style="border:1px solid;padding:10px">
+                @if($item->product == 1)
+                    @if($item->slot == 'Featured')
+                        <div class="featured"></div>
+                    @elseif ($item->slot == 'Popular')
+                        <div class="popular"></div>
+                    @elseif($item->slot == 'Latest')
+                        <div class="latest"></div>
+                    @endif
+                @endif
+                <img src="{{ asset($item->image) }}" style="border:1px solid;padding:10px">
                 <hr>
                 <label for="">Category</label>
                 <p class="myp">

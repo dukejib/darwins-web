@@ -45,6 +45,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Order');
     }
 
+    public function groups()
+    {
+        return $this->belongsToMany('App\Group','group_users');
+    }
+    
     /** Methods */
     //Used by Public Profile/Account Page
     public function referredBy(){
@@ -61,7 +66,7 @@ class User extends Authenticatable
     //Use by Public Profile/Account Page
     public function getMyAffiliates()
     {
-        $myaffiliates = User::where('referred_by',Auth::user()->affiliate_id)->get();
+        $myaffiliates = User::where('referred_by',Auth::user()->affiliate_id)->get() ;
         return $myaffiliates;
     }
     //Used by Public Profile/Account Page

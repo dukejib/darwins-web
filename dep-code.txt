@@ -1,0 +1,35 @@
+    // public function process_order_bc($amount,$orderid){
+        //Docs : https://blockchain.info/api/api_receive
+        //URL FOR RECEIVE = https://api.blockchain.info/v2/receive?xpub=$xpub&callback=$callback_url&key=$key    
+        // $apiKey = env('V2APIKEYJIB'); //Receive Payment Api Key
+        // $xpub = env('XPUBJIB');  //Xtended Public Key - Receive wallet
+        // $orderId = $orderid; //Unique Order id
+        // $callbackUrl ='http://www.morecreditcardservices.com/payment_callback?orderid=' . $orderId . '&secret=' . $this->secret; //callback Url
+        // $receiveUrl = 'https://api.blockchain.info/v2/receive?' .    //Call receive url
+        //     'callback=' . urlencode($callbackUrl) . 
+        //     '&xpub=' . $xpub . 
+        //     '&key=' . $apiKey;
+        
+        // $ch = curl_init(); //Now get the reply - Initiate Curl
+        // curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,true);
+        // curl_setopt($ch,CURLOPT_TRANSFERTEXT,true);
+        // curl_setopt($ch,CURLOPT_URL,$receiveUrl);
+        // $res = curl_exec($ch);
+        // curl_close($ch);
+        // $json = json_decode($res,true); //Decode json
+        // $address = $json['address'];
+        // $order = Order::find($orderId);
+        // $order->btc_address = $address;
+        // $order->save();
+        // echo $json;
+        //Put your response address here :https://blockchain.info/address/YourReceivePaymentKey
+        // return $address;
+        //echo "<div><img src='https://blockchain.info/qr?data=" . $address  . "&size=200'></div>";
+        //echo '<br><div>Send Your Coins at : ' . $address . '</div>';
+        //Returned Data : { "address" : "19rNptqohtERw2of8JrrmSWUYpXDus2Fst", "index" : 5, "callback" : "http://karacraft.com/bchain/public/rpcallback?orderid=5a8aff0246325&secret=dukeisalive2018" }1
+    // }
+    
+    /** Tables To Add */
+    Page Views Table (For Every View)
+    User Login / Logout Table (For Checking)
+    Add Column to Articles - To Know How Many Views

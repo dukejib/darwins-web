@@ -14,6 +14,109 @@
     <link rel="stylesheet" href="{{ asset('css/dataTables.1.10.16.css') }}"> <!-- DataTables -->
     <link rel="Shortcut Icon" href="{{ asset('img/favicon.ico?')}}" type="image/x-icon" > 
 
+    {{--  Google Charts  --}}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Numbers'],
+          ['Total Orders',     11],
+          ['Pending',      2],
+          ['Completed',  2],
+        ]);
+
+        var options = {
+            title: 'Daily Orders',
+            pieHole: 0.3,
+            //legend : 'none',
+            legend: {
+                position : 'right',
+                alignment : 'center',
+                textStyle : {
+                        color : '#fff'
+                    },
+                },
+            pieSliceText: 'label',
+            pieStartAngle: 100,
+            backgroundColor: '#3e3f3a',
+            chartArea:{left:10,top:5,width:'90%',height:'90%'},
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('orderChart'));
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Product', 'Purchased'],
+          ['Galaxy S7',     23],
+          ['BMX Tricon',     51],
+          ['Axl Basic',  23],
+          ['DSLR Tripod',  41],
+          ['Jumbo Selfie Stick',  19],
+        ]);
+
+        var options = {
+            title: 'Top Products',
+            pieHole: 0.3,
+            //legend : 'none',
+            legend: {
+                position : 'right',
+                alignment : 'center',
+                textStyle : {
+                        color : '#fff'
+                    },
+                },
+            pieSliceText: 'label',
+            pieStartAngle: 100,
+            backgroundColor: '#3e3f3a',
+            chartArea:{left:10,top:5,width:'90%',height:'90%'},
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('orderTopProducts'));
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'Orders', 'Products', 'Services'],
+          ['Jan', 48, 23, 25],
+          ['Feb', 59, 28, 31],
+          ['Mar', 83, 57, 26],
+          ['April', 81, 61, 20]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Sales & Services',
+            subtitle: 'Orders > Products > Services',
+            
+            chartArea:{
+                left:10,
+                top:0,
+                width:'90%',
+                height:'100%',
+                backgroundColor:'#fff',
+                },
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+
+    {{--  Google Charts  --}}
 </head>
 
 <body>
@@ -37,6 +140,9 @@
         <!-- this div should have #mainNavbar id to be collapsed -->
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#"><i class="fa fa-users"></i> Online Users <span class="badge">{{ $online_user_count }}</span></a>
+                </li>
                 <li>
                     <a href="{{ route('signout') }}"><i class="fa fa-sign-out"></i> Logout</a>
                 </li>
@@ -153,6 +259,9 @@
 
 <script>
     //Uses Toastr https://github.com/CodeSeven/toastr
+    toastr.options.closeButton = true;
+    toastr.options.closeMethod = 'fadeOut';
+    toastr.options.timeOut = 120; //How long the toast will show
     @if(Session::has('success'))
         toastr.success('{{ Session::get('success') }}','Operation Successfull');
     @endif

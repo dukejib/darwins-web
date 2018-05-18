@@ -10,9 +10,8 @@
     <div class="row">
         <div class="col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2">
             <div class="panel panel-primary ">
-                <div class="panel-heading text-center">
-                    Step 1 : Add/Remove Items in Your Cart
-                </div>
+                <div class="panel-heading text-center">Step 1 : Add/Remove Items in Your Cart</div>
+               
                 <div class="panel-body">
                     <table class="table table-stripped  ">
                         <thead>
@@ -26,9 +25,9 @@
                         <tr>
                             <td>{{ $product->name }}</td>
                             <td>
-                                <a href="{{ route('cart.increase',['id' => $product->rowId , 'qty' => $product->qty] ) }}" class="btn btn-xs btn-success">+</a>
+                                <a href="{{ route('cart.increase',['id' => $product->rowId , 'qty' => $product->qty] ) }}" class="btn btn-xs btn-success"><i class="fa fa-plus fa-1x"></i></a>
                                 &nbsp;&nbsp;{{ $product->qty }}&nbsp;&nbsp;
-                                <a href="{{ route('cart.decrease',['id' => $product->rowId , 'qty' => $product->qty]) }}" class="btn btn-xs btn-info" >-</a>
+                                <a href="{{ route('cart.decrease',['id' => $product->rowId , 'qty' => $product->qty]) }}" class="btn btn-xs btn-info" ><i class="fa fa-minus fa-1x"></i></a>
                             </td>
                             <td>${{ $product->price }} &nbsp;&nbsp; [ ${{ $product->price * $product->qty }} ]</td>
                         </tr>
@@ -47,39 +46,48 @@
                             <td>${{ $shipping = ($subtotal * $settings->shipping_charges)}}</td>
                         </tr>
                         <tr class="label-primary">
-                            <td colspan="2" style="text-align:right;"><strong>G.Total</strong></td>
+                            <td colspan="2" style="text-align:right;"><strong>G.Total (USD)</strong></td>
                             <td><strong>${{ ($subtotal + $fed + $shipping)}}</strong></td>
                         </tr>
                         <tr class="label-warning">
                             <td colspan="2" style="text-align:right;"><strong>Bitcoins</strong></td>
-                            <td id="bit">Calculating</td>
+                            <td id="bit">Calculating...</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
+               
                 <div class="panel-footer text-center">
-                    <a href="{{ route('cart.clear') }}" class="btn btn-xs btn-danger">Discard Cart</a>
+                    <a href="{{ route('cart.clear') }}" class="btn btn-danger"><i class="fa fa-trash"></i> Clear Cart</a>
                 </div>
             </div>
         </div>
 
         <div class="col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2">
             <div class="panel panel-primary">
-                <div class="panel-heading text-center">
-                    Step 2 : Select Payment Option
-                </div>
+                <div class="panel-heading text-center">Step 2 : Select Payment Option</div>
                 <div class="panel-body">
-                    <div class="radio text-center">
-                        <label>
-                            <input type="radio" name="paymentoptions" value="1" disabled>African Express VPC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="radio" name="paymentoptions" value="2">USPS Money Orders&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="radio" name="paymentoptions" value="3">Bitcoin Payment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </label>
+                    <div class="text-center">
+                        <hr>
+                        <div class="form-group">
+                            <label class="btn btn-warning">
+                                <input type="radio" name="paymentoptions" value="1" class="hidden">
+                                <img src="{{ asset('img/aevpclogo2.png') }}" class="img-responsive img-thumbnail img-check" width="100px">
+                            </label>
+                            <label class="btn btn-warning">
+                                <input type="radio" name="paymentoptions" value="2" class="hidden">
+                                <img src="{{ asset('img/upsmoney.png') }}" class="img-responsive img-thumbnail img-check"  width="100px">
+                            </label>
+                            <label class="btn btn-warning">
+                                <input type="radio" name="paymentoptions" value="3" class="hidden">
+                                <img src="{{ asset('img/bitcoin.png') }}" class="img-responsive img-thumbnail img-check" width="100px" >
+                            </label>
+                        
+                        </div>
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <a id="url" href="{{ route('cart.checkout',['toggle' => 1,'pay' => 0 ]) }}" hidden></a>
-                    <button type="button" id="checkout"  class="btn btn-xs btn-success" data-url="{{ route('cart.checkout',['toggle' => 1,'pay' => 0 ]) }}">Process Cart</button>
+                    <a href="{{ route('cart.order',['toggle' => 1, 'option' => 0 , 'bitcoin' => 0])}}" class="btn btn-success" id="mylink"><i class="fa fa-cart-plus"></i> Process Cart</a>
                 </div>
             </div>
         </div>
@@ -112,6 +120,10 @@
 
 @section('scripts')
 <script>
+    //Global Variables
+    $bitcoins = 0;
+    $paymentoption = 0;
+    $url = '';
     // Process the USD to Bitcoin Script
     $(document).ready(function(){
         $usd = '{{ ($subtotal + $fed + $shipping)}}';
@@ -122,47 +134,54 @@
             success: function(data){
                 console.log( data );
                 $('#bit').html(data);
+                $bitcoins = data;
+                console.log('Bitcoins are : '  + $bitcoins);
             }
         });
     });
-    // Read radio button changes
-    // These variables will be used
-    $paymentoption = 0;
-    $url = '';
-    $(document).ready(function(){
-        $('input[type=radio]').change(function(){
-            $paymentoption = $('input[name=paymentoptions]:checked').val();
-            $url = $('#url').attr('href').slice(0,-1); //Remove the trailing 0 from the url (hack around)
-            console.log($url);
-            console.log($paymentoption);
-        })
-    });
-    // Process the cart.checkout url
-    $('#checkout').on('click',function(){
+       // Process the cart.checkout url
+    $('#mylink').on('click',function(){
         //if $paymentoptions is 0, then exit
         if($paymentoption == 0){
             alert('Select payment option first');
             return;
         }
+        //$url = $('#url').attr('href').slice(0,-4); //Remove the trailing 0 from the url (hack around)
+        //console.log($bitcoins);
+        //$new_url = $url + '/' + $paymentoption + '/' +  $bitcoins;
+        //console.log($new_url);
         //We are not 0, so proceed
-        $.ajax({
-        type: "GET",
-        url: $url + $paymentoption,
-        data: { "toggle":1,"paymentoption" : $paymentoption},
-        dataType: "json",
-        success: function (response) {
+        //We are not 0, so proceed
+        //$.ajax({
+        //type: "GET",
+        //url: $new_url,
+        //dataType: "json",
+        //success: function (response) {
             //AdminController is sending json reply:answer
             // console.log(response); 
-            document.write(response);
-            },
-        error:function(error){
+            //document.write(response);
+            //},
+        //error:function(error){
             // console.log(error.status);
             //alert('some error occured');
-            },
-        complete:function(){
+            //},
+        //complete:function(){
 
-            }         
-        });
+            //}         
+        //});
     });
+    // For Payment Options
+    $(document).ready(function(e){
+        $('.img-check').click(function(e) {
+            $('.img-check').not(this).removeClass('check').siblings('input').prop('checked',false);
+            $(this).addClass('check').siblings('input').prop('checked',true);
+            $paymentoption = $('input[name=paymentoptions]:checked').val();
+            console.log($paymentoption);
+            $url = $('#mylink').attr('href').slice(0,-4);
+            console.log($url);
+            $href = $url + "/" + $paymentoption + "/" + $bitcoins;
+            $('#mylink').attr('href',$href);
+        });	
+	});
 </script>
 @endsection

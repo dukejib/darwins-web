@@ -44,6 +44,9 @@
                     <img src="{{ URL::to('img/uspsfront.jpg') }}" alt="USPS Money Order" class="img img-responsive text-center" width="115%">
                 @elseif($option == 3)
                     <h3>Pay by Bitcoin</h3>
+                    <div class="loader"></div> 
+                        {{--  <img src="https://blockchain.info/qr?data={{$order->btc_address}}&size=200" class="img img-thumbnail img-responsive">  --}}
+                        {{--  https://blockchain.info/qr?data=1P6em3kprVgHqbnyf33eYhWy3VUEAJb6ks&size=200  --}}
                 @endif
             </div>
 
@@ -78,3 +81,13 @@
 </div>
 
 @endsection
+
+
+@section('scripts')
+    <script>
+    $(document).ready(function(){
+        //$('#qr').html('Hello People');
+
+    });
+    </script>
+@stop

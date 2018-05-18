@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\GlobalCategory;
+use App\Helper\Helper;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
 
@@ -21,7 +22,8 @@ class GlobalCategoriesController extends Controller
     public function index()
     {
         return view('admin.categories.global.index')
-            ->with('categories',GlobalCategory::orderBy('title','asc')->paginate(10));
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('categories',GlobalCategory::orderBy('title','asc')->paginate(10));
     }
 
     /**
@@ -31,7 +33,9 @@ class GlobalCategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.global.create');
+        return view('admin.categories.global.create')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ;
     }
 
     /**
@@ -75,7 +79,8 @@ class GlobalCategoriesController extends Controller
     public function edit($id)
     {
         return view('admin.categories.global.edit')
-            ->with('category',GlobalCategory::find($id));
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('category',GlobalCategory::find($id));
     }
 
     /**

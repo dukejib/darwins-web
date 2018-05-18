@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Setting;
+use App\Helper\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -19,6 +20,7 @@ class SettingsController extends Controller
     public function index()
     {
         return view('admin.settings.index')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('settings',Setting::first());
     }
 
@@ -48,7 +50,8 @@ class SettingsController extends Controller
 
     public function show_tos()
     {
-        return view('admin.settings.tos');
+        return view('admin.settings.tos')
+        ->with('online_user_count',Helper::getOnlineUsersCount());
     }
 
     public function update_tos()
@@ -76,6 +79,7 @@ class SettingsController extends Controller
     public function datafile()
     {
         return view('admin.settings.datafile')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('settings',Setting::first());
     }
 
@@ -103,6 +107,7 @@ class SettingsController extends Controller
     public function app_statement()
     {
         return view('admin.settings.app')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('settings',Setting::first());
     }
 
@@ -122,6 +127,7 @@ class SettingsController extends Controller
     public function refill_statement()
     {
         return view('admin.settings.refill')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
         ->with('settings',Setting::first());
     }
 

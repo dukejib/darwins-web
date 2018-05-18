@@ -17,6 +17,7 @@ return [
     */
 
     'driver' => env('SESSION_DRIVER', 'file'),
+    // 'driver' => env('SESSION_DRIVER', 'database'),
 
     /*
     |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ return [
     */
 
 //    'lifetime' => 120, //Default
-    'lifetime' => 60,
+    'lifetime' => 30, //5 minutes only
 
     //'expire_on_close' => false,   //Default
     'expire_on_close' => true, //clear session on browser close

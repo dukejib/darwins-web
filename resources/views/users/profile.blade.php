@@ -7,15 +7,16 @@
 @section('content')
 <div class="col-md-12">
 
-    <div class="panel panel-primary">
+    @if($user->isUserAffiliate())
 
-        <div class="panel-heading">
-            Edit Profile &nbsp; > &nbsp;
-            @if($user->isUserAffiliate())
-                Affiliate
-            @else
-                Customer
-            @endif
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                Edit Profile &nbsp; > &nbsp; Affiliate
+    @else
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Edit Profile &nbsp; > &nbsp; Customer
+    @endif
         </div>
 
         {{--  <div class="panel-body">  --}}
@@ -27,7 +28,7 @@
                     <br>
                 @endif
                 
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs" id="tabMenu">
                     <li class="active"><a data-toggle="tab" href="#basic">Basic Information</a></li>
                     <li><a data-toggle="tab" href="#account">Account Settings</a></li>
                     <li><a data-toggle="tab" href="#contact">Contact Details</a></li>
@@ -106,7 +107,7 @@
                         <br>
                         <div class="panel-body">
                             <form action="{{ route('user.profile.contact') }}" method="post" class="form-horizontal">
-                                {{ csrf_field() }} <!-- Must use this -->
+                                {{ csrf_field() }} 
             
                                 <div class="form-group">
                                     <label for="primary_contact_no" class="control-label col-xs-3">Primary Contact *</label>
@@ -153,18 +154,17 @@
                                 <div class="form-group">
                                     <label for="country" class="control-label col-xs-3">Country *</label>
                                     <div class="col-xs-9">
-                                        <input type="text"" class="form-control" name="country" value="{{ $profile->country }}  ">
+                                        <input type="text" class="form-control" name="country" value="{{ $profile->country }}">
                                     </div>
                                 </div>
     
-                                <!--
-                                <div class="form-group">
+                            
+                                {{--  <div class="form-group">
                                     <label for="avatar" class="control-label col-xs-3">Upload New Avatar</label>
                                     <div class="col-xs-9">
                                         <input type="file" name="avatar" class="form-control">
                                     </div>
-                                </div>
-                                -->
+                                </div>  --}}
                                         
                                 <div class="form-group">
                                     <div class="text-center">
@@ -180,58 +180,81 @@
                         <br>
                         <div class="panel-body">
                             @if($user->isUserAffiliate())
-                            <h5>Referal Link</h5>
-                            <span class="text-success" style="font-size:14px;">
-                                {{url('/').'/referred?refferal='.$user->affiliate_id}}
-                            </span>
-                            <button id="urlCopyBtn" class="btn btn-xs btn-success" data-clipboard-text=<?php echo url('/').'/referred?refferal=' . $user->affiliate_id; ?> title="Copy the Referal Code" ><span class="fa fa-copy"></span></button>
-                            <br>
-                            <h5>Your were Refered By</h5>
-                            <h5 class="text-info">Name : {{ $user->referredBy()->first_name . ' ' . $user->referredBy()->last_name  }}</h4>
-                            <h5 class="text-info">Email Address : {{ $user->referredBy()->email }}</h5>
-                            <br>
-                            <h5>Your Sponsored</h5>
-                            <h5 class="text-info">{{ $user->totalAffiliates() }}</h5>
-                            <br>
-                                @if(count($user->totalAffiliates()>0))
-                                <h5>List of Sponsored</h5>
-                                    <table class="table table-striped table-condensed display" id="myaffiliates">
-                                        <thead>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Profile</th>
-                                                <th>Opted For Book</th>
-                                            </tr>
-                                        </thead>
+                            {{--  User Row/cols to properly show data  --}}
+                            <div class="row">
+                                <div class="col-md-8">
                                     
-                                        <tbody>
-                                        {{--  Get Our Affiliates  --}}
-                                        @foreach($user->getMyAffiliates()  as $customer)
-                                            <tr id ="{{ $customer->id }}">
-                                                <td>{{ $customer->id }}</td>
-                                                <td>{{ $customer->first_name . ' ' . $customer->last_name }}</td>
-                                                <td>{{ $customer->email }}</td>
-                                                <td>
-                                                <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#userDetailsModal" data-customer="{{ $customer }}" data-profile="{{ $customer->getUserProfile($customer->id) }}">Details</button>
-                                                </td>
-                                                <td>
-                                                    @if($customer->book_optin)
-                                                        <span class="text-success">Yes</span>
-                                                    @else
-                                                        <span class="text-info">No</span>
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading">Referal Link</div>
+                                        <div class="panel-body"> 
+                                            <span class="text-success" style="font-size:14px;">
+                                                {{url('/').'/referred?refferal='.$user->affiliate_id}}
+                                            </span>
+                                            <button id="refCopy" class="btn btn-xs btn-success copybtn" data-clipboard-text=<?php echo url('/').'/referred?refferal=' . $user->affiliate_id; ?> title="Copy the Referal Code" ><span class="fa fa-copy"></span></button>                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">Your were Refered By</div>
+                                        <div class="panel-body"> 
+                                            <h5 class="text-info">Name : {{ $user->referredBy()->first_name . ' ' . $user->referredBy()->last_name  }}</h5>
+                                            <h5 class="text-info">Email Address : {{ $user->referredBy()->email }}</h5>                                          
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading text-center">You Sponsored</div>
+                                        <div class="panel-body">
+                                            <h1 class="text-center">{{ $user->totalAffiliates() }}</h1>
+                                            <h5 class="text-center">Affiliates</h5>
+                                        </div>
+                                    </div>
+                          
+                                </div>
+                            </div>
+                            <br>
+                            <hr>
+                                @if(count($user->totalAffiliates())>0)
+                                <p class="myp"><strong>List of Sponsored Affiliates</strong></p>
+                                {{--  Start the Table Here  --}}
+                                <table class="display" id="mya">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Profile</th>
+                                            <th>Opted For Book</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{--  Get Our Affiliates  --}}
+                                    @foreach($user->getMyAffiliates()  as $customer)
+                                        <tr id ="{{ $customer->id }}">
+                                            <td>{{ $customer->id }}</td>
+                                            <td>{{ $customer->first_name . ' ' . $customer->last_name }}</td>
+                                            <td>{{ $customer->email }}</td>
+                                            <td>
+                                            <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#userDetailsModal" data-customer="{{ $customer }}" data-profile="{{ $customer->getUserProfile($customer->id) }}">Details</button>
+                                            </td>
+                                            <td>
+                                                @if($customer->book_optin)
+                                                    <span class="text-success">Yes</span>
+                                                @else
+                                                    <span class="text-info">No</span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
                                 @endif
                             @else
                                 @if($user->hasOptedForBook())
                                 <div>
-                                    <strong class="text-primary"><h5>Your Book purchase is in process. Please check these page later on for updates</h5></strong>
+                                    <strong class="text-primary"><small>Your Book purchase is in process. Please check these page later on for updates</small></strong>
                                 </div>
                                 @else
                                 <div>
@@ -249,10 +272,60 @@
                     {{--  Groups  --}}
                     <div id="groups" class="tab-pane fade">
                         <br>
-                        <div class="panel-body">
-                            Panel Body
-                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">Create a Group</div>
+                                    <div class="panel-body">
+                                    {{--  Create Group Form  --}}
+                                    <form action="{{ route('user.group.create') }}" method="post">
+                                        <div class="form-group">
+                                            <label for="group_title">Title</label>
+                                            <input type="text" name="group_title" id="group_title" class="form-control">
+                                        </div>
 
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Create Group</button>
+                                        </div>
+                                        {{ csrf_field() }}
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                            @if(count($groups)>0)
+                            <table class="display">
+                                <thead>
+                                    <tr>
+                                        <th>Group Name</th>
+                                        <th>Status</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($groups as $group)
+                                    <tr>
+                                        <td>{{ $group->group_title }}</td>
+                                        <td>
+                                        @if ($group->group_title == 0)
+                                            <button class="btn btn-xs btn-success">Active</button>
+                                        @elseif ($group->group_title == 1)
+                                            <button class="btn btn-xs btn-warning">Deactive</button>
+                                        @endif
+                                        </td>
+                                        <td>
+                                        <button class="btn btn-xs btn-info"><i class="fa fa-pencil"></i> Edit</button>
+                                        <button class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Delete</button>
+                                        </td>
+                                     </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            @else
+                                <p>You have not created any groups yet</p>
+                            @endif
+                            </div>
+                        </div> 
                     </div>
 
                     {{--  Orders  --}}
@@ -260,16 +333,17 @@
                         <br>
                         <div class="panel-body">
                         @if(count($orders)> 0)
-                            <table class="display" id="ordersTable">
+                            <table class="display">
                                 <thead>
                                 <tr>
                                     <th>Order Id</th>
                                     <th>SubTotal</th>
                                     <th>F.E.D</th>
                                     <th>Shipping</th>
-                                    <th>Total</th>
-                                    <th>Delivery Status</th>
+                                    <th>Total (USD)</th>
+                                    <th>Total (BTC)</th>
                                     <th>Payment Status</th>
+                                    <th>QR</th>
                                     <th>Details</th>
                                     <th>Delete</th>
                                 </tr>
@@ -281,26 +355,17 @@
                                     <td>${{ $order->sub_total }}</td>
                                     <td>${{ $order->tax }}</td>
                                     <td>${{ $order->shipping_charges }}</td>
-                                    <td>${{ $order->order_total }}</td>
+                                    <td>${{ $order->order_total_usd }}</td>
+                                    <td>${{ $order->order_total_btc }}</td>
                                     <td>
-                                        @if($order->delivery_status == 1) 
-                                            <span class="text-warning">Pending</span> 
-                                        @elseif($order->delivery_status == 2) 
-                                            <span class="text-info">Transit</span> 
-                                        @elseif($order->delivery_status == 3) 
-                                            <span class="text-success">Delivered</span> 
-                                        @endif
+                                        Pending
+                                        {{--  <button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#payNowModal" data-order="{{$order}}">Pay Now</button>  --}}
                                     </td>
                                     <td>
-                                        @if($order->delivery_status == 1)
-                                            <button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#payNowModal" data-order="{{$order}}">Pay Now</button>
-                                        @elseif($order->delivery_status == 2) 
-                                            <a href="#" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#payNowModal" data-order="{{$order}}">Complete Payment</a>
-                                            <span class="text-info">Partial Paid</span> 
-                                        @elseif($order->delivery_status == 3) 
-                                            <span class="text-success">Fully Paid</span> 
-                                        @endif
-                                    </td> 
+                                    @if($order->btc_address != null)
+                                        <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#showQR" data-order="{{$order}}">Show QR</button>
+                                    @endif
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-xs btn-info"
                                         data-toggle="modal" data-target="#orderDetailsModal" data-details="{{$order->order_details}}" data-order="{{$order}}">
@@ -314,28 +379,13 @@
                                 
                                 @endforeach
                                 </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Order Id</th>
-                                        <th>SubTotal</th>
-                                        <th>F.E.D</th>
-                                        <th>Shipping</th>
-                                        <th>Total</th>
-                                        <th>Delivery Status</th>
-                                        <th>Payment Status</th>
-                                        <th>Details</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                </tfoot>
+                                
                             </table>
             
                         @else
                             <div class="text-center">There are no Orders Defined</div>
                         @endif
-                        <br>
-                        <br>
-                        <br>
-                        <br>
+               
                         </div> 
                     </div>
                     
@@ -345,29 +395,31 @@
                         <div class="panel-body">
                             <h4>Banners</h4>
                             @if(count($banners)>0)
+                            <p>To Use these Banners, Copy and Paste the HTML Code Below Into Any HTML Area On Your Site. Just hover over the link and <kbd>right click</kbd> and select <kbd>Copy</kbd> from the menu</p>
+                            <br>
                                 @foreach($banners as $banner)
-                                <hr>
-                            <div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Banner Preview :{{ $banner->title }}</label>
+                                        <img src="{{ URL::to('/img/web_banners/' . $banner->image) }}"  width="450px" class="img img-responsive banner-img-responsive">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                    <!-- PHP CODE HERE -->
+                                    <?php 
+                                        $text = "<a href='";
+                                        $text .= url('/') . '/referred?refferal=' . $user->affiliate_id . "'";
+                                        $text .= " target='_blank'><img src='";
+                                        $text .= URL::to('/img/web_banners/' . $banner->image);
+                                        $text .= "' alt=''></a>" ;
+                                    ?>
+                                    <!-- PHP CODE ENDS HERE -->
+                                        <textarea id="{{ $banner->title }}" class="form-control" rows="3" cols="10" onmouseover="this.select()">{{$text}}</textarea>
+                                    </div>
                                 
-                                <div class="col-md-6">
-                                Banner Preview : <span class="text-success">{{ $banner->title }}</span>
-                                <img src="{{ URL::to('/img/web_banners/' . $banner->image) }}" alt="" srcset="" width="300px" class="img img-responsive">
-                                </div>
-
-                                <div class="col-md-6">
-                                    <span class="text-success">To Use This Banner, Copy and Paste the HTML Code Below Into Any HTML Area On Your Site</span>
-                                    
-                                    <textarea id="{{ $banner->title }}" class="form-control" rows="3">
-                                    &lt;a href="{{url('/').'/referred?refferal=' . $user->affiliate_id}}" target="_blank" &gt;
-                                    &lt;img src="{{ URL::to('/img/web_banners/' . $banner->image) }}" alt="" &gt;
-                                    &lt;/a&gt;
-                                    </textarea>
-
-                                </div>
-                               
-                            </div>
+                                </div> <!-- Div Row End -->
+                                <hr>
                                 @endforeach
-
                             @endif
                         </div>
                     </div>
@@ -436,16 +488,26 @@
                 
             </div>
             <div class="modal-body">
-                
-                <div class="radio text-center">
-                    <label>
-                        <input type="radio" name="paymentoptions" value="1" disabled>African Express VPC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="paymentoptions" value="2">USPS Money Orders&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="paymentoptions" value="3">Bitcoin Payment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <div class="form-group text-center">
+                    <label class="btn btn-info">
+                        <input type="radio" name="paymentoptions" value="1" class="hidden">
+                        <img src="{{ asset('img/aevpclogo2.png') }}" class="img-responsive img-thumbnail img-check" width="100px">
                     </label>
+                    <label class="btn btn-info">
+                        <input type="radio" name="paymentoptions" value="2" class="hidden">
+                        <img src="{{ asset('img/upsmoney.png') }}" class="img-responsive img-thumbnail img-check"  width="100px">
+                    </label>
+                    <label class="btn btn-info">
+                        <input type="radio" name="paymentoptions" value="3" class="hidden">
+                        <img src="{{ asset('img/bitcoin.png') }}" class="img-responsive img-thumbnail img-check" width="100px" >
+                    </label>
+                
                 </div>
+               
                 <a href="#" id="hidden_id" hidden></a>
                 <a href="#" id="hidden_total" hidden></a>
+            
             </div>
 
         <div class="modal-footer">
@@ -479,31 +541,76 @@
     </div>
 </div>
 
+<!-- Modal Or Code-->
+<div id="showQR" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header text-primary">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Bitcoin Payment Adress</h4>
+        </div>
+        <div class="modal-body" id="qr">
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success pull-right" data-dismiss="modal">ok</button>
+        </div>
+    </div>
+
+    </div>
+</div>
+
+
 @endsection
 
 @section('scripts')
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.js'></script>
     <script>
     //Global Variables
+    $bitcoins = 0;
     $paymentoption = 0;
     $url = '';
-    //For Datatable
-    $(document).ready( function () {
-        $('#ordersTable').DataTable();
-        $('#myaffiliates').Datatable();
-    });
-    //For Clipboard.js
+
     $(document).ready(function(){
-        var btn = document.getElementById('urlCopyBtn');
-        var clipboard = new ClipboardJS(btn);
+
+        //For Datatables - To use multiple tables, just follow below
+        $('table.display').DataTable();
+        //$('#mya').Datatable();
+
+        //For Clipboard.js
+        $('.copybtn').on('click',function(){
+            $id = this.id;
+            console.log('clicked ' + $id);
+            var btn = document.getElementById($id);
+            var clipboard = new ClipboardJS(btn);
+        });
         
-        //clipboard.on('success', function(e) {
-        //console.log(e);
-        //});
-        //clipboard.on('error', function(e) {
-        //console.log(e);
-        //});
+        //For Banner TextArea - just selects all data
+        $('textarea').hover(function(){
+            $(this).focus();
+            $(this).select();
+            var text = $(this).text();
+            console.log('Text copied from TextArea');
+        });
+
+        //Ensure we are on exact Tab
+        $('#tabMenu a[href="#{{old('tab')}}"]').tab('show');
+
     });
+    // For Payment Options
+    $(document).ready(function(e){
+        $('.img-check').click(function(e) {
+            $('.img-check').not(this).removeClass('check').siblings('input').prop('checked',false);
+            $(this).addClass('check').siblings('input').prop('checked',true);
+            $paymentoption = $('input[name=paymentoptions]:checked').val();
+            console.log($paymentoption);
+            //$url = $('#mylink').attr('href').slice(0,-4);
+            //console.log($url);
+            //$href = $url + "/" + $paymentoption + "/" + $bitcoins;
+            //$('#mylink').attr('href',$href);
+        });	
+	});
     //Modal Script orderDetailsModal
     $('#orderDetailsModal').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget); // Button that triggered the modal
@@ -522,7 +629,7 @@
         html += "<tr><td colspan='3' style='text-align:right;'><strong>Sub Total</strong></td><td><strong>$" + order.sub_total + "</strong></td></tr>"
         html += "<tr><td colspan='3' style='text-align:right;'>F.E.D Tax</td><td>$" + order.tax + "</td></tr>"
         html += "<tr><td colspan='3' style='text-align:right;'>Shipping Charges</td><td>$" + order.shipping_charges + "</td></tr>"
-        html += "<tr><td colspan='3' style='text-align:right;'><strong>Grand Total</strong></td><td><strong>$" + order.order_total + "</strong></td></tr>"
+        html += "<tr><td colspan='3' style='text-align:right;'><strong>Grand Total</strong></td><td><strong>$" + order.order_total_usd + "</strong></td></tr>"
 
         //console.log(html);
         $('#mytable caption').html("Order # : " + order.id); //Set Heading
@@ -538,9 +645,14 @@
         $('#hidden_id').html(order.id);   //Dynamically pass the order id
         $('#hidden_total').html(order.order_total); //Dynamically pass the order
     });
-    // Read radio button changes
+
     //Modal script PayNowModal Proceed is clicked
     $('#payNowProceed').on('click',function(){
+        // No Option Selected
+        if($paymentoption == 0){
+            alert('Select payment option first');
+            return;
+        }
         //Your Ajax Call here
         var button = $('#payNowProceed'); //Get button reference
         //var order = button.data('order');
@@ -573,6 +685,19 @@
         $('#payNowModal').modal('hide');
     });
 
+    //Modal script showQR
+    $('#showQR').on('show.bs.modal',function(event){
+        //$img = '<img src="https://blockchain.info/qr?data={{ $order->btc_address }} &size=200" class="img img-thumbnail img-responsive">';
+        var button = $(event.relatedTarget);
+        var order = button.data('order');
+
+        var html = "<div class='text-center'><p>Bitcoin Payment Address <strong>";
+        html += order.btc_address + "</strong> </p>";
+        html += "<img src='https://blockchain.info/qr?data=" + order.btc_address + "&size=200' class='img img-thumbnail img-responsive'>";
+        html += "<p>Please scan and send your payments via Bitcoins</p></div>";
+
+        $('#qr').html(html);
+    });
        //For Modal userDetailsModal
     $('#userDetailsModal').on('show.bs.modal',function(event){
         var button = $(event.relatedTarget);
@@ -580,18 +705,19 @@
         var profile = button.data('profile');
         //console.log(profile);
         //console.log(customer);
+        //Profile is returned as an array of object . to access it use profile[0].address [first array > then object > then value]
         var html ='<h3>User Id : ' + customer.id + '</h3>'; 
         html += '<table class="table table-striped table-condensed"><tbody>'; 
         html += '<tr><td>Name</td><td>' + customer.first_name + ' ' + customer.last_name + '</td></tr>';
         html += '<tr><td>Affiliation Id</td><td>' + customer.affiliate_id + '</td></tr>';
         html += '<tr><td>Member Since</td><td>' + customer.created_at + '</td></tr>';
         html += '<tr><td>Email Address</td><td>' + customer.email + '</td></tr>';
-        html += '<tr><td>Primary Contact #</td><td> ' + profile.primary_contact_no + '</td></tr>';
-        html += '<tr><td>Secondary Contact #</td><td> ' + profile.secondary_contact_no + '</td></tr>';
-        html += '<tr><td>Mailing Address #</td><td> ' + profile.address + ' ' + profile.address_continued + '</td></tr>';
-        html += '<tr><td>Postal Code</td><td> ' + profile.postal_code + '</td></tr>';
-        html += '<tr><td>City</td><td> ' + profile.city + '</td></tr>';
-        html += '<tr><td>Country</td><td>' + profile.country + '</td></tr>';
+        html += '<tr><td>Primary Contact #</td><td> ' + profile[0].primary_contact_no + '</td></tr>';
+        html += '<tr><td>Secondary Contact #</td><td> ' + profile[0].secondary_contact_no + '</td></tr>';
+        html += '<tr><td>Mailing Address #</td><td> ' + profile[0].address+ ' ' + profile[0].address_continued + '</td></tr>';
+        html += '<tr><td>Postal Code</td><td> ' + profile[0].postal_code + '</td></tr>';
+        html += '<tr><td>City</td><td> ' + profile[0].city + '</td></tr>';
+        html += '<tr><td>Country</td><td>' + profile[0].country + '</td></tr>';
         html += '</tbody></table>';
         
         //Add the data to the body of modal

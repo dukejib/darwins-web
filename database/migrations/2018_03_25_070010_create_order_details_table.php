@@ -18,7 +18,7 @@ class CreateOrderDetailsTable extends Migration
             $table->integer('item_id')->unsigned();
             $table->string('item_name');
             $table->integer('item_qty');
-            $table->float('item_price');
+            $table->float('item_price');    //This is Dollar
             $table->timestamps();
         });
     }

@@ -30,23 +30,42 @@ class ProductTableSeeder extends Seeder
         Etiam sagittis imperdiet magna, a bibendum purus porttitor sit amet. Praesent eget magna eget risus porta tempor. Proin diam justo, volutpat id lobortis sed, pharetra non urna. Vestibulum eu turpis eu lectus rutrum ullamcorper eget vitae urna. Curabitur condimentum ex dui, sit amet ultrices libero rutrum at. Donec fringilla massa tellus, blandit facilisis justo tempus quis. Ut tempus dictum eros, non tincidunt nisi varius non. Maecenas fermentum tristique ipsum eget dignissim. Vestibulum placerat urna in lectus fermentum feugiat. Morbi viverra erat sit amet quam rhoncus, vitae volutpat turpis blandit. Donec et sollicitudin mi, vel blandit risus. Quisque dignissim, turpis eu facilisis faucibus, arcu ante interdum turpis, eu auctor enim libero gravida turpis. Sed auctor ante volutpat, facilisis orci non, tempor libero. Vestibulum finibus ligula mi, vel cursus lorem pulvinar aliquet. Quisque fringilla diam sapien, vitae vestibulum justo posuere ut. Ut ornare ex at libero maximus facilisis.';
 
         //1- Appartments 
-        for ($i=0; $i < 6; $i++) { 
+        for ($i=0; $i < 3; $i++) { 
             $j = $i+1;
             $new_name = $j . ' Product';
             Item::create(['title' =>  $new_name,'description' => $desc,'local_category_id' => 3,'slot' => $feat,'slug' => str_slug($new_name),'image' => $img, 'price' => rand(10,100) ]);
         }
 
-        for ($i=0; $i < 6; $i++) { 
+        for ($i=0; $i < 2; $i++) { 
+            $j = $i+1;
+            $new_name = $j . ' Product';
+            Item::create(['title' =>  $new_name,'description' => $desc,'local_category_id' => 3,'slot' => 'Normal','slug' => str_slug($new_name),'image' => $img, 'price' => rand(10,100) ]);
+        }
+
+        for ($i=0; $i < 3; $i++) { 
             $j = $i+1;
             $new_name = $j . ' Product';
             Item::create(['title' =>  $new_name,'description' => $desc,'local_category_id' => 3,'slot' => $lat,'slug' => str_slug($new_name),'image' => $img , 'price' => rand(10,100)]);
         }
 
-        for ($i=0; $i < 6; $i++) { 
+        for ($i=0; $i < 2; $i++) { 
+            $j = $i+1;
+            $new_name = $j . ' Product';
+            Item::create(['title' =>  $new_name,'description' => $desc,'local_category_id' => 3,'slot' => 'Normal','slug' => str_slug($new_name),'image' => $img, 'price' => rand(10,100) ]);
+        }
+
+        for ($i=0; $i < 3; $i++) { 
             $j = $i+1;
             $new_name = $j . ' Product';
             Item::create(['title' =>  $new_name,'description' => $desc,'local_category_id' => 3,'slot' => $pop,'slug' => str_slug($new_name),'image' => $img , 'price' => rand(10,100)]);
         }
+
+        for ($i=0; $i < 2; $i++) { 
+            $j = $i+1;
+            $new_name = $j . ' Product';
+            Item::create(['title' =>  $new_name,'description' => $desc,'local_category_id' => 3,'slot' => 'Normal','slug' => str_slug($new_name),'image' => $img, 'price' => rand(10,100) ]);
+        }
+
 
         $this->command->info('Products Seeded');
     }

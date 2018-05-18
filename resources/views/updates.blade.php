@@ -20,7 +20,12 @@
 
                     <li class="list-group-item text-success">Following items added 
                         <ul>
-                            <li class="text-danger">Web Banners implemented= Show up in MyAccount >> FrontEnd</li>
+                            <li class="text-info">User/Affiliates/Orders/Profile tables reworked -- Added Groups & Group_Users Table for Affiliate Groups</li>
+                            <li class="text-info">Tweaks made to Frontend Theme</li>
+                            <li class="text-info">Admin panel theme changed/optimized for better viewing</li>
+                            <li class="text-info">My Account section reworked - better and Optimized</li>
+                            <li class="text-info">Groups Added (not showing yet) Show up in MyAccount >> FrontEnd</li>
+                            <li class="text-info">Web Banners implemented= Show up in MyAccount >> FrontEnd</li>
                             <li class="text-danger">New User Signup -- Protonmail check is removed for testing purposes</li>
                             <li class="text-info">On User Account Page > Order Details & Payment options added | Work left to actually process the payment selection</li>
                             <li class="text-info">Orders in admin panel now shows details of the order</li>

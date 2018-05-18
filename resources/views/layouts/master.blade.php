@@ -44,9 +44,13 @@
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script> 
 <script src="{{ asset('js/dataTables.1.10.16.js') }}"></script>
 <script src="{{ asset('js/e-commerce.js') }}"></script>  
+<script src="{{ asset('js/clipboard-2.0.1.js') }}"></script>
 
 <script>
-     //Uses Toastr https://github.com/CodeSeven/toastr
+    //Uses Toastr https://github.com/CodeSeven/toastr
+    toastr.options.closeButton = true;
+    toastr.options.closeMethod = 'fadeOut';
+    toastr.options.timeOut = 120; //How long the toast will show
     @if(Session::has('success'))
         toastr.success('{{ Session::get('success') }}','Operation Successfull');
     @endif

@@ -13,13 +13,16 @@
             {{Session::get('affiliate_id')}}
         @endif  --}}
         <br>
-        <strong class="text-info text-center">We Only Accept Protonmail Accounts.</strong><br>
-        <strong class="text-warning text-center">Do not use your Protonmail Password in Signup.</strong>
+        
+        
         <div class="panel panel-primary">
             <div class="panel-heading">Sign Up</div>
+           
             <div class="panel-body">
                 {{--form--}}
                 <form action="{{ route('signup') }}" method="post">
+                    <label for="" class="text-info text-center">We Only Accept Protonmail Email Accounts</label>
+                    
                     <div class="form-group {{ $errors->has('first_name')? 'has-error':'' }}">
                         <label for="first_name">First Name</label>
                         <input type="text" id="first_name" name="first_name" class="form-control" value="{{ Request::old('first_name') }}">
@@ -43,14 +46,15 @@
                         <input type="password" id="password_confirmation" name="password_confirmation" class="form-control">
                     </div>
 
-                    <button type="submit" class="btn btn-success pull-right"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</button>
+                    <button type="submit" class="btn btn-success btn-block"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</button>
 
                     <input type="hidden" name="affiliate_id" value="{{  Session::get('affiliate_id') }}">
                     {{ csrf_field() }}
                 </form>
 
             </div>
-            <div class="panel-footer">
+            
+            <div class="panel-footer text-center">
                 Already have an account!
                 <a href="{{ route('signin') }}">Sign In</a>
                 <br>

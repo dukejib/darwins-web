@@ -73,30 +73,21 @@
         <div class="col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 col-lg-8 col-lg-offset-2">
             <h4 class="text-center text-primary"> You can also contact us via below given address</h4>
 
-
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                Address
-            </div>
-            <div class="panel-body">
-                {{ $settings->address_line1 }}<br>
-                {{ $settings->address_line2 }}<br>
-                {{ $settings->address_line3 }}<br>
-                <br>
-            </div>
+        <div class="well">
+            <h4>Address</h4>
+            {{ $settings->address_line1 }}<br>
+            {{ $settings->address_line2 }}<br>
+            {{ $settings->address_line3 }}<br>
         </div>
 
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                Contact Us
-            </div>
-            <div class="panel-body">
-                <i class="fa fa-phone"></i> {{ $settings->contact_line1 }}<br>
-                <i class="fa fa-mobile-phone"></i> {{ $settings->contact_line2 }}<br>
-                <i class="fa fa-phone-square"></i> {{ $settings->contact_mobile }}<br>
-                <i class="fa fa-envelope"></i>{{ $settings->contact_email }}<br>
-            </div>
+        <div class="well">
+            <h4>Contact Us</h4>
+            <i class="fa fa-phone"></i> {{ $settings->contact_line1 }}<br>
+            <i class="fa fa-mobile-phone"></i> {{ $settings->contact_line2 }}<br>
+            <i class="fa fa-phone-square"></i> {{ $settings->contact_mobile }}<br>
+            <i class="fa fa-envelope"></i>{{ $settings->contact_email }}<br>
         </div>
+
 
     </div>
     </div>
