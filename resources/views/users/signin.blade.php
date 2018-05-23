@@ -19,12 +19,12 @@
 
                         <div class="form-group {{ $errors->has('password')? 'has-error':'' }}">
                             <label for="email">E-Mail</label>
-                            <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+                            <input type="text" id="email" name="email" class="form-control" placeholder="Your Email Address">
                         </div>
 
                         <div class="form-group {{ $errors->has('password')? 'has-error':'' }}">
                             <label for="password">Password</label>
-                            <input type="password" id="password" name="password" class="form-control" placeholder ="Password">
+                            <input type="password" id="password" name="password" class="form-control" placeholder ="Your Password">
                         </div>
 
                         <button type="submit" class="btn btn-success btn-block"c><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</button>

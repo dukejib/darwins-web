@@ -16,7 +16,7 @@ class SettingTableSeeder extends Seeder
         /** Delete All Rows if exists */
         Setting::truncate();
 
-        $refill_text = '<p align="center"><b>You can send us payment using two methods:
+        $refill_text = '<p align=&quot;center&quot;><b>You can send us payment using two methods:
 
         </b></p><p>1.	By selecting "<b>Bitcoin</b>" option so we can receive your Bitcoins Payments.
         </p><ul><li>Bitcoin
@@ -89,10 +89,12 @@ class SettingTableSeeder extends Seeder
             'contact_line1' => '510-491-3264',
             'contact_line2' => '510-921-7366',
             'contact_mobile' => '510-887-0993',
-            'contact_email' => 'info@morecreditcardservices.net',
+            'contact_email' => 'mailman@morecreditcardservices.com',
             'tos_filename' => 'tos.pdf',
             'refill_statement' => $refill_text,
             'app_statement' => $app_text,
+            'apikey' => 'a4b884f4-d61a-4cb1-b407-b9936122aa24',
+            'xpub' => 'xpub6C1pvtLR2uzM36Bq3AToYKi9q3FJJ4vYu5kLaZc7phSDsfhXr1xQu3pSAquTrSuTiu8JpoPyRZmUghLYrNv8pPiE6ENPo3AdD79U2boQiQH'
         ]);
         $this->command->info('Settings Seeded');
     }

@@ -28,8 +28,43 @@
         //echo '<br><div>Send Your Coins at : ' . $address . '</div>';
         //Returned Data : { "address" : "19rNptqohtERw2of8JrrmSWUYpXDus2Fst", "index" : 5, "callback" : "http://karacraft.com/bchain/public/rpcallback?orderid=5a8aff0246325&secret=dukeisalive2018" }1
     // }
+=========================================
+=========================================
     
     /** Tables To Add */
-    Page Views Table (For Every View)
-    User Login / Logout Table (For Checking)
-    Add Column to Articles - To Know How Many Views
+    Work On Bitcoin  -checkout.blade.php not showing Qr - some error check.
+    Pending Transaciton & Transaction pages added. check their workings.
+    
+    add Group Table (The owner should be on 6th Number - Allow only 5 persons to group)
+
+
+         $(document).ready(function(){
+        console.log("going for qr");
+        $qr_url = $('#getbtc_url').attr('href');
+        console.log($qr_url);
+        //$('#qr').html('Hello People');
+        $.ajax({
+            type: "GET",
+            url:$qr_url  ,
+            //url : '/customer/makeaffiliate/' +userId,
+            // data: { "id" :userId},
+            dataType: "json",
+            success: function (response) {
+                //AdminController is sending json reply:answer
+                //console.log(response.reply); 
+                //Hide and remove the relevant TR
+                //console.log('#' + $userId);
+                console.log(response.btc_address);
+                $address = response.btc_address;
+                $data = "<img src='https://blockchain.info/qr?data=" + $address  + "&size=200' class='img img-thumbnail img-responsive'>";
+                $('#qr_address').html($data);
+            },
+            error:function(response){
+                //$d = Json.parse(response);
+                console.log(response.statusText);
+                $data = "<div class='text-warning'><p>There were Errors, Please try Later</p></div>";
+                $data += "<div>Response Code : " + response.status + " <br>Response Status : " + response.statusText + "</div>";
+                $('#qr_address').html($data);
+            }            
+        });
+    });

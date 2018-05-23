@@ -175,6 +175,8 @@
                 &nbsp;&nbsp;|&nbsp;&nbsp; 
                 <a href="{{ route('tos') }}">TOS</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="{{ route('brochure') }}">Brochure</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="{{ route('admin.carousel.index') }}">Carousel</a>
             </li>
             <li class="list-group-item">
@@ -223,6 +225,8 @@
                 <a href="{{ route('subscriptions') }}">Newsletter</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="{{ route('admin.article.index') }}">Articles</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="{{ route('admin.testimonials') }}">Testimonials</a>
             </li>
             <li class="list-group-item text-info">
                 <i class="fa fa-image"></i>

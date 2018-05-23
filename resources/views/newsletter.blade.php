@@ -5,23 +5,30 @@
 @endsection
 
 @section('content')
-<div class="row">
-    <div class="col-md-10 col-md-offset-1">
 
         @if($option == 1)
             {{--  Show the Newsletter subscribe form  --}}
             <div class="panel panel-primary">
-                <div class="panel-heading text-center">
-                    Subscribe to our NewsLetter
-                </div>
+                <div class="panel-heading">NewsLetter</div>
                 <div class="panel-body">
+
+                    <div class="page-header">
+                        <h3>Subscribe to our Newsletter
+                        <br>
+                        <small>Receive emails about our products, services and many more</small>
+                        </h3>
+                    </div>
+
                     <form  class="form-inline text-center" method="post" action="{{ route('newsLetter') }}">
-                        <div class="form-group">
-                            <label for="email">Email Address :</label>
-                            <input type="email" class="form-control" id="email" name="email">
-                        </div>
-                        <button type="submit" class="btn btn-success">Submit</button>
                         {{ csrf_field() }}
+                        <div class="input-group">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email Address">
+                            <span class="input-group-btn">
+                            <button type="submit" class="btn btn-success">Submit</button>    
+                            </span>
+                        </div>
+                        
+                        
                     </form>
                 </div>
 
@@ -76,10 +83,5 @@
             </div>
         @endif
 
-        <br>
-        <br>
-        <br>
-        <br>
-    </div>
-</div>
+
 @endsection

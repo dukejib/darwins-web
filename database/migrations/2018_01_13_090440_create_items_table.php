@@ -23,6 +23,8 @@ class CreateItemsTable extends Migration
             $table->string('slug')->nullable();
             $table->string('slot'); //Featured/Latest/Popular
             $table->string('image');
+            $table->integer('item_view_count')->default(0); //Item view count
+            $table->integer('item_purchased_count')->default(0); //Item Purchased cOunt
             $table->timestamps();
         });
     }

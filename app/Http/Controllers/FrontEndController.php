@@ -25,6 +25,28 @@ class FrontEndController extends Controller
         return view('updates');
     }
 
+    public function faqs()
+    {
+        return view('faqs')
+        ->with(Helper::getBasicData());
+    }
+
+    public function brochure()
+    {
+        return view('brochure')
+        ->with(Helper::getBasicData());
+    }
+    public function brochure_getpdf()
+    {
+        // return view('brochure')
+        // ->with(Helper::getBasicData());
+
+        $s = Setting::first();
+        $path = public_path() . '/files/' . $s->brochure_filename;
+        $h = ['Content-Type' => 'application/pdf'];
+        return response()->file($path,$h);
+    }
+
     public function drop_down($id)
     {
        
@@ -89,6 +111,7 @@ class FrontEndController extends Controller
     /** Necessary to upload & read PDF file */
     public function tos_getpdf()
     {
+
         $s = Setting::first();
         $path = public_path() . '/files/' . $s->tos_filename;
         $h = ['Content-Type' => 'application/pdf'];

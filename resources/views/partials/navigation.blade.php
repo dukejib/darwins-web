@@ -33,6 +33,11 @@
                 </li>
                 <li><a href="{{ route('aboutbusiness') }}">About Business</a>
                 </li>
+
+               
+
+
+
                 <li><a href="{{route('cart') }}">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart
                         <span class="badge">{{ Session::has('cart')? Cart::count() : '' }}</span>
@@ -40,13 +45,36 @@
                 </li>
                 @if(Auth::check())
                     @if(Auth::user()->role != 99)
-                        <li><a href="{{ route('user.profile') }}">
-                                <i class="fa fa-user-circle-o" aria-hidden="true"></i> My Account</a>
-                        </li>
+                        {{-- Dropdown Menu   --}}
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                            My Account <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('user.profile') }}">Profile</a>
+                                </li>
+                                <li><a href="{{ route('user.referals') }}">Referal</a></li>
+                                @if(Auth::user()->isUserAffiliate())
+                                <li><a href="{{ route('user.groups') }}">Groups</a></li>
+                                <li><a href="{{ route('user.banners') }}">Banners</a></li>    
+                                @endif
+                                @if( count(Auth::user()->orders) > 0)
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ route('user.orders') }}">Orders</a></li>
+                                @endif                          
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ route('signout') }}">
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i> Signout</a>
+                                </li>
+                            </ul>
+                            </li>
+                        {{--  DropDown Menu  --}}
+
+
+                      
                     @endif
-                    <li><a href="{{ route('signout') }}">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i> Signout</a>
-                    </li>
+                    
                 @else
                     <li><a href="{{ route('signin') }}">
                             <i class="fa fa-sign-in" aria-hidden="true"></i> Signin</a>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-md-10 col-sm-12 col-xs-12 col-lg-6">
+<div class="col-md-6">
 
     <div class="panel panel-primary">
 
@@ -32,4 +32,5 @@
     </div>
 
 </div>
+
 @endsection

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-md-10 col-sm-12 col-xs-12 col-lg-6">
+<div class="col-md-12">
 
 <div class="panel panel-primary">
 
@@ -11,7 +11,10 @@
     </div>
 
     <div class="panel-body">
-        <form action="{{ route('setting.update') }}" method="post">
+        
+        <div class="col-md-8">
+        
+            <form action="{{ route('setting.update') }}" method="post">
             {{ csrf_field() }} 
 
             <div class="form-group form-inline">
@@ -34,6 +37,22 @@
                 <input type="text" class="form-control" name="address_line3" value="{{ $settings->address_line3 }}" style="width:100%">
             </div>
 
+            <div class="form-group form-inline">
+                <label for="xpub" style="width:200px"><span class="text-warning">Blockchain XPUB</span></label>
+                <input type="text" class="form-control" name="xpub" value="{{ $settings->xpub }}" style="width:100%">
+            </div>
+
+        
+            <div class="form-group form-inline">
+                <label for="apikey" style="width:200px"><span class="text-warning">Blockchain Receive API KEY</span></label>
+                <input type="text" class="form-control" name="apikey" value="{{ $settings->apikey }}" style="width:100%">
+            </div>
+
+
+        </div>
+
+        <div class="col-md-4">
+        
             <div class="form-group form-inline">
                 <label for="contact_line1" style="width:200px">Contact Number 1</label>
                 <input type="text" class="form-control" name="contact_line1" value="{{ $settings->contact_line1 }}" style="width:100%">
@@ -76,6 +95,9 @@
             </div>
 
         </form>
+
+
+        </div>
 
     </div>
 

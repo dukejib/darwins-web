@@ -87,7 +87,8 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <a href="{{ route('cart.order',['toggle' => 1, 'option' => 0 , 'bitcoin' => 0])}}" class="btn btn-success" id="mylink"><i class="fa fa-cart-plus"></i> Process Cart</a>
+                    <a href="{{ route('cart.order.product',['option' => 0 , 'bitcoin' => 0])}}" id="order_url" hidden></a>
+                    <button class="btn btn-success" id="processCart"><i class="fa fa-cart-plus"></i> Process Cart</button>
                 </div>
             </div>
         </div>
@@ -122,8 +123,13 @@
 <script>
     //Global Variables
     $bitcoins = 0;
-    $paymentoption = 0;
+    $options = 0;
     $url = '';
+    //Get the Url
+    $(document).ready(function(){
+        $url = $('#order_url').attr('href').slice(0,-4);
+        console.log("First Url : " + $url);
+    })
     // Process the USD to Bitcoin Script
     $(document).ready(function(){
         $usd = '{{ ($subtotal + $fed + $shipping)}}';
@@ -139,49 +145,55 @@
             }
         });
     });
-       // Process the cart.checkout url
-    $('#mylink').on('click',function(){
-        //if $paymentoptions is 0, then exit
-        if($paymentoption == 0){
-            alert('Select payment option first');
-            return;
-        }
-        //$url = $('#url').attr('href').slice(0,-4); //Remove the trailing 0 from the url (hack around)
-        //console.log($bitcoins);
-        //$new_url = $url + '/' + $paymentoption + '/' +  $bitcoins;
-        //console.log($new_url);
-        //We are not 0, so proceed
-        //We are not 0, so proceed
-        //$.ajax({
-        //type: "GET",
-        //url: $new_url,
-        //dataType: "json",
-        //success: function (response) {
-            //AdminController is sending json reply:answer
-            // console.log(response); 
-            //document.write(response);
-            //},
-        //error:function(error){
-            // console.log(error.status);
-            //alert('some error occured');
-            //},
-        //complete:function(){
 
-            //}         
-        //});
-    });
-    // For Payment Options
+    //Check Payment Option and create a link to Actual A
     $(document).ready(function(e){
         $('.img-check').click(function(e) {
             $('.img-check').not(this).removeClass('check').siblings('input').prop('checked',false);
             $(this).addClass('check').siblings('input').prop('checked',true);
-            $paymentoption = $('input[name=paymentoptions]:checked').val();
-            console.log($paymentoption);
-            $url = $('#mylink').attr('href').slice(0,-4);
-            console.log($url);
-            $href = $url + "/" + $paymentoption + "/" + $bitcoins;
-            $('#mylink').attr('href',$href);
+            $options = $('input[name=paymentoptions]:checked').val();
+            console.log($options);
+            $href = $url + "/" + $options + "/" + $bitcoins;
+            console.log("HREF after Options : " + $href);
         });	
 	});
+    
+    // Process the cart.checkout url
+    $('#processCart').on('click',function(){
+       
+        //if $paymentoptions is 0, then exit
+        if($options == 0){
+            alert('Select payment option first');
+            return;
+        }
+        //If no Bitcoinis, then go back
+        if($bitcoins == 0){
+            alert('Unable to fetch bitcoins amount. Unable to Proceed further');
+            return;
+        }
+        //Now Process the Button
+
+        $new_url = $url + '/' + $options + '/' +  $bitcoins;
+        console.log($new_url);
+        
+        $.ajax({
+        type: "GET",
+        url: $new_url,
+        dataType: "json",
+        success: function (response) {
+            //AdminController is sending json reply:answer
+            // console.log(response); 
+            document.write(response);
+            },
+        error:function(error){
+            // console.log(error.status);
+            //alert('some error occured');
+            },
+        complete:function(){
+ 
+            }         
+        });
+    });
+ 
 </script>
 @endsection

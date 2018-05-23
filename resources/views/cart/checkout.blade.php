@@ -12,11 +12,11 @@
         <div class="panel panel-primary">
             <div class="panel-heading">
                 @if($option == 1)
-                    Pay Now with African Express VPC
+                    Pay via African Express VPC
                 @elseif($option == 2)
-                    Pay Now with USPS Money Order
+                    Pay via USPS Money Order
                 @elseif($option == 3)
-                    Pay Now with Bitcoin
+                    Pay via Bitcoin
                 @endif
             </div>
 
@@ -43,16 +43,22 @@
                     <h3 class="text-center text-primary">Specimen of USPS Money Order</h3>
                     <img src="{{ URL::to('img/uspsfront.jpg') }}" alt="USPS Money Order" class="img img-responsive text-center" width="115%">
                 @elseif($option == 3)
-                    <h3>Pay by Bitcoin</h3>
-                    <div class="loader"></div> 
+                    <a href="{{ route('getbtcaddress',['orderid' => $order->id]) }}" hidden id="getbtc_url"></a>
+                    <a href="{{ route('java') }}" hidden id="java_url"></a>
+                    
+                    <div class="" id="qr_address">
+                        <div class="loader center-block" id="loader"></div><p class="text-center">Please wait while we fetch the Bitcoin payment address for you</p>
+                    </div>
+                    
+                    
                         {{--  <img src="https://blockchain.info/qr?data={{$order->btc_address}}&size=200" class="img img-thumbnail img-responsive">  --}}
                         {{--  https://blockchain.info/qr?data=1P6em3kprVgHqbnyf33eYhWy3VUEAJb6ks&size=200  --}}
                 @endif
             </div>
 
-            <div class="panel-footer">
-                {{--  <button class="btn btn-success btn-block"  data-toggle="modal" data-target="#refillModal">Payment Procedure</button>  --}}
-            </div>
+            {{--  <div class="panel-footer">
+                <button class="btn btn-success btn-block"  data-toggle="modal" data-target="#refillModal">Payment Procedure</button>
+            </div>  --}}
 
         </div>
 
@@ -85,9 +91,14 @@
 
 @section('scripts')
     <script>
-    $(document).ready(function(){
-        //$('#qr').html('Hello People');
+    //Show Loaders
+    console.log('in script for checkout');
 
-    });
+    //$(document).ready(function(){
+     //   $data = '<div class="loader center-block"></div><p class="text-center">Please wait while we fetch the Bitcoin payment address for you</p>';
+      //  $('#qr_address').html($data);
+    //});
+  
+
     </script>
 @stop

@@ -24,11 +24,14 @@ class CreateSettingsTable extends Migration
             $table->string('contact_email');
             $table->integer('carousel_time')->default(5000);
             $table->string('tos_filename')->nullable();
+            $table->string('brochure_filename')->nullable();
             $table->text('refill_statement')->nullable();
             $table->text('app_statement')->nullable();
             $table->string('datafile')->nullable();
             $table->float('fed_tax')->default(0.15);
             $table->float('shipping_charges')->default(0.23);
+            $table->string('xpub')->nullable();
+            $table->string('apikey')->nullable();
             $table->timestamps();
         });
     }

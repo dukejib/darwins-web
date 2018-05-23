@@ -23,7 +23,13 @@
                                     <i class="fa fa-user-secret"></i>
                                     Privacy Policy</a>
                             </li>
-                            <li><a href="{{ route('termsOfService') }}">Terms of Service</a>
+                            <li><a href="{{ route('termsOfService') }}">
+                                <i class="fa fa-handshake-o"></i>
+                                Terms of Service</a>
+                            <li>
+                                <a href="{{ route('show_brochure') }}">
+                                <i class="fa fa-book"></i>
+                                Brochure</a>
                             </li>
                             <li><a href="{{ route('affiliate.document') }}">
                                     <i class="fa fa-users"></i>
@@ -36,6 +42,18 @@
                             <li><a href="{{ route('contactus') }}">
                                     <i class="fa fa-phone"></i>
                                     Contact Us</a>
+                            </li>
+                            <li>
+                            <a href="{{ route('faqs') }}">
+                                <i class="fa fa-question"></i>
+                                FAQ
+                            </a>
+                            </li>
+                            <li>
+                            <a href="{{ route('testimony.index') }}">
+                            <i class="fa fa-thumbs-up"></i>
+                                Testimonials
+                            </a>
                             </li>
                         </ul>
 

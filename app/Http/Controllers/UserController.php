@@ -7,13 +7,17 @@ use App\Profile;
 use App\Helper\Helper;
 use App\OrderDetails;
 use App\Order;
+use App\Group;
+use App\GroupUser;
+use App\Helper\Email;
+use App\WebBanner;
+
+use Cookie;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
-use Cookie;
-use App\Helper\Email;
 use Illuminate\Foundation\Auth\ThrottlesLogins; /** Needed for Login Throttling */
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -80,8 +84,8 @@ class UserController extends Controller
             'first_name' => 'required|min:2|max:80',
             'last_name' => 'required|min:2|max:80',
             // 'email' => 'required|email_domain:' . $request['email'] . '|max:255|unique:users',
-            'password' => 'required|min:4|confirmed',
-            'password_confirmation' => 'required|min:4',
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required|min:8',
         ]);
        
         /** Validation is done, now create & save the User */
@@ -180,17 +184,6 @@ class UserController extends Controller
         return response()->json(['reply'=> 'User Affiliated']);
     }
 
-    // public function user_unaffiliate($id)
-    // {
-    //     $user = User::find($id);
-    //     $user->role = 1;
-    //     $user->book_purchased = false;
-    //     $user->save();
-
-    //     Session::flash('success','User is not Affiliated anymore');
-    //     return redirect()->back();
-    // }
-
     public function user_delete($id)
     {
         $user = User::find($id);
@@ -211,6 +204,203 @@ class UserController extends Controller
         // return redirect()->back();
     }
 
+    /** Profile Related Information */
+    public function user_profile()
+    {
+        return view('users.profile')
+        ->with('user',Auth::user())
+        ->with('profile',Auth::user()->profile)
+        ->with(Helper::getBasicData());
+    }
+
+    public function user_referals()
+    {
+        return view('users.referal')
+        ->with('user',Auth::user())
+        ->with('profile',Auth::user()->profile)
+        ->with(Helper::getBasicData());
+    }
+
+    public function user_orders()
+    {
+        return view('users.orders')
+        ->with('user',Auth::user())
+        ->with('profile',Auth::user()->profile)
+        ->with('orders',Order::where('user_id',Auth::id())->with('order_details')->get())
+        ->with(Helper::getBasicData());
+    }
+  
+    public function user_banners()
+    {
+        return view('users.web_banners')
+        ->with('user',Auth::user())
+        ->with('banners',WebBanner::where('published',1)->get())
+        ->with(Helper::getBasicData());
+    }
+
+    /** Update Basic Data */
+    public function user_basic(Request $request)
+    {
+        /** Validate the Input */
+        $this->validate($request,[
+            'first_name' => 'required',
+            'last_name' => 'required',
+            // 'email' => 'required|email',
+        ]);
+        /** Find the Authenticated User */
+        $user = Auth::user();
+        /** Save new data to the User table */
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        // $user->email = $request->email;
+        $user->save();
+        //Send Email to the User
+        $this->sendBasicProfileChangeEmail($user); 
+        //
+        Session::flash('success','Basic Information updated');
+        return redirect()->back()->withInput(['tab' => 'basic']);
+    }
+    /** Update password */
+    public function user_password(Request $request)
+    {
+        /** Validate the Input */
+        $this->validate($request,[
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required',
+        ]);
+
+        /** Find the Authenticated User */
+        $user = Auth::user();
+        /** Save new data to the User table */
+        $user->password = bcrypt($request->password);
+        $user->save();
+        /** Save the data of User Profile */
+        $this->sendAccountProfileChangeEmail($user,$request['password']);
+        //
+        Session::flash('success','Account updated');
+        return redirect()->back()->withInput(['tab' => 'account']);
+    }
+    /** Update Contact Data */
+    public function user_contact(Request $request)
+    {
+        /** Validate the Input */
+        $this->validate($request,[
+            'primary_contact_no' => 'required|numeric',
+            'secondary_contact_no' => 'numeric',
+            'address' => 'required',
+            'address_continued' => 'required',
+            'city' => 'required',
+            'country' => 'required'
+        ]);
+        /** Find the Authenticated User */
+        $user = Auth::user();
+        /** Save the data of User Profile */
+        $user->profile->primary_contact_no = $request->primary_contact_no;
+        $user->profile->secondary_contact_no = $request->secondary_contact_no;
+        $user->profile->postal_code = $request->postal_code;
+        $user->profile->address = $request->address;
+        $user->profile->address_continued = $request->address_continued;
+        $user->profile->city = $request->city;
+        $user->profile->country = $request->country;
+        $user->profile->save();
+        /** Send Email  */
+        $this->sendContactProfileChangeEmail($user);
+
+        Session::flash('success','Contact Information updated');
+        return redirect()->back()->withInput(['tab' => 'contact']);
+    }
+    /** Customr wants to buy our book and become affiliate */
+    public function become_affiliate()
+    {
+        return view('users.buybook') 
+        ->with(Helper::getBasicData());
+    }
+    /** Create Group */
+    public function create_group(Request $request)
+    {
+        $this->validate($request,[
+            'group_title' => 'required|min:5'
+        ]);
+        //Get the Authenticated user
+        $user = Auth::user();
+        //Create Group
+        $group = Group::create([
+            'user_id' => $user->id,
+            'group_title' => request()->group_title
+        ]);
+        //Create Group_users
+        // $group->users()->attach($user->id);
+
+        Session::flash('success','Group created');
+        return redirect()->back()->withInput(['tab' => 'groups']);
+    }
+
+    public function user_groups()
+    {
+        return view('users.groups')
+        ->with('user',Auth::user())
+        ->with('groups',Auth::user()->groups)
+        ->with(Helper::getBasicData());
+    }
+
+    public function add_to_group()
+    {
+        $user_id = request()->user_id;
+        $group_id = request()->group_id;
+
+        return compact('user_id','group_id');
+        // return view('users.groups');
+        // // return view('cart.checkout')
+        // $html = view('users.groups')
+        // ->with('user',Auth::user())
+        // ->with('groups',Auth::user()->groups)
+        // ->with(Helper::getBasicData())
+        // ->withErrors('Do Something')
+        // ->render();
+        // return response()->json($html);
+
+        $group_to_add = request()->bulk_group_add;
+        $user_id = request()->user_id;
+        $check_box_array = request()->checkBoxArray;
+
+        //If no group select then raise error
+        if($group_to_add == 0){
+            return redirect()->route('user.groups')->withErrors('Please select a group first');
+        }
+        //If no one selected, raise erro
+        if(!count($check_box_array)>0){
+            return redirect()->route('user.groups')->withErrors('Select some users');
+        }
+        if(count($check_box_array)> 5){
+            return redirect()->route('user.groups')->withErrors('Only 5 users allowed for a group');
+        }
+        // //All is fine, process group
+        // $group = Group::find($group_to_add);
+        // //Find if the GroupUser is made
+        // $group_user = GroupUser::find($group->id);
+        // if(!$group_user){
+        //     //Create A GroupUser
+        //     foreach ($$check_box_array as $user) {
+        //         GroupUser::create([
+        //             'group_id' => $group_to_add,
+        //             'user_id' => $user,
+        //             'value' => 0
+        //         ]);
+        //     } // All Added
+        //     //TODO:: Add main person here too
+            
+        // }else{
+        //     //Add to Group User
+        //     $group_people = GroupUser::where('group_id',$group_id)->get();
+        //     if(count($group_people)< 5){
+
+        //     }
+        // }
+        
+        
+    }
+  
+    /** Email Notifications */
     public function sendWelcomeEmailToNewUser(User $user)
     {
         $title = 'Welcome';
@@ -221,5 +411,53 @@ class UserController extends Controller
             $message->to($email,$name);
             $message->subject('Welcome');
         });
+    }
+
+    public function sendBasicProfileChangeEmail(User $user)
+    {
+        $title = 'Basic Info Update Notification';
+        $name = $user->first_name . ' ' . $user->last_name;
+        $email = $user->email;
+        //Send Email in Queue
+        \Mail::queue('emails.basicupdated',['title' => $title , 'name' => $name,'first' => $user->first_name, 'last' => $user->last_name] ,function ($message) use($title,$email,$name) {
+            $message->to($email,$name);
+            $message->subject($title);
+        });
+    }
+
+    public function sendAccountProfileChangeEmail(User $user,$password)
+    {
+        $title = 'Password Update Notification';
+        $name = $user->first_name . ' ' . $user->last_name;
+        $email = $user->email;
+
+        //Send Email in Queue
+        \Mail::queue('emails.accountupdate',['title' => $title , 'name' => $name, 'password' => $password] ,function ($message) use($title,$email,$name,$password) {
+            $message->to($email,$name);
+            $message->subject($title);
+        });
+    }
+
+    public function sendContactProfileChangeEmail(User $user)
+    {
+        $title = 'Contact Update Notification';
+        $name = $user->first_name . ' ' . $user->last_name;
+        $email = $user->email;
+        $data = [
+            'title' => $title,
+            'name' => $name,
+            'primary_contact_no' => $user->profile->primary_contact_no ,
+            'secondary_contact_no' => $user->profile->secondary_contact_no,
+            'postal_code' => $user->profile->postal_code,
+            'address' => $user->profile->address,
+            'address_continued' => $user->profile->address_continued,
+            'city' => $user->profile->city,
+            'country' => $user->profile->country,
+        ];
+        //Send Email in Queue
+        \Mail::queue('emails.contactupdate',$data ,function ($message) use($title,$email,$name) {
+            $message->to($email,$name);
+            $message->subject($title);
+        });     
     }
 }

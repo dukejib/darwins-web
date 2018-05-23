@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration
             $table->text('article');
             $table->boolean('published')->default(0); //False, not published
             $table->timestamp('published_date')->nullable();
+            $table->integer('total_views')->default(0); //how many views
             $table->timestamps();
         });
     }

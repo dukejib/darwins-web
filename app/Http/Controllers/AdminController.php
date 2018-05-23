@@ -10,6 +10,7 @@ use App\Setting;
 use App\NewsLetter;
 use App\User;
 use App\Photo;
+use App\Testimonial;
 use DB;
 use Kim\Activity\Activity;
 use Illuminate\Http\Request;
@@ -177,6 +178,31 @@ class AdminController extends Controller
         return redirect()->route('admin.web_banner.index');
     }
 
+    public function get_testimonials()
+    {
+        $testimonys = DB::table('testimonials')->get();
+        return view('admin.testimonials.index')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('testimonys',$testimonys);
+    }
+
+    public function approve_testimonial($id)
+    {
+        $testimony = Testimonial::find($id);
+        $testimony->approved = 1;
+        $testimony->save();
+        Session::flash('success','Testimony approved');
+        return redirect()->back();
+    }
+
+    public function delete_testimonial($id)
+    {
+        $testimony = Testimonial::find($id);
+        $testimony->delete();
+        
+        Session::flash('success','Testimony deleted');
+        return redirect()->back();
+    }
     /** ORDER CRUD FOR ADMIN PANEL */
     /** Frontend Order Handling CartController.php */
     public function orders()

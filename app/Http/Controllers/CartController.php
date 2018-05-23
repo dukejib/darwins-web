@@ -10,6 +10,8 @@ use App\Item;
 use App\Order;
 use App\User;
 use App\OrderDetails;
+use App\PendingTransaction;
+use App\Transaction;
 use Illuminate\Support\Facades\Auth;
 use App\Helper\Helper;
 use Blockchain\Blockchain;
@@ -79,106 +81,164 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-    //Cart Book Checkout
-    public function cart_order_placed($toggle,$option,$bitcoin)
-    {  
+    //Cart Product Checkout
+    public function cart_order_product($option,$bitcoins)
+    {
         $order = '';        //For Order
         $order_details =''; //FOr Order Details
-        $user = '';         //For Authenticated User
-        $total_usd = 50;    //For Book Only, Change as you like
+        $user = '';         //For Authenticated Use
+        $pen_transaction = ''; //Pending Transaction
 
-        //Authenticate User
+        //Authenticate user
         if(Auth::check()){
-            /** Get The User Id */
-            $user = User::find(Auth::id());
-        }
-        else {
+            $user = Auth::user();
+        }else {
             /** User Not Authenticated - Return him back to Singin Page */
             return redirect()->route('signin');
+            //This takes us out of here
         }
-        /** We are logged In */
-        
-        //Now Check The Toggle
-        if($toggle == 1){
-            //This is an Product Order
-            /** Get Taxes Details form Settings */
-            $settings = Helper::cartTaxes();
-            $fedtax = Cart::subtotal() * $settings->fed_tax; //Cart Subtotal * FED Tax from Settings
-            $shipping = Cart::subtotal() * $settings->shipping_charges; //Cart Subtotal * Shipping Charges from Settings
-            $total_usd = Cart::subtotal() + $fedtax + $shipping; //Cart _usd 
-            /** Create Order */
-            $order = Order::create([
-                'user_id' => $user->id,
-                'sub_total' => Cart::subtotal(),
-                'tax' => $fedtax,
-                'shipping_charges' => $shipping,
-                'order_total_usd' => $total_usd,
-                'order_total_btc' => $bitcoin
-                //Status is 'Pending' as default
-            ]);
-            /** Process Cart */
-            foreach (Cart::content() as $purchase) {
-                //Create OrderDetails
-                $order_details =  OrderDetails::create([
-                    'order_id' => $order->id,
-                    'item_id' => $purchase->id,
-                    'item_name' => $purchase->name,
-                    'item_qty' => $purchase->qty,
-                    'item_price' => $purchase->price
-                ]);
-                //Add Item_purchased_count
-                $item = Item::find($purchase->id);
-                // $item->item_purchased_count += 1;
-                $item->increment('item_purchased_count');
-                $item->save();
-            }
-            /** Clear Cart  */
-            Cart::destroy();
-            Session::forget('cart');
-
-        }else if ($toggle == 2){
-            //This is a book People
-            /** Create Order */
-            $order = Order::create([
-                'user_id' => $user->id,
-                'sub_total' => $total_usd,
-                'tax' => 0,
-                'shipping_charges' => 0,
-                'order_total_usd' => $total_usd,
-                'order_total_btc' => $bitcoin
-                //Status is 'Pending' as default
-            ]);
+        //Since we are logged in - Process the Order
+        //This is an Product Order
+        /** Get Taxes Details form Settings */
+        $settings = Helper::cartTaxes();
+        $fedtax = Cart::subtotal() * $settings->fed_tax; //Cart Subtotal * FED Tax from Settings
+        $shipping = Cart::subtotal() * $settings->shipping_charges; //Cart Subtotal * Shipping Charges from Settings
+        $total_usd = Cart::subtotal() + $fedtax + $shipping; //Cart _usd 
+        /** Create Order */
+        $order = new Order();
+        $order->user_id = $user->id;
+        $order->sub_total = Cart::subtotal();
+        $order->tax = $fedtax;
+        $order->shipping_charges = $shipping;
+        $order->order_total_usd = $total_usd;
+        $order->order_total_btc = $bitcoins;
+        $order->save();
+        // exit();
+        /** Process Cart */
+        foreach (Cart::content() as $purchase) {
             //Create OrderDetails
-            $order_details = OrderDetails::create([
+            $order_details =  OrderDetails::create([
                 'order_id' => $order->id,
-                'item_id' => 0,
-                'item_name' => 'Affiliate Crowdfunding',
-                'item_qty' => 1,
-                'item_price' => 50
+                'item_id' => $purchase->id,
+                'item_name' => $purchase->name,
+                'item_qty' => $purchase->qty,
+                'item_price' => $purchase->price
             ]);
-            //Update User
-            //$user->book_optin = 1;
-            //$user->book_purchased = true;
-            //$user->save();
+            //Add Item_purchased_count
+            $item = Item::find($purchase->id);
+            // $item->item_purchased_count += 1;
+            $item->increment('item_purchased_count');
+            $item->save();
         }
-        
+        // exit();
+        /** Clear Cart  */
+        Cart::destroy();
+        Session::forget('cart');
+        // exit();
         //Check option
-        // if($option == 3){
-        //     //We have bitcoin
-        //     //    $this->process_order_bc($order->order_total_usd,$order->id);
-        // } 
+        if($option == 3){
+            /** Add Pending Transaction */
+            $pen_transaction= PendingTransaction::create([
+                'order_id' => $order->id,
+                'value' => $order->order_total_btc,
+                'transaction_hash' => ''
+            ]);
+            //We have a pending order
+        } 
         if ($option == 2 || $option == 1){
+            //Remove btc_address
             $order->btc_address = '';
             $order->save();
+            //Add pending order
+            /** Add Pending Transaction */
+            $pen_transaction= PendingTransaction::create([
+                'order_id' => $order->id,
+                'usd' => $order->order_total_usd,
+                
+            ]);
+            //We have a pending order
         }
         //All Done, Return Page
-        Session::flash('success','Order Placed');
-        return view('cart.checkout')
+        // Session::flash('success','Order Placed');      
+        // return view('cart.checkout')
+        $html = view('cart.checkout')
         ->with('option',$option)
         ->with('total',$total_usd)
         ->with('order',$order)
-        ->with(Helper::getBasicData());
+        ->with(Helper::getBasicData())
+        ->render();
+        return response()->json($html);
+    }
 
+    //Cart Book Checkout
+    public function cart_order_book($option,$bitcoins)
+    {
+        $order = '';        //For Order
+        $order_details =''; //FOr Order Details
+        $user = '';         //For Authenticated Use
+        $total_usd = 50;    //For Book
+
+        //Authenticate user
+        if(Auth::check()){
+            $user = Auth::user();
+        }else {
+            /** User Not Authenticated - Return him back to Singin Page */
+            return redirect()->route('signin');
+            //This takes us out of here
+        }
+        /** Create Order */
+        $order = Order::create([
+            'user_id' => $user->id,
+            'sub_total' => $total_usd,
+            'tax' => 0,
+            'shipping_charges' => 0,
+            'order_total_usd' => $total_usd,
+            'order_total_btc' => $bitcoins
+            //Status is 'Pending' as default
+        ]);
+        //Create OrderDetails
+        $order_details = OrderDetails::create([
+            'order_id' => $order->id,
+            'item_id' => 0,
+            'item_name' => 'Affiliate Crowdfunding',
+            'item_qty' => 1,
+            'item_price' => $total_usd
+        ]);
+        //Update User
+        $user->book_optin = 1;
+        // $user->book_purchased = true;
+        $user->save();
+        //Check option
+        if($option == 3){
+            /** Add Pending Transaction */
+            $pen_transaction= PendingTransaction::create([
+                'order_id' => $order->id,
+                'value' => $order->order_total_btc,
+                'transaction_hash' => ''
+            ]);
+            //We have a pending order
+        } 
+        if ($option == 2 || $option == 1){
+            //Remove btc_address
+            $order->btc_address = '';
+            $order->save();
+            //Add pending order
+            /** Add Pending Transaction */
+            $pen_transaction= PendingTransaction::create([
+                'order_id' => $order->id,
+                'usd' => $order->order_total_usd
+            ]);
+            //We have a pending order
+        }
+        // Session::flash('success','Order Placed');      
+        // return view('cart.checkout')
+        $html = view('cart.checkout')
+        ->with('option',$option)
+        ->with('total',$total_usd)
+        ->with('order',$order)
+        ->with(Helper::getBasicData())
+        ->render();
+        return response()->json($html);
     }
 
     //TODO:: work on it. Make it remove qr address if user changes bitcoin payment to usps or vpc - vice versa
@@ -191,14 +251,14 @@ class CartController extends Controller
             $order = Order::find($orderid);
             $total_usd = $order->order_total_usd;
 
-             //Check option
-            if($option == 3){
-                //We have bitcoin
-                $this->process_order_bc($order->order_total_usd,$order->id);
-            }else if ($option == 2 || $option == 1){
-                $order->btc_address = '';
-                $order->save();
-            }
+            //  //Check option
+            // if($option == 3){
+            //     //We have bitcoin
+            //     $this->process_order_bc($order->order_total_usd,$order->id);
+            // }else if ($option == 2 || $option == 1){
+            //     $order->btc_address = '';
+            //     $order->save();
+            // }
 
             /** Return to Ajax */
             $html = view('cart.checkout')
@@ -220,7 +280,7 @@ class CartController extends Controller
     }
 
     //blockchain receive payment function
-    public function process_order_bc($amount,$orderid)
+    public function get_btc_address($orderid)
     {
         /** This allows us to get a new key address related to our xpub account for customers */
         //Put your response address here :https://blockchain.info/address/YourReceivePaymentKey
@@ -233,7 +293,7 @@ class CartController extends Controller
         $order_id = $orderid;
         //This where you want to be notified of your payment-A route in laravel
         //Callback Url
-        $callbackUrl = $rootUrl . "/receive_payment?orderId=" . $order_id . "&secret=" . $this->secret;
+        $callbackUrl = $rootUrl . "/receive_payment?order_id=" . $order_id . "&secret=" . $this->secret;
         //Encode url
         $encUrl = urlencode($callbackUrl);
         //Gap Limit
@@ -248,27 +308,83 @@ class CartController extends Controller
         $order = Order::find($orderid);
         $order->btc_address = $address;
         $order->save();
+
+        /** Return to Ajax */
+        // $html = view('cart.checkout')
+        // // ->with('message',$message)
+        // ->with('option',$option)
+        // ->with('total',$total_usd)
+        // ->with('order',$order)
+        // ->with(Helper::getBasicData())
+        // ->render();
+        return response()->json($order);
     }
 
     //This function is a callback for blockchain, it triggers, when we get the amount
     public function receive_payment()
     {
-        if(request()->secret != $this->secret){
+        //Get Information
+        $order_id = request()->order_id;
+        $transaction_hash  = request()->transaction_hash;
+        $value_in_btc = request()->value / 100000000 ; //Convert from satoshi to usd
+        $confirmation = request()->confirmations;
+        $secret = request()->secret;
+
+        if($secret != $this->secret){
             die('Secret key doesn\'t match');
-        }else{
-            //Send the ok first, or else it will be stuck
-            echo '*ok';
-            //Now process your own stuff here
-            $data = request()->all();
-            $filename = 'databtc.txt';
-            File::put(public_path() . '/' . $filename,$data);
-            /** From Call back we get
-             * $secret = 
-             * $orderid =
-             * $transaction_hash =
-             * $value_in_satoshi = value / 100000000
-             */
         }
+            
+        //Get Order
+        $order = Order::find($order_id);
+        $btc = $order->order_total_btc; //Amount in btc hold up in order
+
+        if($btc >= $value_in_btc){
+            //We have exact amount
+            //Check confirmation and process 
+            if($confirmation >= 3){
+                //Add to Transaction
+                Transaction::create([
+                    'transaction_hash' => $transaction_hash,
+                    'value' => $value_in_btc,
+                    'order_id' => $order_id
+                ]);
+                //Find and delete the pending transaction
+                $pen_transaction = PendingTransaction::where("order_id",$order_id);
+                $pen_transaction->delete();
+            }
+        }else{
+            //Check confirmation and process 
+            if($confirmation >= 3){
+                //Add to Transaction
+                Transaction::create([
+                    'transaction_hash' => $transaction_hash,
+                    'value' => $value_in_btc,
+                    'order_id' => $order_id
+                ]);
+                //Don't Delete Pending
+                $pen_transaction = PendingTransaction::where("order_id",$order_id);
+                $pen_transaction->delete();
+                //Create New Pending for Remaining amount
+                $diff = $btc - $value_in_btc;
+                $pen_transaction= PendingTransaction::create([
+                    'order_id' => $order->id,
+                    'value' => $diff,
+                    'transaction_hash' => ''
+                ]);
+            }
+        }
+        //Send the ok first, or else it will be stuck
+        echo '*ok';
+        //Now process your own stuff here
+        // $data = request()->all();
+        // $filename = 'databtc.txt';
+        // File::put(public_path() . '/' . $filename,$data);
+        /** From Call back we get
+         * $secret = 
+         * $orderid =
+         * $transaction_hash =
+         * $value_in_satoshi = value / 100000000
+         */
     }
     ////////////////////////////////////////////////////////////////////
     /** For Stripe */

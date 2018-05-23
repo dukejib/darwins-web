@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}"> <!-- Owl Carousel -->
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}"> <!-- Owl Carousel Theme -->
     <link rel="stylesheet" href="{{ asset('css/dataTables.1.10.16.css') }}"> <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('css/rating.css') }}"> <!-- Rating Stars -->
     <link rel="Shortcut Icon" href="{{ asset('img/favicon.ico?')}}" type="image/x-icon" > 
 
     @yield('styles') <!-- More Styles -->
@@ -31,7 +32,7 @@
     <div class="container">
         @yield('content')
     </div>
-    <hr>
+    <br>
 {{-- Include the website footer--}}
     @include('partials.footer')
 {{-- Include bottom navigation --}}
@@ -45,6 +46,7 @@
 <script src="{{ asset('js/dataTables.1.10.16.js') }}"></script>
 <script src="{{ asset('js/e-commerce.js') }}"></script>  
 <script src="{{ asset('js/clipboard-2.0.1.js') }}"></script>
+<script src="{{ asset('js/rating.js') }}"></script>
 
 <script>
     //Uses Toastr https://github.com/CodeSeven/toastr

@@ -47,9 +47,9 @@ class User extends Authenticatable
 
     public function groups()
     {
-        return $this->belongsToMany('App\Group','group_users');
+        return $this->hasMany('App\Group');
     }
-    
+     
     /** Methods */
     //Used by Public Profile/Account Page
     public function referredBy(){
@@ -75,6 +75,12 @@ class User extends Authenticatable
         return $profile;
     }
 
+    public function getMyGroups()
+    {
+        $groups = Group::where('user_id',Auth::id())->get();
+        return $groups;
+    }
+    
     //Used by Admin Panel
     public function getReffererName($id)
     {

@@ -76,6 +76,40 @@ class SettingsController extends Controller
         return redirect()->back();
     }
 
+    public function show_brochure()
+    {
+        return view('admin.settings.brochure')
+        ->with('online_user_count',Helper::getOnlineUsersCount());
+    }
+
+    public function update_brochure()
+    {
+        $this->validate(request(),[
+            'file' => 'required|mimes:pdf|max:10000'
+        ]);
+        $settings = Setting::first();
+
+        $file = request()->file;
+        $pdf = time() . $file->getClientOriginalName();
+        $file->move('files/',$pdf);
+        
+        //IF it's null, don't delete file
+        if (!$settings->brochure_filename == null){
+            $basename = 'files/' . basename($settings->brochure_filename);
+            //Delete the file from disk
+             if(file_exists($basename)){
+                 unlink($basename);
+             }
+        }
+        
+        $settings->brochure_filename = $pdf;
+        $settings->save();
+
+        Session::flash('success','Brochure Updated');
+        return redirect()->back();
+    }
+
+
     public function datafile()
     {
         return view('admin.settings.datafile')
