@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="panel-footer text-center">
-                By subscribing to our newsletter, you are agreeing to allow us to send you solicited emails from time to time. We advise you to add  <em>mailman@morecreditcardservices.com</em> to your email whilelist contacts.
+                By subscribing to our newsletter, you are agreeing to allow us to send you solicited emails from time to time. We advise you to add  <em>mailman@morecreditcardservices.com</em> to your email whitelist contacts.
                 </div>
 
             </div>

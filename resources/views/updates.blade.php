@@ -18,8 +18,14 @@
 
                 <ul class="list-group">
 
-                    <li class="list-group-item text-success">Following items added 
+                    <li class="list-group-item text-success">Following items added /changed
                         <ul>
+                            <li class="text-info">Footer Changed - to Accomodate Disclaimer (Fonts are calibri)</li>
+                            <li class="text-info">Disclaimer Added</li>
+                            <li class="text-info">Now Session are in database - Admin shows how many people online</li>
+                            <li class="text-info">Brochure Page added - PDF file an be uploaded from Admin Panel. It will show up in FRontEnt</li>
+                            <li class="text-info">Now a referer can create groups, and his affilaites to groups</li>
+                            <li class="text-info">FAQ&aps;s Added - total 34</li>
                             <li class="text-info">User/Affiliates/Orders/Profile tables reworked -- Added Groups & Group_Users Table for Affiliate Groups</li>
                             <li class="text-info">Tweaks made to Frontend Theme</li>
                             <li class="text-info">Admin panel theme changed/optimized for better viewing</li>
@@ -30,7 +36,7 @@
                             <li class="text-info">On User Account Page > Order Details & Payment options added | Work left to actually process the payment selection</li>
                             <li class="text-info">Orders in admin panel now shows details of the order</li>
                             <li class="text-info">Tweaking with Javascript/Jquery</li>
-                            <li class="text-danger">African Express VPC Is disabled >buybook.php > cart.php > profile.php </li>
+                            {{--  <li class="text-danger">African Express VPC Is disabled >buybook.php > cart.php > profile.php </li>  --}}
                             <li class="text-info">Affiliation - Book purchase streamlined - Now, system reflects properly about book purchase and payment received</li>
                             <li class="text-info">User Account page now has the option to pay for orders as well</li>
                             <li class="text-info">Cart page tweaked to deliver proper status of orders.</li>

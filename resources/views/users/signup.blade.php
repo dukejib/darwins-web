@@ -6,15 +6,62 @@
 
 @section('content')
 
-    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+    <div class="row">
+    
+    {{--  Affiliate Crowdfunding Book  --}}
+    <div class="col-md-8">
+
+        <div class="panel panel-primary">
+
+            <div class="panel-heading">Affiliate Program</div>
+
+                <div class="panel-body">
+                    
+                    <div class="media">
+                        <div class="media-left">
+                            <img src="{{ asset('img/affiliatecrowdfundingcover.jpg') }}" alt="Affiliate Crowdfunding Book" class="media-object" width="200px">
+                        </div>
+                        <div class="media-body">
+                            <p class="text-justify">Let me ask you a question, if there was a way for you to launch your own dream project with "Other People's Money" (O.P.M.) would you be interested in the following details below?</p>
+                            
+                            <ul>
+                                <li>Without having to repay the money!</li>
+                                <li>Without having to pay interest!</li>
+                                <li>Without having to pay percent fees!</li>
+                                <li>Without having to show your business plan!</li>
+                                <li>Without any deadlines on raising capital for your projects!</li>
+                                <li>No giving up equity or debt placement for tangible or monetary rewards in your company!</li>
+                                <li>Funding is unlimited and not based upon a pyramid platform!</li>
+                            </ul>
+                        </div>
+                        <p class="text-justify"><strong>LOOK NO FURTHER...</strong> Tarik C. Richards of More Credit Card Services <strong>(MCCS)</strong> introduces to you a newly launched monetizing strategy and system for businesses looking to acquire capital more efficiently and effectively called <strong>Affiliate Crowdfunding</strong>. MCCS was motivated in its research to developing the most unique and innovative Crowdfunding Plan and Strategy for our serious affiliate members. <strong>Our Affiliate Crowdfunding Program</strong> not only generates capital within itself, but also in the optional <strong>"Two Separate & Diverse Program Methods"</strong> for our affiliate members called <strong>Brick & Mortar Business</strong> and <strong>Internet Viral Business</strong> for earning extra capital.</p>
+
+                        <p class="text-justify"><strong>Other Benefits:</strong></p>
+
+                        <ul>
+                            <li>Earn 50% commissions for every referral purchase of this E-Book Guide!</li>
+                            <li>Learn how to build an organization from the serious affiliates you refer and earn extra capital!</li>
+                            <li>Our Affiliate Crowdfunding Program cultivates and preserves Black Business & Community!</li>
+                            <li>Learn how to invest in Bitcoin (BTC) more effectively to fund your personal endeavors!</li>
+                            <li>As Bitcoin (BTC) rises, it is never too late investing in it through our Affiliate Crowdfunding Program!</li>
+                            <li>Receive our FREE Affiliate Tools Package when becoming an Affiliate Crowdfunding Member! </li>
+                        </ul>
+
+                        <p class="text-justify">
+                            As a result of this launch, we want to educate you on how to implement your Business Niche through our Marketing Strategies for the purposes of Crowdfunding Success. When you discover the secrets on how to use our revolutionary affiliate program to raise the capital for whatever your personal endeavors are&comma; it will drastically change your life!</p>
+                        <p class="text-justify">
+                            People have used many Mainstream Crowdfunding Platforms to launch their own ideas, projects, pay for marketing campaigns, further their education with college tuition, and even pay for their personal activities etc... However, none of them can come close to matching our strategic benefits to raise capital more efficiently and effectively like our <strong>Affiliate Crowdfunding Program</strong> does. No matter what you need to raise the capital for your personal endeavors, our <strong>Affiliate Crowdfunding Program</strong> can help <strong>GUARANTEE SUCCESS!</strong>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+    <div class="col-md-4">
         @include('includes.errors')
 
-        {{--  @if(Session::has('affiliate_id'))
-            {{Session::get('affiliate_id')}}
-        @endif  --}}
-        <br>
-        
-        
         <div class="panel panel-primary">
             <div class="panel-heading">Sign Up</div>
            
@@ -69,9 +116,9 @@
             </div>
         </div>
 
-        <br>
-        <br>
-
+    </div>
+    
+    
     </div>
 
 @endsection

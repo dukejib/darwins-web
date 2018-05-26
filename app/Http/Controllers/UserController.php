@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 use Illuminate\Foundation\Auth\ThrottlesLogins; /** Needed for Login Throttling */
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use PhpParser\Node\Stmt\GroupUse;
+use Illuminate\Mail\Message;
 
 class UserController extends Controller
 {
@@ -290,7 +292,10 @@ class UserController extends Controller
             'address' => 'required',
             'address_continued' => 'required',
             'city' => 'required',
-            'country' => 'required'
+            'country' => 'required',
+            'state' => 'required',
+            'business_name' => 'required',
+            'email_address' => 'email'
         ]);
         /** Find the Authenticated User */
         $user = Auth::user();
@@ -302,6 +307,9 @@ class UserController extends Controller
         $user->profile->address_continued = $request->address_continued;
         $user->profile->city = $request->city;
         $user->profile->country = $request->country;
+        $user->profile->business_name= $request->business_name;
+        $user->profile->state = $request->state;
+        $user->profile->email_address = $request->email_address;
         $user->profile->save();
         /** Send Email  */
         $this->sendContactProfileChangeEmail($user);
@@ -345,59 +353,62 @@ class UserController extends Controller
 
     public function add_to_group()
     {
+        //Errors start at 31
+        //Confirms 10
         $user_id = request()->user_id;
         $group_id = request()->group_id;
 
-        return compact('user_id','group_id');
-        // return view('users.groups');
-        // // return view('cart.checkout')
-        // $html = view('users.groups')
-        // ->with('user',Auth::user())
-        // ->with('groups',Auth::user()->groups)
-        // ->with(Helper::getBasicData())
-        // ->withErrors('Do Something')
-        // ->render();
-        // return response()->json($html);
-
-        $group_to_add = request()->bulk_group_add;
-        $user_id = request()->user_id;
-        $check_box_array = request()->checkBoxArray;
-
         //If no group select then raise error
-        if($group_to_add == 0){
-            return redirect()->route('user.groups')->withErrors('Please select a group first');
+        if($group_id <= 0){
+            return 31; // No Group Selected
         }
         //If no one selected, raise erro
-        if(!count($check_box_array)>0){
-            return redirect()->route('user.groups')->withErrors('Select some users');
+        if($user_id == 0 || $user_id == ''){
+            return 32; //No User Selected
         }
-        if(count($check_box_array)> 5){
-            return redirect()->route('user.groups')->withErrors('Only 5 users allowed for a group');
-        }
-        // //All is fine, process group
-        // $group = Group::find($group_to_add);
-        // //Find if the GroupUser is made
-        // $group_user = GroupUser::find($group->id);
-        // if(!$group_user){
-        //     //Create A GroupUser
-        //     foreach ($$check_box_array as $user) {
-        //         GroupUser::create([
-        //             'group_id' => $group_to_add,
-        //             'user_id' => $user,
-        //             'value' => 0
-        //         ]);
-        //     } // All Added
-        //     //TODO:: Add main person here too
-            
-        // }else{
-        //     //Add to Group User
-        //     $group_people = GroupUser::where('group_id',$group_id)->get();
-        //     if(count($group_people)< 5){
+        
+        //Now check GroupUser if exists or not
+        $gu = GroupUser::where('group_id',$group_id)->get();
+        //
+        if($gu->count()){
+            //GroupUsers exist 
+            //Check if the group has 5 members or not
+            if(count($gu)>=6 ){
+            return 33; //Group is full
+            }
+            //Find This mate
+            $mate = GroupUser::where('user_id','=',$user_id)->where('group_id','=',$group_id)->first();
+            if(count($mate)>=1){
+                return 34; //User Alerady in group
+            }
+            //No user is not in group, add him
+            GroupUser::create([
+                'group_id' => $group_id,
+                'user_id' => $user_id //Since authenticated user can add only
+            ]);
+            return 10;
 
-        //     }
-        // }
+        }else{
+            //GroupUsers doesn't exist - Create new one
+            //Add the Owner first Time Only
+            GroupUser::create([
+                'group_id' => $group_id,
+                'user_id' => Auth::id(), //Since authenticated user can add only
+                'role_in_group' => 'owner'
+            ]);
+            //Now Add User
+            GroupUser::create([
+                'group_id' => $group_id,
+                'user_id' => $user_id //Since authenticated user can add only
+            ]);
+            return 10; // User added to group
+        }
         
-        
+    }
+
+    public function remove_from_group()
+    {
+        //Make it Post
     }
   
     /** Email Notifications */

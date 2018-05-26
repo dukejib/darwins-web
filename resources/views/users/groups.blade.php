@@ -103,8 +103,8 @@
                             <td>{{ $customer->email }}</td>
                             <th>
                             @if(count($groups)>0)
-                            <select id="select{{ $customer->id }}" value="you got {{$customer->id}}">
-                                <option value="0">Select Group</option>
+                            <select id="select{{ $customer->id }}" value="you got {{$customer->id}}" class="form-control">
+                                <option value="0">Groups</option>
                                 @foreach($groups as $group)
                                 <option value="{{ $group->id }}">{{ $group->group_title }}</option>   
                                 @endforeach
@@ -154,44 +154,71 @@ $('button').click(function(){
     $url = $('#url_link').attr('href');
     //Token
     $token = "{{ csrf_token() }}";
-    //Get The Select Value
-    $select = $('#select' + this.id).find(":selected").text();
+    //Get The Selected option Value (Not Text)
+    $select = $('#select' + this.id).find(":selected").val();
     console.log($select);
     //$select = 45;
     //Simplest Post
     $data = { user_id: $button_id, group_id: $select , _token:$token};
-    //$.ajax({
-     //  type: "POST",
-      //  url: $url,
-      //  data:$data,
-       // dataType: "json",
-       // success: function (response) {
+    $.ajax({
+        type: "POST",
+        url: $url,
+        data:$data,
+        dataType: "json",
+            success: function (response) {
             //AdminController is sending json reply:answer
             // console.log(response); 
-         //   document.write(response);
-          //  },
-        //error:function(error){
-            // console.log(error.status);
-            //alert('some error occured');
-          //  },
-        //complete:function(){
- 
-          //  }         
-        //});
-        var xhr = new XMLHttpRequest();
-xhr.open("POST", $url, true);
-xhr.setRequestHeader('Content-Type', 'application/json');
-xhr.send(JSON.stringify({
-    user_id: $button_id, group_id: $select , _token:$token
-}));
+            //document.write(response);
+            switch(response){
+                //Errors First
+                case 31:
+                    toastr.error('Please select a group first');
+                    break;
 
-xhr.onload = function() {
-      console.log("HELLO")
-  console.log(this.responseText);
-  document.write(this.responseText);
-  var data = JSON.parse(this.responseText);
-  console.log(data);
-}
+                case 32:
+                    toastr.error('Please select a user first');
+                    break;
+
+                case 33:
+                    toastr.info('Group is Full');
+                    break;
+
+                case 34:
+                    toastr.info('User already in group');
+                    break;
+
+                case 10:
+                    toastr.success('User added to Group');
+                    break;
+                default:
+                    alert('You have sent : ' + response);
+                    break;
+            }
+            ///toastr.success('Operation Successfull');
+            },
+            error:function(error){
+            // console.log(error.status);
+                //alert(error.status);
+            },
+            complete:function(){
+ 
+            }         
+        });
+        
+        //var xhr = new XMLHttpRequest();
+        //xhr.open("POST", $url, true);
+        //xhr.setRequestHeader('Content-Type', 'application/json');
+        //xhr.send(JSON.stringify({
+        //user_id: $button_id, group_id: $select , _token:$token
+        //}));
+
+        //xhr.onload = function() {
+        //    console.log("HELLO")
+        //console.log(this.responseText);
+        //document.write(this.responseText);
+        //var data = JSON.parse(this.responseText);
+        //console.log(data);
+        //}
 
 
 

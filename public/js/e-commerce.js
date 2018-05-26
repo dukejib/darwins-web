@@ -1,27 +1,4 @@
-/**===============================================**/
-/** my.js = used for displaying modal with product
- * information. The button & modal is in index.blade.php
- */
-
-/**
- * Button btnProductDetails in index.blade.php
- */
-// $(document).ready(function(){
-//   $('.btnProductDetails').on('click',function(){
-//     $product = $.parseJSON(this.value);
-//     //$imageSrc = (window.location.href).slice(0,-1) +  $product['image'];
-//     $imageSrc = $product.image; // $product['image']
-//     console.log($imageSrc);
-
-
-//     $('.modal-body #title').html($product.title);
-//     $('.modal-body #description').html($product.description);
-//     $('.modal-body #price').html('Price : $ ' + $product.price);
-//     $('.modal-body #image').attr('src',$imageSrc);
-//     $('#productDetails').modal('show');
-//   });
-// });
-
+// e-commerce.js
 /** For Menu System  */
 $(document).ready(function(){
   $('.dropdown-submenu a.test').on("click", function(e){

@@ -24,7 +24,8 @@
 </head>
 
 <body>
-{{-- Include our Website Header--}}
+    <div class="container-fluid">
+    {{-- Include our Website Header--}}
     @include('partials.header')
 {{-- Include our website navigation--}}
     @include('partials.navigation')
@@ -36,7 +37,13 @@
 {{-- Include the website footer--}}
     @include('partials.footer')
 {{-- Include bottom navigation --}}
-    @include('partials.navigationbottom')
+    {{--  @include('partials.navigationbottom')  --}}
+{{--  Include Disclaimer  --}}
+    {{--  @include('partials.disclaimer')  --}}
+    
+    
+    
+    </div>
 
 {{--  Scripts For Bootstrap --}}
 <script src="{{ asset('js/jquery-3.2.1.js') }}"></script>
@@ -52,7 +59,7 @@
     //Uses Toastr https://github.com/CodeSeven/toastr
     toastr.options.closeButton = true;
     toastr.options.closeMethod = 'fadeOut';
-    toastr.options.timeOut = 120; //How long the toast will show
+    toastr.options.timeOut = 300; //How long the toast will show
     @if(Session::has('success'))
         toastr.success('{{ Session::get('success') }}','Operation Successfull');
     @endif

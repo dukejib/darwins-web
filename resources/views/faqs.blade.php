@@ -57,6 +57,7 @@
                 <li><a href="#31">How do I dispute a transaction made with my African Express Virtual Prepaid Card®?</a></li>
                 <li><a href="#32">What is the African Express Virtual Prepaid Card® Card Cash Back Rewards Program?</a></li>
                 <li><a href="#33">How do I earn cash back rewards using my African Express Virtual Prepaid Card?</a></li>
+                <li><a href="#34">What advantages, benefits and features does the African Express Virtual Prepaid Card® offer over other mainstream competitors?</a></li>
             </ol>
 
             <div class="well clearfix">
@@ -289,6 +290,13 @@
             <div class="well clearfix">
             <p class="text-justify" id="33">
             <strong>A.33</strong> You can earn cash back rewards by purchasing products and services on our website or anyplace where the <strong>African Express VPC App</strong> is accepted. Furthermore, if you are a member of our amazing and exciting Affiliate Crowdfunding Program and you participate in the internet viral method along with the sponsors you refer into this program to raise capital, you will earn 10% cashback per every $100.00 spent <strong>(in whole or increments)</strong>. For more details, see question <a href="#32">&num;32</a>.
+            </p>
+            <a href="#top" class="pull-right btn btn-success btn-xs">Go Top</a>
+            </div>
+
+            <div class="well clearfix">
+            <p class="text-justify" id="34">
+            <strong>A.34</strong> The idea of Debit Card payments came about as a result of payday loans high interest rate cost and interest on Credit Cards being so high that it became plausible to use your own money. Most merchants do not realize that they are also paying additional percentage fees for being clients of <strong>VISA CARD, MASTERCARD, AMERICAN EXPRESS CARD , DISCOVER CARD</strong> and <strong>PAYPAL</strong>, and other major third party gateway processors. These third party gateway fees overtime can cost merchants billions of dollars. Our company <strong>More Credit Card Services</strong> supports this non-payment of procurement gateway fees and high interest rates so that we can give you the best value for your dollar. So if you spend up to $100.00 USD or in Bitcoin (BTC) equivalency <strong>(in whole or increments)</strong> wherever the African Express VPC is accepted, you will earn <strong>10% Cash Back</strong> for every $100.00 expenditure.
             </p>
             <a href="#top" class="pull-right btn btn-success btn-xs">Go Top</a>
             </div>

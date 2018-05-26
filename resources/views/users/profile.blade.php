@@ -86,23 +86,9 @@
     {{ csrf_field() }} 
 
     <div class="form-group">
-        <label for="primary_contact_no" class="control-label col-xs-3">Primary Contact *</label>
+    <label for="business_name" class="control-label col-xs-3">Business/Company Name</label>
         <div class="col-xs-9">
-            <input type="text" class="form-control" name="primary_contact_no" value="{{ $profile->primary_contact_no}}">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="secondary_contact_no" class="control-label col-xs-3">Secondary Contact</label>
-        <div class="col-xs-9">
-            <input type="text" class="form-control" name="secondary_contact_no" value="{{ $profile->secondary_contact_no}}">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="postal_code" class="control-label col-xs-3">Postal Code</label>
-        <div class="col-xs-9">
-            <input type="text" class="form-control" name="postal_code" value="{{ $profile->postal_code}}">
+            <input type="text" class="form-control" name="business_name" value="{{ $profile->business_name}}">
         </div>
     </div>
 
@@ -126,6 +112,13 @@
             <input type="text" class="form-control" name="city" value="{{ $profile->city}}">
         </div>
     </div>
+    
+    <div class="form-group">
+        <label for="state" class="control-label col-xs-3">State *</label>
+        <div class="col-xs-9">
+            <input type="text" class="form-control" name="state" value="{{ $profile->state}}">
+        </div>
+    </div>
 
     <div class="form-group">
         <label for="country" class="control-label col-xs-3">Country *</label>
@@ -134,6 +127,33 @@
         </div>
     </div>
 
+     <div class="form-group">
+        <label for="primary_contact_no" class="control-label col-xs-3">Primary Contact *</label>
+        <div class="col-xs-9">
+            <input type="text" class="form-control" name="primary_contact_no" value="{{ $profile->primary_contact_no}}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="secondary_contact_no" class="control-label col-xs-3">Secondary Contact</label>
+        <div class="col-xs-9">
+            <input type="text" class="form-control" name="secondary_contact_no" value="{{ $profile->secondary_contact_no}}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="postal_code" class="control-label col-xs-3">Postal Code</label>
+        <div class="col-xs-9">
+            <input type="text" class="form-control" name="postal_code" value="{{ $profile->postal_code}}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email_address" class="control-label col-xs-3">Email Address</label>
+        <div class="col-xs-9">
+            <input type="text" class="form-control" name="email_address" value="{{ $profile->email_address}}">
+        </div>
+    </div>
 
     {{--  <div class="form-group">
         <label for="avatar" class="control-label col-xs-3">Upload New Avatar</label>
