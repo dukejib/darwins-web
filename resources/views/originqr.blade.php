@@ -70,28 +70,37 @@
 
             <div class="col-md-6">
                     <video width="480" height="360" controls class="center-block">
-                        <source src="{{ asset('videos/cuecat01.ogg') }}" type="video/ogg">
+                        <source src="{{ asset('videos/cuecat02.webm') }}" type="video/webm">
+                        <source src="{{ asset('videos/cuecat02.mp4') }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
             </div>
 
              <div class="col-md-6">
                     <video width="480" height="360" controls class="center-block">
-                        <source src="{{ asset('videos/cuecat02.ogg') }}" type="video/ogg">
+                        <source src="{{ asset('videos/cuecat01.webm') }}" type="video/webm">
+                        <source src="{{ asset('videos/cuecat01.mp4') }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
             </div>
 
         </div>
-        
-
         <br>
-        <p class="text-justify">
-            <img src="{{ asset('img/pic1.jpg') }}" class="thumbnail img-responsive" alt="Cuecat" style="float: left;margin-right:20px;">
-            The term App(s) means "Application" and generally speaking an App is defined as a means of using software to convert a desk-top website&apos;s visual format to the equivalent of a 2x4 or larger mobile device screens.<br><br>
-            It is also a means or mechanism of reducing a long URL name to just a few key strokes, needed because of the small size of mobile devices, using what is known as a <strong>Q.R. Code</strong> to implement the process, in other words it is all about ergonomics.<br><br>
-            Ergonomics is an applied science that deal with designing and arranging things at a high quality level so that people can interact with them most efficiently, effectively, easily and safely.
-        </p>
+        <br>
+        <div class="media">
+            <div class="media-left media-middle">
+                <img src="{{ asset('img/pic1.jpg') }}" alt="Cuecat" class="media-object" width="450px">
+            </div>
+            <div class="media-body">
+                <p class="text-justify">
+                    The term App(s) means "Application" and generally speaking an App is defined as a means of using software to convert a desk-top website&apos;s visual format to the equivalent of a 2x4 or larger mobile device screens.<br><br>
+                    It is also a means or mechanism of reducing a long URL name to just a few key strokes, needed because of the small size of mobile devices, using what is known as a <strong>Q.R. Code</strong> to implement the process, in other words it is all about ergonomics.<br><br>
+                    Ergonomics is an applied science that deal with designing and arranging things at a high quality level so that people can interact with them most efficiently, effectively, easily and safely.
+                </p>
+            </div>
+        </div>
+
+
 
     </div>
 

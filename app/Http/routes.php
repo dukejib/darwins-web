@@ -1,5 +1,6 @@
 <?php
- 
+
+
 Route::get('updates','FrontEndController@updates')->name('updates');
 /** Cart Related Routes */
 Route::get('/cart','CartController@cart')->name('cart'); //Show Cart
@@ -10,8 +11,11 @@ Route::get('/cart/paynow/{orderid}/{paymentoptions}','CartController@paynow')->n
 Route::get('/cart/add_to_cart/{id}','CartController@add_to_cart')->name('cart.add');
 Route::get('/cart/decrease_item/{id}{qty}','CartController@decrease_item')->name('cart.decrease');
 Route::get('/cart/increase_item/{id}{qty}','CartController@increase_item')->name('cart.increase');
-Route::get('/receive_payment','CartController@receive_payment');
-Route::get('/get_btc_address/{orderid}','CartController@get_btc_address')->name('getbtcaddress'); //This gets the Btc QR Code and save it in database
+/** Bitcoin Related Routes */
+Route::get('/gap','BitcoinController@get_gap');
+Route::get('/response/{orderid}','BitcoinController@get_response')->name('get_response');
+Route::get('/receive_payment','BitcoinController@receive_payment'); 
+Route::get('/get_btc_address/{orderid}','BitcointController@get_btc_address')->name('get_btc_address'); //This gets the Btc QR Code and save it in database
 
 /** Common Routes */
 Route::get('/','FrontEndController@index')->name('home');    //Show Index Page with Products
@@ -63,6 +67,9 @@ Route::group(['prefix' => 'user'],function(){
     Route::post('/password','UserController@user_password')->name('user.profile.account')->middleware('auth'); 
     Route::post('/contact','UserController@user_contact')->name('user.profile.contact')->middleware('auth');
     Route::get('/becomeaffiliate','UserController@become_affiliate')->name('user.profile.become_affiliate')->middleware('auth');
+    Route::get('/checkout/vpc/{orderid}','UserController@checkout_vpc')->name('cart.checkout.vpc')->middleware('auth');
+    Route::get('/checkout/usps/{orderid}','UserController@checkout_usps')->name('cart.checkout.usps')->middleware('auth');
+    Route::get('/checkout/btc/{orderid}','UserController@checkout_btc')->name('cart.checkout.btc')->middleware('auth');
     //Groups & Group_Users
     Route::post('/group/create','UserController@create_group')->name('user.group.create')->middleware('auth');
     Route::post('/group/add_to_group','UserController@add_to_group')->name('user.group.add_to')->middleware('auth');

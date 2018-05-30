@@ -24,6 +24,55 @@ class Helper {
 
     static private $cache_time = 24 * 7 * 60;
 
+    public static function getMenus(){
+        /** create the Menu System */
+        $local =LocalCategory::where('active',1)->get(); 
+        $sub = SubCategory::where('active',1)->get();
+        $global = GlobalCategory::where('active',1)->get();
+        //Hold Only Those Sub Categories, which have any Local Category
+        $sub_categories  = array();  
+        foreach($sub as $s):
+            if(count($s->local_categories)>0){
+                array_push($sub_categories,$s);
+            }
+        endforeach;
+        //Size of $sub_categories array
+        $sub_size = count($sub_categories); 
+  
+        //Hold Only those Global Categories, which have any sub category
+        $global_categories = array(); 
+        foreach($global as $g):
+            for ($i=0; $i < $sub_size; $i++) { 
+                if($sub_categories[$i]->global_category_id == $g->id){
+                    // array_push($global_categories,$g);
+                    if(!in_array($g,$global_categories)){
+                        array_push($global_categories,$g); //If it's already not in array, then add it
+                    }
+                }
+            }
+        endforeach;
+
+        //Hold on to those Local Categories, which have sub categories
+        $local_categories = array(); 
+        foreach($local as $l):
+            for ($i=0; $i < $sub_size; $i++) { 
+                if($l->sub_category->id == $sub_categories[$i]->id){
+                    //Only add Local category with corresponding Sub categories
+                    array_push($local_categories,$l);
+                }
+            }
+        endforeach;
+         /** Settings for the system */
+         $settings = Setting::first();
+        /** Return Data */
+         return compact(
+            'global_categories',
+            'sub_categories',
+            'local_categories',
+            'settings'
+        );
+    }
+    
     public static function getBasicDataForCart()
     {
         /** create the Menu System */

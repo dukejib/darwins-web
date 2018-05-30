@@ -148,12 +148,13 @@ class UserController extends Controller
           
             $user = Auth::user();
             $this->clearLoginAttempts($request);
-            if ($user->role == 1 || $user->role == 2){
+            if ($user->role == 1 || $user->role == 2)
+            {
                 if(Session::has('cart')){
                     return redirect()->route('cart');
                 }
                 return redirect()->intended();
-            }elseif($user->role == 99) {
+            } elseif($user->role == 99) {
                 return redirect()->route('dashboard');
             }
 
@@ -174,6 +175,31 @@ class UserController extends Controller
             }
             return redirect()->route('home');
         }
+    }
+
+    public function checkout_vpc($orderid)
+    {   
+        $order = Order::find($orderid);
+        return view('cart.checkout_vpc')
+        ->with('total',$order->order_total_usd)
+        ->with('orderid',$order->id)
+        ->with(Helper::getBasicData());
+    }
+
+    public function checkout_usps($orderid)
+    {
+        $order = Order::find($orderid);
+        return view('cart.checkout_usps')
+        ->with('total',$order->order_total_usd)
+        ->with(Helper::getBasicData());
+    }
+
+    public function checkout_btc($orderid)
+    {
+        $order = Order::find($orderid);
+        return view('cart.checkout_bitcoins')
+        ->with('orderid',$order->id)
+        ->with(Helper::getBasicData());
     }
 
     public function user_affiliate($id)

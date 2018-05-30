@@ -263,9 +263,26 @@
 
 <script>
     //Uses Toastr https://github.com/CodeSeven/toastr
-    toastr.options.closeButton = true;
-    toastr.options.closeMethod = 'fadeOut';
-    toastr.options.timeOut = 120; //How long the toast will show
+    /** Toastr Options */
+    //Toastr Settings
+    toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-bottom-full-width",
+    // "positionClass": "toast-bottom-center",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+    };
     @if(Session::has('success'))
         toastr.success('{{ Session::get('success') }}','Operation Successfull');
     @endif

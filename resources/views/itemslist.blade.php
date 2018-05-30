@@ -32,7 +32,7 @@
         <div class="item">
         
         <a href="{{ route('show.product',['id' => $l->id]) }}">
-                <div class="popular"></div> 
+                <div class="latest"></div> 
                 <img src="{{ asset($l->image) }}" alt="{{ $l->title }}" width = "200px">
         </a>
         <div class="text-center"><strong>{{ $l->title }}</strong></div>
@@ -49,7 +49,7 @@
         @foreach($popular as $l)
         <div class="item">
                 <a href="{{ route('show.product',['id' => $l->id]) }}"> 
-                        <div class="latest"></div>
+                        <div class="popular"></div>
                         <img src="{{ asset($l->image) }}" alt="{{ $l->title }}" width = "200px">
                 </a>
                 <div class="text-center"><strong>{{ $l->title }}</strong></div>

@@ -183,7 +183,8 @@
         success: function (response) {
             //AdminController is sending json reply:answer
             // console.log(response); 
-            document.write(response);
+            //document.write(response);
+             window.location.replace(response);
             },
         error:function(error){
             // console.log(error.status);

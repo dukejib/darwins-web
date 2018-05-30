@@ -104,14 +104,14 @@
 
             <div class="well clearfix">
             <p class="text-justify" id="7">
-            <strong>A.7</strong> There are a few key items needed to successfully activate the card. We must collect your first name and last name, a verifiable physical U.S. street address, date of birth, home phone number and e-mail address.
+            <strong>A.7</strong> There are a few key items needed to successfully activate the card. We must collect your first name and last name, a verifiable physical international or U.S. street address, date of birth, home phone number and e-mail address.
             </p>
             <a href="#top" class="pull-right btn btn-success btn-xs">Go Top</a>
             </div>
 
             <div class="well clearfix">
             <p class="text-justify" id="8">
-            <strong>A.8</strong> Yes. The <strong>African Express VPC Account Wallet</strong> is a safe and secure payment alternative. Your card cannot be lost or stolen because it is a virtual debit card. In addition, upon receipt by More Credit Card Services, of Hayward, California, your funds are insured up to the current limit of $250.000.00. <strong>The African Express VPC App</strong> are issued by More Credit Card Services.
+            <strong>A.8</strong> Yes. The <strong>African Express VPC Account Wallet</strong> is a safe and secure payment alternative. Your card cannot be lost or stolen because it is a virtual debit card installed on your mobile device with advanced security features. This account wallet holds both <strong>U.S Dollars (USD)</strong> and <strong>Bitcoin (BTC)</strong> at the same time. In addition, upon receipt by More Credit Card Services, of Hayward, California, your funds are insured up to the current limit of $250.000.00 on the USD Value side of your account wallet <strong>(Not Bitcoin). The African Express VPC App</strong> are issued by <strong>More Credit Card Services</strong>.
             </p>
             <a href="#top" class="pull-right btn btn-success btn-xs">Go Top</a>
             </div>
@@ -133,7 +133,7 @@
 
             <div class="well clearfix">
             <p class="text-justify" id="11">
-            <strong>A.11</strong> If you do not establish getting an <strong>African Express VPC Account Wallet</strong>, you will not have access to the entire suite of <strong>African Express VPC</strong> online features and functionality. Valuable online features include access to the online account wallet where you may securely view your <strong>African Express VPC Account Wallet</strong> balance and transaction history, use of our online bill payment service, access to the Virtual Account feature and eligibility to open an optional tiered-rate savings account. As our slogan states &quot;You can&apos;t do business without it&quot;.
+            <strong>A.11</strong>  If you do not establish getting an <strong>African Express VPC Account Wallet</strong>, you will not have access to the entire suite of <strong>African Express VPC</strong> online benefits, features and functionality. Valuable online features include access to the online account wallet where you may securely view your African Express VPC Account Wallet balance and transaction history, use of our online bill payment service and access to 10% cash-back rewards earned. As our slogan states <strong>&quot;You can&amp;t do business without it&quot;</strong>.
             </p>
             <a href="#top" class="pull-right btn btn-success btn-xs">Go Top</a>
             </div>
@@ -147,7 +147,7 @@
 
             <div class="well clearfix">
             <p class="text-justify" id="13">
-            <strong>A.13</strong> Due to lack of funds and inactivity on the USD Value side of your <strong>African Express VPC Account Wallet</strong> you will not receive a new app seeing that the download is effective.
+            <strong>A.13</strong>  Due to lack of funds and inactivity on the USD Value side of your <strong>African Express VPC Account Wallet</strong> you will not receive a new app seeing that the download is effective and installed on your mobile device.
             </p>
             <a href="#top" class="pull-right btn btn-success btn-xs">Go Top</a>
             </div>

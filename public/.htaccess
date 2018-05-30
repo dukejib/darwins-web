@@ -3,6 +3,10 @@
         Options -MultiViews
     </IfModule>
 
+    AddType audio/ogg .oga
+AddType video/ogg .ogv
+AddType application/ogg .ogg
+
     RewriteEngine On
 
     # Redirect Trailing Slashes If Not A Folder...
