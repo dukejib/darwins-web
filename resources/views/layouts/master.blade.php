@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-    <title>@yield('title')</title>
+    <title>More Credit Card Services</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,8 +64,8 @@
     "debug": false,
     "newestOnTop": false,
     "progressBar": true,
-    "positionClass": "toast-bottom-full-width",
-    // "positionClass": "toast-bottom-center",
+    //"positionClass": "toast-bottom-full-width",
+    "positionClass": "toast-bottom-center",
     "preventDuplicates": false,
     "onclick": null,
     "showDuration": "300",

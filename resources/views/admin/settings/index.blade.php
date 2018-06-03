@@ -11,93 +11,81 @@
     </div>
 
     <div class="panel-body">
-        
-        <div class="col-md-8">
-        
-            <form action="{{ route('setting.update') }}" method="post">
-            {{ csrf_field() }} 
+        <form action="{{ route('setting.update') }}" method="post">
+        {{ csrf_field() }} 
 
-            <div class="form-group form-inline">
-                <label for="site_name" style="width:200px">Site Name</label>
-                <input type="text" class="form-control" name="site_name" value="{{ $settings->site_name }}" style="width:100%">
+            <div class="col-md-8">
+            
+                <div class="form-group form-inline">
+                    <label for="site_name" style="width:200px">Site Name</label>
+                    <input type="text" class="form-control" name="site_name" value="{{ $settings->site_name }}" style="width:100%">
+                </div>
+
+                <div class="form-group form-inline">
+                    <label for="address_line1" style="width:200px">Address Line 1</label>
+                    <input type="text" class="form-control" name="address_line1" value="{{ $settings->address_line1 }}" style="width:100%">
+                </div>
+
+                <div class="form-group form-inline">
+                    <label for="address_line2" style="width:200px">Address Line 2</label>
+                    <input type="text" class="form-control" name="address_line2" value="{{ $settings->address_line2 }}" style="width:100%">
+                </div>
+
+                <div class="form-group form-inline">
+                    <label for="address_line3" style="width:200px">Address Line 3</label>
+                    <input type="text" class="form-control" name="address_line3" value="{{ $settings->address_line3 }}" style="width:100%">
+                </div>
+
+                <div class="form-group form-inline">
+                    <label for="contact_line1" style="width:200px">Contact Number 1</label>
+                    <input type="text" class="form-control" name="contact_line1" value="{{ $settings->contact_line1 }}" style="width:100%">
+                </div>
+
+                <div class="form-group form-inline">
+                    <label for="contact_line2" style="width:200px">Contact Number 2</label>
+                    <input type="text" class="form-control" name="contact_line2" value="{{ $settings->contact_line2 }}" style="width:100%">
+                </div>
+
+
             </div>
 
-            <div class="form-group form-inline">
-                <label for="address_line1" style="width:200px">Address Line 1</label>
-                <input type="text" class="form-control" name="address_line1" value="{{ $settings->address_line1 }}" style="width:100%">
-            </div>
+            <div class="col-md-4">
+            
+                <div class="form-group form-inline">
+                    <label for="contact_mobile" style="width:200px">Contact Mobile</label>
+                    <input type="text" class="form-control" name="contact_mobile" value="{{ $settings->contact_mobile }}" style="width:100%">
+                </div>
 
-            <div class="form-group form-inline">
-                <label for="address_line2" style="width:200px">Address Line 2</label>
-                <input type="text" class="form-control" name="address_line2" value="{{ $settings->address_line2 }}" style="width:100%">
-            </div>
+                <div class="form-group form-inline">
+                    <label for="contact_email" style="width:200px">Contact Email</label>
+                    <input type="text" class="form-control" name="contact_email" value="{{ $settings->contact_email }}" style="width:100%">
+                </div>
 
-            <div class="form-group form-inline">
-                <label for="address_line3" style="width:200px">Address Line 3</label>
-                <input type="text" class="form-control" name="address_line3" value="{{ $settings->address_line3 }}" style="width:100%">
-            </div>
+                <div class="form-group form-inline">
+                    <label for="carousel_time" style="width:200px">Carousel Time</label>
+                    <input type="number" min="1000" step="100" max="10000" class="form-control" name="carousel_time" value="{{ $settings->carousel_time }}">
+                </div>
 
-            <div class="form-group form-inline">
-                <label for="xpub" style="width:200px"><span class="text-warning">Blockchain XPUB</span></label>
-                <input type="text" class="form-control" name="xpub" value="{{ $settings->xpub }}" style="width:100%">
-            </div>
+                <div class="form-group form-inline">
+                    <label for="fed_tax" style="width:200px">F.E.D Tax (0.15 means 15% tax)</label>
+                    <input type="number" min="0.05" step="0.05" max="1.0" class="form-control" name="fed_tax" value="{{ $settings->fed_tax }}">
+                </div>
 
-        
-            <div class="form-group form-inline">
-                <label for="apikey" style="width:200px"><span class="text-warning">Blockchain Receive API KEY</span></label>
-                <input type="text" class="form-control" name="apikey" value="{{ $settings->apikey }}" style="width:100%">
-            </div>
+                <div class="form-group form-inline">
+                    <label for="shipping_charges" style="width:200px">Shipping Charges (0.23 means 23% tax)</label>
+                    <input type="number" min="0.05" step="0.05" max="1.0" class="form-control" name="shipping_charges" value="{{ $settings->shipping_charges }}">
+                </div>
 
-
-        </div>
-
-        <div class="col-md-4">
-        
-            <div class="form-group form-inline">
-                <label for="contact_line1" style="width:200px">Contact Number 1</label>
-                <input type="text" class="form-control" name="contact_line1" value="{{ $settings->contact_line1 }}" style="width:100%">
-            </div>
-
-            <div class="form-group form-inline">
-                <label for="contact_line2" style="width:200px">Contact Number 2</label>
-                <input type="text" class="form-control" name="contact_line2" value="{{ $settings->contact_line2 }}" style="width:100%">
-            </div>
-
-            <div class="form-group form-inline">
-                <label for="contact_mobile" style="width:200px">Contact Mobile</label>
-                <input type="text" class="form-control" name="contact_mobile" value="{{ $settings->contact_mobile }}" style="width:100%">
-            </div>
-
-            <div class="form-group form-inline">
-                <label for="contact_email" style="width:200px">Contact Email</label>
-                <input type="text" class="form-control" name="contact_email" value="{{ $settings->contact_email }}" style="width:100%">
-            </div>
-
-            <div class="form-group form-inline">
-                <label for="carousel_time" style="width:200px">Carousel Time</label>
-                <input type="number" min="1000" step="100" max="10000" class="form-control" name="carousel_time" value="{{ $settings->carousel_time }}">
-            </div>
-
-            <div class="form-group form-inline">
-                <label for="fed_tax" style="width:200px">F.E.D Tax (0.15 means 15% tax)</label>
-                <input type="number" min="0.05" step="0.05" max="1.0" class="form-control" name="fed_tax" value="{{ $settings->fed_tax }}">
-            </div>
-
-            <div class="form-group form-inline">
-                <label for="shipping_charges" style="width:200px">Shipping Charges (0.23 means 23% tax)</label>
-                <input type="number" min="0.05" step="0.05" max="1.0" class="form-control" name="shipping_charges" value="{{ $settings->shipping_charges }}">
             </div>
 
             <div class="form-group form-inline">
                 <div class="text-center">
-                    <button type="submit" class="btn btn-success">Update Site Settings</button>
+                    <button type="submit" class="btn btn-success btn-block">Update Site Settings</button>
                 </div>
             </div>
 
         </form>
 
-
-        </div>
 
     </div>
 

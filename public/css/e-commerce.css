@@ -36,21 +36,6 @@
     font-size: 24px;
 }
 
-.myp {
-    font-family: 'Cabin', sans-serif;
-    font-size: 14px;
-}
-
-.myp strong{
-    color:var(--main-primary-color);
-    font-size:14px;
-    font-weight: bold;
-}
-
-.myp ul li{
-    font-size:14px;
-}
-
 /* Using */
 .footer hr{
     width:80%;

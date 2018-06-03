@@ -82,7 +82,9 @@ Route::group(['prefix' => 'admin'],function(){
     Route::get('/dashboard','AdminController@dashboard')->name('dashboard');
     /** Website Settings */
     Route::get('/settings','SettingsController@index')->name('settings');
+    Route::get('/btcsettings','SettingsController@get_btc_settings')->name('get_btc_settings');
     Route::post('/settings/update','SettingsController@update')->name('setting.update');
+    Route::post('/settings/btc/update','SettingsController@btc_update')->name('setting_btc.update');
     
     Route::get('/refill','SettingsController@refill_statement')->name('refill.show');
     Route::post('/refill/update','SettingsController@refill_update')->name('refill.update');

@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('title')
-    {{ $settings->site_name }}
-@endsection
-
 @section('content')
 
 <div class="row">
@@ -54,7 +50,7 @@
                             <img src="{{ asset('robot.png') }}" alt="">
                         </div>
                         <div class="col-xs-9">
-                            <div  class="g-recaptcha" data-sitekey="{{ env('NOCAPTCHA_SITEKEY') }}"></div>
+                            <div  class="g-recaptcha" data-sitekey="{{ Config::get('vpc.nocaptcha_sitekey') }}"></div>
                         </div>
 
                     </div>
@@ -81,15 +77,15 @@
         </legend>
 
             <h4>Address</h4>
-            {{ $settings->address_line1 }}<br>
-            {{ $settings->address_line2 }}<br>
-            {{ $settings->address_line3 }}<br>
+            {{ Config::get('vpc.address_line1') }}<br>
+            {{ Config::get('vpc.address_line2') }}<br>
+            {{ Config::get('vpc.address_line3') }}<br>
             <br>
             <h4>Contact Us</h4>
-            <i class="fa fa-phone"></i> {{ $settings->contact_line1 }}<br>
-            <i class="fa fa-mobile-phone"></i> {{ $settings->contact_line2 }}<br>
-            <i class="fa fa-phone-square"></i> {{ $settings->contact_mobile }}<br>
-            <i class="fa fa-envelope"></i>{{ $settings->contact_email }}<br>
+            <i class="fa fa-phone"></i> {{ Config::get('vpc.contact_line1') }}<br>
+            <i class="fa fa-mobile-phone"></i> {{ Config::get('vpc.contact_line2') }}<br>
+            <i class="fa fa-phone-square"></i> {{ Config::get('vpc.contact_mobile') }}<br>
+            <i class="fa fa-envelope"></i>{{ Config::get('vpc.contact_email') }}<br>
         </div>
 
     </div>

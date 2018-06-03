@@ -23,6 +23,9 @@ class CreateProfilesTable extends Migration
             $table->string('address_continued')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
+            $table->string('business_name')->nullable();
+            $table->string('state')->nullable();
+            $table->string('email_address')->nullable();
             $table->timestamps();
         });
     }

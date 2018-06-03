@@ -1,10 +1,5 @@
 @extends('layouts.master')
 
-@section('title')
-    {{ $settings->site_name }}
-@endsection
-
-
 @section('content')
 
 <div class="row">

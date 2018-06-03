@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('title')
-    {{ $settings->site_name }}
-@endsection
-
 @section('content')
     <h1>Brochure</h1>
     @if($settings->brochure_filename == '')

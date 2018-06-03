@@ -92,11 +92,12 @@ class CartController extends Controller
             $user = Auth::user();
         }else {
             /** User Not Authenticated - Return him back to Singin Page */
-            $html = view('users.signin')
-            ->with(Helper::getBasicData())
-            ->render();
-            return response()->json($html);
+            // $html = view('users.signin')
+            // ->with(Helper::getBasicData())
+            // ->render();
+            // return response()->json($html);
             //This takes us out of here
+            return  response()->json(route('signin'));
         }
         //Since we are logged in - Process the Order
 
@@ -182,7 +183,7 @@ class CartController extends Controller
         // return 99;
         // Session::flash('success','Order Placed');      
         // return view('cart.checkout')
-        return response()->json($html);
+        // return response()->json($html);
     }
 
     //Cart Book Checkout
@@ -199,11 +200,12 @@ class CartController extends Controller
             $user = Auth::user();
         }else {
             /** User Not Authenticated - Return him back to Singin Page */
-            $html = view('users.signin')
-            ->with(Helper::getBasicData())
-            ->render();
-            return response()->json($html);
+            // $html = view('users.signin')
+            // ->with(Helper::getBasicData())
+            // ->render();
+            // return response()->json($html);
             //This takes us out of here
+            return  response()->json(route('signin'));
         }
         /** Create Order */
         $order = Order::create([

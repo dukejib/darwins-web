@@ -24,6 +24,13 @@ class SettingsController extends Controller
         ->with('settings',Setting::first());
     }
 
+    public function get_btc_settings()
+    {
+        return view('admin.settings.bitcoin_settings')
+        ->with('online_user_count',Helper::getOnlineUsersCount())
+        ->with('settings',Setting::first());
+    }
+
     public function update()
     {
         $this->validate(request(),[
@@ -31,6 +38,9 @@ class SettingsController extends Controller
             'address_line1' => 'required',
             'contact_line1' => 'required',
             'contact_email' => 'required|email',
+            'carousel_time' => 'required',
+            'fed_tax' => 'required',
+            'shipping_charges' => 'required'
         ]);
         $settings =  Setting::first();
         $settings->site_name = request()->site_name;
@@ -42,9 +52,32 @@ class SettingsController extends Controller
         $settings->contact_mobile = request()->contact_mobile;
         $settings->contact_email = request()->contact_email;
         $settings->carousel_time = request()->carousel_time;
+        $settings->fed_tax = request()->fed_tax;
+        $settings->shipping_charges = request()->shipping_charges;
         $settings->save();
 
         Session::flash('success','Settings Updated');
+        return redirect()->back();
+    }
+
+    public function btc_update()
+    {
+        $this->validate(request(),[
+            'v2apikey' => 'required',
+            'bcwallet' => 'required',
+            'xpub1' => 'required',
+        ]);
+        $settings =  Setting::first();
+        $settings->v2apikey = request()->v2apikey;
+        $settings->bcwallet = request()->bcwallet;
+        $settings->xpub1 = request()->xpub1;
+        $settings->xpub2 = request()->xpub2;
+        $settings->xpub3 = request()->xpub3;
+        $settings->xpub4 = request()->xpub4;
+        $settings->xpub5 = request()->xpub5;
+        $settings->save();
+
+        Session::flash('success','Blockchain Settings Updated');
         return redirect()->back();
     }
 

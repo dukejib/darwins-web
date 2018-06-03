@@ -82,19 +82,28 @@ class SettingTableSeeder extends Seeder
         </p><p>The idea of Debit Card payments came about as a result of payday loans high interest rate cost and interest on Credit Cards being so high that it became plausible to use your own money. Most merchants do not realize that they are also paying additional percentage fees for being clients of <b>VISA CARD, MASTERCARD, AMERICAN EXPRESS CARD</b> and <b>DISCOVER CARD,</b> <b>PAYPAL</b>, and other major third party gateway processors. These third party gateway fees overtime can cost merchants millions of dollars. Our company <b>More Credit Card Services</b> supports this non-payment of procurement gateway fees and high interest rates so that we can give you the best value for your dollar. So if you spend up to $100.00 USD wherever the African Express VPC is accepted, you will earn <b>10% Cash Back</b> for every $100.00 USD expenditure.</p>';
         
         Setting::create([
-            'site_name' => 'More Credit Card Services',
-            'address_line1' => 'MORE CREDIT CARD SERVICES',
-            'address_line2' => '22078 Arbor Avenue Suite #234',
-            'address_line3' => 'Hayward, California 94541',
-            'contact_line1' => '510-491-3264',
-            'contact_line2' => '510-921-7366',
-            'contact_mobile' => '510-887-0993',
-            'contact_email' => 'mailman@morecreditcardservices.com',
             'tos_filename' => 'tos.pdf',
             'refill_statement' => $refill_text,
             'app_statement' => $app_text,
-            'apikey' => 'a4b884f4-d61a-4cb1-b407-b9936122aa24',
-            'xpub' => 'xpub6C1pvtLR2uzM36Bq3AToYKi9q3FJJ4vYu5kLaZc7phSDsfhXr1xQu3pSAquTrSuTiu8JpoPyRZmUghLYrNv8pPiE6ENPo3AdD79U2boQiQH'
+            'brochure_filename' => '',
+            'site_name' => 'More Credit Card Services',
+                'address_line1' => 'MORE CREDIT CARD SERVICES',
+                'address_line2' => '22078 Arbor Avenue Suite #234',
+                'address_line3' => 'Hayward, California 94541',
+                'contact_line1' => '510-491-3264',
+                'contact_line2' => '510-921-7366',
+                'contact_mobile' => '510-887-0993',
+                'contact_email' => 'mailman@morecreditcardservices.com',
+                'carousel_time' => 2500,
+                'fed_tax' => 0.15,
+                'shipping_charges' => 0.25,
+                'v2apikey' => 'a4b884f4-d61a-4cb1-b407-b9936122aa24',
+                'bcwallet' => '8127812b-1016-4068-88f2-88d025352bfc',
+                'xpub1' => 'xpub6C1pvtLR2uzM36Bq3AToYKi9q3FJJ4vYu5kLaZc7phSDsfhXr1xQu3pSAquTrSuTiu8JpoPyRZmUghLYrNv8pPiE6ENPo3AdD79U2boQiQH',
+                'xpub2' => '',
+                'xpub3' => '',
+                'xpub4' => '',
+                'xpub5' => ''
         ]);
         $this->command->info('Settings Seeded');
     }

@@ -22,16 +22,21 @@ class CreateSettingsTable extends Migration
             $table->string('contact_line2');
             $table->string('contact_mobile');
             $table->string('contact_email');
-            $table->integer('carousel_time')->default(5000);
-            $table->string('tos_filename')->nullable();
-            $table->string('brochure_filename')->nullable();
-            $table->text('refill_statement')->nullable();
-            $table->text('app_statement')->nullable();
-            $table->string('datafile')->nullable();
+            $table->integer('carousel_time')->default(2500);
             $table->float('fed_tax')->default(0.15);
-            $table->float('shipping_charges')->default(0.23);
-            $table->string('xpub')->nullable();
-            $table->string('apikey')->nullable();
+            $table->float('shipping_charges')->default(0.25);
+            $table->string('tos_filename')->nullable();         //Terms of Service
+            $table->string('brochure_filename')->nullable();    //Brochure File
+            $table->text('refill_statement')->nullable();       //Refill Statement
+            $table->text('app_statement')->nullable();          //App Statement     
+            $table->string('datafile')->nullable();             //Data File / VPC Book Etc
+            $table->string('v2apikey')->nullable();
+            $table->string('bcwallet')->nullable();
+            $table->string('xpub1')->nullable();
+            $table->string('xpub2')->nullable();
+            $table->string('xpub3')->nullable();
+            $table->string('xpub4')->nullable();
+            $table->string('xpub5')->nullable();
             $table->timestamps();
         });
     }

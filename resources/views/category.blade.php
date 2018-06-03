@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('title')
-    {{ $settings->site_name }}
-@endsection
-
 @section('content')
     <h1 class="text-center text-primary">{{ $title->name }}</h1>
     <hr>
