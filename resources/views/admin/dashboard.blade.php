@@ -78,7 +78,7 @@
     </div>
 
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <div class="panel panel-warning">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-6 col-xs-6">
@@ -102,7 +102,7 @@
     </div>
 
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <div class="panel panel-warning">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-6 col-xs-6">
@@ -126,7 +126,7 @@
     </div>
 
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <div class="panel panel-warning">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-6 col-xs-6">
@@ -150,7 +150,7 @@
     </div>
 
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <div class="panel panel-success">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-6 col-xs-6">
@@ -174,7 +174,7 @@
     </div>
 
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <div class="panel panel-success">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-md-6 col-xs-6">

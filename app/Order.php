@@ -13,7 +13,7 @@ class Order extends Model
     // ];
 
     protected $fillable = [
-        'user_id','sub_total','tax','shipping_charges','order_total_usd','order_total_btc','btc_address'
+        'user_id','sub_total','tax','shipping_charges','order_total_usd','order_total_btc','status'
     ];
 
     /** Relationships */

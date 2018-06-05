@@ -85,7 +85,7 @@ class UserController extends Controller
         $this->validate($request,[
             'first_name' => 'required|min:2|max:80',
             'last_name' => 'required|min:2|max:80',
-            // 'email' => 'required|email_domain:' . $request['email'] . '|max:255|unique:users',
+            'email' => 'required|email_domain:' . $request['email'] . '|max:255|unique:users', //Accept only prtonmail
             'password' => 'required|min:8|confirmed',
             'password_confirmation' => 'required|min:8',
         ]);
@@ -179,18 +179,17 @@ class UserController extends Controller
 
     public function checkout_vpc($orderid)
     {   
-        $order = Order::find($orderid);
+        $order = Order::where('id',$orderid)->first();
         return view('cart.checkout_vpc')
-        ->with('total',$order->order_total_usd)
-        ->with('orderid',$order->id)
+        ->with('order',$order)
         ->with(Helper::getBasicData());
     }
 
     public function checkout_usps($orderid)
     {
-        $order = Order::find($orderid);
+        $order = Order::where('id',$orderid)->first();
         return view('cart.checkout_usps')
-        ->with('total',$order->order_total_usd)
+        ->with('order',$order)
         ->with(Helper::getBasicData());
     }
 
@@ -198,7 +197,7 @@ class UserController extends Controller
     {
         $order = Order::find($orderid);
         return view('cart.checkout_bitcoins')
-        ->with('orderid',$order->id)
+        ->with('order',$order)
         ->with(Helper::getBasicData());
     }
 

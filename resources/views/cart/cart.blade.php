@@ -59,6 +59,7 @@
                
                 <div class="panel-footer text-center">
                     <a href="{{ route('cart.clear') }}" class="btn btn-danger"><i class="fa fa-trash"></i> Clear Cart</a>
+                    {{--  <a href="{{ route('cart.order.product',['option' => 1 , 'bitcoin' => 0])}}" class="btn btn-danger"><i class="fa fa-trash"></i> Pay check</a>  --}}
                 </div>
             </div>
         </div>
@@ -87,7 +88,7 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <a href="{{ route('cart.order.product',['option' => 0 , 'bitcoin' => 0])}}" id="order_url" hidden></a>
+                    {{--  <a href="{{ route('cart.order.product',['option' => 0 , 'bitcoin' => 0])}}" id="order_url" hidden></a>  --}}
                     <button class="btn btn-success" id="processCart"><i class="fa fa-cart-plus"></i> Process Cart</button>
                 </div>
             </div>
@@ -127,12 +128,15 @@
     $url = '';
     //Get the Url
     $(document).ready(function(){
-        $url = $('#order_url').attr('href').slice(0,-4);
+        $actual_url = "{{ route('cart.order.product',['option' => 0 , 'bitcoin' => 0])}}";
+        $url = $actual_url.slice(0,-4);
+        //$url = $('#order_url').attr('href').slice(0,-4);
         console.log("First Url : " + $url);
     })
+    
     // Process the USD to Bitcoin Script
     $(document).ready(function(){
-        $usd = '{{ ($subtotal + $fed + $shipping)}}';
+        $usd = '{{ ($subtotal + $fed + $shipping) }}';
         $reply='';
         $.ajax({
             url: 'https://blockchain.info/tobtc?currency=USD&value='+ $usd,
@@ -168,7 +172,7 @@
         }
         //If no Bitcoinis, then go back
         if($bitcoins == 0){
-            alert('Unable to fetch bitcoins amount. Unable to Proceed further');
+            alert('Unable to fetch bitcoins amount. Please try later');
             return;
         }
         //Now Process the Button
@@ -184,7 +188,7 @@
             //AdminController is sending json reply:answer
             // console.log(response); 
             //document.write(response);
-             window.location.replace(response);
+            window.location.replace(response);
             },
         error:function(error){
             // console.log(error.status);

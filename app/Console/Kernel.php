@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         // Commands\Inspire::class,
+        'App\Console\Commands\CheckUnusedAddress', //Use schdule to run it via crontab
     ];
 
     /**
@@ -32,7 +33,8 @@ class Kernel extends ConsoleKernel
         //     $message->to('dukejib@gmail.com', 'Ali Raja');
         //     $message->subject('Crontab Email');
         // });
-        
+    
+        $schedule->command('address:check')->everyFiveMinutes();
 
     }
 }

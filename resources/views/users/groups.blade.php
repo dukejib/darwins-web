@@ -9,7 +9,7 @@
         <form action="{{ route('user.group.create') }}" method="post" class="form-inline pull-right" >
             {{ csrf_field() }}
             <div class="input-group">
-                <input type="text" name="group_title" id="group_title" class="form-control" placeholder="Group Name">
+                <input type="text" name="group_title" id="group_title" class="form-control" placeholder="Group Name" required>
                 <span class="input-group-btn">
                 <button type="submit" class="btn btn-primary">Create Group</button>
                 </span>

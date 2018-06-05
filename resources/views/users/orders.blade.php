@@ -27,8 +27,7 @@
                 <th>Shipping</th>
                 <th>Total (USD)</th>
                 <th>Total (BTC)</th>
-                <th>Payment Status</th>
-                <th>QR</th>
+                <th>Status</th>
                 <th>Details</th>
                 <th>Delete</th>
             </tr>
@@ -41,14 +40,12 @@
                 <td>${{ $order->tax }}</td>
                 <td>${{ $order->shipping_charges }}</td>
                 <td>${{ $order->order_total_usd }}</td>
-                <td>${{ $order->order_total_btc }}</td>
+                <td>{{ $order->order_total_btc }}</td>
                 <td>
-                    Pending
-                    {{--  <button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#payNowModal" data-order="{{$order}}">Pay Now</button>  --}}
-                </td>
-                <td>
-                @if($order->btc_address != null)
-                    <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#showQR" data-order="{{$order}}">Show QR</button>
+                @if( $order->status == 1)
+                    <span class="text-success">Paid</span>
+                @else
+                    <span class="text-danger">Pending</span>
                 @endif
                 </td>
                 <td>

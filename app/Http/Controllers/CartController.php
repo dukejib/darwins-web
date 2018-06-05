@@ -11,11 +11,9 @@ use App\Order;
 use App\User;
 use App\OrderDetails;
 use App\PendingTransaction;
-use App\Transaction;
+use App\CompletedTransaction;
 use Illuminate\Support\Facades\Auth;
 use App\Helper\Helper;
-
-use App\Transactions;
 use Illuminate\Support\Facades\File;
 use Mockery\Exception;
 
@@ -38,6 +36,23 @@ class CartController extends Controller
         Cart::associate($cartItem->rowId,'App\Item');
         Session::flash('success','Item added to cart');
         return redirect()->back();
+    }
+
+    //This shows error. mostly used in javascript
+    public function error($info)
+    {
+        return view('error')
+        ->with(Helper::getBasicData())
+        ->with('info',$info);
+    }
+
+    //This shows Thanks YOu page . mostly used in javascript
+    public function info($address,$orderid)
+    {
+        $order = Order::where('id',$orderid)->first();
+        return view('info')
+        ->with(Helper::getBasicData())
+        ->with('order',$order);
     }
 
     //Shows our cart
@@ -91,12 +106,6 @@ class CartController extends Controller
         if(Auth::check()){
             $user = Auth::user();
         }else {
-            /** User Not Authenticated - Return him back to Singin Page */
-            // $html = view('users.signin')
-            // ->with(Helper::getBasicData())
-            // ->render();
-            // return response()->json($html);
-            //This takes us out of here
             return  response()->json(route('signin'));
         }
         //Since we are logged in - Process the Order
@@ -106,6 +115,7 @@ class CartController extends Controller
         $fedtax = Cart::subtotal() * $settings->fed_tax; //Cart Subtotal * FED Tax from Settings
         $shipping = Cart::subtotal() * $settings->shipping_charges; //Cart Subtotal * Shipping Charges from Settings
         $total_usd = Cart::subtotal() + $fedtax + $shipping; //Cart _usd 
+        
         /** Create Order */
         $order = new Order();
         $order->user_id = $user->id;
@@ -132,47 +142,26 @@ class CartController extends Controller
             $item->increment('item_purchased_count');
             $item->save();
         }
-        // exit();
         /** Clear Cart  */
         Cart::destroy();
         Session::forget('cart');
-        // exit();
+        /** Add Pending Transaction */
+        $p = PendingTransaction::create([
+            'order_id' => $order->id,
+            'value_in_usd' => $order->order_total_usd,
+            'value_in_btc' => $order->order_total_btc
+        ]);
+        
         switch ($option) {
             case '1':
-                //Remove btc_address
-                $order->btc_address = '';
-                $order->save();
-                //Add pending order
-                /** Add Pending Transaction */
-                $pen_transaction= PendingTransaction::create([
-                    'order_id' => $order->id,
-                    'usd' => $order->order_total_usd
-                ]);
                 return  response()->json(route('cart.checkout.vpc',['orderid' => $order->id]));
                 break;
             
             case '2':
-                //Remove btc_address
-                $order->btc_address = '';
-                $order->save();
-                //Add pending order
-                /** Add Pending Transaction */
-                $pen_transaction= PendingTransaction::create([
-                    'order_id' => $order->id,
-                    'usd' => $order->order_total_usd
-                ]);
                 return  response()->json(route('cart.checkout.usps',['orderid' => $order->id]));
                 break;
                 
             case '3':
-                 /** Add Pending Transaction */
-                $pen_transaction= PendingTransaction::create([
-                    'order_id' => $order->id,
-                    'usd' => $order->order_total_usd,
-                    'value' => $order->order_total_btc,
-                    'transaction_hash' => ''
-                ]);
-                //We have a pending order
                 return  response()->json(route('cart.checkout.btc',['orderid' => $order->id]));
                 break;
 
@@ -180,10 +169,6 @@ class CartController extends Controller
                 # code...
                 break;
         }
-        // return 99;
-        // Session::flash('success','Order Placed');      
-        // return view('cart.checkout')
-        // return response()->json($html);
     }
 
     //Cart Book Checkout
@@ -192,19 +177,13 @@ class CartController extends Controller
         $order = '';        //For Order
         $order_details =''; //FOr Order Details
         $user = '';         //For Authenticated Use
-        $total_usd = 0.10;    //For Book
+        $total_usd = 0.50;    //For Book TODO: change this to 50
         $html = '';     //For Page Exit
 
         //Authenticate user
         if(Auth::check()){
             $user = Auth::user();
         }else {
-            /** User Not Authenticated - Return him back to Singin Page */
-            // $html = view('users.signin')
-            // ->with(Helper::getBasicData())
-            // ->render();
-            // return response()->json($html);
-            //This takes us out of here
             return  response()->json(route('signin'));
         }
         /** Create Order */
@@ -229,56 +208,23 @@ class CartController extends Controller
         //$user->book_optin = 1;
         // $user->book_purchased = true;
         //$user->save();
+         /** Add Pending Transaction */
+        $pen_transaction= PendingTransaction::create([
+            'order_id' => $order->id,
+            'value_in_usd' => $order->order_total_usd,
+            'value_in_btc' => $order->order_total_btc
+        ]);
         //Check option
         switch ($option) {
             case '1':
-                //Remove btc_address
-                $order->btc_address = '';
-                $order->save();
-                //Add pending order
-                /** Add Pending Transaction */
-                $pen_transaction= PendingTransaction::create([
-                    'order_id' => $order->id,
-                    'usd' => $order->order_total_usd
-                ]);
-                //We have a pending order
-                // $html = view('cart.checkout_vpc')
-                // ->with(Helper::getBasicData())
-                // ->render();
                 return  response()->json(route('cart.checkout.vpc',['orderid' => $order->id]));
                 break;
             
             case '2':
-                //Remove btc_address
-                $order->btc_address = '';
-                $order->save();
-                //Add pending order
-                /** Add Pending Transaction */
-                $pen_transaction= PendingTransaction::create([
-                    'order_id' => $order->id,
-                    'usd' => $order->order_total_usd
-                ]);
-                //We have a pending order
-                // $html = view('cart.checkout_usps')
-                // ->with('total',$total_usd)
-                // ->with(Helper::getBasicData())
-                // ->render();
                 return  response()->json(route('cart.checkout.usps',['orderid' => $order->id]));
                 break;
                 
             case '3':
-                 /** Add Pending Transaction */
-                $pen_transaction= PendingTransaction::create([
-                    'order_id' => $order->id,
-                    'usd' => $order->order_total_usd,
-                    'value' => $order->order_total_btc,
-                    'transaction_hash' => ''
-                ]);
-                //We have a pending order
-                // $html = view('cart.checkout_bitcoins')
-                // ->with('orderid',$order->id)
-                // ->with(Helper::getBasicData())
-                // ->render();
                 return  response()->json(route('cart.checkout.btc',['orderid' => $order->id]));
                 break;
 
@@ -286,11 +232,6 @@ class CartController extends Controller
                 # code...
                 break;
         }
-        // return 99;
-        // Session::flash('success','Order Placed');      
-        // return view('cart.checkout')
-        // return  response()->json(route('home'));
-        // return response()->json($html);
     }
 
     //TODO:: work on it. Make it remove qr address if user changes bitcoin payment to usps or vpc - vice versa

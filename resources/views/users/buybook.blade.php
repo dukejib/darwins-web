@@ -64,25 +64,28 @@
  
 @section('scripts')
 <script>
-       //Global Variables
+    //Global Variables
     $bitcoins = 0;
     $options = 0;
     $url = '';
     //Get the Url
     $(document).ready(function(){
-        $url = $('#order_url').attr('href').slice(0,-4);
+        $actual_url = "{{ route('cart.order.book',['option' => 0 , 'bitcoin' => 0])}}";
+        $url = $actual_url.slice(0,-4);
+        //$url = $('#order_url').attr('href').slice(0,-4);
         console.log("First Url : " + $url);
     })
     // Process the USD to Bitcoin Script
     $(document).ready(function(){
-        $usd = 50;
+        //TODO: change 0.1 to 50$
+        $usd = 0.50; //. 50 cents
         $reply='';
         $.ajax({
             url: 'https://blockchain.info/tobtc?currency=USD&value='+ $usd,
             dataType: 'json',
             success: function(data){
                 console.log( data );
-                $('#bit').html(data);
+                $('#bitcoins').html("BTC : " + data);
                 $bitcoins = data;
                 console.log('Bitcoins are : '  + $bitcoins);
             }

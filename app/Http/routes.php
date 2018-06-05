@@ -1,7 +1,8 @@
 <?php
 
-
 Route::get('updates','FrontEndController@updates')->name('updates');
+Route::get('/error/{info}','CartController@error')->name('error');  //BTC Errors
+Route::get('/info/{qr}/{orderid}','CartController@info')->name('info');  //BTC Info
 /** Cart Related Routes */
 Route::get('/cart','CartController@cart')->name('cart'); //Show Cart
 Route::get('/cart/clear','CartController@clear_cart')->name('cart.clear'); //Clear Cart
@@ -13,9 +14,10 @@ Route::get('/cart/decrease_item/{id}{qty}','CartController@decrease_item')->name
 Route::get('/cart/increase_item/{id}{qty}','CartController@increase_item')->name('cart.increase');
 /** Bitcoin Related Routes */
 Route::get('/gap','BitcoinController@get_gap');
-Route::get('/response/{orderid}','BitcoinController@get_response')->name('get_response');
 Route::get('/receive_payment','BitcoinController@receive_payment'); 
-Route::get('/get_btc_address/{orderid}','BitcointController@get_btc_address')->name('get_btc_address'); //This gets the Btc QR Code and save it in database
+Route::get('/get_btc_address/{orderid}','BitcoinController@get_btc_address')->name('get_btc_address'); //This gets the Btc QR Code and save it in database
+Route::get('/time_up/{address}','BitcoinController@time_up')->name('payment.timeup');
+Route::get('/thank_you/{address}/{order}','BitcoinController@thank_you')->name('payment.thankyou');
 
 /** Common Routes */
 Route::get('/','FrontEndController@index')->name('home');    //Show Index Page with Products

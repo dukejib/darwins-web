@@ -24,14 +24,14 @@
     <div class="form-group">
         <label for="first_name" class="control-label col-xs-3">First Name</label>
         <div class="col-xs-9">
-            <input type="text" class="form-control" name="first_name" value="{{ $user->first_name }}">
+            <input type="text" class="form-control" name="first_name" value="{{ $user->first_name }}" required>
         </div>
     </div>
 
     <div class="form-group">
         <label for="last_name" class="control-label col-xs-3">Last Name</label>
         <div class="col-xs-9">
-            <input type="text" class="form-control" name="last_name" value="{{ $user->last_name }}">
+            <input type="text" class="form-control" name="last_name" value="{{ $user->last_name }}" required>
         </div>
     </div>
             
@@ -54,14 +54,14 @@
     <div class="form-group">
         <label for="password" class="control-label col-xs-3">New Password</label>
         <div class="col-xs-9">
-            <input type="password" class="form-control " name="password" value="">
+            <input type="password" class="form-control " name="password" value="" required>
         </div>
     </div>
 
     <div class="form-group">
         <label for="password_confirmation" class="control-label col-xs-3">Confirm Password</label>
         <div class="col-xs-9">
-            <input type="password" class="form-control" name="password_confirmation" value="">
+            <input type="password" class="form-control" name="password_confirmation" value="" required>
         </div>
     </div>
             
@@ -84,49 +84,49 @@
     <div class="form-group">
     <label for="business_name" class="control-label col-xs-3">Business/Company Name</label>
         <div class="col-xs-9">
-            <input type="text" class="form-control" name="business_name" value="{{ $profile->business_name}}">
+            <input type="text" class="form-control" name="business_name" value="{{ $profile->business_name}}" required>
         </div>
     </div>
 
     <div class="form-group">
         <label for="address" class="control-label col-xs-3">Address *</label>
         <div class="col-xs-9">
-            <input type="text" class="form-control" name="address" value="{{ $profile->address }}">
+            <input type="text" class="form-control" name="address" value="{{ $profile->address }}" required>
         </div>
     </div>
 
     <div class="form-group">
         <label for="address_continued" class="control-label col-xs-3">Address Continued *</label>
         <div class="col-xs-9">
-            <input type="text" class="form-control" name="address_continued" value="{{ $profile->address_continued}}">
+            <input type="text" class="form-control" name="address_continued" value="{{ $profile->address_continued}}" >
         </div>
     </div>
 
     <div class="form-group">
         <label for="city" class="control-label col-xs-3">City *</label>
         <div class="col-xs-9">
-            <input type="text" class="form-control" name="city" value="{{ $profile->city}}">
+            <input type="text" class="form-control" name="city" value="{{ $profile->city}}" required>
         </div>
     </div>
     
     <div class="form-group">
         <label for="state" class="control-label col-xs-3">State *</label>
         <div class="col-xs-9">
-            <input type="text" class="form-control" name="state" value="{{ $profile->state}}">
+            <input type="text" class="form-control" name="state" value="{{ $profile->state}}" required>
         </div>
     </div>
 
     <div class="form-group">
         <label for="country" class="control-label col-xs-3">Country *</label>
         <div class="col-xs-9">
-            <input type="text" class="form-control" name="country" value="{{ $profile->country }}">
+            <input type="text" class="form-control" name="country" value="{{ $profile->country }}" required>
         </div>
     </div>
 
      <div class="form-group">
         <label for="primary_contact_no" class="control-label col-xs-3">Primary Contact *</label>
         <div class="col-xs-9">
-            <input type="text" class="form-control" name="primary_contact_no" value="{{ $profile->primary_contact_no}}">
+            <input type="text" class="form-control" name="primary_contact_no" value="{{ $profile->primary_contact_no}}" required>
         </div>
     </div>
 
@@ -140,14 +140,14 @@
     <div class="form-group">
         <label for="postal_code" class="control-label col-xs-3">Postal Code</label>
         <div class="col-xs-9">
-            <input type="text" class="form-control" name="postal_code" value="{{ $profile->postal_code}}">
+            <input type="text" class="form-control" name="postal_code" value="{{ $profile->postal_code}}" required>
         </div>
     </div>
 
     <div class="form-group">
         <label for="email_address" class="control-label col-xs-3">Email Address</label>
         <div class="col-xs-9">
-            <input type="text" class="form-control" name="email_address" value="{{ $profile->email_address}}">
+            <input type="text" class="form-control" name="email_address" value="{{ $profile->email_address}}" required>
         </div>
     </div>
 
