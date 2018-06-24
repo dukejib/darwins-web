@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Helper\Helper;
 use Illuminate\Support\Facades\File;
 use Mockery\Exception;
-
+ 
 
 class CartController extends Controller
 {
@@ -177,7 +177,7 @@ class CartController extends Controller
         $order = '';        //For Order
         $order_details =''; //FOr Order Details
         $user = '';         //For Authenticated Use
-        $total_usd = 0.50;    //For Book TODO: change this to 50
+        $total_usd = 50;    //For Book TODO: change this to 50
         $html = '';     //For Page Exit
 
         //Authenticate user
@@ -205,9 +205,9 @@ class CartController extends Controller
             'item_price' => $total_usd
         ]);
         //TODO::Update User
-        //$user->book_optin = 1;
-        // $user->book_purchased = true;
-        //$user->save();
+        $user->book_optin = 1;
+        $user->book_purchased = true;
+        $user->save();
          /** Add Pending Transaction */
         $pen_transaction= PendingTransaction::create([
             'order_id' => $order->id,

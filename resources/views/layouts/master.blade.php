@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}"> <!-- Owl Carousel Theme -->
     <link rel="stylesheet" href="{{ asset('css/dataTables.1.10.16.css') }}"> <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('css/rating.css') }}"> <!-- Rating Stars -->
+   
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css'/> 
     <link rel="Shortcut Icon" href="{{ asset('img/favicon.ico?')}}" type="image/x-icon" > 
 
     @yield('styles') <!-- More Styles -->
@@ -24,25 +26,23 @@
 </head>
 
 <body>
+
     <div class="container-fluid">
-    {{-- Include our Website Header--}}
-    @include('partials.header')
-{{-- Include our website navigation--}}
-    @include('partials.navigation')
-{{-- This contains our website data--}}
-    <div class="container">
-        @yield('content')
-    </div>
-    <br>
-{{-- Include the website footer--}}
-    @include('partials.footer')
-{{-- Include bottom navigation --}}
-    {{--  @include('partials.navigationbottom')  --}}
-{{--  Include Disclaimer  --}}
-    {{--  @include('partials.disclaimer')  --}}
-    
-    
-    
+
+        <div id="content">
+            {{-- Include our Website Header--}}
+            @include('partials.header')
+            {{-- Include our website navigation--}}
+            @include('partials.navigation')
+            {{-- This contains our website data--}}
+            <div class="container animated bounceIn">
+                @yield('content')
+            </div>
+            <br>
+            {{-- Include the website footer--}}
+            @include('partials.footer')
+        </div>
+        
     </div>
 
 {{--  Scripts For Bootstrap --}}
@@ -54,11 +54,12 @@
 <script src="{{ asset('js/e-commerce.js') }}"></script>  
 <script src="{{ asset('js/clipboard-2.0.1.js') }}"></script>
 <script src="{{ asset('js/rating.js') }}"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js'></script>
 
 <script>
+    
     //Uses Toastr https://github.com/CodeSeven/toastr
     /** Toastr Options */
-    //Toastr Settings
     toastr.options = {
     "closeButton": true,
     "debug": false,

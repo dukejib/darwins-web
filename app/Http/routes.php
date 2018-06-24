@@ -1,5 +1,5 @@
 <?php
-
+ 
 Route::get('updates','FrontEndController@updates')->name('updates');
 Route::get('/error/{info}','CartController@error')->name('error');  //BTC Errors
 Route::get('/info/{qr}/{orderid}','CartController@info')->name('info');  //BTC Info
@@ -82,6 +82,7 @@ Route::group(['prefix' => 'admin'],function(){
     
     /** Dashboard */
     Route::get('/dashboard','AdminController@dashboard')->name('dashboard');
+    Route::get('/profile','AdminController@profile')->name('admin.profile');
     /** Website Settings */
     Route::get('/settings','SettingsController@index')->name('settings');
     Route::get('/btcsettings','SettingsController@get_btc_settings')->name('get_btc_settings');

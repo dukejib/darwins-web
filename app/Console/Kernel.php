@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Log;
 
 class Kernel extends ConsoleKernel
 {
@@ -33,8 +34,9 @@ class Kernel extends ConsoleKernel
         //     $message->to('dukejib@gmail.com', 'Ali Raja');
         //     $message->subject('Crontab Email');
         // });
-    
+        
         $schedule->command('address:check')->everyFiveMinutes();
+        Log::info('All Unused address with time limit over 15 are reset');
 
     }
 }

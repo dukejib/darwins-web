@@ -5,7 +5,7 @@
     <div class="col-md-7 col-sm-8 col-xs-8">
         <img src="{{ asset('img/mccs.jpg') }}" class="img-responsive">
     </div>  --}}
-    <div style="margin:0 auto;width:50%">
+    <div style="margin:0 auto;width:65%">
     <img src="{{ asset('img/mccs3Dqrcode.gif') }}" class="img-responsive">
     </div>
 </div>

@@ -1,8 +1,8 @@
 {
     "remotePath": "/var/www/html/e-commerce/",
     "host": "82.221.139.249",
-    "username": "duke",
-    "password": "duke",
+    "username": "",
+    "password": "",
     "port": 21,
     "secure": false,
     "protocol": "ftp",

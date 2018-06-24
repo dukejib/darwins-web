@@ -131,7 +131,7 @@
         $actual_url = "{{ route('cart.order.product',['option' => 0 , 'bitcoin' => 0])}}";
         $url = $actual_url.slice(0,-4);
         //$url = $('#order_url').attr('href').slice(0,-4);
-        console.log("First Url : " + $url);
+        //console.log("First Url : " + $url);
     })
     
     // Process the USD to Bitcoin Script
@@ -142,10 +142,10 @@
             url: 'https://blockchain.info/tobtc?currency=USD&value='+ $usd,
             dataType: 'json',
             success: function(data){
-                console.log( data );
+                //console.log( data );
                 $('#bit').html(data);
                 $bitcoins = data;
-                console.log('Bitcoins are : '  + $bitcoins);
+                //console.log('Bitcoins are : '  + $bitcoins);
             }
         });
     });
@@ -156,9 +156,9 @@
             $('.img-check').not(this).removeClass('check').siblings('input').prop('checked',false);
             $(this).addClass('check').siblings('input').prop('checked',true);
             $options = $('input[name=paymentoptions]:checked').val();
-            console.log($options);
+            //console.log($options);
             $href = $url + "/" + $options + "/" + $bitcoins;
-            console.log("HREF after Options : " + $href);
+            //console.log("HREF after Options : " + $href);
         });	
 	});
     
@@ -167,18 +167,28 @@
        
         //if $paymentoptions is 0, then exit
         if($options == 0){
-            alert('Select payment option first');
+            
+            swal({
+                title: "Warning!",
+                text: "Select payment option first!",
+                type: "warning",
+            });
+            //alert('Select payment option first');
             return;
         }
         //If no Bitcoinis, then go back
         if($bitcoins == 0){
-            alert('Unable to fetch bitcoins amount. Please try later');
+            swal({
+                title: "Warning!",
+                text: "Unable to fetch bitcoins amount. Please try later!",
+                type: "warning",
+            });
             return;
         }
         //Now Process the Button
 
         $new_url = $url + '/' + $options + '/' +  $bitcoins;
-        console.log($new_url);
+        //console.log($new_url);
         
         $.ajax({
         type: "GET",

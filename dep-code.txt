@@ -77,7 +77,7 @@ Webmaster
 Task Schedule 
 =======================
 If user closes bitcoin page, then timer is off and bitcoin address will remain in limbo, use task scheduler to check table every 5 minutes and by checking updated_at time stamp and process futher
+
 Add all tables to Admin page
-Ensure, Xpub and V2APIKEy are taken from settings
 Complete admin panel 
 Add option for user to pay from order sheet as well

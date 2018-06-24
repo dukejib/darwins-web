@@ -235,6 +235,7 @@
                 <li><a href="{{ route('admin.testimonials') }}">Testimonials</a></li>
                 <li><a href="{{ route('admin.photo.index') }}">Photos</a></li>
                 <li><a href="{{ route('admin.web_banner.index') }}">Web Banners</a></li>
+                <li><a href="{{ route('admin.profile') }}">My Profile</a></li>
 
                 
             

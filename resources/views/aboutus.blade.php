@@ -2,13 +2,13 @@
 
 @section('content')
 
-<div class="panel panel-primary">
+<div class="panel panel-primary animated fadeIn">
         
         <div class="panel-heading">About Us</div>
 
         <div class="panel-body">
         
-        <div class="page-header">
+        <div class="page-header ">
                 <h3>Our Commitment to You!
                 <br>
                 <small>Providing never ending investments in your business growth, prosperity, and success.</small>

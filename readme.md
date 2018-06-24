@@ -15,6 +15,8 @@ all email uses hardcoded urls, change in future updates
 
 /** Task Scheduler **/
 CheckUnusedAddress command monitors and makes unused qr addres after they exceed the limit of 15 minutes (Defind in checkout_bitcoin.blade.php for QR Code) - COmmand is registred in Console/kernel.php and then run through crontab at server.
+--
+Using Centos7 Crontab to execute Task Scheduler
 
 by 
 Duke

@@ -33,10 +33,16 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        
         return view('admin.dashboard')
             ->with('online_user_count',Helper::getOnlineUsersCount())
             ->with(Helper::getElementsCount());
+    }
+
+    public function profile()
+    {
+        return view('admin.profile')
+        ->with('user',Auth::user())
+        ->with('online_user_count',Helper::getOnlineUsersCount());
     }
 
     public function newsLetters()

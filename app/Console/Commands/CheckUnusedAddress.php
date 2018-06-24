@@ -55,6 +55,6 @@ class CheckUnusedAddress extends Command
                 $i->save();
             }   
         }
-        echo 'All unused addresses with time limit over 15 are reset';
+        //echo 'All unused addresses with time limit over 15 are reset';
     }
 }

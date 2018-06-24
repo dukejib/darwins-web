@@ -11,6 +11,7 @@ use App\PendingTransaction;
 use App\Http\Requests;
 use App\UnusedAddress;
 use App\CompletedTransaction;
+use App\Setting;
 
 class BitcoinController extends Controller
 {
@@ -36,8 +37,10 @@ class BitcoinController extends Controller
             //Docs : https://github.com/blockchain/api-v1-client-php/blob/HEAD/docs/v2/receive.md
             //Using blockchain/blockchain packagist
             $blockchain = new Blockchain();
-            $v2ApiKey ='3d777e7f-384d-4ed8-829d-b6b3aa6a5893'; //Receive Key
-            $xPub = 'xpub6BosthLPpGVo9pCueJNBTzN27YDHoR3G8ph7d8YTCRbTMMNdfQTMs8rNUecsCwsm8LPzoXufFFdkX9Dxzt1JtKBwJbqW1faNA6oDcShXJaX'; //Xpub
+            $setting = Setting::first();
+
+            $v2ApiKey =$setting->v2apikey; //Receive Key
+            $xPub = $setting->xpub1;  //Xpub
             $unique_id = uniqid();  //To reference the Address
             //Callback Url
             $callbackUrl = $this->my_website_root . "/receive_payment?unique_id=" . $unique_id . "&secret=" . $this->secret;

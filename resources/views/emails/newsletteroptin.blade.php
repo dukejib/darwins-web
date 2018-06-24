@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Email From MCCS</title>
+    <title>MCCS Newsletter Subscription: Please Confirm</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
@@ -18,14 +18,14 @@
 
             <table border="0" cellpadding="0" cellspacinig="0" width="100%">
                 <tr>
-                    <td bgcolor="#e95420" style="padding:10px 5px 10px 5px;font-size:20px;font-weight: bold;color:white;">Hi</td>
+                    <td bgcolor="#e95420" style="padding:10px 5px 10px 5px;font-size:20px;font-weight: bold;color:white;">Please Confirm Your Subscription To Our Newsletter</td>
                 </tr>
                 <tr>
                     <td style="padding:10px 5px 10px 5px;text-align: justify;">
-                        <p>You are reciving this email , since you subscribed to our newsletter from {{ $email }}</p>
+                        <p>You are receiving this email,  since you subscribed to our newsletter from {{ $email }}</p>
     
                         <p>
-                        If you agree to receive our newsletter in future, please follow the below mentioned link to Confirm your subscribtion
+                        If you agree to receive our newsletter in future, please follow the below mentioned link to Confirm your subscription
                         <a href="http://www.morecreditcardservices.com/newsletter/confirm/{{$email}}/1"><strong>CONFIRM</strong></a>
                         </p>
                     
